@@ -1,0 +1,20 @@
+.wp-block-b-blocks-panoramic-image-viewer {
+  box-sizing: border-box;
+}
+.wp-block-b-blocks-panoramic-image-viewer * {
+  box-sizing: border-box;
+}
+.wp-block-b-blocks-panoramic-image-viewer .bBlocksImageViewer {
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-b-blocks-panoramic-image-viewer .bBlocksImageViewer .panoramaImgViewer {
+  overflow: hidden;
+}
+.wp-block-b-blocks-panoramic-image-viewer .bBlocksImageViewer .panolens-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.wp-block-b-blocks-panoramic-image-viewer .icon {
+  font-style: inherit;
+}/*# sourceMappingURL=style.css.map */

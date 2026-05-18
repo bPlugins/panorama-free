@@ -1,0 +1,233 @@
+$primaryColor: #146EF5;
+
+.clipBoard {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 20;
+
+    .clipBtnWrapper {
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #ffffff 0%, #f1f4f9 100%);
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        transition: all 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .clipBoard_title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-top: 0;
+            margin-bottom: 15px;
+            letter-spacing: -0.01em;
+        }
+
+        .clipActionGroup {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+
+            .shortcode_copy_btn {
+                flex: 1;
+                max-width: 248px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: #fff;
+                border: 1.5px solid #e2e8f0;
+                color: #4527a4;
+                padding: 10px 16px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                overflow: hidden;
+
+                .shortcode_text {
+                    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+                    font-weight: 600;
+                    font-size: 13px;
+                    background: #f7fafc;
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    color: #4527a4;
+                }
+
+                .copy_status_overlay {
+                    display: flex;
+                    align-items: center;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #4527a4;
+
+                    svg {
+                        width: 18px;
+                        height: 18px;
+                        fill: currentColor;
+                    }
+                }
+
+                &:hover {
+                    border-color: #4527a4;
+                    background: #fdfbff;
+                    box-shadow: 0 2px 4px rgba(69, 39, 164, 0.1);
+                }
+
+                &:active {
+                    transform: scale(0.98);
+                }
+            }
+
+            .bppiv-embed-trigger-btn {
+                background: $primaryColor;
+                color: #fff;
+                border: none;
+                padding: 10px 24px;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 14px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                transition: all 0.2s ease;
+                box-shadow: 0 4px 6px rgba(69, 39, 164, 0.2);
+
+                &:hover {
+                    box-shadow: 0 6px 12px rgba(69, 39, 164, 0.3);
+                    transform: translateY(-1px);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+}
+
+/* Modal styles must be top-level because Gutenberg renders them in a Portal */
+.bppiv-embed-modal-react {
+    max-width: 550px !important;
+
+    .components-modal__header {
+        background: #f8f9fa;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 15px 24px;
+    }
+
+    .bppiv-modal-content-react {
+        padding: 10px 0;
+
+        .textarea-wrapper {
+            margin-bottom: 15px;
+        }
+
+        .bppiv-iframe-code-react {
+            width: 100%;
+            height: 110px;
+            padding: 12px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            background: #1a202c;
+            color: #edf2f7;
+            border: none;
+            border-radius: 6px;
+            line-height: 1.6;
+            resize: none;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .embed-notes-container {
+            background: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 15px;
+            border-radius: 0 4px 4px 0;
+            margin-bottom: 20px;
+        }
+
+        .bppiv-embed-note {
+            font-size: 14px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+            color: #2d3748;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .note-label {
+                font-weight: 800;
+                color: #2c5282;
+                text-transform: uppercase;
+                font-size: 12px;
+                margin-right: 5px;
+            }
+
+            .highlight-tag {
+                background: #bee3f8;
+                color: #2b6cb0;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-weight: 700;
+                font-family: monospace;
+            }
+
+            .menu-path {
+                display: inline-flex;
+                align-items: center;
+                background: #fff;
+                padding: 2px 8px;
+                border-radius: 4px;
+                border: 1px solid #cbd5e0;
+                font-weight: 600;
+                font-size: 13px;
+                margin: 0 4px;
+
+                svg {
+                    margin: 0 4px;
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            .action-highlight {
+                font-weight: 700;
+                font-style: italic;
+                text-decoration: underline;
+                color: #2d3748;
+            }
+        }
+
+        .bppiv-copy-embed-btn-react {
+            height: 44px;
+            width: 100%;
+            justify-content: center;
+            background: $primaryColor !important;
+            border-color: $primaryColor !important;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+
+            svg {
+                margin-right: 8px;
+            }
+
+            &:hover {
+                background: $primaryColor !important;
+            }
+        }
+    }
+}

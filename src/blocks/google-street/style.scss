@@ -1,0 +1,21 @@
+$primaryColor: #4527a4;
+
+.wp-block-panorama-google-street{
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
+  .bBlocksGoogleStreetViewer {
+    display: flex;
+    flex-direction: column;
+    
+    .panoramaGoogleStreetViewer {
+      overflow: hidden;
+    }
+  }
+
+  .icon {
+    font-style: inherit;
+  }
+}

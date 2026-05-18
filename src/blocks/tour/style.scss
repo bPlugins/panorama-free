@@ -1,0 +1,25 @@
+$primaryColor: #4527a4;
+
+.wp-block-panorama-tour {
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
+  .bBlocksTourViewer {
+    display: flex;
+    flex-direction: column;
+    
+    .panoramaTourViewer {
+      overflow: hidden;
+      .panolens-canvas {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+  }
+
+  .icon {
+    font-style: inherit;
+  }
+}

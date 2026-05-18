@@ -1,0 +1,10 @@
+import './gallery/index.js';
+import './google-street/index.js';
+import './gutenberg-block/index.js';
+import './image-3d/index.js';
+import './image-360/index.js';
+import './product-spot/index.js'
+import './tour/index.js';
+import './video/index.js';
+import './video-360/index.js';
+import './virtual/index.js';

@@ -1,0 +1,46 @@
+$primaryColor: #146EF5;
+
+.wp-block-panorama-virtual-tour {
+  position: relative;
+
+  .bPlBlockBeforeSelect {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+  }
+}
+
+.bBlocksInspectorInfo {
+  padding: 6px;
+
+  a {
+    text-decoration: none;
+    font-weight: 700;
+  }
+}
+
+.hotspotDes {
+  font-size: 16px;
+  line-height: 0;
+}
+
+.hotspot-modal-button {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #4527a4;
+  text-decoration: none;
+  margin-top: 15px;
+  border-radius: 50px;
+  padding: 10px 20px;
+
+  &:hover {
+    color: #fff !important;
+  }
+}

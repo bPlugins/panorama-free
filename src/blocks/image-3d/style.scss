@@ -1,0 +1,32 @@
+$primaryColor: #4527a4;
+
+.wp-block-panorama-image-3d {
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
+  .bBlocksImg3dViewer {
+    display: flex;
+    flex-direction: column;
+
+    .motionBtn{
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+  }
+    .panoramaImg3dViewer {
+      overflow: hidden;
+      .panolens-canvas {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+  }
+
+  .icon {
+    font-style: inherit;
+  }
+}

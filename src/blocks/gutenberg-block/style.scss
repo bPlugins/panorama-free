@@ -1,0 +1,32 @@
+.wp-block-bpgb-panorama {
+	box-sizing: border-box;
+
+	* {
+	  box-sizing: border-box;
+	}
+
+	.bBlocksViewer{
+		display: flex;
+		flex-direction: column;
+
+		.motionBtn{
+			padding: 10px;
+			border: none;
+			cursor: pointer;
+			font-size: 16px;
+			width: 100%;
+		}
+		
+		.bpgbPanorama {
+			overflow: hidden;
+			.panolens-canvas {
+			  width: 100% !important;
+			  height: 100% !important;
+			}
+		}
+	}
+
+	.icon {
+		font-style: inherit;
+	  }
+}

@@ -1,0 +1,23 @@
+$primaryColor: #4527a4;
+
+.wp-block-panorama-video-360 {
+  box-sizing: border-box;
+
+  .icon {
+    font-style: inherit;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  .bBlocksVideo360Viewer {
+    display: flex;
+    flex-direction: column;
+    .panoramaVideo360Viewer {
+      overflow: hidden;
+    }
+  }
+}
+
+
+
