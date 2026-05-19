@@ -1,15 +1,13 @@
 {
   "scripts": {
     "start": "wp-scripts start",
-    "build": "wp-scripts build && gulp bundle && gulp zip && rimraf bundled",
-    "deploy": "npm run build && gulp freemius-deploy"
+    "build": "wp-scripts build && gulp bundle && gulp zip && rimraf bundled"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "eslint-webpack-plugin": "^4.2.0",
     "file-loader": "^6.2.0",
     "gulp": "^4.0.2",
-    "gulp-freemius-deploy": "^1.0.11",
     "gulp-zip": "^5.1.0",
     "mini-css-extract-plugin": "^2.9.2",
     "rimraf": "^3.0.2",
