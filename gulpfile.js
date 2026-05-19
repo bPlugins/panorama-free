@@ -14,7 +14,7 @@ require("gulp-freemius-deploy")(gulp, {
 
 function bundle() {
   return gulp
-    .src(["**/*", "!node_modules/**", "!src/**", "!zip/**","!index.html", "!composer-lock.json", "!composer.json", "!bundled/**", "!gulpfile.js", "!package.json", "!360-video.mp4", "!index.html", "!package-lock.json", "!webpack.config.js", "!.gitignore", "!todo.txt", "!fs-config.json", "!empty.js"])
+    .src(["**/*", "!node_modules/**", "!src/**", "!zip/**", "!index.html", "!composer-lock.json", "!composer.json", "!bundled/**", "!gulpfile.js", "!package.json", "!360-video.mp4", "!index.html", "!package-lock.json", "!webpack.config.js", "!.gitignore", "!todo.txt", "!fs-config.json", "!empty.js"])
     .pipe(gulp.dest("bundled/panorama"));
 }
 

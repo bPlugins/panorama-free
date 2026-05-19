@@ -9,9 +9,8 @@
  class Init{
      private static $instance = null;
      private function __construct() {
- 		add_action( 'init', [ $this, 'i18n' ] );
-        add_action('woocommerce_after_register_post_type', [$this, 'load_woocommerce_files']);
-    }
+         add_action('woocommerce_after_register_post_type', [$this, 'load_woocommerce_files']);
+     }
  
      public static function instance() {
  		if ( is_null( self::$instance ) ) {
@@ -19,10 +18,6 @@
  			self::$instance->init();
  		}
  		return self::$instance;
- 	}
- 
-    public function i18n() {
- 		load_plugin_textdomain('model-viewer',false,dirname( plugin_basename( BPPIV__FILE__ ) ) . '/languages/');
  	}
  
      public static function get_services(){

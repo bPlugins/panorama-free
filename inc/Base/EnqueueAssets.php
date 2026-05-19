@@ -12,7 +12,6 @@ class EnqueueAssets{
     public function bppiv_registerFrontEndAssets(){
         wp_register_script( 'bppiv-three', BPPIV_PLUGIN_DIR . 'public/assets/js/three.min.js',[], BPPIV_VERSION, true);
         wp_register_script( 'bppiv-panolens', BPPIV_PLUGIN_DIR . 'public/assets/js/panolens.min.js', array( 'bppiv-three' ), BPPIV_VERSION, true );
-        wp_register_script( 'videojs-pannellum-plugin', BPPIV_PLUGIN_DIR . 'public/assets/js/library/videojs-pannellum-plugin.js', [], BPPIV_VERSION, true );
 
         //videojs
         wp_register_script( 'videojs', BPPIV_PLUGIN_DIR . 'public/assets/js/lib/video.min.js', [], BPPIV_VERSION, true );

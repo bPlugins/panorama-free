@@ -1,8 +1,7 @@
 {
   "scripts": {
     "start": "wp-scripts start",
-    "start_old": "webpack --mode=development --watch",
-    "build": "wp-scripts build && gulp bundle && gulp zip && node empty.js",
+    "build": "wp-scripts build && gulp bundle && gulp zip && rimraf bundled",
     "deploy": "npm run build && gulp freemius-deploy"
   },
   "devDependencies": {

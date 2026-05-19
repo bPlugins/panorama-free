@@ -1008,602 +1008,6 @@ var useLicenseStatus = function useLicenseStatus(_ref) {
 
 /***/ }),
 
-/***/ "../bpl-tools/Admin/Blocks/Block.js":
-/*!******************************************!*\
-  !*** ../bpl-tools/Admin/Blocks/Block.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/icons */ "../bpl-tools/utils/icons.js");
-var _jsxFileName = "C:\\Users\\Shamim bPlugins\\Local Sites\\free-plugins-dev\\app\\public\\wp-content\\plugins\\bpl-tools\\Admin\\Blocks\\Block.js",
-  _this = undefined;
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-
-var Block = function Block(_ref) {
-  var block = _ref.block,
-    isPremium = _ref.isPremium,
-    disableBlockName = _ref.disableBlockName,
-    handleCheckboxChange = _ref.handleCheckboxChange,
-    isSaving = _ref.isSaving,
-    _ref$isLinks = _ref.isLinks,
-    isLinks = _ref$isLinks === void 0 ? true : _ref$isLinks;
-  var name = block.name,
-    title = block.title,
-    icon = block.icon,
-    demo = block.demo,
-    docs = block.docs,
-    _block$badge = block.badge,
-    badge = _block$badge === void 0 ? '' : _block$badge,
-    _block$required = block.required,
-    required = _block$required === void 0 ? false : _block$required;
-  var isBlockPremium = !isPremium && block.isPremium;
-  var disabledBlock = isBlockPremium ? false : !disableBlockName.includes(name);
-  var isRequired = required === true;
-  return /*#__PURE__*/React.createElement("div", {
-    className: "block ".concat(!disabledBlock ? 'disabled' : ''),
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 9
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "icon",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 3
-    }
-  }, icon), /*#__PURE__*/React.createElement("div", {
-    className: "name",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12,
-      columnNumber: 3
-    }
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "blockTitle",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13,
-      columnNumber: 4
-    }
-  }, title), isBlockPremium && /*#__PURE__*/React.createElement("a", {
-    href: "#pricing",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13,
-      columnNumber: 60
-    }
-  }, "Get Pro")), isLinks && /*#__PURE__*/React.createElement(React.Fragment, null, demo && /*#__PURE__*/React.createElement("a", {
-    className: "actionBtn",
-    href: demo,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17,
-      columnNumber: 13
-    }
-  }, _utils_icons__WEBPACK_IMPORTED_MODULE_0__.demoIcon), docs && /*#__PURE__*/React.createElement("a", {
-    className: "actionBtn",
-    href: docs,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 13
-    }
-  }, _utils_icons__WEBPACK_IMPORTED_MODULE_0__.docsIcon)), badge && /*#__PURE__*/React.createElement("p", {
-    className: "blockBadge",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26,
-      columnNumber: 13
-    }
-  }, badge), isBlockPremium && /*#__PURE__*/React.createElement("p", {
-    className: "blockBadge blockProBadge",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 28,
-      columnNumber: 22
-    }
-  }, "Pro"), isRequired && /*#__PURE__*/React.createElement("p", {
-    className: "blockBadge blockRequiredBadge",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 18
-    }
-  }, "Required"), /*#__PURE__*/React.createElement("label", _extends({
-    className: "toggleSwitch"
-  }, isBlockPremium || isRequired ? {
-    htmlFor: 'b-blocks-admin-pro-modal-toggle'
-  } : {}, {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32,
-      columnNumber: 3
-    }
-  }), /*#__PURE__*/React.createElement("input", _extends({
-    type: "checkbox",
-    checked: disabledBlock
-  }, isBlockPremium || isRequired ? {} : {
-    onChange: function onChange(e) {
-      return handleCheckboxChange(name, e.target.checked);
-    }
-  }, {
-    disabled: isSaving || isBlockPremium || isRequired,
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 33,
-      columnNumber: 4
-    }
-  })), /*#__PURE__*/React.createElement("span", {
-    className: "slider",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 4
-    }
-  })));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Block);
-
-/***/ }),
-
-/***/ "../bpl-tools/Admin/Blocks/Toast.js":
-/*!******************************************!*\
-  !*** ../bpl-tools/Admin/Blocks/Toast.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\Shamim bPlugins\\Local Sites\\free-plugins-dev\\app\\public\\wp-content\\plugins\\bpl-tools\\Admin\\Blocks\\Toast.js",
-  _this = undefined;
-
-var Toast = function Toast(_ref) {
-  var message = _ref.message,
-    type = _ref.type;
-  return /*#__PURE__*/React.createElement("div", {
-    className: "bPlDashboardBlocksToast ".concat(type),
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 4,
-      columnNumber: 9
-    }
-  }, type === 'loading' && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Spinner, {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 5,
-      columnNumber: 26
-    }
-  }), type === 'success' && /*#__PURE__*/React.createElement("span", {
-    className: "checkmark",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6,
-      columnNumber: 26
-    }
-  }, "\u2713"), type === 'error' && /*#__PURE__*/React.createElement("span", {
-    className: "error-icon",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7,
-      columnNumber: 24
-    }
-  }, "\u2715"), /*#__PURE__*/React.createElement("span", {
-    className: "message",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8,
-      columnNumber: 3
-    }
-  }, message));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Toast);
-
-/***/ }),
-
-/***/ "../bpl-tools/Admin/Blocks/index.js":
-/*!******************************************!*\
-  !*** ../bpl-tools/Admin/Blocks/index.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "../bpl-tools/Admin/Blocks/style.scss");
-/* harmony import */ var _Components_Button_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/Button/Button */ "../bpl-tools/Components/Button/Button.js");
-/* harmony import */ var _utils_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/icons */ "../bpl-tools/utils/icons.js");
-/* harmony import */ var _Block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Block */ "../bpl-tools/Admin/Blocks/Block.js");
-/* harmony import */ var _Toast__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Toast */ "../bpl-tools/Admin/Blocks/Toast.js");
-var _jsxFileName = "C:\\Users\\Shamim bPlugins\\Local Sites\\free-plugins-dev\\app\\public\\wp-content\\plugins\\bpl-tools\\Admin\\Blocks\\index.js",
-  _this = undefined;
-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-
-
-
-
-
-
-
-/**
- * Blocks Component
- * Renders a management interface for enabling/disabling plugin features/blocks.
- * Includes search, categorization, and "Activate/Deactivate All" functionality.
- *
- * @param {object} props - Component props
- * @param {boolean} props.isPremium - Whether the current user is premium
- * @param {Array} props.disabledBlocks - List of currently disabled block names
- * @param {Function} props.onChange - Callback when block status changes
- * @param {Array} props.allBlocks - Array of block definitions
- * @param {string} props.status - Saving status ('loading', 'success', 'error')
- * @param {React.Component} [props.ProModal] - Modal component for Pro upsells
- * @returns {JSX.Element}
- */
-var Blocks = function Blocks(props) {
-  var isPremium = props.isPremium,
-    disabledBlocks = props.disabledBlocks,
-    onChange = props.onChange,
-    allBlocks = props.allBlocks,
-    status = props.status,
-    _props$ProModal = props.ProModal,
-    ProModal = _props$ProModal === void 0 ? null : _props$ProModal,
-    _props$pageTitle = props.pageTitle,
-    pageTitle = _props$pageTitle === void 0 ? 'All Blocks' : _props$pageTitle;
-  var publishedBlocks = allBlocks.filter(function (b) {
-    return 'published' === b.status || !b.status;
-  });
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState2 = _slicedToArray(_useState, 2),
-    isSaving = _useState2[0],
-    setIsSaving = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(disabledBlocks || []),
-    _useState4 = _slicedToArray(_useState3, 2),
-    disableBlockName = _useState4[0],
-    setDisableBlockName = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-    _useState6 = _slicedToArray(_useState5, 2),
-    searchTerm = _useState6[0],
-    setSearchTerm = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState8 = _slicedToArray(_useState7, 2),
-    toast = _useState8[0],
-    setToast = _useState8[1];
-
-  // Update disabled blocks when disabledBlocks prop changes
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (disabledBlocks) {
-      setDisableBlockName(disabledBlocks);
-    }
-  }, [JSON.stringify(disabledBlocks)]);
-
-  // Update toast based on status prop
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (status === 'loading') {
-      setToast({
-        message: 'Loading...',
-        type: 'loading'
-      });
-      setIsSaving(true);
-    } else if (status === 'success') {
-      setToast({
-        message: 'Saved successfully!',
-        type: 'success'
-      });
-      setIsSaving(false);
-      setTimeout(function () {
-        return setToast(null);
-      }, 3000);
-    } else if (status === 'error') {
-      setToast({
-        message: 'Failed to save',
-        type: 'error'
-      });
-      setIsSaving(false);
-      setTimeout(function () {
-        return setToast(null);
-      }, 3000);
-    }
-  }, [status]);
-  var handleCheckboxChange = function handleCheckboxChange(blockName, isChecked) {
-    var updatedBlocksName = isChecked ? disableBlockName.filter(function (name) {
-      return name !== blockName;
-    }) : [].concat(_toConsumableArray(disableBlockName), [blockName]);
-    setDisableBlockName(updatedBlocksName);
-    onChange === null || onChange === void 0 || onChange(updatedBlocksName);
-    setToast({
-      message: 'Saving changes...',
-      type: 'loading'
-    });
-    setIsSaving(true);
-  };
-  var handleActivateAll = function handleActivateAll() {
-    setDisableBlockName([]);
-    onChange === null || onChange === void 0 || onChange([]);
-    setToast({
-      message: 'Saving changes...',
-      type: 'loading'
-    });
-    setIsSaving(true);
-  };
-  var handleDeactivateAll = function handleDeactivateAll() {
-    // Exclude required blocks from being deactivated
-    var allBlockNames = publishedBlocks.flatMap(function (block) {
-      if (block.children && Array.isArray(block.children)) {
-        return block.children.filter(function (child) {
-          return !child.required;
-        }).map(function (child) {
-          return child.name;
-        });
-      } else {
-        return block.required ? [] : block.name;
-      }
-    });
-    setDisableBlockName(allBlockNames);
-    onChange === null || onChange === void 0 || onChange(allBlockNames);
-    setToast({
-      message: 'Saving changes...',
-      type: 'loading'
-    });
-    setIsSaving(true);
-  };
-
-  // Separate grouped blocks from individual blocks
-  var groupedBlocks = [];
-  var individualBlocks = [];
-  publishedBlocks.forEach(function (block) {
-    if (block.children && Array.isArray(block.children)) {
-      groupedBlocks.push(block);
-    } else {
-      individualBlocks.push(block);
-    }
-  });
-
-  // Filter blocks based on search term
-  var filterBlocksBySearch = function filterBlocksBySearch(blocksToFilter) {
-    return blocksToFilter.filter(function (block) {
-      if (block.children) {
-        var _block$title;
-        // For grouped blocks, check if title or any child matches
-        var matchesTitle = (_block$title = block.title) === null || _block$title === void 0 ? void 0 : _block$title.toLowerCase().includes(searchTerm.toLowerCase());
-        var matchesChildren = block.children.some(function (child) {
-          var _child$title;
-          return (_child$title = child.title) === null || _child$title === void 0 ? void 0 : _child$title.toLowerCase().includes(searchTerm.toLowerCase());
-        });
-        return matchesTitle || matchesChildren;
-      } else {
-        var _block$title2;
-        // For individual blocks
-        return (_block$title2 = block.title) === null || _block$title2 === void 0 ? void 0 : _block$title2.toLowerCase().includes(searchTerm.toLowerCase());
-      }
-    });
-  };
-  var filteredGroupedBlocks = filterBlocksBySearch(groupedBlocks);
-  var filteredIndividualBlocks = filterBlocksBySearch(individualBlocks);
-  var hasResults = filteredGroupedBlocks.length > 0 || filteredIndividualBlocks.length > 0;
-  return /*#__PURE__*/React.createElement("div", {
-    className: "bPlDashboardBlocks",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 128,
-      columnNumber: 9
-    }
-  }, !isPremium && ProModal && /*#__PURE__*/React.createElement(ProModal, {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 129,
-      columnNumber: 30
-    }
-  }), toast && /*#__PURE__*/React.createElement(_Toast__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    message: toast.message,
-    type: toast.type,
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 131,
-      columnNumber: 13
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "blocksTop",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 133,
-      columnNumber: 3
-    }
-  }, /*#__PURE__*/React.createElement("h2", {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 134,
-      columnNumber: 4
-    }
-  }, pageTitle), /*#__PURE__*/React.createElement("div", {
-    className: "blocksSearch",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 136,
-      columnNumber: 4
-    }
-  }, _utils_icons__WEBPACK_IMPORTED_MODULE_3__.searchIcon, /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    placeholder: "Search...",
-    value: searchTerm,
-    onChange: function onChange(e) {
-      return setSearchTerm(e.target.value);
-    },
-    className: "search-input",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 139,
-      columnNumber: 5
-    }
-  }), searchTerm && /*#__PURE__*/React.createElement("span", {
-    onClick: function onClick() {
-      return setSearchTerm('');
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 141,
-      columnNumber: 20
-    }
-  }, _utils_icons__WEBPACK_IMPORTED_MODULE_3__.closeIcon)), /*#__PURE__*/React.createElement(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    className: "bBlocksDashboardBtn actionBtn activeAllBtn",
-    onClick: handleActivateAll,
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 144,
-      columnNumber: 4
-    }
-  }, "Activate All"), /*#__PURE__*/React.createElement(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    className: "bBlocksDashboardBtn actionBtn deActiveAllBtn",
-    onClick: handleDeactivateAll,
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 148,
-      columnNumber: 4
-    }
-  }, "Deactivate All")), !hasResults ? /*#__PURE__*/React.createElement("h3", {
-    className: "noBlocksFound",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 154,
-      columnNumber: 4
-    }
-  }, "No blocks found matching your search...") : /*#__PURE__*/React.createElement("div", {
-    className: "blocksContent",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 157,
-      columnNumber: 4
-    }
-  }, filteredGroupedBlocks.map(function (group) {
-    return /*#__PURE__*/React.createElement("div", {
-      key: group.title,
-      className: "blocksGroup",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 160,
-        columnNumber: 6
-      }
-    }, /*#__PURE__*/React.createElement("h3", {
-      className: "groupTitle",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 161,
-        columnNumber: 7
-      }
-    }, group.title), /*#__PURE__*/React.createElement("div", {
-      className: "dashboardBlocks",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 162,
-        columnNumber: 7
-      }
-    }, group.children.filter(function (child) {
-      return child.status === 'published' || !child.status;
-    }).map(function (childBlock) {
-      return /*#__PURE__*/React.createElement(_Block__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        key: childBlock.name,
-        block: childBlock,
-        isPremium: isPremium,
-        disableBlockName: disableBlockName,
-        handleCheckboxChange: handleCheckboxChange,
-        isSaving: isSaving,
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 166,
-          columnNumber: 10
-        }
-      });
-    })));
-  }), filteredIndividualBlocks.length > 0 && /*#__PURE__*/React.createElement("div", {
-    className: "dashboardBlocks",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 181,
-      columnNumber: 6
-    }
-  }, filteredIndividualBlocks.map(function (block) {
-    return /*#__PURE__*/React.createElement(_Block__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      key: block.name,
-      block: block,
-      isPremium: isPremium,
-      disableBlockName: disableBlockName,
-      handleCheckboxChange: handleCheckboxChange,
-      isSaving: isSaving,
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 183,
-        columnNumber: 8
-      }
-    });
-  }))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Blocks);
-
-/***/ }),
-
 /***/ "../bpl-tools/Admin/Changelog/index.js":
 /*!*********************************************!*\
   !*** ../bpl-tools/Admin/Changelog/index.js ***!
@@ -6379,7 +5783,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-PVWAREVJ.mjs");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-PVWAREVJ.mjs");
 /* harmony import */ var _bpl_tools_Admin_Demos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../bpl-tools/Admin/Demos */ "../bpl-tools/Admin/Demos/index.js");
 /* harmony import */ var _bpl_tools_Admin_Pricing__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../bpl-tools/Admin/Pricing */ "../bpl-tools/Admin/Pricing/index.js");
 /* harmony import */ var _bpl_tools_Admin_FeatureCompare__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../bpl-tools/Admin/FeatureCompare */ "../bpl-tools/Admin/FeatureCompare/index.js");
@@ -6388,9 +5792,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Layout */ "./src/bplugins-admin/Components/Layout.js");
 /* harmony import */ var _Welcome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Welcome */ "./src/bplugins-admin/Components/Welcome.js");
 /* harmony import */ var _utils_data__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/data */ "./src/bplugins-admin/utils/data.js");
-/* harmony import */ var _hooks_useBlocksSettings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../hooks/useBlocksSettings */ "./src/bplugins-admin/hooks/useBlocksSettings.js");
-/* harmony import */ var _utils_blocks__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/blocks */ "./src/bplugins-admin/utils/blocks.js");
-/* harmony import */ var _bpl_tools_Admin_Blocks__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../bpl-tools/Admin/Blocks */ "../bpl-tools/Admin/Blocks/index.js");
 var _jsxFileName = "C:\\Users\\Shamim bPlugins\\Local Sites\\free-plugins-dev\\app\\public\\wp-content\\plugins\\panorama\\src\\bplugins-admin\\Components\\App.js",
   _this = undefined;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
@@ -6403,56 +5804,81 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 
 
 
-
-
-
 var App = function App(props) {
   var isPremium = props.isPremium,
-    hasPro = props.hasPro,
-    action = props.action,
-    nonce = props.nonce;
-  var _useBlocksSettings = (0,_hooks_useBlocksSettings__WEBPACK_IMPORTED_MODULE_8__["default"])(action, nonce),
-    data = _useBlocksSettings.data,
-    internalStatus = _useBlocksSettings.internalStatus,
-    saveToBackend = _useBlocksSettings.saveToBackend;
-  return /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.HashRouter, {
+    hasPro = props.hasPro;
+  return /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.HashRouter, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 16,
       columnNumber: 9
     }
-  }, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Routes, {
+  }, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 17,
       columnNumber: 3
     }
-  }, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+  }, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "/",
     element: /*#__PURE__*/React.createElement(_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22,
+        lineNumber: 18,
         columnNumber: 29
       }
     })),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 18,
       columnNumber: 4
     }
-  }, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+  }, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     index: true,
     element: /*#__PURE__*/React.createElement(_Welcome__WEBPACK_IMPORTED_MODULE_6__["default"], _extends({}, props, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23,
+        lineNumber: 19,
         columnNumber: 27
+      }
+    })),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 5
+    }
+  }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+    path: "welcome",
+    element: /*#__PURE__*/React.createElement(_Welcome__WEBPACK_IMPORTED_MODULE_6__["default"], _extends({}, props, {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21,
+        columnNumber: 36
+      }
+    })),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 5
+    }
+  }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+    path: "demos",
+    element: /*#__PURE__*/React.createElement(_bpl_tools_Admin_Demos__WEBPACK_IMPORTED_MODULE_0__["default"], _extends({
+      demoInfo: _utils_data__WEBPACK_IMPORTED_MODULE_7__.demoInfo
+    }, props, {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23,
+        columnNumber: 34
       }
     })),
     __self: _this,
@@ -6461,62 +5887,7 @@ var App = function App(props) {
       lineNumber: 23,
       columnNumber: 5
     }
-  }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
-    path: "welcome",
-    element: /*#__PURE__*/React.createElement(_Welcome__WEBPACK_IMPORTED_MODULE_6__["default"], _extends({}, props, {
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 25,
-        columnNumber: 36
-      }
-    })),
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 5
-    }
-  }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
-    path: "blocks",
-    element: /*#__PURE__*/React.createElement(_bpl_tools_Admin_Blocks__WEBPACK_IMPORTED_MODULE_10__["default"], _extends({}, props, {
-      pageTitle: "All Blocks",
-      allBlocks: _utils_blocks__WEBPACK_IMPORTED_MODULE_9__["default"],
-      disabledBlocks: data,
-      status: internalStatus,
-      onChange: saveToBackend,
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 28,
-        columnNumber: 6
-      }
-    })),
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 27,
-      columnNumber: 5
-    }
-  }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
-    path: "demos",
-    element: /*#__PURE__*/React.createElement(_bpl_tools_Admin_Demos__WEBPACK_IMPORTED_MODULE_0__["default"], _extends({
-      demoInfo: _utils_data__WEBPACK_IMPORTED_MODULE_7__.demoInfo
-    }, props, {
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39,
-        columnNumber: 34
-      }
-    })),
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39,
-      columnNumber: 5
-    }
-  }), !isPremium && /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+  }), !isPremium && /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "pricing",
     element: /*#__PURE__*/React.createElement(_bpl_tools_Admin_Pricing__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({
       pricingInfo: _utils_data__WEBPACK_IMPORTED_MODULE_7__.pricingInfo,
@@ -6525,17 +5896,17 @@ var App = function App(props) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41,
+        lineNumber: 25,
         columnNumber: 51
       }
     })),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 25,
       columnNumber: 20
     }
-  }), !isPremium && /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+  }), !isPremium && /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "feature-comparison",
     element: /*#__PURE__*/React.createElement(_bpl_tools_Admin_FeatureCompare__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({
       plans: ['free', 'pro']
@@ -6543,64 +5914,64 @@ var App = function App(props) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43,
+        lineNumber: 27,
         columnNumber: 62
       }
     })),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 27,
       columnNumber: 20
     }
-  }), hasPro && /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+  }), hasPro && /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "activation",
     element: /*#__PURE__*/React.createElement(_bpl_tools_Admin_Activation__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, props, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45,
+        lineNumber: 29,
         columnNumber: 50
       }
     })),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 29,
       columnNumber: 16
     }
-  }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+  }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "our-plugins",
     element: /*#__PURE__*/React.createElement(_bpl_tools_Admin_OurPlugins__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47,
+        lineNumber: 31,
         columnNumber: 40
       }
     })),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 31,
       columnNumber: 5
     }
-  }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+  }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "*",
-    element: /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Navigate, {
+    element: /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Navigate, {
       to: "/welcome",
       replace: true,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49,
+        lineNumber: 33,
         columnNumber: 30
       }
     }),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 33,
       columnNumber: 5
     }
   }))));
@@ -6630,9 +6001,7 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 var navigation = [{
   name: 'Welcome',
   href: '/welcome'
-},
-// { name: 'Blocks', href: '/blocks' },
-{
+}, {
   name: 'Demos',
   href: '/demos'
 }, {
@@ -6655,14 +6024,14 @@ var Layout = function Layout(props) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 18,
       columnNumber: 9
     }
   }, /*#__PURE__*/React.createElement(_bpl_tools_Admin_Header__WEBPACK_IMPORTED_MODULE_0__["default"], _extends({}, props, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 19,
       columnNumber: 3
     }
   }), /*#__PURE__*/React.createElement("nav", {
@@ -6670,7 +6039,7 @@ var Layout = function Layout(props) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 20,
       columnNumber: 4
     }
   }, navigation === null || navigation === void 0 || (_navigation$filter = navigation.filter(function (item) {
@@ -6687,7 +6056,7 @@ var Layout = function Layout(props) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25,
+        lineNumber: 24,
         columnNumber: 29
       }
     }, item.name);
@@ -6696,14 +6065,14 @@ var Layout = function Layout(props) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 34,
       columnNumber: 3
     }
   }, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Outlet, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 35,
       columnNumber: 4
     }
   })));
@@ -6730,21 +6099,16 @@ var _jsxFileName = "C:\\Users\\Shamim bPlugins\\Local Sites\\free-plugins-dev\\a
   _this = undefined;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 
-// import Card from '../../../../bpl-tools/Admin/Blocks/Card';
 
 
-// import blocks from '../utils/blocks';
-// import useBlocksSettings from '../hooks/useBlocksSettings';
 var __ = wp.i18n.__;
 var Welcome = function Welcome(props) {
   var isPremium = props.isPremium;
-  // const { data, internalStatus, saveToBackend } = useBlocksSettings(action, nonce);
-
   return /*#__PURE__*/React.createElement(_bpl_tools_Admin_Overview__WEBPACK_IMPORTED_MODULE_0__["default"], _extends({}, props, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 9,
       columnNumber: 9
     }
   }), /*#__PURE__*/React.createElement("div", {
@@ -6756,7 +6120,7 @@ var Welcome = function Welcome(props) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 11,
       columnNumber: 3
     }
   }, /*#__PURE__*/React.createElement(_bpl_tools_Admin_Changelog__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, props, {
@@ -6765,259 +6129,19 @@ var Welcome = function Welcome(props) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 16,
       columnNumber: 4
     }
   })), !isPremium && /*#__PURE__*/React.createElement(_bpl_tools_Admin_ProAds__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, props, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 18,
       columnNumber: 19
     }
   }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Welcome);
-
-/***/ }),
-
-/***/ "./src/bplugins-admin/hooks/useBlocksSettings.js":
-/*!*******************************************************!*\
-  !*** ./src/bplugins-admin/hooks/useBlocksSettings.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _bpl_tools_hooks_useWPAjax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../bpl-tools/hooks/useWPAjax */ "../bpl-tools/hooks/useWPAjax.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-
-
-var useBlocksSettings = function useBlocksSettings(action, nonce) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState2 = _slicedToArray(_useState, 2),
-    internalStatus = _useState2[0],
-    setInternalStatus = _useState2[1];
-  var _useWPAjax = (0,_bpl_tools_hooks_useWPAjax__WEBPACK_IMPORTED_MODULE_1__["default"])(action, {
-      _wpnonce: nonce
-    }, true),
-    _useWPAjax$data = _useWPAjax.data,
-    data = _useWPAjax$data === void 0 ? [] : _useWPAjax$data,
-    saveData = _useWPAjax.saveData,
-    refetch = _useWPAjax.refetch,
-    isLoading = _useWPAjax.isLoading;
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (nonce && action) {
-      refetch();
-    }
-  }, [nonce, action]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (!isLoading && data) {
-      setInternalStatus('');
-    }
-  }, [data, isLoading]);
-  var saveToBackend = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(updatedBlocksName) {
-      var response;
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.prev = 0;
-            setInternalStatus('loading');
-            _context.next = 4;
-            return saveData({
-              _wpnonce: nonce,
-              data: JSON.stringify(updatedBlocksName)
-            });
-          case 4:
-            response = _context.sent;
-            setInternalStatus('success');
-            return _context.abrupt("return", response);
-          case 9:
-            _context.prev = 9;
-            _context.t0 = _context["catch"](0);
-            console.error('Save failed:', _context.t0);
-            setInternalStatus('error');
-          case 13:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee, null, [[0, 9]]);
-    }));
-    return function saveToBackend(_x) {
-      return _ref.apply(this, arguments);
-    };
-  }();
-  return {
-    data: data,
-    internalStatus: internalStatus,
-    saveToBackend: saveToBackend,
-    isLoading: isLoading
-  };
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useBlocksSettings);
-
-/***/ }),
-
-/***/ "./src/bplugins-admin/utils/blocks.js":
-/*!********************************************!*\
-  !*** ./src/bplugins-admin/utils/blocks.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons */ "./src/bplugins-admin/utils/icons.js");
-// const pluginSlug = 'pdf-embed-block';
-
-
-
-// const siteURL = 'https://elementor.bplugins.com';
-// const demoLink = `${siteURL}/demo`;
-// const docsURL = '${siteURL}/docs';
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
-  name: 'pdf-embed',
-  title: 'PDF Embed',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.pdfIcon,
-  demo: '',
-  docs: '',
-  status: 'published'
-}, {
-  name: '3d-flipbook-viewer',
-  title: '3D Flipbook Viewer',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.flipbookPdfIcon,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'sleek-pdf-viewer',
-  title: 'Sleek PDF Viewer',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.sleekPdfIcon,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'native-pdf-viewer',
-  title: 'Native PDF Viewer',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.nativePdfIcon,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'mozila-viewer',
-  title: 'Mozila Viewer',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.mozilaPDF,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'doc-embedder',
-  title: 'Doc Embedder',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.docEmbedder,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'excel-embedder',
-  title: 'Excel Embedder',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.excelEmbedder,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'excel-viewer',
-  title: 'Excel Viewer',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.excelViewer,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'google-docs-viewer',
-  title: 'Google Docs Viewer',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.googleDocsViewer,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'google-sheets',
-  title: 'Google Sheets',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.googleSheets,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'google-slides',
-  title: 'Google Slides',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.googleSlides,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'powerpoint-embedder',
-  title: 'Powerpoint Embedder',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.powerpointEmbedder,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'powerpoint-viewer',
-  title: 'Powerpoint Viewer',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.powerpointViewer,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}, {
-  name: 'word-viewer',
-  title: 'Word Viewer',
-  icon: _icons__WEBPACK_IMPORTED_MODULE_0__.wordViewer,
-  demo: '',
-  docs: '',
-  status: 'published',
-  badge: 'new',
-  isPremium: true
-}]);
 
 /***/ }),
 
@@ -7139,585 +6263,10 @@ var pricingInfo = {
 
 /***/ }),
 
-/***/ "./src/bplugins-admin/utils/icons.js":
-/*!*******************************************!*\
-  !*** ./src/bplugins-admin/utils/icons.js ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   docEmbedder: () => (/* binding */ docEmbedder),
-/* harmony export */   excelEmbedder: () => (/* binding */ excelEmbedder),
-/* harmony export */   excelViewer: () => (/* binding */ excelViewer),
-/* harmony export */   flipbookPdfIcon: () => (/* binding */ flipbookPdfIcon),
-/* harmony export */   googleDocsViewer: () => (/* binding */ googleDocsViewer),
-/* harmony export */   googleSheets: () => (/* binding */ googleSheets),
-/* harmony export */   googleSlides: () => (/* binding */ googleSlides),
-/* harmony export */   mozilaPDF: () => (/* binding */ mozilaPDF),
-/* harmony export */   nativePdfIcon: () => (/* binding */ nativePdfIcon),
-/* harmony export */   pdfIcon: () => (/* binding */ pdfIcon),
-/* harmony export */   powerpointEmbedder: () => (/* binding */ powerpointEmbedder),
-/* harmony export */   powerpointViewer: () => (/* binding */ powerpointViewer),
-/* harmony export */   sleekPdfIcon: () => (/* binding */ sleekPdfIcon),
-/* harmony export */   wordViewer: () => (/* binding */ wordViewer)
-/* harmony export */ });
-var _jsxFileName = "C:\\Users\\Shamim bPlugins\\Local Sites\\free-plugins-dev\\app\\public\\wp-content\\plugins\\panorama\\src\\bplugins-admin\\utils\\icons.js";
-var pdfIcon = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 512 512",
-  className: "bPlBlockIcon",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 2,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("rect", {
-  width: "512",
-  height: "512",
-  rx: "15%",
-  fill: "var(--wp-admin-theme-color)",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 3,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("path", {
-  fill: "white",
-  d: "M413 302c-9-10-29-15-56-15-16 0-33 2-53 5a252 252 0 0 1-52-69c10-30 17-59 17-81 0-17-6-44-30-44-7 0-13 4-17 10-10 18-6 58 13 100a898 898 0 0 1-50 117c-53 22-88 46-91 65-2 9 4 24 25 24 31 0 65-45 91-91a626 626 0 0 1 92-24c38 33 71 38 87 38 32 0 35-23 24-35z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 4,
-    columnNumber: 3
-  }
-}));
-var sleekPdfIcon = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  width: "24",
-  height: "24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 9,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("rect", {
-  x: "3",
-  y: "3",
-  width: "18",
-  height: "18",
-  rx: "2",
-  ry: "2",
-  fill: "#4CAF50",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 10,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("path", {
-  fill: "#fff",
-  d: "M6 6h12v12H6z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 11,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("circle", {
-  cx: "12",
-  cy: "12",
-  r: "2",
-  fill: "#4CAF50",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 12,
-    columnNumber: 3
-  }
-}));
-var flipbookPdfIcon = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  width: "24",
-  height: "24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 17,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("path", {
-  fill: "#2196F3",
-  d: "M4 3h16v18H4z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 18,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("path", {
-  fill: "#BBDEFB",
-  d: "M6 5h12v14H6z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 19,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("path", {
-  fill: "#2196F3",
-  d: "M10 5v14l4-7z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 20,
-    columnNumber: 3
-  }
-}));
-var nativePdfIcon = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  width: "24",
-  height: "24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 25,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("path", {
-  fill: "#FF0000",
-  d: "M6 2h12v20H6z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 26,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("path", {
-  fill: "#fff",
-  d: "M8 4h8v16H8z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 27,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("text", {
-  x: "12",
-  y: "18",
-  fontSize: "5",
-  textAnchor: "middle",
-  fill: "#FF0000",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 28,
-    columnNumber: 3
-  }
-}, "PDF"));
-var mozilaPDF = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  width: "24",
-  height: "24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 33,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("rect", {
-  width: "24",
-  height: "24",
-  rx: "2",
-  fill: "#FF7139",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 34,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("path", {
-  fill: "#fff",
-  d: "M6 5h12v14H6z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 35,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("text", {
-  x: "12",
-  y: "16",
-  fontSize: "8",
-  fill: "#FF7139",
-  textAnchor: "middle",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 36,
-    columnNumber: 3
-  }
-}, "PDF"));
-var googleDocsViewer = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  width: "24",
-  height: "24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 42,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("path", {
-  fill: "#4285F4",
-  d: "M4 4h16v16H4z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 43,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("path", {
-  fill: "#fff",
-  d: "M7 7h10v10H7z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 44,
-    columnNumber: 3
-  }
-}));
-var docEmbedder = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "32",
-  height: "32",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "#4A90E2",
-  strokeWidth: "2",
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 49,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("rect", {
-  x: "3",
-  y: "3",
-  width: "18",
-  height: "18",
-  rx: "2",
-  ry: "2",
-  fill: "#E6F0FA",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 51,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("polyline", {
-  points: "15 3 21 3 21 9",
-  fill: "#4A90E2",
-  stroke: "#4A90E2",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 52,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("line", {
-  x1: "6",
-  y1: "12",
-  x2: "18",
-  y2: "12",
-  stroke: "#4A90E2",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 53,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("line", {
-  x1: "6",
-  y1: "16",
-  x2: "18",
-  y2: "16",
-  stroke: "#4A90E2",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 54,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("line", {
-  x1: "6",
-  y1: "20",
-  x2: "14",
-  y2: "20",
-  stroke: "#4A90E2",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 55,
-    columnNumber: 3
-  }
-}));
-var googleSlides = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 62,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("rect", {
-  width: "24",
-  height: "24",
-  rx: "2",
-  fill: "#F4B400",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 63,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("rect", {
-  x: "6",
-  y: "6",
-  width: "12",
-  height: "12",
-  fill: "#fff",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 64,
-    columnNumber: 3
-  }
-}));
-var googleSheets = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 69,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("rect", {
-  width: "24",
-  height: "24",
-  rx: "2",
-  fill: "#0F9D58",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 70,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("path", {
-  fill: "#fff",
-  d: "M6 7h12v2H6zM6 11h12v2H6zM6 15h12v2H6z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 71,
-    columnNumber: 3
-  }
-}));
-var wordViewer = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 76,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("rect", {
-  width: "24",
-  height: "24",
-  rx: "2",
-  fill: "#2A5DFF",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 77,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("text", {
-  x: "12",
-  y: "16",
-  fontSize: "10",
-  fill: "#fff",
-  textAnchor: "middle",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 78,
-    columnNumber: 3
-  }
-}, "W"));
-var powerpointViewer = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 83,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("rect", {
-  width: "24",
-  height: "24",
-  rx: "2",
-  fill: "#D04423",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 84,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("text", {
-  x: "12",
-  y: "16",
-  fontSize: "10",
-  fill: "#fff",
-  textAnchor: "middle",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 85,
-    columnNumber: 3
-  }
-}, "P"));
-var powerpointEmbedder = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 90,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("circle", {
-  cx: "12",
-  cy: "12",
-  r: "10",
-  fill: "#E65A33",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 91,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("path", {
-  fill: "#fff",
-  d: "M8 8h8v8H8z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 92,
-    columnNumber: 3
-  }
-}));
-var excelViewer = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 97,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("rect", {
-  width: "24",
-  height: "24",
-  rx: "2",
-  fill: "#1A7F37",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 98,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("text", {
-  x: "12",
-  y: "16",
-  fontSize: "10",
-  fill: "#fff",
-  textAnchor: "middle",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 99,
-    columnNumber: 3
-  }
-}, "X"));
-var excelEmbedder = /*#__PURE__*/React.createElement("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 104,
-    columnNumber: 2
-  }
-}, /*#__PURE__*/React.createElement("rect", {
-  width: "24",
-  height: "24",
-  rx: "2",
-  fill: "#20A464",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 105,
-    columnNumber: 3
-  }
-}), /*#__PURE__*/React.createElement("rect", {
-  x: "6",
-  y: "6",
-  width: "12",
-  height: "12",
-  fill: "#fff",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 106,
-    columnNumber: 3
-  }
-}));
-
-/***/ }),
-
 /***/ "../bpl-tools/Admin/Activation/style.scss":
 /*!************************************************!*\
   !*** ../bpl-tools/Admin/Activation/style.scss ***!
   \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "../bpl-tools/Admin/Blocks/style.scss":
-/*!********************************************!*\
-  !*** ../bpl-tools/Admin/Blocks/style.scss ***!
-  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";

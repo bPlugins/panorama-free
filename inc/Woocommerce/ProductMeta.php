@@ -18,34 +18,22 @@ class ProductMeta{
             'fields' => array(
 
               array(
-                'id' => 'shortcode',
-                'type' => 'content',
-                'title' => __("Shortcode (Pro)", "panorama-viewer"),
-                'content' => '<input type="text" onclick="this.select()" readonly value="[panorama_product_viewer]" />',
-                'subtitle' => __("it's only available for pro version.", "panorama-viewer"),
-                'desc' => __("Copy the shortcode and place where you want to show the model", "panorama-viewer")
+                'id'           => 'image_src',
+                'type'         => 'upload',
+                'library'      => 'image',
+                'button_title' => __('Upload Panoramic Image', 'panorama-viewer'),
+                'title'        => __('Panoramic Image', 'panorama-viewer'),
+                'desc'         => __('Upload or paste the URL of a panoramic image. For best results, use an equirectangular panoramic image.', 'panorama-viewer'),
               ),
-
-              // panorama controls
               array(
-                'id'       => 'type',
-                'type'     => 'button_set',
-                'title'    => __('Panorama Type I am from pro.', 'panorama-viewer'),
-                'subtitle' => __('Choose Panorama Type', 'panorama-viewer'),
-                'desc'     => __('Select Panorama, Default- Image.', 'panorama-viewer'),
-                'multiple' => false,
-                'options'  => array(
-                  'image'   => 'Image',
-                  // 'image360'=> 'Image 360°',
-                  'video'   => 'Video',
-                  // 'gallery'  => 'Gallery',
-                  // 'tour360'  => 'Tour 360°',
-                  // 'gstreet'  => 'Google Street View',
-                ),
-                'default'  => 'image',
-                'class' => 'panorama-readonly',
+                'id'       => 'autoRotate',
+                'type'     => 'switcher',
+                'title'    => __('Auto Rotate ?', 'panorama-viewer'),
+                'desc'     => __('Enable or Disable Auto Rotate', 'panorama-viewer'),
+                'text_on'  => 'Yes',
+                'text_off' => 'No',
+                'default'  => false
               ),
-
               array(
                 'id'         => 'viewer_position',
                 'type'       => 'radio',
@@ -58,159 +46,52 @@ class ProductMeta{
                 ),
                 'default'    => 'none'
               ),
-
+              // Pro Feature Notice
               array(
-                'id'           => 'image_src',
-                'type'         => 'upload',
-                'library'      => 'image',
-                'button_title' => __('Upload Panoramic Image', 'panorama-viewer'),
-                'title'        => __('Image Source.', 'panorama-viewer'),
-                'desc'         => __('To create an image panorama, Panoramic image is Recommended. You can also use external Panoramic Image link here.', 'panorama-viewer'),
-                'dependency'   => array( 'type', '==', 'image' ),
+                'type' => 'content',
+                'content' => '
+                  <div style="margin-top: 30px; padding: 25px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+                    <h4 style="margin: 0 0 20px 0; color: #146ef5; font-size: 18px; display: flex; align-items: center; gap: 10px;">
+                      <span>🚀</span> ' . __('Unlock Premium Experience', 'panorama-viewer') . '
+                    </h4>
+                    <ul style="list-style: none; padding: 0; margin: 0 0 25px 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
+                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
+                        <div><strong style="color: #2d3748;">' . __('Product Shortcode:', 'panorama-viewer') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Use shortcode to display panorama anywhere on your product page.', 'panorama-viewer') . '</span></div>
+                      </li>
+                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
+                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
+                        <div><strong style="color: #2d3748;">' . __('Video Panorama:', 'panorama-viewer') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Select Video as panorama type for your WooCommerce products.', 'panorama-viewer') . '</span></div>
+                      </li>
+                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
+                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
+                        <div><strong style="color: #2d3748;">' . __('Auto Rotate Speed:', 'panorama-viewer') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Control rotation speed in degrees per second.', 'panorama-viewer') . '</span></div>
+                      </li>
+                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
+                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
+                        <div><strong style="color: #2d3748;">' . __('Show/Hide Controls:', 'panorama-viewer') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Toggle default panorama controls visibility.', 'panorama-viewer') . '</span></div>
+                      </li>
+                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
+                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
+                        <div><strong style="color: #2d3748;">' . __('Initial View:', 'panorama-viewer') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Set custom starting pitch, yaw, and zoom values.', 'panorama-viewer') . '</span></div>
+                      </li>
+                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
+                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
+                        <div><strong style="color: #2d3748;">' . __('Video Controls:', 'panorama-viewer') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Auto Play, Mute, Loop, and Show Controls for video panorama.', 'panorama-viewer') . '</span></div>
+                      </li>
+                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
+                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
+                        <div><strong style="color: #2d3748;">' . __('Title & Author:', 'panorama-viewer') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Display custom title and author info on the panorama viewer.', 'panorama-viewer') . '</span></div>
+                      </li>
+                    </ul>
+                    <div style="display: flex; align-items: center; gap: 15px; border-top: 1px solid #edf2f7; padding-top: 20px;">
+                      <a href="' . admin_url('admin.php?page=bppiv-support#/pricing') . '" target="_blank" style="background: #146ef5; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">' . __('Upgrade to Pro Now', 'panorama-viewer') . '</a>
+                    </div>
+                  </div>
+                ',
               ),
-              
-              // video source
-              array(
-                'id'           => 'video_src',
-                'type'         => 'upload',
-                'library'      => 'video',
-                'button_title' => __('Upload Video', 'panorama-viewer'),
-                'title'        => __('Video Source.', 'panorama-viewer'),
-                'desc'         => __('Upload Panoramic Video', 'panorama-viewer'),
-                'dependency'   => array( 'type', '==', 'video' ),
-              ),
-
-              array(
-                'id'           => 'video360',
-                'type'         => 'switcher',
-                'title' => __('360° Video', 'panorama-viewer'),
-                'desc'         => __('Enable if the video is 360°', 'panorama-viewer'),
-                'dependency'   => array( 'type', '==', 'video' ),
-              ),
-
-
-              array(
-                'id'       => 'autoRotate',
-                'type'     => 'switcher',
-                'title'    => __('Auto Rotate ?', 'panorama-viewer'),
-                'desc'     => __('Enable or Disable Auto Rotate', 'panorama-viewer'),
-                'text_on'  => 'Yes',
-                'text_off' => 'No',
-                'default'  => false,
-                'dependency'   => array( 'type', 'any', 'image'  ),
-              ),
-              array(
-                'id'       => 'speed',
-                'type'     => 'spinner',
-                'title'    => __('Auto Rotate Speed', 'panorama-viewer'),
-                'subtitle' => __('Choose Auto Rotate Speed', 'panorama-viewer'),
-                'desc'     => __('Auto rotate speed as in degree per second. Positive is counter-clockwise and negative is clockwise.', 'panorama-viewer'), 
-                'default'  => 2.0,
-                'dependency' => array( 'type|auto_rotate', 'any|==', 'image|true' ),
-                'class' => 'panorama-readonly',
-              ),
-              array(
-                'id'       => 'showControls',
-                'type'     => 'switcher',
-                'title'    => __('Show Default Controls?', 'panorama-viewer'),
-                'subtitle' => __('Show / Hide Switch for Default Control.', 'panorama-viewer'),
-                'desc'     => __('Show or Hide Control', 'panorama-viewer'),
-                'text_on'  => 'Yes',
-                'text_off' => 'No',
-                'default'  => true,
-                'dependency'   => array( 'type', 'any', 'image' ),
-                'class' => 'panorama-readonly',
-              ),
-              array(
-                'id'    => 'initialView',
-                'type'  => 'spacing',
-                'title' => __('Initial View', 'panorama-viewer'),
-                'subtitle'=> __('Set The Custom values for Initial View. Default Initial Values are ("X=2.3 Y=-360.4 Z=120")', 'panorama-viewer'),
-                'desc'    => __('Set Your Desire Values. (X= Horizontal Position, Y= Vertical Position, Z= Zoom Level/Position) ', 'panorama-viewer'),
-                'default'  => array(
-                  'top'    => 0,
-                  'right'  => 0,
-                  'bottom' => 100,
-                ),
-                'left'   => false,
-                'show_units' => false,
-                'top_icon'    => 'pitch',
-                'right_icon'  => 'yaw',
-                'bottom_icon' => 'hfov',
-                'class' => 'panorama-readonly',
-              ),
-     
-              // Video Settings
-              array(
-                'id'       => 'video_autoplay',
-                'type'     => 'switcher',
-                'title'    => __('Auto Play ?', 'panorama-viewer'),
-                'desc'     => __('Enable or Disable Auto Play', 'panorama-viewer'),
-                'text_on'  => 'Yes',
-                'text_off' => 'No',
-                'default'  => true,
-                'dependency'   => array( 'type', '==', 'video' ),
-                'class' => 'panorama-readonly',
-              ),
-              array(
-                'id'       => 'video_mute',
-                'type'     => 'switcher',
-                'title'    => __('Video Mute ?', 'panorama-viewer'),
-                'subtitle' => __('Enable or Disable Video Mute', 'panorama-viewer'),
-                'desc'     => __('Specify if the video should auto play', 'panorama-viewer'),
-                'text_on'  => 'Yes',
-                'text_off' => 'No',
-                'default'  => true,
-                'dependency'   => array( 'type', '==', 'video' ),
-                'class' => 'panorama-readonly',
-              ),
-              array(
-                'id'       => 'video_loop',
-                'type'     => 'switcher',
-                'title'    => __('Video Loop ?', 'panorama-viewer'),
-                'desc'     => __('Enable or Disable Video Loop', 'panorama-viewer'),
-                'text_on'  => 'Yes',
-                'text_off' => 'No', 
-                'default'  => false,
-                'dependency'   => array( 'type', '==', 'video' ),
-                'class' => 'panorama-readonly',
-              ),
-              array(
-                'id'       => 'video_show_controls',
-                'type'     => 'switcher',
-                'title'    => __('Show video controls?', 'panorama-viewer'),
-                'desc'     => __('Enable if you want to show video controls', 'panorama-viewer'),
-                'text_on'  => 'Yes',
-                'text_off' => 'No', 
-                'default'  => false,
-                'dependency'   => array( 'type', '==', 'video' ),
-                'class' => 'panorama-readonly',
-              ),
-
-              array(
-                'id'       => 'title',
-                'type'     => 'text',
-                'title'    => __('Title', 'panorama-viewer'),
-                'subtitle' => __('Display Title Text.', 'panorama-viewer'),
-                'desc'     => __('Input Title Text', 'panorama-viewer'),
-                'placeholder' => "360° Image",
-                'default' => "",
-                'dependency'   => array( 'type', '==', 'image' ),
-                'class' => 'panorama-readonly',
-              ),
-              array(
-                'id'       => 'author',
-                'type'     => 'text',
-                'title'    => __('Author sdfsd', 'panorama-viewer'),
-                'subtitle' => __('Display Author Name."', 'panorama-viewer'),
-                'desc'     => __('Input Author Name', 'panorama-viewer'),
-                'placeholder' => "bPlugins",
-                'default' => "",
-                'dependency'   => array( 'type', '==', 'image' ),
-                'class' => 'panorama-readonly',
-              ),
-          
-            ) // End fields
+            
+              ) // End fields
         ) );
     }
 }

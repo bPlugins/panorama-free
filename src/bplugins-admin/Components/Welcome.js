@@ -1,25 +1,12 @@
 import Overview from '../../../../bpl-tools/Admin/Overview';
-// import Card from '../../../../bpl-tools/Admin/Blocks/Card';
 import Changelog from '../../../../bpl-tools/Admin/Changelog';
 import ProAds from '../../../../bpl-tools/Admin/ProAds';
-// import blocks from '../utils/blocks';
-// import useBlocksSettings from '../hooks/useBlocksSettings';
 const { __ } = wp.i18n;
 
 const Welcome = (props) => {
 	const { isPremium } = props;
-	// const { data, internalStatus, saveToBackend } = useBlocksSettings(action, nonce);
 
 	return <Overview {...props}>
-		{/* <Card
-			{...props}
-			allBlocks={blocks}
-			cardTitle='Blocks'
-			seeAllLink='#blocks'
-			disabledBlocks={data}
-			status={internalStatus}
-			onChange={saveToBackend}
-		/> */}
 
 		<div style={{
 			display: 'grid',
