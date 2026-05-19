@@ -43,7 +43,8 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'bppiv_type',
             'type'     => 'button_set',
             'title'    => 'Panorama Type:',
-            'subtitle' => 'Choose Panorama Type',
+            'subtitle' => 'Choose your panorama type.',
+            'desc'     => 'Choose from 3D images, 360° photos/videos, galleries, virtual tours, or Google Street View.',
             'options'  => array(
               'image'   => 'Image 3D',
               'image360'=> 'Image 360°',
@@ -96,6 +97,13 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
               </script>
               <?php
             }
+          ),
+          array(
+            'id'           => 'bppiv_content',
+            'type'         => 'content',
+            'title'        => ' ',
+            'content'         => __('We have a new 360° Virtual Tour Viewer. <a href="edit.php?post_type=virtual_tour">click here</a> to create', 'panorama-viewer'),
+            'dependency'   => array( 'bppiv_type', '==', 'tour360' ),
           ),
           // --- CONTENT SOURCE ---
           array(
@@ -217,6 +225,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'bppiv_auto_rotate',
             'type'     => 'switcher',
             'title'    => 'Auto Rotate',
+            'desc'     => 'Enable this to make the panorama rotate automatically when loaded.',
             'default'  => true,
             'class'    => 'bppiv-ctrl-image',
           ),
@@ -224,6 +233,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'bppiv_speed',
             'type'     => 'spinner',
             'title'    => 'Auto Rotate Speed',
+            'desc'     => 'Set the speed of rotation. Higher values mean faster rotation.',
             'default'  => 2.0,
             'dependency' => array( 'bppiv_auto_rotate', '==', 'true' ),
             'class'    => 'bppiv-ctrl-image',
@@ -232,6 +242,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'control_show_hide',
             'type'     => 'switcher',
             'title'    => 'Hide Default Control',
+            'desc'     => 'Turn this on to hide the built-in navigation and zoom buttons.',
             'default'  => false,
             'class'    => 'bppiv-ctrl-image',
           ),
@@ -240,7 +251,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'bppiv_auto_play',
             'type'     => 'switcher',
             'title'    => 'Auto Play',
-            'desc'     => 'To enable autoplay, please make sure "Muted" is also turned on.',
+            'desc'     => 'Automatically start playing the video. Note: Most browsers require "Muted" for this to work.',
             'default'  => false,
             'class'    => 'bppiv-ctrl-video-only',
           ),
@@ -248,6 +259,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'bppiv_video_mute',
             'type'     => 'switcher',
             'title'    => 'Video Mute',
+            'desc'     => 'Mute the video audio by default. Recommended for autoplay compatibility.',
             'class'    => 'bppiv-ctrl-video-only',
           ),
           // --- Shared field (video & video2) ---
@@ -255,6 +267,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'bppiv_video_loop',
             'type'     => 'switcher',
             'title'    => 'Video Loop',
+            'desc'     => 'Restart the video automatically once it reaches the end.',
             'default'  => true,
             'class'    => 'bppiv-ctrl-video',
           ),
@@ -262,7 +275,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'control_show_hide_video',
             'type'     => 'switcher',
             'title'    => 'Control Bar',
-            'desc'     => 'Show or hide the video control bar.',
+            'desc'     => 'Toggle the visibility of the video playback control bar.',
             'default'  => true,
             'class'    => 'bppiv-ctrl-video-only',
           ),
@@ -271,7 +284,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'bppiv_video_autoplay',
             'type'     => 'switcher',
             'title'    => 'Auto Play',
-            'desc'     => 'Enable or disable video auto play.',
+            'desc'     => 'Enable or disable video auto play. Muting the video is often required for this.',
             'default'  => true,
             'class'    => 'bppiv-ctrl-video2',
           ),
@@ -279,7 +292,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'video_play_pause_ctrl',
             'type'     => 'switcher',
             'title'    => 'Play/Pause Control',
-            'desc'     => 'Show or hide video play/pause button.',
+            'desc'     => 'Toggle the visibility of the play and pause buttons on the player.',
             'default'  => true,
             'class'    => 'bppiv-ctrl-video2',
           ),
@@ -287,7 +300,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'video_volume_ctrl',
             'type'     => 'switcher',
             'title'    => 'Volume Control',
-            'desc'     => 'Show or hide volume slider.',
+            'desc'     => 'Show or hide the volume adjustment slider.',
             'default'  => true,
             'class'    => 'bppiv-ctrl-video2',
           ),
@@ -391,9 +404,10 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
         'fields' => array(
            // --- DIMENSIONS ---
           array(
-            'id'           => 'bppiv_image_width',
+            'id'       => 'bppiv_image_width',
             'type'         => 'dimensions',
             'title'        => 'Width',
+            'desc'         => 'Set the width of the viewer (e.g., 100% or 800px).',
             'default'      => array( 'width'  => '100', 'unit'   => '%' ),
             'height'       => false
           ),
@@ -401,6 +415,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'           => 'bppiv_image_height',
             'type'         => 'dimensions',
             'title'        => 'Height',
+            'desc'         => 'Set the fixed height of the viewer in pixels.',
             'default'      => array( 'height' => '320', 'unit'   => 'px' ),
             'width'        => false,
             'class'        => 'bppiv-dim-height',
@@ -409,6 +424,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'       => 'bppiv_alignment',
             'type'     => 'select',
             'title'    => 'Viewer Alignment',
+            'desc'     => 'Align the viewer container to the left, center, or right of the page.',
             'options'  => array( 'start' => 'Left', 'center' => 'Center', 'end' => 'Right' ),
             'default'  => 'center'
           ),
