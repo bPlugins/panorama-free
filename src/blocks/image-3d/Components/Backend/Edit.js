@@ -27,7 +27,7 @@ const Edit = (props) => {
 
         {imageUrl ? (
           <div className="bBlocksImg3dViewer" >
-            <PanoramicImageViewer {...{ attributes, setAttributes, device }} />
+            <PanoramicImageViewer {...{ attributes, setAttributes, device, isBackend: true, isSelected }} />
           </div>
         ) : (
           <MediaPlaceholder

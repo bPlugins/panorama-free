@@ -26,7 +26,7 @@ const Edit = (props) => {
 
         {imageUrl ? (
           <div className="bBlocksImageViewer">
-            <ImageViewer attributes={attributes} setAttributes={setAttributes} />
+            <ImageViewer attributes={attributes} setAttributes={setAttributes} isBackend={true} isSelected={isSelected} />
           </div>
         ) : (
           <MediaPlaceholder

@@ -15,6 +15,9 @@ $primaryColor: #4527a4;
     flex-direction: column;
     .panoramaVideo360Viewer {
       overflow: hidden;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
     }
   }
 }

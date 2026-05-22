@@ -4,6 +4,7 @@
   "name": "panorama/image-360",
   "title": "Image 360°",
   "category": "widgets",
+  "version": "1.7.0",
   "description": "Interactive 360° Viewer for Panoramic Images.",
   "keywords": [
     "panoramic image viewer",
@@ -90,8 +91,13 @@
     "bppiv-pannellum-js",
     "wp-api"
   ],
-  "editorStyle": "file:../index.css",
+  "editorStyle": [
+    "file:../index.css",
+    "file:../style-index.css",
+    "file:./style-view.css"
+  ],
   "style": [
+    "file:./style-view.css",
     "file:./view.css",
     "bppiv-pannellum-css"
   ],

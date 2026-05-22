@@ -1,6 +1,10 @@
 <?php
 namespace BPPIV\Base;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class registerPostType{
 
     public function register(){
@@ -42,27 +46,27 @@ class registerPostType{
 
     public function init(){
         $labels = array(
-            'name'           => __( 'Panorama Viewer', 'panorama-viewer' ),
-            'menu_name'      => __( 'Panorama Viewer', 'panorama-viewer' ),
-            'name_admin_bar' => __( 'Panorama Viewer', 'panorama-viewer' ),
-            'add_new'        => __( 'Add New', 'panorama-viewer' ),
-            'add_new_item'   => __( 'Add New', 'panorama-viewer' ),
-            'new_item'       => __( 'New Panorama ', 'panorama-viewer' ),
-            'edit_item'      => __( 'Edit Panorama ', 'panorama-viewer' ),
-            'view_item'      => __( 'View Panorama ', 'panorama-viewer' ),
-            'all_items'      => __( 'All Panoramas', 'panorama-viewer' ),
-            'not_found'      => __( 'Sorry, we couldn\'t find the Feed you are looking for.' ),
+            'name'           => __( 'Panorama Viewer', 'panorama' ),
+            'menu_name'      => __( 'Panorama Viewer', 'panorama' ),
+            'name_admin_bar' => __( 'Panorama Viewer', 'panorama' ),
+            'add_new'        => __( 'Add New', 'panorama' ),
+            'add_new_item'   => __( 'Add New', 'panorama' ),
+            'new_item'       => __( 'New Panorama ', 'panorama' ),
+            'edit_item'      => __( 'Edit Panorama ', 'panorama' ),
+            'view_item'      => __( 'View Panorama ', 'panorama' ),
+            'all_items'      => __( 'All Panoramas', 'panorama' ),
+            'not_found'      => __( 'Sorry, we couldn\'t find the Panorama you are looking for.', 'panorama' ),
         );
         $args = array(
             'labels'          => $labels,
-            'description'     => __( 'Panorama Options.', 'panorama-viewer' ),
+            'description'     => __( 'Panorama Options.', 'panorama' ),
             'public'          => true,
             'show_ui'         => true,
             'show_in_menu'    => true,
             'menu_icon'       => 'dashicons-welcome-view-site',
             'query_var'       => true,
             'rewrite'         => array(
-            'slug' => 'panorama-viewer',
+            'slug' => 'panorama',
         ),
         'capability_type' => 'post',
         'has_archive'     => false,
@@ -87,7 +91,9 @@ class registerPostType{
                 'item_updated' => 'Tour updated',
             ],
             'public' => true,
-            'has_archive' => true,
+            'publicly_queryable' => false,
+            'exclude_from_search' => true,
+            'has_archive' => false,
             "show_in_rest" => true,
             "template_lock" => "all",
             "template" => [["panorama/virtual-tour"]],
@@ -108,7 +114,9 @@ class registerPostType{
                 'item_updated' => 'Product Spot updated',
             ],
             'public' => true,
-            'has_archive' => true,
+            'publicly_queryable' => false,
+            'exclude_from_search' => true,
+            'has_archive' => false,
             'show_in_rest' => true,
             'menu_icon' => 'dashicons-products',
             'template' => [['psb/product-spot']],
@@ -236,10 +244,13 @@ class registerPostType{
 
     function bppiv_shortcode_area() {
         global $post;
-        
-        if ( $post->post_type == 'bppiv-image-viewer' ) {
 
-            define('bpl_meta_fields', [
+        if ( ! $post || $post->post_type !== 'bppiv-image-viewer' ) {
+            return;
+        }
+
+
+            define('BPPIV_META_FIELDS', [
                 'id' => '_bppivimages_',
                 'title' => 'Fieds',
                 'sections' => [
@@ -260,14 +271,14 @@ class registerPostType{
                 ]
             ]);
 
-            wp_enqueue_style('bppiv-meta');
-            wp_enqueue_script('bppiv-meta');
+            // wp_enqueue_style('bppiv-meta');
+            // wp_enqueue_script('bppiv-meta');
 
             ?>
 
             <div class="panorama_shortcode">
                  <p class="shortcode_desc">
-                    <?php echo esc_html__("Use this shortcode in your post or page, or click Embed to share it on other websites :", "panorama") ?>
+                    <?php echo esc_html__( 'Use this shortcode in your post or page, or click Embed to share it on other websites:', 'panorama' ); ?>
                 </p>
                 <code 
                     class="shortcode_copy" 
@@ -323,6 +334,7 @@ class registerPostType{
                             //     "\n" . sprintf('<script src="%s"></script>', esc_url($script_url))
                             // );
                         // without div
+                        // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
                         $embed_code = $iframe_code . "\n" . sprintf('<script src="%s"></script>', esc_url($script_url));
                         } 
                         // else {
@@ -410,17 +422,15 @@ class registerPostType{
                 });
             </script>
             <?php
-        }
     }
 
-    /*-------------------------------------------------------------------------------*/
-    /* Footer Review Request .
-    /*-------------------------------------------------------------------------------*/
+
     function bppiv_admin_footer( $text ) {
         
         if ( 'bppiv-image-viewer' == get_post_type() ) {
-            $url = 'https://wordpress.org/support/plugin/panorama/reviews/?filter=5#new-post';
-            $text = sprintf( __( 'If you like <strong> Panorama Viewer </strong> please leave us a <a href="%s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. Your Review is very important to us as it helps us to grow more. ', 'panorama-viewer' ), $url );
+            $url = 'https://wordpress.org/support/plugin/panorama/reviews/#new-post';
+            /* translators: %s: Rating URL. */
+            $text = sprintf( __( 'If you like <strong> Panorama Viewer </strong> please leave us a <a href="%s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. Your Review is very important to us as it helps us to grow more. ', 'panorama' ), $url );
         }
         
         return $text;
@@ -442,36 +452,37 @@ class registerPostType{
     // Remove post update massage and link
     /*-------------------------------------------------------------------------------*/
     function bppiv_updated_messages( $messages ){
-        $messages['bppiv-image-viewer'][1] = __( 'Shortcode updated ', 'panorama-viewer' );
+        $messages['bppiv-image-viewer'][1] = __( 'Shortcode updated ', 'panorama' );
         return $messages;
     }
 
     // HIDE everything in PUBLISH metabox except Move to Trash & PUBLISH button
-    function bppiv_hide_publishing_actions(){
+    function bppiv_hide_publishing_actions() {
         $my_post_type = 'bppiv-image-viewer';
-        global  $post ;
-        if ( $post->post_type == $my_post_type ) {
-            echo  '
-            <style type="text/css">
-                #misc-publishing-actions,
-                #minor-publishing-actions{
-                    display:none;
-                }
-            </style>
-        ' ;
+        global $post;
+        if ( ! $post || $post->post_type !== $my_post_type ) {
+            return;
         }
+        echo '
+        <style type="text/css">
+            #misc-publishing-actions,
+            #minor-publishing-actions{
+                display:none;
+            }
+        </style>
+        ';
     }
 
     // Hide & Disabled View, Quick Edit and Preview Button
-    function bppiv_remove_row_actions( $idtions ) {
-        global  $post ;
-        
-        if ( $post->post_type == 'bppiv-image-viewer' ) {
-            unset( $idtions['view'] );
-            unset( $idtions['inline hide-if-no-js'] );
+    function bppiv_remove_row_actions( $actions ) {
+        global $post;
+
+        if ( $post && in_array( $post->post_type, ['bppiv-image-viewer', 'virtual_tour', 'product_spot'], true ) ) {
+            unset( $actions['view'] );
+            unset( $actions['inline hide-if-no-js'] );
         }
-        
-        return $idtions;
+
+        return $actions;
     }
     
 }

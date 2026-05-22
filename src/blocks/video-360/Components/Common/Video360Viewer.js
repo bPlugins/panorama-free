@@ -1,13 +1,42 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useGutenbergDragFix from "../../../../hooks/useGutenbergDragFix";
 
-const Video360Viewer = ({ attributes, setAttributes, isButton = true }) => {
+const isCrossOrigin = (url) => {
+  if (!url) return false;
+  try {
+    const urlObj = new URL(url, window.location.href);
+    return urlObj.origin !== window.location.origin;
+  } catch (e) {
+    return false;
+  }
+};
+
+const Video360Viewer = ({ attributes, setAttributes, isButton = true, isBackend = false, isSelected = false }) => {
   const { videoUrl, options } = attributes;
   const { autoplay = true, loop, initialView, initialPosition, play, progress, remainingTime, volume, pip, fullscreen, playbackSpeed } = options || {};
 
   const videoRef = useRef(null);
   const playerRef = useRef(null);
+
+  const [videojsLoaded, setVideojsLoaded] = useState(!!window.videojs);
+
+  useEffect(() => {
+    if (window.videojs) {
+      setVideojsLoaded(true);
+      return;
+    }
+
+    const interval = setInterval(() => {
+      if (window.videojs) {
+        setVideojsLoaded(true);
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
 
   // iframe detect
   useEffect(() => {
@@ -30,9 +59,20 @@ const Video360Viewer = ({ attributes, setAttributes, isButton = true }) => {
 
   useEffect(() => {
     if (!videoRef.current || !window.videojs) {
-      console.log("videojs is not loaded");
       return;
     }
+
+    // Create the video element dynamically to prevent Video.js from permanently removing it on dispose()
+    const videoElement = document.createElement("video");
+    videoElement.className = "video-js vjs-default-skin";
+    if (isCrossOrigin(videoUrl)) {
+      videoElement.setAttribute("crossorigin", "anonymous");
+    }
+    videoElement.setAttribute("playsinline", "true");
+    videoElement.style.width = "100%";
+    videoElement.style.height = "100%";
+
+    videoRef.current.appendChild(videoElement);
 
     const controlBarOptions = [
       ...(play ? ["playToggle"] : []),
@@ -44,25 +84,35 @@ const Video360Viewer = ({ attributes, setAttributes, isButton = true }) => {
       ...(playbackSpeed ? ["playbackRateMenuButton"] : []),
     ];
 
-    playerRef.current = window.videojs(videoRef.current, {
+    playerRef.current = window.videojs(videoElement, {
       autoplay,
       loop,
       muted: autoplay ? true : false,
-      initialView,
       controls: true,
       controlBar: { children: controlBarOptions },
       fluid: true,
       aspectRatio: "16:9",
       responsive: true,
       playbackRates: playbackSpeed ? [0.5, 1, 1.5, 2] : [],
-      plugins: {
-        vr: {
-          projection: "360"
-        }
-      },
+      sources: [{
+        src: videoUrl,
+        type: "video/mp4"
+      }]
     });
 
     const player = playerRef.current;
+
+    player.mediainfo = player.mediainfo || {};
+    player.mediainfo.projection = "equirectangular";
+
+    if (typeof player.vr === "function") {
+      player.vr({
+        projection: "AUTO",
+        debug: true,
+        forceCardboard: false,
+        antialias: false,
+      });
+    }
 
     player.on("loadedmetadata", function () {
       const videoEl = player.el().querySelector("video");
@@ -82,19 +132,22 @@ const Video360Viewer = ({ attributes, setAttributes, isButton = true }) => {
           }
         }
       }
-      if (player.vr && initialPosition) {
+      if (player.vr && typeof player.vr === "function" && player.vr() && player.vr().camera && initialPosition) {
         const { x, y, z } = initialPosition;
         player.vr().camera.position.set(x, y, z);
       }
     });
 
-
     return () => {
       if (playerRef.current) {
         playerRef.current.dispose();
       }
+      if (videoRef.current) {
+        videoRef.current.innerHTML = "";
+      }
     };
   }, [
+    videojsLoaded,
     autoplay,
     videoUrl,
     initialView,
@@ -108,9 +161,11 @@ const Video360Viewer = ({ attributes, setAttributes, isButton = true }) => {
     playbackSpeed,
   ]);
 
+  useGutenbergDragFix(videoRef, videoRef, isBackend, isSelected);
+
   const handleSetInitialView = () => {
     try {
-      if (playerRef.current && playerRef.current.vr) {
+      if (playerRef.current && typeof playerRef.current.vr === "function" && playerRef.current.vr() && playerRef.current.vr().camera) {
         const { x, y, z } = playerRef.current.vr().camera.position;
         setAttributes({
           options: {
@@ -140,17 +195,11 @@ const Video360Viewer = ({ attributes, setAttributes, isButton = true }) => {
           Set as Initial View
         </button>
       )}
-      <video
+      <div
         ref={videoRef}
-        className="video-js vjs-default-skin"
-        crossOrigin="anonymous"
-        playsInline
-      >
-        <source
-          src={videoUrl}
-          type="video/mp4"
-        />
-      </video>
+        className="video-container-wrapper"
+        style={{ width: "100%", height: "100%" }}
+      />
     </div>
   );
 };

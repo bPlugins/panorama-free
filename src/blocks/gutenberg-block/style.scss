@@ -1,5 +1,7 @@
 .wp-block-bpgb-panorama {
 	box-sizing: border-box;
+	max-width: 100%;
+	width: 100%;
 
 	* {
 	  box-sizing: border-box;
@@ -8,6 +10,8 @@
 	.bBlocksViewer{
 		display: flex;
 		flex-direction: column;
+		max-width: 100%;
+		width: 100%;
 
 		.motionBtn{
 			padding: 10px;
@@ -19,6 +23,7 @@
 		
 		.bpgbPanorama {
 			overflow: hidden;
+			max-width: 100%;
 			.panolens-canvas {
 			  width: 100% !important;
 			  height: 100% !important;

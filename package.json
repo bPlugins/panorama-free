@@ -1,17 +1,26 @@
 {
   "scripts": {
     "start": "wp-scripts start",
-    "build": "wp-scripts build && gulp bundle && gulp zip && rimraf bundled"
+    "build": "wp-scripts build --webpack-copy-php && npm run i18n",
+    "i18n-pot": "wp i18n make-pot . languages/panorama.pot --exclude=\"build,bin,node_modules,vendor,tests\" && node -e \"require('fs').copyFileSync('languages/panorama.pot', 'languages/panorama-en_US.po')\"",
+    "i18n-json": "wp i18n make-json languages/ --no-purge",
+    "i18n-mo": "wp i18n make-mo languages/",
+    "i18n": "node i18n.js",
+    "make-zip": "wp-scripts build --webpack-copy-php && npm run i18n && gulp bundle && gulp zip && node -e \"require('fs').rmSync('bundled', { recursive: true, force: true })\""
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "eslint-webpack-plugin": "^4.2.0",
     "file-loader": "^6.2.0",
+    "gettext-parser": "^9.0.2",
     "gulp": "^4.0.2",
     "gulp-zip": "^5.1.0",
     "mini-css-extract-plugin": "^2.9.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "rimraf": "^3.0.2",
     "sass-loader": "^16.0.5",
+    "wp-pot": "^2.0.0",
     "wp-scripts": "^0.0.1-security"
   },
   "dependencies": {

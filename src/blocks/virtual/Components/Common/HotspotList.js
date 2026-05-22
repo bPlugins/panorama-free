@@ -21,8 +21,18 @@ const HotspotList = ({ scenes, viewerRef, setIsHamMenuOpen, tabSl, currentScene 
     };
 
     return (
-        <div className="hotspot-container">
-           { tabSl !== "index" && <button className="crossBtn" onClick={() => setIsHamMenuOpen(false)}>X</button> } 
+        <div className={`hotspot-container ${tabSl === "index" ? "is-sidebar" : "is-overlay"}`}>
+           { tabSl !== "index" && (
+                <div className="hotspot-header">
+                    <span className="hotspot-header-title">Tour Navigation</span>
+                    <button className="crossBtn" onClick={() => setIsHamMenuOpen(false)}>
+                        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+           ) } 
             <div className="hotspot-scroll">
                 {scenes?.map((scene) => {
                     const isSelected = selectedSceneId === scene.tour_id;

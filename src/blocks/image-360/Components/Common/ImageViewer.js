@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import { panoDown, panoLeft, panoRight, panoUp } from "../../utils/icons";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; 
+import "react-toastify/dist/ReactToastify.css";
+import useGutenbergDragFix from "../../../../hooks/useGutenbergDragFix";
 
-const ImageViewer = ({ attributes, setAttributes, isButton = true }) => {
-  const { imageUrl, previewImgUrl = "", loadButtonText="Click to Load Panorama", options, customControl } = attributes || {};
+const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = false, isSelected = false }) => {
+  const { imageUrl, previewImgUrl = "", loadButtonText = "Click to Load Panorama", options, customControl } = attributes || {};
 
   const {
     autoLoad,
@@ -32,6 +33,8 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true }) => {
   const buttonRef = useRef(null);
   const controlsRef = useRef(null);
 
+  useGutenbergDragFix(panoramaRef, panoramaRef, isBackend, isSelected);
+
   useEffect(() => {
     const { pannellum } = window || {};
 
@@ -39,7 +42,7 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true }) => {
       viewerInstance.current = pannellum.viewer(panoramaRef.current, {
         type: "equirectangular",
         panorama: imageUrl,
-        preview: previewImgUrl,  
+        preview: previewImgUrl,
         autoLoad,
         showZoomCtrl: !hideDefaultCtrl,
         draggable,
@@ -56,7 +59,7 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true }) => {
         title: titleAuthor ? title : "",
         author: titleAuthor && author ? author : "",
         strings: {
-          bylineLabel: author ? isByline? `by ${author}` : author : "",
+          bylineLabel: author ? isByline ? `by ${author}` : author : "",
         }
       });
 
@@ -70,52 +73,70 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true }) => {
 
       if (!titleAuthor || (!title && !author)) {
         const infoBox = document.querySelector(".pnlm-panorama-info");
-        if (infoBox) infoBox.remove(); 
+        if (infoBox) infoBox.remove();
       }
 
       if (buttonRef.current && panoramaRef.current) {
         panoramaRef.current.appendChild(buttonRef.current);
       }
 
-      if (!controlsRef.current) {
-        return;
-      }
-
+      // Add custom control event listeners if controlsRef exists
+      const controlListeners = [];
       if (controlsRef.current) {
-        controlsRef.current
-          .querySelector(".pan-up")
-          .addEventListener("click", function () {
-            viewerInstance.current.setPitch(
-              viewerInstance.current.getPitch() + 10
-            );
-          });
-        controlsRef.current
-          .querySelector(".pan-down")
-          .addEventListener("click", function () {
-            viewerInstance.current.setPitch(
-              viewerInstance.current.getPitch() - 10
-            );
-          }),
-          controlsRef.current
-            .querySelector(".pan-left")
-            .addEventListener("click", function () {
-              viewerInstance.current.setYaw(
-                viewerInstance.current.getYaw() - 10
-              );
-            }),
-          controlsRef.current
-            .querySelector(".pan-right")
-            .addEventListener("click", function () {
-              viewerInstance.current.setYaw(
-                viewerInstance.current.getYaw() + 10
-              );
-            })
+        const panUp = controlsRef.current.querySelector(".pan-up");
+        const panDown = controlsRef.current.querySelector(".pan-down");
+        const panLeft = controlsRef.current.querySelector(".pan-left");
+        const panRight = controlsRef.current.querySelector(".pan-right");
+
+        const onPanUp = () => {
+          if (viewerInstance.current) {
+            viewerInstance.current.setPitch(viewerInstance.current.getPitch() + 10);
+          }
+        };
+        const onPanDown = () => {
+          if (viewerInstance.current) {
+            viewerInstance.current.setPitch(viewerInstance.current.getPitch() - 10);
+          }
+        };
+        const onPanLeft = () => {
+          if (viewerInstance.current) {
+            viewerInstance.current.setYaw(viewerInstance.current.getYaw() - 10);
+          }
+        };
+        const onPanRight = () => {
+          if (viewerInstance.current) {
+            viewerInstance.current.setYaw(viewerInstance.current.getYaw() + 10);
+          }
+        };
+
+        if (panUp) {
+          panUp.addEventListener("click", onPanUp);
+          controlListeners.push({ el: panUp, handler: onPanUp });
+        }
+        if (panDown) {
+          panDown.addEventListener("click", onPanDown);
+          controlListeners.push({ el: panDown, handler: onPanDown });
+        }
+        if (panLeft) {
+          panLeft.addEventListener("click", onPanLeft);
+          controlListeners.push({ el: panLeft, handler: onPanLeft });
+        }
+        if (panRight) {
+          panRight.addEventListener("click", onPanRight);
+          controlListeners.push({ el: panRight, handler: onPanRight });
+        }
       }
 
       return () => {
+        // Destroy Pannellum viewer
         if (viewerInstance.current) {
           viewerInstance.current.destroy();
         }
+
+        // Clean up control listeners
+        controlListeners.forEach(({ el, handler }) => {
+          el.removeEventListener("click", handler);
+        });
       };
     }
   }, [
@@ -167,11 +188,11 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true }) => {
 
   return (
     <>
-     <ToastContainer />
+      <ToastContainer />
 
-      <div 
-        key={`${autoLoad}-${title}-${author}-${isByline}-${titleAuthor}-${loadButtonText}-${hideDefaultCtrl}-${compass}-${doubleClickZoom}`} 
-        ref={panoramaRef} 
+      <div
+        key={`${autoLoad}-${title}-${author}-${isByline}-${titleAuthor}-${loadButtonText}-${hideDefaultCtrl}-${compass}-${doubleClickZoom}`}
+        ref={panoramaRef}
         className="panoramaImgViewer"
       >
         {isButton && initialView && (

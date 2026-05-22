@@ -25,7 +25,7 @@ const Edit = (props) => {
 
         <div className="bBlocksGoogleStreetViewer">
           {panoId ? (
-            <GoogleStreetViewer attributes={attributes} setAttributes={setAttributes} />
+            <GoogleStreetViewer attributes={attributes} setAttributes={setAttributes} isBackend={true} isSelected={isSelected} />
           ) : (
             <div className="container">
               <div className="content">

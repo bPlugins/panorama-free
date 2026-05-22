@@ -1,5 +1,7 @@
 .wp-block-bpgb-panorama {
   position: relative;
+  max-width: 100%;
+  width: 100%;
 
   .panoramaEditorAbsolute {
     width: 100%;
@@ -11,8 +13,12 @@
   }
 
   .bBlocksViewer {
+    max-width: 100%;
+    width: 100%;
+
     .bpgbPanorama {
       position: relative;
+      max-width: 100%;
 
       .setInitialViewButton {
         position: absolute;

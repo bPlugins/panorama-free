@@ -1,6 +1,10 @@
 <?php
 namespace BPPIV\Base;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class EnqueueAssets{
 
     public function register(){
@@ -15,10 +19,10 @@ class EnqueueAssets{
 
         //videojs
         wp_register_script( 'videojs', BPPIV_PLUGIN_DIR . 'public/assets/js/lib/video.min.js', [], BPPIV_VERSION, true );
-        wp_register_script( 'videojs-vr', BPPIV_PLUGIN_DIR . 'public/assets/js/lib/videojs-vr.min.js', [], BPPIV_VERSION, true );
-        wp_register_script( 'videojs-init', BPPIV_PLUGIN_DIR . 'build/videojs-init.js', [], BPPIV_VERSION, true );
+        wp_register_script( 'videojs-vr', BPPIV_PLUGIN_DIR . 'public/assets/js/lib/videojs-vr.min.js', array( 'videojs' ), BPPIV_VERSION, true );
+        wp_register_script( 'videojs-init', BPPIV_PLUGIN_DIR . 'build/videojs-init.js', array( 'videojs', 'videojs-vr' ), BPPIV_VERSION, true );
         wp_register_style( 'videojs', BPPIV_PLUGIN_DIR . 'public/assets/css/lib/video-js.min.css', [], BPPIV_VERSION, 'all' );
-        wp_register_style( 'videojs-vr', BPPIV_PLUGIN_DIR . 'public/assets/css/lib/videojs-vr.css', [], BPPIV_VERSION, 'all' );
+        wp_register_style( 'videojs-vr', BPPIV_PLUGIN_DIR . 'public/assets/css/lib/videojs-vr.css', array( 'videojs' ), BPPIV_VERSION, 'all' );
         
         
         //Pannellum
@@ -32,7 +36,7 @@ class EnqueueAssets{
         wp_register_style( 'bppiv-pannellum-css', BPPIV_PLUGIN_DIR . 'public/assets/css/library/pannellum.min.css', [], '2.5.6' );
         
         // style
-        wp_register_style( 'bppiv-font-material', '//fonts.googleapis.com/icon?family=Material+Icons' );
+        wp_register_style( 'bppiv-font-material', 'https://fonts.googleapis.com/icon?family=Material+Icons', [], BPPIV_VERSION );
         wp_register_style( 'bppiv-main-style', BPPIV_PLUGIN_DIR . 'public/assets/css/style.css', [], BPPIV_VERSION );
     }
     
@@ -53,7 +57,7 @@ class EnqueueAssets{
             wp_register_style( 'bppiv-readonly', BPPIV_PLUGIN_DIR . 'public/assets/css/readonly.css', [], BPPIV_VERSION );
             
             // classic editor preview (only for our CPT)
-            wp_enqueue_script( 'classic-editor-preview', BPPIV_PLUGIN_DIR . 'build/classic-editor-preview.js', ['react', 'react-dom'], BPPIV_VERSION );
+            wp_enqueue_script( 'classic-editor-preview', BPPIV_PLUGIN_DIR . 'build/classic-editor-preview.js', ['react', 'react-dom'], BPPIV_VERSION, true );
 
             // meta fields
             wp_register_script( 'bppiv-meta', BPPIV_PLUGIN_DIR . 'build/custom-codestar.js', ['jquery', 'wp-compose', 'lodash'], BPPIV_VERSION, true );

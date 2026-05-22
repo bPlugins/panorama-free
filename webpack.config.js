@@ -17,6 +17,5 @@ const entry = {
 module.exports = {
   ...defaultConfig,
   entry,
-  plugins: [...plugins],
-  optimization: {},
+  plugins: [...plugins]
 };

@@ -17,6 +17,7 @@ function bundle() {
       "!.gitignore",
       "!.eslintrc.js",
       "!README.md",
+      "!todo.txt",
     ])
     .pipe(gulp.dest("bundled/panorama"));
 }

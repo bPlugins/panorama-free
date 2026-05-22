@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "panorama/video-360",
-  "version": "1.0.0",
+  "version": "1.7.0",
   "title": "Video 360°",
   "category": "widgets",
   "description": "Interactive 360° video Viewer for Panorama.",
@@ -71,6 +71,7 @@
   ],
   "editorStyle": "file:../index.css",
   "style": [
+    "file:./style-view.css",
     "file:./view.css",
     "videojs",
     "videojs-vr"

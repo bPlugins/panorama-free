@@ -5,7 +5,7 @@
 [![WordPress Support](https://img.shields.io/badge/WordPress-6.3+-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/plugins/panorama/)
 [![PHP Support](https://img.shields.io/badge/PHP-7.1+-777bb4.svg?style=flat-square&logo=php)](./readme.txt)
 [![GPLv2 License](https://img.shields.io/badge/License-GPLv2-green.svg?style=flat-square)](./readme.txt)
-[![Stable Version](https://img.shields.io/badge/Version-1.6.1-blue.svg?style=flat-square)](./readme.txt)
+[![Stable Version](https://img.shields.io/badge/Version-1.7.0-blue.svg?style=flat-square)](./readme.txt)
 
 **Panorama** is a lightweight, high-performance, and fully responsive 360-degree virtual tour and panoramic media viewer plugin for WordPress. It lets you embed 360° photos, videos, and Google Street View locations into your posts, pages, widget areas, or templates using shortcodes or modern Gutenberg blocks—no coding required!
 

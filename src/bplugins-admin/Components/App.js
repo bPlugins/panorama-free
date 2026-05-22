@@ -8,6 +8,8 @@ import OurPlugins from '../../../../bpl-tools/Admin/OurPlugins';
 
 import Layout from './Layout';
 import Welcome from './Welcome';
+import Settings from './Settings';
+
 import { demoInfo, pricingInfo } from '../utils/data';
 
 const App = (props) => {
@@ -25,6 +27,8 @@ const App = (props) => {
 				{!isPremium && <Route path='pricing' element={<Pricing pricingInfo={pricingInfo} options={{}} {...props} />} />}
 
 				{!isPremium && <Route path='feature-comparison' element={<FeatureCompare plans={['free', 'pro']} {...props} />} />}
+
+				<Route path='settings' element={<Settings {...props} />} />
 
 				{hasPro && <Route path='activation' element={<Activation {...props} />} />}
 

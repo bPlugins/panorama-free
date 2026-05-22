@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useGutenbergDragFix from "../../../../hooks/useGutenbergDragFix";
 
-const PanoramicImageViewer = ({attributes, setAttributes, isButton = true, device = "desktop", isMotionSupported}) => {
+const PanoramicImageViewer = ({ attributes, setAttributes, isButton = true, device = "desktop", isMotionSupported, isBackend = false, isSelected = false }) => {
   const { imageUrl, options = {} } = attributes;
-  const {autoRotate, autoRotateSpeed, autoRotateInactivityDelay, hideDefaultCtrl,initialView, initialPosition, isDeviceMotion} = options;
- 
+  const { autoRotate, autoRotateSpeed, autoRotateInactivityDelay, hideDefaultCtrl, initialView, initialPosition, isDeviceMotion } = options;
+
   const imageContainerRef = useRef(null);
   const [isDeviceMotionActive, setIsDeviceMotionActive] = useState(false);
   const viewerRef = useRef(null);
@@ -18,11 +19,11 @@ const PanoramicImageViewer = ({attributes, setAttributes, isButton = true, devic
     viewerRef.current = new PANOLENS.Viewer({
       container: imageContainerRef.current,
       autoRotate,
-      autoRotateSpeed, 
+      autoRotateSpeed,
       controlButtons: !hideDefaultCtrl ? ["setting", "fullscreen"] : [],
       autoRotateActivationDuration: autoRotateInactivityDelay,
     });
-    
+
     viewerRef.current.add(panorama);
     window.viewer = viewerRef.current;
     window.panorama = panorama;
@@ -61,6 +62,8 @@ const PanoramicImageViewer = ({attributes, setAttributes, isButton = true, devic
     hideDefaultCtrl,
     isDeviceMotion,
   ]);
+
+  useGutenbergDragFix(imageContainerRef, imageContainerRef, isBackend, isSelected);
 
   const handleDeviceMotionToggle = () => {
     setIsDeviceMotionActive((prev) => !prev);
@@ -111,16 +114,16 @@ const PanoramicImageViewer = ({attributes, setAttributes, isButton = true, devic
   }, [isDeviceMotionActive]);
 
   const handleSetInitialView = () => {
-  
+
     try {
       if (viewerRef.current && viewerRef.current.camera) {
         const camera = viewerRef.current.camera;
-        const {x,y,z} = camera.position;
-  
+        const { x, y, z } = camera.position;
+
         setAttributes({
           options: {
             ...options,
-            initialPosition: {x,y,z}
+            initialPosition: { x, y, z }
           },
         });
         toast.success("Initial view set successfully", { position: "bottom-center" });
@@ -134,31 +137,31 @@ const PanoramicImageViewer = ({attributes, setAttributes, isButton = true, devic
     }
   };
 
-  
+
   return (
     <>
-     <ToastContainer />
-     
-    {isDeviceMotion && isMotionSupported && device !== "desktop" && (
+      <ToastContainer />
+
+      {isDeviceMotion && isMotionSupported && device !== "desktop" && (
         <button className="motionBtn" onClick={handleDeviceMotionToggle}>
           {isDeviceMotionActive ? "Stop Device Motion" : "Start Device Motion"}
         </button>
       )}
-    <div
-      ref={imageContainerRef}
-      className="panoramaImg3dViewer"
-      key={`${imageUrl}-${autoRotate}-${autoRotateSpeed}-${autoRotateInactivityDelay}-${initialView}-${hideDefaultCtrl}-${isDeviceMotion}`}
-    >
-      {isButton && initialView && (
-        <button
-          ref={buttonRef}
-          onClick={handleSetInitialView}
-          className="setInitialViewButton"
-        >
-          Set as Initial View
-        </button>
-      )}
-    </div>
+      <div
+        ref={imageContainerRef}
+        className="panoramaImg3dViewer"
+        key={`${imageUrl}-${autoRotate}-${autoRotateSpeed}-${autoRotateInactivityDelay}-${initialView}-${hideDefaultCtrl}-${isDeviceMotion}`}
+      >
+        {isButton && initialView && (
+          <button
+            ref={buttonRef}
+            onClick={handleSetInitialView}
+            className="setInitialViewButton"
+          >
+            Set as Initial View
+          </button>
+        )}
+      </div>
     </>
   );
 };

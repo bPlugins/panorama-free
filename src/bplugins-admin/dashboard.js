@@ -8,6 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const info = JSON.parse(dashboardEl.dataset.info);
 
 	createRoot(dashboardEl).render(<App {...dashboardInfo(info)} />);
-	
+
 	dashboardEl.removeAttribute('data-info');
 });

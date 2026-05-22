@@ -7,7 +7,7 @@ const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
   const viewerInstance = useRef(null);
   const buttonRef = useRef();
 
-  const { tour_360 = [], previewImgUrl = "", loadButtonText="Click to Load Panorama", options = {} } = attributes || {};
+  const { tour_360 = [], previewImgUrl = "", loadButtonText = "Click to Load Panorama", options = {} } = attributes || {};
   const {
     hideDefaultCtrl,
     initialView,
@@ -38,11 +38,11 @@ const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
       const author = tour_360[i]?.author;
       const isTitleAuthor = tour_360[i]?.tourTitleAuthor;
 
-      let titleAuthor ={
+      let titleAuthor = {
         title: isTitleAuthor ? title : "",
         author: isTitleAuthor && author ? author : "",
         strings: {
-          bylineLabel: author ? isByline? `by ${author}` : author : "",
+          bylineLabel: author ? isByline ? `by ${author}` : author : "",
         }
       }
 
@@ -69,7 +69,7 @@ const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
         yaw: 5,
         type: "equirectangular",
         panorama: tour_360[i].tour_img,
-        
+
         ...hotSpots,
       };
     }
@@ -99,7 +99,7 @@ const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
         firstScene: defaultData.tour_id,
         sceneFadeDuration: 1000,
       },
-      scenes: tour360Scenes,  
+      scenes: tour360Scenes,
     });
 
     if (!autoLoad) {
@@ -109,10 +109,10 @@ const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
       }, 120);
     }
 
-    if (!defaultData.tourTitleAuthor || ( !defaultData.title && !defaultData.author )) {
+    if (!defaultData.tourTitleAuthor || (!defaultData.title && !defaultData.author)) {
       const infoBox = document.querySelector(".pnlm-panorama-info");
-      if (infoBox) infoBox.remove(); 
-    }    
+      if (infoBox) infoBox.remove();
+    }
 
     if (buttonRef.current && tourContainerRef.current) {
       tourContainerRef.current.appendChild(buttonRef.current);
@@ -165,23 +165,23 @@ const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
   };
 
   return (
-   <>
+    <>
       <ToastContainer />
-    <div
-      className="tourContainer" ref={tourContainerRef}
-    >
-      
-      {isButton && initialView && (
-        <button
-          ref={buttonRef}
-          onClick={handleSetInitialView}
-          className="setInitialViewButton"
-        >
-          Set as Initial View
-        </button>
-      )}
-    </div>
-   </>
+      <div
+        className="tourContainer" ref={tourContainerRef}
+      >
+
+        {isButton && initialView && (
+          <button
+            ref={buttonRef}
+            onClick={handleSetInitialView}
+            className="setInitialViewButton"
+          >
+            Set as Initial View
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 

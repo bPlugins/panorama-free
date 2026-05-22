@@ -26,7 +26,7 @@ const Edit = (props) => {
 
         {videoUrl ? (
           <div className="bBlocksVideoViewer">
-            <VideoViewer {...{ attributes, setAttributes }} />
+            <VideoViewer {...{ attributes, setAttributes, isBackend: true, isSelected }} />
           </div>
         ) : (
           <MediaPlaceholder

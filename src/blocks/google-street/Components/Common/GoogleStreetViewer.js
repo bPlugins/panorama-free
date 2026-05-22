@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useGutenbergDragFix from "../../../../hooks/useGutenbergDragFix";
 
-const GoogleStreetViewer = ({ attributes, setAttributes, isButton = true }) => {
+const GoogleStreetViewer = ({ attributes, setAttributes, isButton = true, isBackend = false, isSelected = false }) => {
   const { panoId, options } = attributes;
   const { hideDefaultCtrl, autoRotate, autoRotateSpeed, autoRotateActivationDuration, initialView, initialPosition } = options || {};
 
@@ -54,18 +55,19 @@ const GoogleStreetViewer = ({ attributes, setAttributes, isButton = true }) => {
     autoRotate,
     autoRotateSpeed,
     autoRotateActivationDuration,
-    initialView,
-    initialPosition
+    initialView
   ]);
+
+  useGutenbergDragFix(viewerRef, viewerRef, isBackend, isSelected);
 
   const handleSetInitialView = () => {
     try {
       if (viewerInstance.current) {
-        const {x,y,z} = viewerInstance.current.camera.position;
+        const { x, y, z } = viewerInstance.current.camera.position;
         setAttributes({
           options: {
             ...options,
-            initialPosition: {x,y,z}
+            initialPosition: { x, y, z }
           },
         });
         toast.success("Initial view set successfully", { position: "bottom-center" });
@@ -81,22 +83,22 @@ const GoogleStreetViewer = ({ attributes, setAttributes, isButton = true }) => {
 
   return (
     <>
-    <ToastContainer />
+      <ToastContainer />
 
-    <div ref={viewerRef} className="panoramaGoogleStreetViewer">
-      {isButton && initialView && (
-        <button
-          ref={buttonRef}
-          onClick={handleSetInitialView}
-          className="setInitialLookButton"
-        >
-          Set as Initial View
-        </button>
-      )}
-    </div>
-    
+      <div ref={viewerRef} className="panoramaGoogleStreetViewer">
+        {isButton && initialView && (
+          <button
+            ref={buttonRef}
+            onClick={handleSetInitialView}
+            className="setInitialLookButton"
+          >
+            Set as Initial View
+          </button>
+        )}
+      </div>
+
     </>
-    
+
   );
 };
 

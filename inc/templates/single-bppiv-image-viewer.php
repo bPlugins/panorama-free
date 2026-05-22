@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 add_action('wp_enqueue_scripts', function(){
     global $wp_scripts, $wp_styles;
 
@@ -31,13 +34,13 @@ add_action('wp_enqueue_scripts', function(){
     <?php 
         $post_type = get_post_type();
         if ($post_type === 'virtual_tour') {
-            echo do_shortcode('[virtual-tour id="' . get_the_ID() . '"]');
+            echo wp_kses_post( do_shortcode('[virtual-tour id="' . absint( get_the_ID() ) . '"]') );
         }
         elseif ($post_type === 'product_spot') {
-            echo do_shortcode('[product_spot id="' . get_the_ID() . '"]');
+            echo wp_kses_post( do_shortcode('[product_spot id="' . absint( get_the_ID() ) . '"]') );
         }
         else {
-            echo wp_kses_post(do_shortcode('[panorama id="' . get_the_ID() . '"]')); 
+            echo wp_kses_post( do_shortcode('[panorama id="' . absint( get_the_ID() ) . '"]') ); 
         }
     ?>
 
@@ -46,7 +49,7 @@ add_action('wp_enqueue_scripts', function(){
     <script>
         function sendHeight() {
             const height = document.body.scrollHeight;
-            window.parent.postMessage({ iframeHeight: height, panoramaId: "panorama_<?php echo get_the_ID(); ?>"}, "*");
+            window.parent.postMessage({ iframeHeight: height, panoramaId: "panorama_<?php echo absint( get_the_ID() ); ?>"}, "*");
         }
 
         window.onload = sendHeight;

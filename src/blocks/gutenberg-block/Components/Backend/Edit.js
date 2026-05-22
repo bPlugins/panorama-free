@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { __ } from "@wordpress/i18n";
 import { withSelect } from "@wordpress/data";
+import { useBlockProps } from "@wordpress/block-editor";
 import Settings from "./Settings/Settings";
 import ViewerOfVideo from "../Common/ViewerOfVideo";
 import ViewerOfImage from "../Common/ViewerOfImage";
@@ -9,7 +10,7 @@ import { MediaPlaceholder } from "../../../../../../bpl-tools/Components";
 import { updateData } from "../../../../../../bpl-tools/utils/functions";
 
 const Edit = (props) => {
-  const { className, attributes, setAttributes, clientId, isSelected, device } = props;
+  const { attributes, setAttributes, clientId, isSelected, device } = props;
   const { panoType, panoImage, panoVideo } = attributes;
 
   const isButton = true;
@@ -18,19 +19,23 @@ const Edit = (props) => {
     clientId && setAttributes({ cId: clientId });
   }, [clientId]);
 
+  const blockProps = useBlockProps({
+    id: `block-${clientId}`,
+  });
+
   return (
     <>
       <Settings {...{ attributes, setAttributes }} />
 
-      <div className={className} id={`bpgbPanorama-${clientId}`}>
+      <div {...blockProps}>
         {!isSelected && <div className="panoramaEditorAbsolute"></div>}
 
-        <Style attributes={attributes} id={`bpgbPanorama-${clientId}`} />
+        <Style attributes={attributes} id={`block-${clientId}`} />
 
         <div className="bBlocksViewer">
           {panoType === "image" ? (
             panoImage?.url ? (
-              <ViewerOfImage {...{ attributes, setAttributes, isButton, device }} />
+              <ViewerOfImage {...{ attributes, setAttributes, isButton, device, isBackend: true, isSelected }} />
             ) : (
               <MediaPlaceholder
                 type="image"
@@ -40,7 +45,7 @@ const Edit = (props) => {
             )
           ) : panoType === "video" ? (
             panoVideo?.url ? (
-              <ViewerOfVideo {...{ attributes, setAttributes, isButton }} />
+              <ViewerOfVideo {...{ attributes, setAttributes, isButton, isBackend: true, isSelected }} />
             ) : (
               <MediaPlaceholder
                 type="video"

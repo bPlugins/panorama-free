@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useGutenbergDragFix from "../../../../hooks/useGutenbergDragFix";
 
-const VideoViewer = ({ attributes, setAttributes, isButton = true }) => {
+const VideoViewer = ({ attributes, setAttributes, isButton = true, isBackend = false, isSelected = false }) => {
   const { videoUrl, options = {} } = attributes;
- 
+
   const {
     autoplay,
     loop,
@@ -23,8 +24,8 @@ const VideoViewer = ({ attributes, setAttributes, isButton = true }) => {
 
   useEffect(() => {
     const { PANOLENS, THREE } = window;
-    
-    if ( !PANOLENS || !THREE ) return;
+
+    if (!PANOLENS || !THREE) return;
 
     const controlButtons = [
       ...(fullscreen ? ["fullscreen"] : []),
@@ -50,11 +51,17 @@ const VideoViewer = ({ attributes, setAttributes, isButton = true }) => {
       const { x, y, z } = initialPosition;
       viewerRef.current.camera.position.set(x, y, z);
     }
-    
+
 
     if (buttonRef.current && videoRef.current) {
-      videoRef.current.appendChild(buttonRef.current);  
+      videoRef.current.appendChild(buttonRef.current);
     }
+
+    return () => {
+      if (viewerRef.current) {
+        viewerRef.current.dispose();
+      }
+    };
 
   }, [
     videoUrl,
@@ -68,22 +75,24 @@ const VideoViewer = ({ attributes, setAttributes, isButton = true }) => {
     initialView,
   ]);
 
+  useGutenbergDragFix(videoRef, videoRef, isBackend, isSelected);
+
   const handleSetInitialView = () => {
-   
+
     try {
       if (viewerRef.current && viewerRef.current.camera) {
         const camera = viewerRef.current.camera;
-        const {x,y,z} = camera.position;
-  
+        const { x, y, z } = camera.position;
+
         setAttributes({
           options: {
             ...options,
-            initialPosition: {x,y,z}
+            initialPosition: { x, y, z }
           },
         });
         toast.success("Initial view set successfully", { position: "bottom-center" });
       } else {
-        toast.error("VR view not initialized!",  { position: "bottom-center" });
+        toast.error("VR view not initialized!", { position: "bottom-center" });
       }
     } catch (error) {
       console.error(error);
@@ -97,9 +106,9 @@ const VideoViewer = ({ attributes, setAttributes, isButton = true }) => {
       className="panoramaVideoViewer"
       key={`${videoUrl}-${autoplay}-${loop}-${initialView}-${initialPosition}-${muted}-${controlBar}-${setting}-${fullscreen}-${video}`}
     >
-       <ToastContainer />
-       
-       {isButton && initialView && (
+      <ToastContainer />
+
+      {isButton && initialView && (
         <button
           ref={buttonRef}
           onClick={handleSetInitialView}

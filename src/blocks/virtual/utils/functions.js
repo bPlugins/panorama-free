@@ -118,10 +118,14 @@ export const saveHotspot = (popupData, scenes, currentScene, setAttributes, setP
 export const addTempHotspot = (currentScene, viewer, hotspot, isDraggingRef, setIsDraggingHotspot, setPopupData, setTempHotspot) => {
     const { panorama } = currentScene || {};
 
-    { panorama && viewer?.removeHotSpot("temp-hotspot"); }
+    if (panorama && viewer) {
+        try {
+            viewer.removeHotSpot("temp-hotspot");
+        } catch (e) {
+            // Hotspot might not exist yet
+        }
 
-    {
-        panorama && viewer?.addHotSpot({
+        viewer.addHotSpot({
             id: "temp-hotspot",
             pitch: hotspot.pitch,
             yaw: hotspot.yaw,
@@ -132,55 +136,66 @@ export const addTempHotspot = (currentScene, viewer, hotspot, isDraggingRef, set
                 hotSpotDiv.style.cursor = "move";
 
                 let startX, startY;
-                let startPitch, startYaw;
 
                 const handleMouseDown = (e) => {
                     e.stopPropagation();
                     isDraggingRef.current = false;
                     startX = e.clientX;
                     startY = e.clientY;
-                    startPitch = hotspot.pitch;
-                    startYaw = hotspot.yaw;
                     setIsDraggingHotspot(false);
                 };
 
                 const handleMouseMove = (e) => {
+                    if ((e.buttons & 1) === 0) {
+                        handleMouseUp(e);
+                        return;
+                    }
+
                     const dx = Math.abs(e.clientX - startX);
                     const dy = Math.abs(e.clientY - startY);
 
-                    if (dx > 5 || dy > 5) {
+                    if (dx > 10 || dy > 10) {
                         isDraggingRef.current = true;
                         setIsDraggingHotspot(true);
 
-                        const sensitivity = 0.3;
-                        const moveX = (e.clientX - startX) * sensitivity;
-                        const moveY = (startY - e.clientY) * sensitivity;
-
-                        const newPitch = Math.max(-90, Math.min(90, startPitch + moveY));
-                        const newYaw = (startYaw + moveX) % 360;
-
-                        setTempHotspot({ pitch: newPitch, yaw: newYaw });
+                        const coords = viewer.mouseEventToCoords(e);
+                        if (coords) {
+                            const config = viewer.getConfig();
+                            if (config && config.hotSpots) {
+                                const hs = config.hotSpots.find(h => h.id === "temp-hotspot");
+                                if (hs) {
+                                    hs.pitch = coords[0];
+                                    hs.yaw = coords[1];
+                                }
+                            }
+                            viewer.resize();
+                        }
                     }
                 };
 
-                const handleMouseUp = () => {
+                const handleMouseUp = (e) => {
                     if (!isDraggingRef.current) {
                         setPopupData({
                             pitch: hotspot.pitch,
                             yaw: hotspot.yaw,
                             text: "",
                         });
+                    } else if (e) {
+                        const coords = viewer.mouseEventToCoords(e);
+                        if (coords) {
+                            setTempHotspot({ pitch: coords[0], yaw: coords[1] });
+                        }
                     }
                     isDraggingRef.current = false;
                     setIsDraggingHotspot(false);
-                    document.removeEventListener("mousemove", handleMouseMove);
-                    document.removeEventListener("mouseup", handleMouseUp);
+                    document.removeEventListener("mousemove", handleMouseMove, { capture: true });
+                    document.removeEventListener("mouseup", handleMouseUp, { capture: true });
                 };
 
                 hotSpotDiv.addEventListener("mousedown", (e) => {
                     handleMouseDown(e);
-                    document.addEventListener("mousemove", handleMouseMove);
-                    document.addEventListener("mouseup", handleMouseUp);
+                    document.addEventListener("mousemove", handleMouseMove, { capture: true });
+                    document.addEventListener("mouseup", handleMouseUp, { capture: true });
                 });
             },
             clickHandlerFunc: (event) => {
@@ -188,8 +203,8 @@ export const addTempHotspot = (currentScene, viewer, hotspot, isDraggingRef, set
             },
         });
     }
-
 };
+
 
 export const editAndDeleteTooltipFunc = (scenes, currentScene, hotSpotDiv, spot, index, setPopupData, setAttributes) => {
     const wrapper = document.createElement('div');
@@ -212,7 +227,6 @@ export const editAndDeleteTooltipFunc = (scenes, currentScene, hotSpotDiv, spot,
 
     editBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        console.log('Edit clicked');
         setPopupData({
             pitch: spot.pitch,
             yaw: spot.yaw,
@@ -244,8 +258,10 @@ export const editAndDeleteTooltipFunc = (scenes, currentScene, hotSpotDiv, spot,
     hotSpotDiv.appendChild(wrapper);
 };
 
-export const handleMouseDownEvent = (event, popupData, isDraggingHotspot, clickStartCoords) => {
-    if (popupData || isDraggingHotspot) return;
+export const handleMouseDownEvent = (event, popupDataRef, isDraggingHotspotRef, clickStartCoords) => {
+    if (popupDataRef?.current || isDraggingHotspotRef?.current) {
+        return;
+    }
 
     clickStartCoords.current = {
         x: event.clientX,
@@ -254,20 +270,24 @@ export const handleMouseDownEvent = (event, popupData, isDraggingHotspot, clickS
     };
 };
 
-export const handleMouseUpEvent = (event, viewer, clickStartCoords, popupData, isDraggingHotspot, setTempHotspot) => {
-    if (!clickStartCoords.current || popupData || isDraggingHotspot) return;
+export const handleMouseUpEvent = (event, viewer, clickStartCoords, popupDataRef, isDraggingHotspotRef, setTempHotspot) => {
+    if (!clickStartCoords.current || popupDataRef?.current || isDraggingHotspotRef?.current) {
+        return;
+    }
 
-    const isClick =
-        Math.abs(event.clientX - clickStartCoords.current.x) < 5 &&
-        Math.abs(event.clientY - clickStartCoords.current.y) < 5 &&
-        Date.now() - clickStartCoords.current.time < 200;
+    const dx = Math.abs(event.clientX - clickStartCoords.current.x);
+    const dy = Math.abs(event.clientY - clickStartCoords.current.y);
+    const dt = Date.now() - clickStartCoords.current.time;
+    const isClick = dx < 10 && dy < 10 && dt < 350;
 
     if (isClick) {
         const coords = viewer.mouseEventToCoords(event);
-        setTempHotspot({
-            pitch: coords[0],
-            yaw: coords[1],
-        });
+        if (coords) {
+            setTempHotspot({
+                pitch: coords[0],
+                yaw: coords[1],
+            });
+        }
     }
 
     clickStartCoords.current = null;

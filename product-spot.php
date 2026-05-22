@@ -18,18 +18,21 @@ if ( !class_exists( 'PSBPlugin' ) ) {
 
 		function psb_init(){
 			register_post_type('product_spot', [
-				'label' => 'Product Spot',
+				'label' => __('Product Spot', 'panorama'),
 				'labels' => [
-					'add_new' => 'Add New',
-					'add_new_item' => 'Add New Product Spot',
-					'edit_item' => 'Edit Product Spot',
-					'not_found' => 'There was no product spot please add one'
+					'add_new' => __('Add New', 'panorama'),
+					'add_new_item' => __('Add New Product Spot', 'panorama'),
+					'edit_item' => __('Edit Product Spot', 'panorama'),
+					'not_found' => __('There was no product spot please add one', 'panorama')
 				],
 				'show_in_rest' => true,
 				'public' => true,
+				'publicly_queryable' => false,
+				'exclude_from_search' => true,
+				'has_archive' => false,
 				'menu_icon' => 'dashicons-products',
-				'item_published' => 'Product Spot Block Published',
-				'item_updated' => 'Product Spot Block Updated',
+				'item_published' => __('Product Spot Block Published', 'panorama'),
+				'item_updated' => __('Product Spot Block Updated', 'panorama'),
 				'template' => [['psb/product-spot']],
 				'template_lock' => 'all',
 			]);
@@ -44,63 +47,63 @@ if ( !class_exists( 'PSBPlugin' ) ) {
 			$position = get_post_meta($post->ID, '_product_spot_position', true);
 			if ($position === 'none') return;
 
-			add_action( 'woocommerce_before_single_product_summary','psb_render_top_or_replace', 15 );
-			add_action( 'woocommerce_before_single_product_summary', 'psb_render_bottom' , 35 );
+			add_action( 'woocommerce_before_single_product_summary', [$this, 'psb_render_top_or_replace'], 15 );
+			add_action( 'woocommerce_before_single_product_summary', [$this, 'psb_render_bottom'] , 35 );
+		}
 
-			function psb_render_top_or_replace() {
-				global $post;
-				if ( ! $post ) return;
-			
-				$position = get_post_meta($post->ID, '_product_spot_position', true);
-			
-				$saved_blocks = get_post_meta( $post->ID, '_product_spot_blocks', true );
-				if (empty($saved_blocks)) return;
-			
-				$blocks = [
-					[
-						'blockName'  => 'psb/product-spot',
-						'attrs'      => json_decode( $saved_blocks, true ),
-						'innerBlocks'=> [],
-						'innerHTML'  => '',
-					]
-				];
-			
-				if ( $position === 'replace' ) {
-					echo '<div class="psb-product-spot-on-woo psb-replace-image">';
-						echo render_block( $blocks[0] );
-					echo '</div>';
-				}
-
-				if ($position === 'top') {
-					echo '<div class="psb-product-spot-on-woo psb-top-image" style="margin-bottom: 20px;">';
-						echo render_block( $blocks[0] );
-					echo '</div>';
-				}
-			}
-			
-			function psb_render_bottom() {
-				global $post;
-				if ( ! $post ) return;
-			
-				$position = get_post_meta($post->ID, '_product_spot_position', true);
-				if ($position !== 'bottom') return;
-			
-				$saved_blocks = get_post_meta( $post->ID, '_product_spot_blocks', true );
-				if (empty($saved_blocks)) return;
-			
-				$blocks = [
-					[
-						'blockName'  => 'psb/product-spot',
-						'attrs'      => json_decode( $saved_blocks, true ),
-						'innerBlocks'=> [],
-						'innerHTML'  => '',	
-					]								
-				];
-			
-				echo '<div class="psb-product-spot-on-woo psb-bottom-image" style="margin-top: 20px;">';
-				echo render_block( $blocks[0] );
+		function psb_render_top_or_replace() {
+			global $post;
+			if ( ! $post ) return;
+		
+			$position = get_post_meta($post->ID, '_product_spot_position', true);
+		
+			$saved_blocks = get_post_meta( $post->ID, '_product_spot_blocks', true );
+			if (empty($saved_blocks)) return;
+		
+			$blocks = [
+				[
+					'blockName'  => 'psb/product-spot',
+					'attrs'      => json_decode( $saved_blocks, true ),
+					'innerBlocks'=> [],
+					'innerHTML'  => '',
+				]
+			];
+		
+			if ( $position === 'replace' ) {
+				echo '<div class="psb-product-spot-on-woo psb-replace-image">';
+					echo wp_kses_post( render_block( $blocks[0] ) );
 				echo '</div>';
 			}
+
+			if ($position === 'top') {
+				echo '<div class="psb-product-spot-on-woo psb-top-image" style="margin-bottom: 20px;">';
+					echo wp_kses_post( render_block( $blocks[0] ) );
+				echo '</div>';
+			}
+		}
+		
+		function psb_render_bottom() {
+			global $post;
+			if ( ! $post ) return;
+		
+			$position = get_post_meta($post->ID, '_product_spot_position', true);
+			if ($position !== 'bottom') return;
+		
+			$saved_blocks = get_post_meta( $post->ID, '_product_spot_blocks', true );
+			if (empty($saved_blocks)) return;
+		
+			$blocks = [
+				[
+					'blockName'  => 'psb/product-spot',
+					'attrs'      => json_decode( $saved_blocks, true ),
+					'innerBlocks'=> [],
+					'innerHTML'  => '',	
+				]								
+			];
+		
+			echo '<div class="psb-product-spot-on-woo psb-bottom-image" style="margin-top: 20px;">';
+			echo wp_kses_post( render_block( $blocks[0] ) );
+			echo '</div>';
 		}
 
 		function psb_frontend_enqueue_styles() {
@@ -122,79 +125,90 @@ if ( !class_exists( 'PSBPlugin' ) ) {
 				
 			";
 		
-			wp_register_style( 'psb-inline-style', false );
+			wp_register_style( 'psb-inline-style', false, [], BPPIV_VERSION );
 			wp_enqueue_style( 'psb-inline-style' );
 			wp_add_inline_style( 'psb-inline-style', $inline_styles );
 		}
 
-		function save_product_spot_meta($post_id, $post) {
-			if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-			if (!current_user_can('edit_post', $post_id)) return;
-		
-			if (isset($_POST['product_spot_blocks'])) {
-				update_post_meta($post_id, '_product_spot_blocks', wp_kses_post($_POST['product_spot_blocks']));
-			}
+		function save_product_spot_meta( $post_id, $post ) {
+            if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 
-			if (isset($_POST['position'])) {
-				update_post_meta($post_id, '_product_spot_position', sanitize_text_field($_POST['position']));
-			}
-		}
+            // Nonce verification.
+            if ( ! isset( $_POST['psb_meta_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['psb_meta_nonce'] ) ), 'psb_save_meta_' . $post_id ) ) {
+                return;
+            }
+
+            if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+
+            if ( isset( $_POST['product_spot_blocks'] ) ) {
+                update_post_meta( $post_id, '_product_spot_blocks', wp_kses_post( wp_unslash( $_POST['product_spot_blocks'] ) ) );
+            }
+
+            if ( isset( $_POST['position'] ) ) {
+                update_post_meta( $post_id, '_product_spot_position', sanitize_text_field( wp_unslash( $_POST['position'] ) ) );
+            }
+        }
 
 		public function ajax_save_product_spot() {
-			check_ajax_referer('psb_nonce', 'nonce');
+            check_ajax_referer( 'psb_nonce', 'nonce' );
 
-			$post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
-			$blocks_json = isset($_POST['blocks']) ? wp_unslash($_POST['blocks']) : ''; 
-			$position = isset($_POST['position'])? sanitize_text_field( $_POST['position']) : '';
+            $post_id     = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+            // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+            $blocks_json = isset( $_POST['blocks'] )   ? wp_unslash( $_POST['blocks'] ) : '';
+            $position    = isset( $_POST['position'] )  ? sanitize_text_field( wp_unslash( $_POST['position'] ) ) : '';
 
-			if (!$post_id || !$blocks_json ) {
-				wp_send_json_error(['message' => 'Invalid post ID or blocks data']);
-			}
-			$blocks = json_decode($blocks_json, true);
+            if ( ! $post_id || ! $blocks_json ) {
+                wp_send_json_error( array( 'message' => __( 'Invalid post ID or blocks data', 'panorama' ) ) );
+            }
 
-			if (json_last_error() !== JSON_ERROR_NONE || !is_array($blocks)) {
-				wp_send_json_error(['message' => 'Blocks data is not valid JSON']);
-			}
+            // Capability check: user must be able to edit this specific post.
+            if ( ! current_user_can( 'edit_post', $post_id ) ) {
+                wp_send_json_error( array( 'message' => __( 'You do not have permission to edit this post.', 'panorama' ) ), 403 );
+            }
 
-			   
-			foreach ($blocks as &$block) {
-				if (isset($block['attrs']) && is_array($block['attrs'])) {
-					foreach ($block['attrs'] as $key => $value) {
-						if (is_string($value)) {
-							$block['attrs'][$key] = sanitize_text_field($value);
-						}
-						if (in_array($key, ['content', 'description', 'html'], true)) {
-							$block['attrs'][$key] = wp_kses_post($value);
-						}
-					}
-				}
-			}
+            $blocks = json_decode( $blocks_json, true );
 
-			$blocks_json = wp_json_encode($blocks);
+            if ( JSON_ERROR_NONE !== json_last_error() || ! is_array( $blocks ) ) {
+                wp_send_json_error( array( 'message' => __( 'Blocks data is not valid JSON', 'panorama' ) ) );
+            }
 
-			$saved = update_post_meta($post_id, '_product_spot_blocks', $blocks_json);
-			
-			$savedPos = false;
-			if ($position) {
-				$savedPos = update_post_meta($post_id, '_product_spot_position', $position);
-			}
-		
-			if ($saved || $savedPos) {
-				wp_send_json_success([
-					'message' => 'Saved successfully!',
-					'attributes' => $blocks,
-					'post_id' => $post_id,
-					'position' => $position,
-				]);
-			} else {
-				wp_send_json_error(['message' => 'Failed to save']);
-			}
-		}
+            foreach ( $blocks as &$block ) {
+                if ( isset( $block['attrs'] ) && is_array( $block['attrs'] ) ) {
+                    foreach ( $block['attrs'] as $key => $value ) {
+                        if ( is_string( $value ) ) {
+                            $block['attrs'][ $key ] = sanitize_text_field( $value );
+                        }
+                        if ( in_array( $key, array( 'content', 'description', 'html' ), true ) ) {
+                            $block['attrs'][ $key ] = wp_kses_post( $value );
+                        }
+                    }
+                }
+            }
+
+            $blocks_json = wp_json_encode( $blocks );
+            $saved       = update_post_meta( $post_id, '_product_spot_blocks', $blocks_json );
+            $savedPos    = false;
+
+            if ( $position ) {
+                $savedPos = update_post_meta( $post_id, '_product_spot_position', $position );
+            }
+
+            if ( $saved || $savedPos ) {
+                wp_send_json_success( array(
+                    'message'    => __( 'Saved successfully!', 'panorama' ),
+                    'attributes' => $blocks,
+                    'post_id'    => $post_id,
+                    'position'   => $position,
+                ) );
+            } else {
+                wp_send_json_error( array( 'message' => __( 'Failed to save', 'panorama' ) ) );
+            }
+        }
 		
 		function psb_register_meta_boxes() {
 			add_meta_box( 
 				'psb-meta-box-id',
-				__( 'Product Spot', 'product-spot' ),
+				__( 'Product Spot', 'panorama' ),
 				[ $this, 'psb_block_editor_display'],
 				'product'
 			 );

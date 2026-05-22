@@ -1,7 +1,7 @@
 const slug = 'panorama';
 
 export const dashboardInfo = (info) => {
-	const { version, isPremium, hasPro } = info;
+	const { version, isPremium, hasPro, deleteDataOnUninstall, uninstallNonce } = info;
 
 	const proSuffix = isPremium ? ' Pro' : '';
 
@@ -13,12 +13,13 @@ export const dashboardInfo = (info) => {
 		version,
 		isPremium,
 		hasPro,
+		deleteDataOnUninstall,
+		uninstallNonce,
 		displayOurPlugins: true,
 		media: {
 			logo: `https://ps.w.org/${slug}/assets/icon-256x256.png`,
 			banner: `https://ps.w.org/${slug}/assets/banner-772x250.png`,
 			thumbnail: `https://bplugins.com/wp-content/themes/b-technologies/assets/images/products/${slug}.png`,
-			// proThumbnail: `https://bplugins.com/wp-content/themes/b-technologies/assets/images/products/${slug}-pro.png`,
 			video: 'https://www.youtube.com/watch?v=bs-U13KtYEA',
 			isYoutube: true
 		},
@@ -35,6 +36,20 @@ export const dashboardInfo = (info) => {
 		},
 
 		changelogs: [
+			{
+				type: 'update',
+				version: '1.7.0 - 23 May, 2026',
+				list: [
+					'Update: Refactored architecture to decouple shared Pro code, establishing a clean standalone Free version.',
+					'Update: Upgraded Gutenberg blocks to API version 3.',
+					'Fix: Resolved dragging lock and cursor drift issues in Gutenberg block editors.',
+					'Improvement: Streamlined settings panels by replacing lock screens with clean premium feature notices.',
+					'Improvement: Modernized admin dashboard settings layout and WooCommerce metabox sections.',
+					'Update: Enhanced sanitization, escaping, and prefix compliance for WordPress.org standards.',
+					'Cleanup: Purged legacy unused scripts and added secure database cleanup on uninstall.'
+				]
+			},
+
 			{
 				type: 'fix',
 				version: '1.6.1 - 12 May, 2026',
@@ -55,16 +70,16 @@ export const dashboardInfo = (info) => {
 
 		],
 		proFeatures: [
-			'Supports 3D images, 360° photos, videos, and virtual tours.',
-			'Auto-rotate activates after inactivity for smooth viewing.',
-			'Set the initial view to define starting angle.',
-			'Add and customize navigation controls for panoramas easily.',
-			'Enable or disable fullscreen for videos and panoramas',
-			'Includes picture-in-picture and playback speed options.',
-			'Show or hide titles and authors with customization.',
-			'Manage and organize galleries with image and video support.',
-			'Customize columns, spacing, and gallery item display limits.',
-			'Drag, zoom, and compass for better navigation.'
+			'Seamlessly display panoramic photos, videos, and multi-scene tours.',
+			'Connect multiple 360° scenes using customizable hotspots, links, and tooltips.',
+			'Embed any public Google Street View location directly into your pages.',
+			'Organize mixed collections of photos and videos in beautiful responsive layouts.',
+			'Customize columns, grids, spacing, and item display limits with ease.',
+			'Keep visitors engaged with automated panning that pauses on user interaction.',
+			'Set the perfect initial angle, pitch, and zoom level for every panorama.',
+			'Includes fullscreen toggle, picture-in-picture, and video speed control.',
+			'Add, remove, or customize zoom, drag, orientation, and virtual compass settings.',
+			'Display customizable title and credit overlays on your viewer interface.'
 		],
 		startButton: {
 			label: 'Start Now',
@@ -74,8 +89,6 @@ export const dashboardInfo = (info) => {
 }
 
 export const demoInfo = {
-	// allInOneLabel: 'See All Demos',
-	// allInOneLink: 'https://apb.bplugins.com/all-demos-in-one-place/',
 	demos: [
 		{
 			icon: ``,

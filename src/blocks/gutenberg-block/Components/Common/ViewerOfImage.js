@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useGutenbergDragFix from "../../../../hooks/useGutenbergDragFix";
 
-const ViewerOfImage = ({attributes,setAttributes, isButton = false, device = "desktop"}) => {
+const ViewerOfImage = ({ attributes, setAttributes, isButton = false, device = "desktop", isBackend = false, isSelected = false }) => {
 
   const { panoImage, autoRotate, rotateSpeed, autoRotateInactivityDelay, isDeviceMotion, hideControl, initialView, initialPosition } = attributes;
 
-  const {url} = panoImage || {};
+  const { url } = panoImage || {};
 
   const imageContainerRef = useRef(null);
   const [isDeviceMotionActive, setIsDeviceMotionActive] = useState(false);
@@ -20,11 +21,11 @@ const ViewerOfImage = ({attributes,setAttributes, isButton = false, device = "de
     viewerRef.current = new PANOLENS.Viewer({
       container: imageContainerRef.current,
       autoRotate,
-      autoRotateSpeed : rotateSpeed, 
+      autoRotateSpeed: rotateSpeed,
       controlButtons: hideControl ? ["setting", "fullscreen"] : [],
       autoRotateActivationDuration: autoRotateInactivityDelay,
     });
-    
+
     viewerRef.current.add(panorama);
     window.viewer = viewerRef.current;
     window.panorama = panorama;
@@ -61,9 +62,10 @@ const ViewerOfImage = ({attributes,setAttributes, isButton = false, device = "de
     autoRotateInactivityDelay,
     isDeviceMotion,
     hideControl,
-    initialView,
-    initialPosition
+    initialView
   ]);
+
+  useGutenbergDragFix(imageContainerRef, imageContainerRef, isBackend, isSelected);
 
   const handleDeviceMotionToggle = () => {
     setIsDeviceMotionActive((prev) => !prev);
@@ -117,10 +119,10 @@ const ViewerOfImage = ({attributes,setAttributes, isButton = false, device = "de
     try {
       if (viewerRef.current && viewerRef.current.camera) {
         const camera = viewerRef.current.camera;
-        const {x,y,z} = camera.position;
+        const { x, y, z } = camera.position;
         setAttributes({
-            initialPosition: {x,y,z}
-          },
+          initialPosition: { x, y, z }
+        },
         );
         toast.success("Initial view set successfully", { position: "bottom-center" });
       } else {
@@ -133,31 +135,31 @@ const ViewerOfImage = ({attributes,setAttributes, isButton = false, device = "de
   };
 
   return (
-   <>
-   <ToastContainer />
+    <>
+      <ToastContainer />
 
-    {isDeviceMotion && device !== "desktop" && (
+      {isDeviceMotion && device !== "desktop" && (
         <button className="motionBtn" onClick={handleDeviceMotionToggle}>
           {isDeviceMotionActive ? "Stop Device Motion" : "Start Device Motion"}
         </button>
       )}
-    <div
-      ref={imageContainerRef}
-      className="bpgbPanorama"
-      key={`${url}-${autoRotate}-${rotateSpeed}-${autoRotateInactivityDelay}-${initialView}-${initialPosition}-${hideControl}-${isDeviceMotion}`}
-    >
-     
-      {isButton && initialView && (
-        <button
-          ref={buttonRef}
-          onClick={handleSetInitialView}
-          className="setInitialViewButton"
-        >
-          Set as Initial View
-        </button>
-      )}
-    </div>
-   </>
+      <div
+        ref={imageContainerRef}
+        className="bpgbPanorama"
+        key={`${url}-${autoRotate}-${rotateSpeed}-${autoRotateInactivityDelay}-${initialView}-${hideControl}-${isDeviceMotion}`}
+      >
+
+        {isButton && initialView && (
+          <button
+            ref={buttonRef}
+            onClick={handleSetInitialView}
+            className="setInitialViewButton"
+          >
+            Set as Initial View
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 

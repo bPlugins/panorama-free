@@ -21,12 +21,15 @@
  	}
  
      public static function get_services(){
-         return [
-             Base\registerPostType::class,
-             Woocommerce\ProductView::class,
-             Base\EnqueueAssets::class,
-         ];
-     }
+        return [
+            Base\registerPostType::class,
+            Woocommerce\ProductView::class,
+            Base\EnqueueAssets::class,
+            Base\Blocks::class,
+            Base\Admin::class,
+            Base\Ajax::class,
+        ];
+    }
  
      public static function get_woocommerce_services(){
          return [

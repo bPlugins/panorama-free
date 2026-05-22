@@ -42,7 +42,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
           array(
             'id'       => 'bppiv_type',
             'type'     => 'button_set',
-            'title'    => 'Panorama Type:',
+            'title'    => 'Panorama Type',
             'subtitle' => 'Choose your panorama type.',
             'desc'     => 'Choose from 3D images, 360° photos/videos, galleries, virtual tours, or Google Street View.',
             'options'  => array(
@@ -102,7 +102,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'           => 'bppiv_content',
             'type'         => 'content',
             'title'        => ' ',
-            'content'         => __('We have a new 360° Virtual Tour Viewer. <a href="edit.php?post_type=virtual_tour">click here</a> to create', 'panorama-viewer'),
+            'content'         => __('We have a new 360° Virtual Tour Viewer. <a href="edit.php?post_type=virtual_tour">click here</a> to create', 'panorama'),
             'dependency'   => array( 'bppiv_type', '==', 'tour360' ),
           ),
           // --- CONTENT SOURCE ---
@@ -134,8 +134,8 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
            array(
             'id'           => 'bppiv_pano_id',
             'type'         => 'text',
-            'title'        => __('Panorama ID', 'panorama-viewer'),
-            'desc' => __('Input here Google Street View Panorama Id. <a href="#" class="pano-help-link">How to find it?</a>', 'panorama-viewer'),
+            'title'        => __('Panorama ID', 'panorama'),
+            'desc' => __('Input here Google Street View Panorama Id. <a href="#" class="pano-help-link">How to find it?</a>', 'panorama'),
             'placeholder'  => 'Paste panorama ID here',
             'default'      => 'JmSoPsBPhqWvaBmOqfFzgA',
             'dependency'   => array('bppiv_type', '==', 'gstreet'),
@@ -218,7 +218,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
     public function controls() {
       CSF::createSection( $this->prefix, array(
         'title'  => 'Rotation & Controls',
-        'icon'   => 'fa fa-play-circle',
+        'icon'   => 'fa fa-sliders',
         'fields' => array(
           // --- Image/360 fields (hidden for video via CSS class) ---
           array(
@@ -400,7 +400,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
     public function dymensions() {
       CSF::createSection( $this->prefix, array(
         'title'  => 'Dimensions',
-        'icon'   => 'fa fa-play-circle',
+        'icon'   => 'fa fa-expand',
         'fields' => array(
            // --- DIMENSIONS ---
           array(
@@ -477,7 +477,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
       $html = '
       <div class="bppiv-pro-notice-box" style="margin-top: 30px; padding: 25px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
           <h4 class="bppiv-pro-notice-title" style="margin: 0 0 20px 0; color: #146ef5; font-size: 18px; display: flex; align-items: center; gap: 10px;">
-              <span>🚀</span> ' . __( 'Unlock Pro Features', 'panorama-viewer' ) . '
+              <span>🚀</span> ' . __( 'Unlock Pro Features', 'panorama' ) . '
           </h4>
           <ul class="bppiv-pro-notice-list" style="list-style: none; padding: 0; margin: 0 0 25px 0; display: grid; grid-template-columns: repeat(1, 1fr); gap: 15px;">';
       foreach ( $features as $title => $desc ) {
@@ -493,7 +493,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
       $html .= '
           </ul>
           <div style="display: flex; align-items: center; gap: 15px; border-top: 1px solid #edf2f7; padding-top: 20px;">
-              <a href="' . admin_url( 'admin.php?page=panorama-viewer-help-demo#/pricing' ) . '" target="_blank" style="background: #146ef5; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">' . __( 'Upgrade to Pro Now', 'panorama-viewer' ) . '</a>
+              <a href="' . admin_url( 'admin.php?page=panorama-viewer-help-demo#/pricing' ) . '" target="_blank" style="background: #146ef5; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">' . __( 'Upgrade to Pro Now', 'panorama' ) . '</a>
           </div>
       </div>';
       return $html;
@@ -503,7 +503,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
       $html = '
       <div class="bppiv-pro-notice-box" style="margin-top: 30px; padding: 25px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
           <h4 class="bppiv-pro-notice-title" style="margin: 0 0 20px 0; color: #146ef5; font-size: 18px; display: flex; align-items: center; gap: 10px;">
-              <span>🚀</span> ' . __( 'Unlock Pro Features', 'panorama-viewer' ) . '
+              <span>🚀</span> ' . __( 'Unlock Pro Features', 'panorama' ) . '
           </h4>
           <ul class="bppiv-pro-notice-list" style="list-style: none; padding: 0; margin: 0 0 25px 0; display: grid; grid-template-columns: repeat(1, 1fr); gap: 15px;">';
       foreach ( $features as $title => $desc ) {
@@ -519,7 +519,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
       $html .= '
           </ul>
           <div style="display: flex; align-items: center; gap: 15px; border-top: 1px solid #edf2f7; padding-top: 20px;">
-              <a href="' . admin_url( 'admin.php?page=panorama-viewer-help-demo#/pricing' ) . '" target="_blank" style="background: #146ef5; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">' . __( 'Upgrade to Pro Now', 'panorama-viewer' ) . '</a>
+              <a href="' . admin_url( 'admin.php?page=panorama-viewer-help-demo#/pricing' ) . '" target="_blank" style="background: #146ef5; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">' . __( 'Upgrade to Pro Now', 'panorama' ) . '</a>
           </div>
       </div>';
       $field = array( 'type' => 'content', 'content' => $html );

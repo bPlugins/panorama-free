@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "panorama/virtual-tour",
-	"version": "1.0.0",
+	"version": "1.7.0",
 	"title": "Virtual Tour",
 	"category": "widgets",
 	"description": "Create interactive 360° virtual tours with hotspots.",
@@ -91,6 +91,7 @@
 	],
 	"editorStyle": "file:../index.css",
 	"style": [
+		"file:./style-view.css",
 		"file:./view.css",
 		"bppiv-pannellum-css"
 	],
