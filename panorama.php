@@ -94,6 +94,7 @@ if ( function_exists( 'panorama_fs' ) ) {
             delete_option( 'bppiv_do_activation_redirect' );
 
             // Prevent redirect on bulk activation, ajax, cron, or REST API request
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             if ( isset( $_GET['activate-multi'] ) || 
                  ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || 
                  ( defined( 'DOING_CRON' ) && DOING_CRON ) || 

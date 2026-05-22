@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-22T19:57:26+00:00\n"
+"POT-Creation-Date: 2026-05-22T21:07:51+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: panorama\n"
@@ -45,6 +45,22 @@ msgstr ""
 
 #: inc/Base/Admin.php:67
 msgid "Help &amp; Demos"
+msgstr ""
+
+#: inc/Base/Ajax.php:18
+msgid "Invalid security token."
+msgstr ""
+
+#: inc/Base/Ajax.php:23
+msgid "You do not have permission to manage options."
+msgstr ""
+
+#: inc/Base/Ajax.php:35
+msgid "Data will be deleted on uninstall."
+msgstr ""
+
+#: inc/Base/Ajax.php:36
+msgid "Data will be preserved on uninstall."
 msgstr ""
 
 #: inc/Base/registerPostType.php:49
@@ -83,17 +99,17 @@ msgstr ""
 msgid "Panorama Options."
 msgstr ""
 
-#: inc/Base/registerPostType.php:277
+#: inc/Base/registerPostType.php:281
 msgid "Use this shortcode in your post or page, or click Embed to share it on other websites:"
 msgstr ""
 
 #. translators: %s: Rating URL.
-#: inc/Base/registerPostType.php:429
+#: inc/Base/registerPostType.php:433
 #, php-format
 msgid "If you like <strong> Panorama Viewer </strong> please leave us a <a href=\"%s\" target=\"_blank\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. Your Review is very important to us as it helps us to grow more. "
 msgstr ""
 
-#: inc/Base/registerPostType.php:451
+#: inc/Base/registerPostType.php:455
 msgid "Shortcode updated "
 msgstr ""
 
@@ -231,7 +247,7 @@ msgid "Awaiting product image"
 msgstr ""
 
 #: product-spot.php:21
-#: product-spot.php:208
+#: product-spot.php:211
 msgid "Product Spot"
 msgstr ""
 
@@ -247,31 +263,31 @@ msgstr ""
 msgid "There was no product spot please add one"
 msgstr ""
 
-#: product-spot.php:31
+#: product-spot.php:34
 msgid "Product Spot Block Published"
 msgstr ""
 
-#: product-spot.php:32
+#: product-spot.php:35
 msgid "Product Spot Block Updated"
 msgstr ""
 
-#: product-spot.php:158
+#: product-spot.php:161
 msgid "Invalid post ID or blocks data"
 msgstr ""
 
-#: product-spot.php:163
+#: product-spot.php:166
 msgid "You do not have permission to edit this post."
 msgstr ""
 
-#: product-spot.php:169
+#: product-spot.php:172
 msgid "Blocks data is not valid JSON"
 msgstr ""
 
-#: product-spot.php:195
+#: product-spot.php:198
 msgid "Saved successfully!"
 msgstr ""
 
-#: product-spot.php:201
+#: product-spot.php:204
 msgid "Failed to save"
 msgstr ""
 
@@ -781,6 +797,54 @@ msgstr ""
 
 #: src/blocks/virtual/Components/Common/UploadImage.js:9
 msgid "Paste or type a 360° panorama image URL"
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:21
+msgid "Failed to save setting."
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:31
+msgid "Are you sure? This will permanently delete all Panorama Viewer data (panoramas, product spots, virtual tours, and all settings) when the plugin is uninstalled."
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:42
+msgid "Delete Data on Uninstall"
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:44
+msgid "When enabled, all plugin data will be permanently deleted when you uninstall (delete) the plugin. This includes:"
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:47
+msgid "All Panorama posts (bppiv-image-viewer post type)"
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:48
+msgid "All Product Spot posts (product_spot post type)"
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:49
+msgid "All Virtual Tour posts (virtual_tour post type)"
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:50
+msgid "All panorama and hotspot configurations and metadata"
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:51
+msgid "All plugin settings and options"
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:55
+msgid "⚠️ This action cannot be undone. Your data will be safe if you only deactivate the plugin."
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:67
+msgid "Data will be deleted on uninstall"
+msgstr ""
+
+#: src/bplugins-admin/Components/Settings.js:68
+msgid "Data will be preserved on uninstall"
 msgstr ""
 
 #: src/bplugins-admin/Components/Welcome.js:16

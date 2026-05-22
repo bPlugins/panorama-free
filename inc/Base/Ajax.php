@@ -24,7 +24,7 @@ class Ajax {
 		}
 
 		// Check enabled post value.
-		$enabled = isset( $_POST['enabled'] ) && filter_var( $_POST['enabled'], FILTER_VALIDATE_BOOLEAN );
+		$enabled = isset( $_POST['enabled'] ) && filter_var( wp_unslash( $_POST['enabled'] ), FILTER_VALIDATE_BOOLEAN );
 
 		// Update option.
 		update_option( 'bppiv_delete_data_on_uninstall', $enabled );
