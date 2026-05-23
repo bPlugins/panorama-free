@@ -14,6 +14,7 @@ const PanoramicImageViewer = ({ attributes, setAttributes, isButton = true, devi
 
   useEffect(() => {
     const { PANOLENS } = window;
+    if (!PANOLENS) return;
     const panorama = new PANOLENS.ImagePanorama(imageUrl);
 
     viewerRef.current = new PANOLENS.Viewer({

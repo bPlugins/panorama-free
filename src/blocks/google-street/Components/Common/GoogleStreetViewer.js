@@ -17,6 +17,9 @@ const GoogleStreetViewer = ({ attributes, setAttributes, isButton = true, isBack
   useEffect(() => {
     if (!panoId) return;
 
+    const { PANOLENS } = window;
+    if (!PANOLENS) return;
+
     if (viewerInstance.current) {
       viewerInstance.current.dispose();
       viewerInstance.current = null;

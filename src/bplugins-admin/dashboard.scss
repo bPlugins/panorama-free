@@ -10,6 +10,7 @@
 }
 
 @import '../../../bpl-tools/Admin/style.scss';
+
 @import '../../../bpl-tools/Components/Button/style.scss';
 @import '../../../bpl-tools/Components/Loading/style.scss';
 
@@ -26,7 +27,6 @@
 	}
 }
 
-// Settings
 .bPlDashboardSettings {
 	max-width: 1200px;
 	padding: 32px !important;

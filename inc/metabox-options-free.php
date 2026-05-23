@@ -137,7 +137,6 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'title'        => __('Panorama ID', 'panorama'),
             'desc' => __('Input here Google Street View Panorama Id. <a href="#" class="pano-help-link">How to find it?</a>', 'panorama'),
             'placeholder'  => 'Paste panorama ID here',
-            'default'      => 'JmSoPsBPhqWvaBmOqfFzgA',
             'dependency'   => array('bppiv_type', '==', 'gstreet'),
           ),
           
