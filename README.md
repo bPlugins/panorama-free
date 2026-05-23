@@ -3,9 +3,9 @@
 ![Panorama Banner](https://ps.w.org/panorama/assets/banner-772x250.png)
 
 [![WordPress Support](https://img.shields.io/badge/WordPress-6.3+-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/plugins/panorama/)
-[![PHP Support](https://img.shields.io/badge/PHP-7.1+-777bb4.svg?style=flat-square&logo=php)](./readme.txt)
-[![GPLv2 License](https://img.shields.io/badge/License-GPLv2-green.svg?style=flat-square)](./readme.txt)
-[![Stable Version](https://img.shields.io/badge/Version-1.7.0-blue.svg?style=flat-square)](./readme.txt)
+[![PHP Support](https://img.shields.io/badge/PHP-7.1+-777bb4.svg?style=flat-square&logo=php)](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/readme.txt)
+[![GPLv2 License](https://img.shields.io/badge/License-GPLv2-green.svg?style=flat-square)](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/readme.txt)
+[![Stable Version](https://img.shields.io/badge/Version-1.7.0-blue.svg?style=flat-square)](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/readme.txt)
 
 **Panorama** is a lightweight, high-performance, and fully responsive 360-degree virtual tour and panoramic media viewer plugin for WordPress. It lets you embed 360° photos, videos, and Google Street View locations into your posts, pages, widget areas, or templates using shortcodes or modern Gutenberg blocks—no coding required!
 
@@ -35,93 +35,136 @@ Unlock advanced features for premium real estate tours, vehicle showcases, and i
 
 ---
 
-## 📸 Visual Showcase
+## 🧩 Gutenberg Blocks Reference
 
-### Interactive Gutenberg Block
-Easily drag, drop, and configure panoramic block styles inside the WordPress editor. See live styling changes and preview exactly what the frontend visitor will see.
+The plugin registers a series of modern block components for standard pages, posts, or customized layouts:
 
-### Cross-Device Responsive Viewer
-Tested and optimized for Safari on iOS to guarantee a smooth touch-navigation experience for mobile users.
-
----
-
-## 🛠 Technical Stack
-
-This project is built using modern, industry-standard web libraries to ensure high FPS rendering and reliability:
-
-- **Frontend JS/React:** [React](https://react.org/) (Powers the advanced block editor configurations, custom controls, and Gutenberg sidebar settings).
-- **Core 3D Engine:** [Three.js](https://threejs.org/) & [Panolens.js](https://github.com/pissang/panolens.js) (Renders equirectangular image spheres, interactive tours, hotspots, and 360° video streams via WebGL).
-- **WebGL Image Engine:** [Pannellum](https://pannellum.org/) for highly efficient, lightweight 360° equirectangular image viewers.
-- **Accessible Video Engine:** [Video.js](https://videojs.com/) and `videojs-vr` for seamless cross-browser 360-degree video playback.
-- **Build System:** `@wordpress/scripts` (Webpack) for block bundling, dependency injection, and compiled asset generation.
-- **Styling:** Modular SASS/SCSS and native CSS utilities for conflict-free admin and frontend styling.
-- **Backend Architecture:** PHP with standard Custom Post Type (`bppiv-image-viewer`, `virtual_tour`, `product_spot`) wrappers and dynamic shortcode enqueuing.
+| Block Title | Block Name (Slug) | Description |
+| :--- | :--- | :--- |
+| **Panorama Viewer** | `panorama/parent` | Parent block for choosing and wrapping individual viewer styles. |
+| **Image 3D** | `panorama/image-3d` | Embed and style flat 3D-effect images. |
+| **Image 360°** | `panorama/image-360` | Embed interactive 360° equirectangular panoramas. |
+| **Video** | `panorama/video` | Embed flat panoramic video players. |
+| **Video 360°** | `panorama/video-360` | Play fully interactive 360° immersive video files. |
+| **Google Street** | `panorama/google-street` | Render dynamic Google Street View configurations via a Panorama ID. |
+| **Gallery** | `panorama/gallery` | Display responsive grid and column layouts of multiple panoramas. |
+| **Tour 360°** | `panorama/tour` | Render localized multi-point tours. |
+| **Virtual Tour** | `panorama/virtual-tour` | Build multi-scene interactive tours with clickable hotspots. |
+| **Product Spot** | `psb/product-spot` | Highlight physical product features with interactive overlay spots. |
+| **Panorama Block** | `bpgb/panorama` | Legacy/general purpose block configuration helper. |
 
 ---
 
-## 📚 Third-Party Libraries
+## 🗂 Custom Post Types (CPTs)
 
-Panorama utilizes these high-quality, open-source libraries to deliver an exceptional, hardware-accelerated experience:
+To separate configurations cleanly, the plugin registers three custom post types under [registerPostType.php](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/inc/Base/registerPostType.php):
 
-- **[Three.js](https://github.com/mrdoob/three.js/)** (MIT): The primary WebGL 3D engine.
-- **[Panolens.js](https://github.com/pissang/panolens.js)** (MIT): The lightweight panoramas rendering library built on Three.js.
-- **[Pannellum](https://github.com/mpetroff/pannellum)** (MIT): An excellent, lightweight WebGL-based panorama viewer.
-- **[Video.js](https://github.com/videojs/video.js)** (Apache-2.0): The core HTML5 and VR video player framework.
-- **[Codestar Options Framework](http://codestarframework.com/)**: Standardized custom metabox fields and dashboard settings panels.
+1. **`bppiv-image-viewer` (Panorama Viewer):** Handles standard 360° images, flat videos, 360° videos, Google Street View, and galleries.
+2. **`virtual_tour` (360° Virtual Tour):** Handles scenes and hotspots for multi-point virtual walkthroughs.
+3. **`product_spot` (Product Spot):** Manages interactive hotspots with custom labels and descriptions.
+
+---
+
+## 🔌 Developer Shortcodes API
+
+Embed any of the saved panoramas, tours, or hotspots anywhere on your site using our built-in shortcodes:
+
+### 1. Standard Panorama
+Embed any saved panorama configuration from the `bppiv-image-viewer` post type:
+```markdown
+[panorama id="123"]
+```
+*Defined in:* [shortcode.php](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/shortcode.php#L7-L46) or [registerPostType.php](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/inc/Base/registerPostType.php#L170-L203).
+
+### 2. 360° Virtual Tour
+Embed multi-scene virtual tours from the `virtual_tour` post type:
+```markdown
+[virtual-tour id="456"]
+```
+*Defined in:* [registerPostType.php](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/inc/Base/registerPostType.php#L135-L168).
+
+### 3. WooCommerce Product Showcase
+Embed a panoramic image/video dynamically on the single WooCommerce product page:
+```markdown
+[panorama_product_viewer]
+```
+*Defined in:* [shortcode.php](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/shortcode.php#L50-L96).
+
+### 4. Interactive Product Spot
+Embed customizable hotspot images and product guides from the `product_spot` post type:
+```markdown
+[product_spot id="789"]
+```
+*Defined in:* [product-spot.php](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/product-spot.php#L268-L301).
+
+---
+
+## 🛒 WooCommerce Integration
+
+The plugin features a deep integration with WooCommerce to replace or augment standard single product galleries with interactive panoramic assets.
+
+> [!NOTE]
+> Settings are managed within the product editor sidebar metadata card (`_bppiv_product_` postmeta block).
+
+### Positioning Configurations
+Developers and administrators can specify the rendering position of the panorama viewer:
+- `none`: Disable rendering and fall back to standard WooCommerce galleries.
+- `top`: Mounts the viewer directly **above** the main product gallery.
+- `bottom`: Mounts the viewer directly **below** the main product gallery.
+- `replace`: Hides the standard product thumbnails and displays the interactive 3D viewer in place of the primary image.
+
+*Code Reference:* Managed dynamically within [ProductMeta.php](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/inc/Woocommerce/ProductMeta.php) and rendered through [ProductView.php](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/inc/Woocommerce/ProductView.php).
+
+---
+
+## 🛠 Technical Stack & Libraries
+
+This project uses modern high-performance libraries to deliver standard-setting fluid WebGL rendering on all browsers:
+
+- **Frontend JS/React:** React is used to drive the custom Gutenberg block interfaces, custom sidebars, and admin dashboard fields.
+- **Core 3D Engine:** [Three.js](https://threejs.org/) & [Panolens.js](https://github.com/pissang/panolens.js) power equirectangular mapping, virtual tours, and 360° video projections.
+- **Image WebGL Engine:** [Pannellum](https://pannellum.org/) is used for lightweight, fast 360° equirectangular standard image displays.
+- **Accessible Video Engine:** [Video.js](https://videojs.com/) and `videojs-vr` handle standard format files and panoramic video playback.
+- **Build System:** Webpack via `@wordpress/scripts` handles block transpilation and code splitting.
 
 ---
 
 ## 💻 Developer Guide
 
-### Directory Structure
+### Directory Layout
+
 - **`/src`**: Active React components, SCSS styling, and Webpack entry files.
-	- **`/blocks`**: Gutenberg block sources (`gallery`, `google-street`, `image-360`, `image-3d`, `parent`, `product-spot`, `tour`, `video`, `video-360`, `virtual`).
-	- **`/admin`**: Custom admin-side editor JS assets, styles, and metabox helpers.
-	- **`/components`**: Reusable React components used in the block configuration sidebars (e.g. `BMediaUpload`, `Spacer`, `BCustomFonts`).
-	- **`/view`**: Frontend JS assets (`scripts.js`, `videojs-init.js`) for compiling, mounting, and loading the WebGL player configurations.
+  - **`/blocks`**: Gutenberg block sources (`gallery`, `google-street`, `image-360`, `image-3d`, `parent`, `product-spot`, `tour`, `video`, `video-360`, `virtual`).
+  - **`/admin`**: Custom admin-side editor JS assets, styles, and metabox helpers.
+  - **`/components`**: Reusable React components used in the block configuration sidebars.
+  - **`/view`**: Frontend JS assets (`scripts.js`, `videojs-init.js`) for compiling, mounting, and loading the WebGL player configurations.
 - **`/inc`**: Core PHP controllers, namespace loaders, and WooCommerce integration files.
+  - **`/Base`**: Handlers for admin screens, CPT registers, asset enqueuing, and blocks.
+  - **`/Woocommerce`**: WooCommerce hooks, templates, and metadata structures.
 - **`/build`**: Compiled and bundled files (automatically generated via Webpack; do not edit manually).
 - **`panorama.php`**: The main executable and plugin bootstrapper.
 
 ### Development Workflow
-1. **Clone the repository** into your local WordPress `plugins` directory.
-2. **Clone [bpl-tools](https://github.com/bPlugins/bpl-tools)** into the same `plugins` directory (required for shared components and admin dashboard layout).
-3. **Install dependencies**:
-	```bash
-	npm install
-	```
-4. **Start development watch mode**:
-	```bash
-	npm start
-	```
-5. **Create a production bundle**:
-	```bash
-	npm run build
-	```
+
+1. Clone the repository into your local WordPress `plugins` directory.
+2. Clone [bpl-tools](https://github.com/bPlugins/bpl-tools) into the same directory (required for dashboard components).
+3. Install development dependencies:
+   ```bash
+   npm install
+   ```
+4. Start development hot-rebuild mode:
+   ```bash
+   npm start
+   ```
+5. Compile minified assets for release:
+   ```bash
+   npm run build
+   ```
 
 ### Data Flow & Lifecycle
-1. **Editor:** Gutenberg blocks in `/src/blocks` manage options via block attributes.
-2. **Database:** Attributes are serialized as standard Gutenberg comments in the database.
-3. **Frontend (PHP):** `shortcode.php` or `render.php` reads the stored attributes and outputs HTML placeholders with `data-settings` JSON tags.
-4. **Frontend (JS):** `scripts.js` parses the `data-settings` wrapper, detects the active Panorama Type, and initializes Panolens, Pannellum, or Videojs-VR dynamically onto the target DOM container.
-
----
-
-## 🔌 Developer API
-
-### Universal Shortcode
-Embed any saved panorama configuration quickly:
-```
-[panorama id="123"]
-```
-For Virtual Tour:
-```
-[virtual-tour id="456"]
-```
-For WooCommerce Product Showcase:
-```
-[panorama_product_viewer]
-```
+1. **Editor Side:** Block settings are configured via React wrappers in `/src/blocks` and stored as serialized block attribute comments in the post content database.
+2. **PHP Frontend Rendering:** When a shortcode or block renders on the frontend, the server parses the attributes and outputs a DOM container with a `data-settings` JSON attribute.
+3. **JS Initialization:** The compiled frontend script parses `data-settings` and initializes the correct engine (Three.js/Panolens, Pannellum, or Video.js) onto the container automatically.
 
 ---
 
@@ -131,4 +174,4 @@ For WooCommerce Product Showcase:
 - [Upgrade to Pro](https://bplugins.com/products/panorama/pricing)
 
 ---
-*Developed by [bPlugins](https://bplugins.com)*
+*Developed with ❤️ by [bPlugins](https://bplugins.com)*
