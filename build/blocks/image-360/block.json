@@ -4,7 +4,7 @@
   "name": "panorama/image-360",
   "title": "Image 360°",
   "category": "widgets",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Interactive 360° Viewer for Panoramic Images.",
   "keywords": [
     "panoramic image viewer",

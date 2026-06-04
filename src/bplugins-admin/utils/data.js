@@ -38,6 +38,14 @@ export const dashboardInfo = (info) => {
 		changelogs: [
 			{
 				type: 'update',
+				version: '1.7.1 - 04 Jun, 2026',
+				list: [
+					'Enhancement: Kept the Panorama Type selection field visible globally across all tabs with tab state persistence.'
+				]
+			},
+
+			{
+				type: 'update',
 				version: '1.7.0 - 23 May, 2026',
 				list: [
 					'Update: Refactored architecture to decouple shared Pro code, establishing a clean standalone Free version.',
@@ -48,24 +56,6 @@ export const dashboardInfo = (info) => {
 					'Update: Enhanced sanitization, escaping, and prefix compliance for WordPress.org standards.',
 					'Cleanup: Purged legacy unused scripts and added secure database cleanup on uninstall.'
 				]
-			},
-
-			{
-				type: 'fix',
-				version: '1.6.1 - 12 May, 2026',
-				list: [
-					'Fixed: Removed unintended premium-only license activation file from free version.',
-				]
-			},
-
-			{
-				type: 'update',
-				version: '1.6.0 - 29 Mar, 2026',
-				list: [
-					'Embed URL option added for 360 Virtual Tours and Product Spot (Gutenberg block + dashboard settings).',
-					'Modernized shortcode clipboard UI with integrated embed URL support.',
-					'Initial View Toggle, Position, and Zoom Level (FOV) controls added for Gallery items with per-item customization (Gutenberg block + dashboard settings).'
-				],
 			}
 
 		],

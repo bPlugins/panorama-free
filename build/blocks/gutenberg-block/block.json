@@ -3,7 +3,7 @@
   "apiVersion": 3,
   "name": "bpgb/panorama",
   "title": "Panorama - Gutenberg Block",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Panoramic 360 Degree Views.",
   "category": "widgets",
   "keywords": [

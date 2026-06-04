@@ -1,6 +1,6 @@
 import Overview from '../../../../bpl-tools/Admin/Overview';
-import Changelog from '../../../../bpl-tools/Admin/Changelog';
-import ProAds from '../../../../bpl-tools/Admin/ProAds';
+import Changelog from '../../../../bpl-tools/Admin/Welcome/Changelog';
+import ProAds from '../../../../bpl-tools/Admin/Welcome/ProAds';
 const { __ } = wp.i18n;
 
 const Welcome = (props) => {
