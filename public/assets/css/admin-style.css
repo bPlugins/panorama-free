@@ -126,3 +126,15 @@
   color: #1a3e6f;
   border-radius: 4px;
 }
+
+/* Style the Configuration section split separator when viewing other tabs */
+.csf-content .csf-section.csf-section-split {
+  border-bottom: 2px solid #f0f3f5 !important;
+  padding-bottom: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Helper class to dynamically hide secondary fields in Configuration section */
+.bppiv-hide-field {
+  display: none !important;
+}
