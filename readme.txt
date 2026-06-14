@@ -3,7 +3,7 @@ Contributors: bplugins, abuhayat, freemius, shamim10, farazi1
 Tags: panorama, 360 degree, 3d, virtual tour, krpano, 
 Requires at least: 6.5
 Tested up to: 7.0
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -169,6 +169,9 @@ e.g.
 8. Gallery
 
 == Changelog ==
+
+= 1.7.2 - 14 Jun, 2026 =
+* **Update:** Redesigned and modernized the admin dashboard welcome screen with dynamic builder integration tabs (Gutenberg, Shortcode) and status checks.
 
 = 1.7.1 - 04 Jun, 2026 =
 * **Enhancement:** Kept the Panorama Type selection field visible globally across all tabs with tab state persistence.

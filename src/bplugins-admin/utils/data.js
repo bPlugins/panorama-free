@@ -1,7 +1,9 @@
+import { gutenbergTabIcon, shortcodeTabIcon } from "./icons";
+
 const slug = 'panorama';
 
 export const dashboardInfo = (info) => {
-	const { version, isPremium, hasPro, deleteDataOnUninstall, uninstallNonce } = info;
+	const { version, isPremium, hasPro, deleteDataOnUninstall, uninstallNonce, adminUrl = '' } = info;
 
 	const proSuffix = isPremium ? ' Pro' : '';
 
@@ -15,6 +17,7 @@ export const dashboardInfo = (info) => {
 		hasPro,
 		deleteDataOnUninstall,
 		uninstallNonce,
+		adminUrl,
 		displayOurPlugins: true,
 		media: {
 			logo: `https://ps.w.org/${slug}/assets/icon-256x256.png`,
@@ -35,45 +38,10 @@ export const dashboardInfo = (info) => {
 			public_key: 'pk_a112d1d1d66d3b480dbea5690d3ff'
 		},
 
-		changelogs: [
-			{
-				type: 'update',
-				version: '1.7.1 - 04 Jun, 2026',
-				list: [
-					'Enhancement: Kept the Panorama Type selection field visible globally across all tabs with tab state persistence.'
-				]
-			},
 
-			{
-				type: 'update',
-				version: '1.7.0 - 23 May, 2026',
-				list: [
-					'Update: Refactored architecture to decouple shared Pro code, establishing a clean standalone Free version.',
-					'Update: Upgraded Gutenberg blocks to API version 3.',
-					'Fix: Resolved dragging lock and cursor drift issues in Gutenberg block editors.',
-					'Improvement: Streamlined settings panels by replacing lock screens with clean premium feature notices.',
-					'Improvement: Modernized admin dashboard settings layout and WooCommerce metabox sections.',
-					'Update: Enhanced sanitization, escaping, and prefix compliance for WordPress.org standards.',
-					'Cleanup: Purged legacy unused scripts and added secure database cleanup on uninstall.'
-				]
-			}
-
-		],
-		proFeatures: [
-			'Seamlessly display panoramic photos, videos, and multi-scene tours.',
-			'Connect multiple 360° scenes using customizable hotspots, links, and tooltips.',
-			'Embed any public Google Street View location directly into your pages.',
-			'Organize mixed collections of photos and videos in beautiful responsive layouts.',
-			'Customize columns, grids, spacing, and item display limits with ease.',
-			'Keep visitors engaged with automated panning that pauses on user interaction.',
-			'Set the perfect initial angle, pitch, and zoom level for every panorama.',
-			'Includes fullscreen toggle, picture-in-picture, and video speed control.',
-			'Add, remove, or customize zoom, drag, orientation, and virtual compass settings.',
-			'Display customizable title and credit overlays on your viewer interface.'
-		],
 		startButton: {
 			label: 'Start Now',
-			url: 'wp-admin/post-new.php?post_type=bppiv-image-viewer'
+			url: `${adminUrl}post-new.php?post_type=bppiv-image-viewer`
 		}
 	}
 }
@@ -141,4 +109,102 @@ export const pricingInfo = {
 		selected: 3,
 	}
 }
+
+export const welcomeInfo = (adminUrl) => ({
+	keywords: ['360° Image', '360° Video', 'Virtual Tour', 'Gutenberg Block', 'Shortcode', 'Google Street View', 'Product Spot'],
+	keywordsLabel: 'Features',
+	gettingStarted: {
+		tabs: [
+			{
+				key: 'gutenberg',
+				label: 'Gutenberg',
+				icon: gutenbergTabIcon,
+				steps: [
+					{
+						num: 1,
+						title: 'Add the Panorama Block',
+						body: 'Open the block editor on any page or post. Click the <strong>+</strong> icon in the top-left corner or search for <strong>Panorama</strong> blocks (like Image 360°, Video 360°, Tour 360°) to insert them.',
+						link: { url: `${adminUrl}post-new.php?post_type=page`, label: 'Open Editor' }
+					},
+					{
+						num: 2,
+						title: 'Select Media Source',
+						body: 'Choose your panoramic image or video file from your Media Library or upload a new one. For Tour 360°, configure scenes and hotspots.'
+					},
+					{
+						num: 3,
+						title: 'Configure Settings & Publish',
+						body: 'Customize the viewer options like autoplay, speed, zoom, control bar, and full-screen options in the block sidebar. Save and publish your post/page.'
+					}
+				]
+			},
+			{
+				key: 'shortcode',
+				label: 'Shortcode',
+				icon: shortcodeTabIcon,
+				steps: [
+					{
+						num: 1,
+						title: 'Create a New Panorama',
+						body: 'Navigate to <strong>Panorama -> Add New</strong>. Give your panorama viewer a title and configure your media and options.',
+						link: { url: `${adminUrl}post-new.php?post_type=bppiv-image-viewer`, label: 'Add New' }
+					},
+					{
+						num: 2,
+						title: 'Configure Settings',
+						body: 'Upload your 360° image or video, set hotspot overlays, customize display options, and click <strong>Publish</strong>.'
+					},
+					{
+						num: 3,
+						title: 'Copy & Paste Shortcode',
+						body: 'Copy the generated shortcode (e.g. <code>[panorama id="123"]</code>) from the viewer editing screen or the viewer list, and paste it into any page, post, or widget.'
+					}
+				]
+			}
+		]
+	},
+	changelogs: [
+		{
+			type: 'update',
+			version: '1.7.2 - 14 Jun, 2026',
+			list: [
+				'Update: Redesigned and modernized the admin dashboard welcome screen with dynamic builder integration tabs (Gutenberg, Shortcode) and status checks.'
+			]
+		},
+		{
+			type: 'update',
+			version: '1.7.1 - 04 Jun, 2026',
+			list: [
+				'Enhancement: Kept the Panorama Type selection field visible globally across all tabs with tab state persistence.'
+			]
+		},
+		{
+			type: 'update',
+			version: '1.7.0 - 23 May, 2026',
+			list: [
+				'Update: Refactored architecture to decouple shared Pro code, establishing a clean standalone Free version.',
+				'Update: Upgraded Gutenberg blocks to API version 3.',
+				'Fix: Resolved dragging lock and cursor drift issues in Gutenberg block editors.',
+				'Improvement: Streamlined settings panels by replacing lock screens with clean premium feature notices.',
+				'Improvement: Modernized admin dashboard settings layout and WooCommerce metabox sections.',
+				'Update: Enhanced sanitization, escaping, and prefix compliance for WordPress.org standards.',
+				'Cleanup: Purged legacy unused scripts and added secure database cleanup on uninstall.'
+			]
+		}
+	],
+	changelogsLimit: 5,
+	changelogsReadMoreLabel: 'View More Changelogs',
+	proFeatures: [
+		'Seamlessly display panoramic photos, videos, and multi-scene tours.',
+		'Connect multiple 360° scenes using customizable hotspots, links, and tooltips.',
+		'Embed any public Google Street View location directly into your pages.',
+		'Organize mixed collections of photos and videos in beautiful responsive layouts.',
+		'Customize columns, grids, spacing, and item display limits with ease.',
+		'Keep visitors engaged with automated panning that pauses on user interaction.',
+		'Set the perfect initial angle, pitch, and zoom level for every panorama.',
+		'Includes fullscreen toggle, picture-in-picture, and video speed control.',
+		'Add, remove, or customize zoom, drag, orientation, and virtual compass settings.',
+		'Display customizable title and credit overlays on your viewer interface.'
+	]
+})
 

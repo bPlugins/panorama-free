@@ -30,6 +30,7 @@ function bppiv_dashboard_page(){ ?>
             'version' => BPPIV_VERSION,
             'isPremium' => false,
             'hasPro' => false,
+            'adminUrl' => admin_url(),
             'deleteDataOnUninstall' => (bool) get_option( 'bppiv_delete_data_on_uninstall', false ),
             'uninstallNonce'        => wp_create_nonce( 'bppiv_uninstall_nonce' ),
         ] ) ); ?>'

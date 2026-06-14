@@ -25,6 +25,27 @@
 		align-items: center;
 		width: 100%;
 	}
+
+	.banner {
+		// background: transparent !important;
+		padding: 24px !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+
+		&::before {
+			background: transparent !important;
+		}
+
+		img {
+			max-width: 100% !important;
+			max-height: 100% !important;
+			width: auto !important;
+			height: auto !important;
+			object-fit: contain !important;
+			object-position: center !important;
+		}
+	}
 }
 
 .bPlDashboardSettings {

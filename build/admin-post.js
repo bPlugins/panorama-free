@@ -1,0 +1,1 @@
+(()=>{"use strict";window.copyBPlAdminShortcode=e=>{var o=document.querySelector("#bPlAdminShortcode-"+e+" input"),t=document.querySelector("#bPlAdminShortcode-"+e+" .tooltip");o.select(),o.setSelectionRange(0,30),document.execCommand("copy"),t.innerHTML="Copied Successfully!",setTimeout((()=>{t.innerHTML="Copy To Clipboard"}),1500)}})();
