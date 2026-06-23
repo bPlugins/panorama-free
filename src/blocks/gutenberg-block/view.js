@@ -10,7 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
   panoramaEls.forEach((panoramaEl) => {
     const attributes = JSON.parse(panoramaEl.dataset.attributes);
 
-    const device = window.innerWidth < 768 ? "mobile" : "desktop";
+    let device = "desktop";
+
+    if (window.innerWidth < 768) {
+      device = "mobile";
+    } else if (window.innerWidth < 1024) {
+      device = "tablet";
+    }
 
     createRoot(panoramaEl).render(
       <>

@@ -67,18 +67,33 @@ const PanoramicImageViewer = ({ attributes, setAttributes, isButton = true, devi
   useGutenbergDragFix(imageContainerRef, imageContainerRef, isBackend, isSelected);
 
   const handleDeviceMotionToggle = () => {
-    setIsDeviceMotionActive((prev) => !prev);
-  };
+    if (!window.isSecureContext) {
+      toast.warning("Device Motion requires a secure HTTPS connection!", { position: "top-right" });
+      return;
+    }
 
-  const handleDeviceOrientation = (event) => {
-    const { alpha, beta, gamma } = event;
+    if (!("DeviceOrientationEvent" in window)) {
+      toast.error("Device orientation sensors are not supported on this device or browser.", { position: "top-right" });
+      return;
+    }
 
-    if (viewerRef.current && viewerRef.current.camera) {
-      viewerRef.current.camera.rotation.set(
-        THREE.Math.degToRad(beta),
-        THREE.Math.degToRad(alpha),
-        THREE.Math.degToRad(-gamma)
-      );
+    if (
+      typeof window.DeviceOrientationEvent?.requestPermission === "function"
+    ) {
+      window.DeviceOrientationEvent.requestPermission()
+        .then((response) => {
+          if (response === "granted") {
+            setIsDeviceMotionActive((prev) => !prev);
+          } else {
+            toast.error("Permission to access motion sensors was denied.", { position: "top-right" });
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          toast.error("Failed to request permission for motion sensors.", { position: "top-right" });
+        });
+    } else {
+      setIsDeviceMotionActive((prev) => !prev);
     }
   };
 
@@ -87,31 +102,10 @@ const PanoramicImageViewer = ({ attributes, setAttributes, isButton = true, devi
       viewerRef.current?.enableControl(
         window.PANOLENS.CONTROLS.DEVICEORIENTATION
       );
-      if (
-        typeof window.DeviceOrientationEvent?.requestPermission === "function"
-      ) {
-        window.DeviceOrientationEvent?.requestPermission()
-          .then((response) => {
-            if (response === "granted") {
-              window.addEventListener(
-                "deviceorientation",
-                handleDeviceOrientation
-              );
-            }
-          })
-          .catch(console.error);
-      } else {
-        window.addEventListener("deviceorientation", handleDeviceOrientation);
-      }
     } else {
-      window.removeEventListener("deviceorientation", handleDeviceOrientation);
       viewerRef.current?.enableControl(window.PANOLENS.CONTROLS.ORBIT);
     }
     window.viewerRef = viewerRef;
-
-    return () => {
-      window.removeEventListener("deviceorientation", handleDeviceOrientation);
-    };
   }, [isDeviceMotionActive]);
 
   const handleSetInitialView = () => {
@@ -143,7 +137,7 @@ const PanoramicImageViewer = ({ attributes, setAttributes, isButton = true, devi
     <>
       <ToastContainer />
 
-      {isDeviceMotion && isMotionSupported && device !== "desktop" && (
+      {isDeviceMotion && device !== "desktop" && (
         <button className="motionBtn" onClick={handleDeviceMotionToggle}>
           {isDeviceMotionActive ? "Stop Device Motion" : "Start Device Motion"}
         </button>

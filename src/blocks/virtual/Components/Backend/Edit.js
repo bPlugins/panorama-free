@@ -18,7 +18,7 @@ const Edit = (props) => {
 
   const shortcode = `[virtual-tour id=${currentPostId}]`;
   const iframeUrl = `${siteUrl}/?p=${currentPostId}`;
-  const embedCode = `<iframe src="${iframeUrl}" width="100%" height="600" frameborder="0" loading="lazy" allowfullscreen></iframe>`;
+  const embedCode = `<iframe src="${iframeUrl}" width="100%" height="600" frameborder="0" loading="lazy" allow="accelerometer; gyroscope; magnetometer; fullscreen; xr-spatial-tracking" allowfullscreen></iframe>`;
 
   return (
     <>

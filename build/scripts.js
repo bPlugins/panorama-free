@@ -1,1 +1,111 @@
-(()=>{var a;(a=jQuery)(document).ready((function(){const e=document.querySelectorAll(".bppiv_panorama");Object.values(e).map((e=>{const o=a(e).data("settings");a(e).removeAttr("data-settings");const{bppiv_type:t,bppiv_image_src:n,bppiv_video_src:r,bppiv_auto_play:p,bppiv_video_mute:l,bppiv_video_loop:i,image_src_360:s,bppiv_auto_rotate:_,bppiv_speed:u,bppiv_auto_load:c,control_show_hide:d,draggable_360:v,compass_360:m,title_author:B,title_360:b,author_360:w,initial_view:I,initial_view_property:g}=o;if("video"===t){const a=r?r.url:[],o=Boolean(parseInt(p)),t=Boolean(parseInt(l)),n=Boolean(parseInt(i)),s=!0!==Boolean(parseInt(i)),_=new PANOLENS.VideoPanorama(a,{autoplay:o,loop:n,muted:t});new PANOLENS.Viewer({container:e,controlBar:s}).add(_)}else if("image360"===t){const o=null!=s?s:"",t=Boolean(parseInt(_))?u:0,n=Boolean(parseInt(c)),r=1!=Boolean(parseInt(d)),p=Boolean(parseInt(v)),l=null!=B?B:0,i=Boolean(parseInt(m)),y=Boolean(parseInt(I))&&{pitch:parseFloat(g.top),yaw:parseFloat(g.right),hfov:parseFloat(g.bottom)}||{},h=a(e).attr("id"),N="1"===l?{title:b,author:w}:{};pannellum.viewer(h,{type:"equirectangular",panorama:o,preview:o,autoLoad:n,autoRotate:t,draggable:p,showControls:r,compass:i,orientationOnByDefault:!0,...N,...y})}else{const a=n?n.url:[],o=Boolean(parseInt(_)),t=u||2,r=1!=Boolean(parseInt(d)),p=new PANOLENS.ImagePanorama(a);new PANOLENS.Viewer({container:e,autoRotate:o,autoRotateSpeed:parseFloat(t),controlBar:r}).add(p)}}))}))})();
+/******/ (() => { // webpackBootstrap
+/*!*****************************!*\
+  !*** ./src/view/scripts.js ***!
+  \*****************************/
+(function ($) {
+  $(document).ready(function () {
+    const panoContainer = document.querySelectorAll(".bppiv_panorama");
+    Object.values(panoContainer).map(item => {
+      const settings = $(item).data("settings");
+      $(item).removeAttr("data-settings");
+      const {
+        bppiv_type,
+        bppiv_image_src,
+        bppiv_video_src,
+        bppiv_auto_play,
+        bppiv_video_mute,
+        bppiv_video_loop,
+        image_src_360,
+        bppiv_auto_rotate,
+        bppiv_speed,
+        bppiv_auto_load,
+        control_show_hide,
+        draggable_360,
+        compass_360,
+        title_author,
+        title_360,
+        author_360,
+        initial_view,
+        initial_view_property: viewProperty
+        // custom_control,
+      } = settings;
+
+      //Video options
+      if (bppiv_type === "video") {
+        const videoeSource = bppiv_video_src ? bppiv_video_src.url : [];
+        const isAutoPlay = Boolean(parseInt(bppiv_auto_play));
+        const isVideoMute = Boolean(parseInt(bppiv_video_mute));
+        const isVideoLoop = Boolean(parseInt(bppiv_video_loop));
+        const isHideControl = Boolean(parseInt(bppiv_video_loop)) !== true;
+        const panoramaVideo = new PANOLENS.VideoPanorama(videoeSource, {
+          autoplay: isAutoPlay,
+          loop: isVideoLoop,
+          muted: isVideoMute
+        });
+        const panoramaViewer = new PANOLENS.Viewer({
+          container: item,
+          controlBar: isHideControl
+        });
+        panoramaViewer.add(panoramaVideo);
+
+        //Image360 options
+      } else if (bppiv_type === "image360") {
+        const image360 = image_src_360 !== null && image_src_360 !== void 0 ? image_src_360 : "";
+        const isAutoRotate = Boolean(parseInt(bppiv_auto_rotate));
+        const rotateSpeed = isAutoRotate ? bppiv_speed : 0;
+        const autoLoad = Boolean(parseInt(bppiv_auto_load));
+        const isHideControl = Boolean(parseInt(control_show_hide)) != true;
+        const isDraggable = Boolean(parseInt(draggable_360));
+        const titleAuthor = title_author !== null && title_author !== void 0 ? title_author : 0;
+        const compass360 = Boolean(parseInt(compass_360));
+        const initialView = Boolean(parseInt(initial_view)) && {
+          pitch: parseFloat(viewProperty.top),
+          yaw: parseFloat(viewProperty.right),
+          hfov: parseFloat(viewProperty.bottom)
+        } || {};
+
+        // default value of viewProperty
+        //  'top'    => 2.3,
+        // 'right'  => -360.4,
+        // 'bottom' => 100,
+
+        // container id
+        const panoId = $(item).attr("id");
+        const titleAuthorOptions = titleAuthor === "1" ? {
+          title: title_360,
+          author: author_360
+        } : {};
+        pannellum.viewer(panoId, {
+          type: "equirectangular",
+          panorama: image360,
+          preview: image360,
+          autoLoad,
+          autoRotate: rotateSpeed,
+          draggable: isDraggable,
+          showControls: isHideControl,
+          compass: compass360,
+          //northOffset: -160.5,
+          orientationOnByDefault: true,
+          ...titleAuthorOptions,
+          ...initialView
+        });
+      } else {
+        const imageSource = bppiv_image_src ? bppiv_image_src.url : [];
+        const isAutoRotate = Boolean(parseInt(bppiv_auto_rotate));
+        const autoRotateSpeed = bppiv_speed ? bppiv_speed : 2;
+        const isHideControl = Boolean(parseInt(control_show_hide)) != true;
+        const panorama = new PANOLENS.ImagePanorama(imageSource);
+        const viewer = new PANOLENS.Viewer({
+          container: item,
+          autoRotate: isAutoRotate,
+          autoRotateSpeed: parseFloat(autoRotateSpeed),
+          controlBar: isHideControl
+        });
+        viewer.add(panorama);
+      }
+    });
+  });
+})(jQuery);
+/******/ })()
+;
+//# sourceMappingURL=scripts.js.map

@@ -313,13 +313,13 @@ class registerPostType{
                         }
                         if ($type === 'video2') {
                             $iframe_code = sprintf(
-                                '<iframe id="panorama_%s" src="%s" width="100%%" loading="lazy" frameborder="0" allowfullscreen></iframe>',
+                                '<iframe id="panorama_%s" src="%s" width="100%%" loading="lazy" frameborder="0" allow="accelerometer; gyroscope; magnetometer; fullscreen; xr-spatial-tracking" allowfullscreen></iframe>',
                                 esc_attr($post->ID),
                                 esc_url(get_permalink($post->ID))
                             );
                         } else {
                             $iframe_code = sprintf(
-                                '<iframe id="panorama_%s" src="%s" width="100%%" height="%d" loading="lazy" frameborder="0" allowfullscreen></iframe>',
+                                '<iframe id="panorama_%s" src="%s" width="100%%" height="%d" loading="lazy" frameborder="0" allow="accelerometer; gyroscope; magnetometer; fullscreen; xr-spatial-tracking" allowfullscreen></iframe>',
                                 esc_attr($post->ID),
                                 esc_url(get_permalink($post->ID)),
                                 $height
