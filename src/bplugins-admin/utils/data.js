@@ -37,8 +37,6 @@ export const dashboardInfo = (info) => {
 			plan_id: 14971,
 			public_key: 'pk_a112d1d1d66d3b480dbea5690d3ff'
 		},
-
-
 		startButton: {
 			label: 'Start Now',
 			url: `${adminUrl}post-new.php?post_type=bppiv-image-viewer`

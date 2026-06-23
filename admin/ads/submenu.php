@@ -8,8 +8,16 @@ add_action('admin_menu', 'bppiv_add_submenu_page');
 add_action( 'admin_enqueue_scripts', 'bppiv_adminEnqueueScripts' );
 
 function bppiv_custom_admin_style() {
-    wp_register_style( 'bppiv_admin_custom_css', plugin_dir_url(__FILE__) . 'style.css', false, BPPIV_VERSION );
-    wp_enqueue_style( 'bppiv_admin_custom_css' );
+    $current = function_exists('get_current_screen') ? get_current_screen() : null;
+    $post_type = $current && isset($current->post_type) ? $current->post_type : '';
+    $screen_id = $current && isset($current->id) ? $current->id : '';
+
+    $is_bppiv_screen = ( strpos( $screen_id, 'bppiv-image-viewer' ) !== false ) || in_array( $post_type, ['bppiv-image-viewer', 'virtual_tour', 'product_spot'], true );
+
+    if ( $is_bppiv_screen ) {
+        wp_register_style( 'bppiv_admin_custom_css', plugin_dir_url(__FILE__) . 'style.css', false, BPPIV_VERSION );
+        wp_enqueue_style( 'bppiv_admin_custom_css' );
+    }
 }
 
 function bppiv_add_submenu_page(){
