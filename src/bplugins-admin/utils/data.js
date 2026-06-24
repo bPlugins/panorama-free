@@ -163,6 +163,14 @@ export const welcomeInfo = (adminUrl) => ({
 	},
 	changelogs: [
 		{
+			type: 'fix',
+			version: '1.7.3 - 24 Jun, 2026',
+			list: [
+				'Fix: Scoped admin styles to the plugin\'s own screens, preventing scroll and layout conflicts on other WordPress admin pages.',
+				'Fix: Resolved Device Motion (sensor) mode conflict in the 360° image viewers and added gyroscope/accelerometer permissions to embed iframes so sensor mode works in Chrome.'
+			]
+		},
+		{
 			type: 'update',
 			version: '1.7.2 - 14 Jun, 2026',
 			list: [

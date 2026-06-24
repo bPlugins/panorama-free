@@ -3,7 +3,7 @@ Contributors: bplugins, abuhayat, freemius, shamim10, farazi1
 Tags: panorama, 360 degree, 3d, virtual tour, krpano, 
 Requires at least: 6.5
 Tested up to: 7.0
-Stable tag: 1.7.2
+Stable tag: 1.7.3
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -169,6 +169,10 @@ e.g.
 8. Gallery
 
 == Changelog ==
+
+= 1.7.3 - 24 Jun, 2026 =
+* **Fix:** Scoped admin styles to the plugin's own screens, preventing scroll and layout conflicts on other WordPress admin pages.
+* **Fix:** Resolved Device Motion (sensor) mode conflict in the 360° image viewers and added gyroscope/accelerometer permissions to embed iframes so sensor mode works in Chrome.
 
 = 1.7.2 - 14 Jun, 2026 =
 * **Update:** Redesigned and modernized the admin dashboard welcome screen with dynamic builder integration tabs (Gutenberg, Shortcode) and status checks.
