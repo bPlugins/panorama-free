@@ -1,1 +1,24 @@
-.wp-block-panorama-video-360{box-sizing:border-box}.wp-block-panorama-video-360 .icon{font-style:inherit}.wp-block-panorama-video-360 *{box-sizing:border-box}.wp-block-panorama-video-360 .bBlocksVideo360Viewer{display:flex;flex-direction:column}.wp-block-panorama-video-360 .bBlocksVideo360Viewer .panoramaVideo360Viewer{aspect-ratio:16/9;background:#000;overflow:hidden;width:100%}
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/video-360/style.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-panorama-video-360 {
+  box-sizing: border-box;
+}
+.wp-block-panorama-video-360 .icon {
+  font-style: inherit;
+}
+.wp-block-panorama-video-360 * {
+  box-sizing: border-box;
+}
+.wp-block-panorama-video-360 .bBlocksVideo360Viewer {
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-panorama-video-360 .bBlocksVideo360Viewer .panoramaVideo360Viewer {
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+/*# sourceMappingURL=style-view.css.map*/

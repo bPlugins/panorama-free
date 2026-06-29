@@ -164,10 +164,11 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogs: [
 		{
 			type: 'fix',
-			version: '1.7.3 - 24 Jun, 2026',
+			version: '1.7.3 - 29 Jun, 2026',
 			list: [
 				'Fix: Scoped admin styles to the plugin\'s own screens, preventing scroll and layout conflicts on other WordPress admin pages.',
-				'Fix: Resolved Device Motion (sensor) mode conflict in the 360° image viewers and added gyroscope/accelerometer permissions to embed iframes so sensor mode works in Chrome.'
+				'Fix: Resolved Device Motion (sensor) mode conflict in the 360° image viewers and added gyroscope/accelerometer permissions to embed iframes so sensor mode works in Chrome.',
+				'Improve: Improved functionality of picture-in-picture (PiP) mode in the 360° video viewer.'
 			]
 		},
 		{
@@ -178,27 +179,14 @@ export const welcomeInfo = (adminUrl) => ({
 			]
 		},
 		{
-			type: 'update',
+			type: 'new',
 			version: '1.7.1 - 04 Jun, 2026',
 			list: [
 				'Enhancement: Kept the Panorama Type selection field visible globally across all tabs with tab state persistence.'
 			]
 		},
-		{
-			type: 'update',
-			version: '1.7.0 - 23 May, 2026',
-			list: [
-				'Update: Refactored architecture to decouple shared Pro code, establishing a clean standalone Free version.',
-				'Update: Upgraded Gutenberg blocks to API version 3.',
-				'Fix: Resolved dragging lock and cursor drift issues in Gutenberg block editors.',
-				'Improvement: Streamlined settings panels by replacing lock screens with clean premium feature notices.',
-				'Improvement: Modernized admin dashboard settings layout and WooCommerce metabox sections.',
-				'Update: Enhanced sanitization, escaping, and prefix compliance for WordPress.org standards.',
-				'Cleanup: Purged legacy unused scripts and added secure database cleanup on uninstall.'
-			]
-		}
 	],
-	changelogsLimit: 5,
+	changelogsLimit: 3,
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
 		'Seamlessly display panoramic photos, videos, and multi-scene tours.',

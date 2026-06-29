@@ -170,9 +170,10 @@ e.g.
 
 == Changelog ==
 
-= 1.7.3 - 24 Jun, 2026 =
+= 1.7.3 - 29 Jun, 2026 =
 * **Fix:** Scoped admin styles to the plugin's own screens, preventing scroll and layout conflicts on other WordPress admin pages.
 * **Fix:** Resolved Device Motion (sensor) mode conflict in the 360° image viewers and added gyroscope/accelerometer permissions to embed iframes so sensor mode works in Chrome.
+* **Improvement:** Improved functionality of picture-in-picture (PiP) mode in the 360° video viewer.
 
 = 1.7.2 - 14 Jun, 2026 =
 * **Update:** Redesigned and modernized the admin dashboard welcome screen with dynamic builder integration tabs (Gutenberg, Shortcode) and status checks.

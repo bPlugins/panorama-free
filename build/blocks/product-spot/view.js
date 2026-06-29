@@ -1,1 +1,12277 @@
-(()=>{var t,e={4051:(t,e,n)=>{"use strict";var o=n(5338),r=n(1609),i=n.n(r);const s="@media only screen and (max-width: 1024px)",a="@media only screen and (max-width: 640px)",c="linear-gradient(135deg, #0040E3, #18D4FD)",l=(t,e)=>{return null==(n=e)||""===n||Array.isArray(n)&&0===n.length||"object"==typeof n&&0===Object.keys(n).length||"string"==typeof n&&""===n.trim()||"number"==typeof n&&0===n?"":`${t}: ${e};`;var n},u=t=>{if(!t)return"";const e=t=>{const{color:e="#000000",style:n="solid",width:o="0px"}=t;return`${o} ${n} ${e}`};return"object"!=typeof t||Array.isArray(t)?"":t.hasOwnProperty("top")||t.hasOwnProperty("right")||t.hasOwnProperty("bottom")||t.hasOwnProperty("left")?["top","right","bottom","left"].map((n=>t[n]?`border-${n}: ${e(t[n])};`:"")).join(" ").trim():l("border",e(t))},p=t=>{const{color:e="",bgType:n="solid",bg:o="",gradient:r=c}=t||{};return`\n\t\t${l("color",e)}\n\t\t${r||o?l("background","gradient"===n?r:o):""}\n\t`},d=(t,e,n=!0)=>{const{fontFamily:o="Default",fontCategory:r="sans-serif",fontVariant:i=400,fontWeight:c,isUploadFont:u=!0,fontSize:p={desktop:null,tablet:null,mobile:null},fontStyle:d,textTransform:f,textDecoration:h,lineHeight:m,letterSpace:g}=e||{},v=!n||!o||"Default"===o,y=p?.desktop||p,b=p?.tablet||y,x=p?.mobile||b,w=t=>{const e=String(t);return["px","em","rem","%","vh","vw"].some((t=>e.endsWith(t)))?e:"number"==typeof t?`${e}px`:""},O=`\n\t\t${v?"":`font-family: '${o}', ${r};`}\n\t\t${l("font-weight",c)}\n\t\t${l("font-size",w(y))}\n\t\t${l("font-style",d)}\n\t\t${l("text-transform",f)}\n\t\t${l("text-decoration",h)}\n\t\t${l("line-height",m)}\n\t\t${l("letter-spacing",g)}\n\t`,S=i&&400!==i?"400i"===i?":ital@1":i?.includes("00i")?`: ital, wght@1, ${i?.replace("00i","00")} `:`: wght@${i} `:"",D=v?"":`https://fonts.googleapis.com/css2?family=${o?.split(" ").join("+")}${S.replace(/ /g,"")}&display=swap`;return{googleFontLink:!u||v?"":`@import url(${D});`,styles:`${t}{\n\t\t\t${O}\n\t\t}\n\t\t${s} {\n\t\t\t${t}{\n\t\t\t\t${l("font-size",w(b))}\n\t\t\t}\n\t\t}\n\t\t${a} {\n\t\t\t${t}{\n\t\t\t\t${l("font-size",w(x))}\n\t\t\t}\n\t\t}`.replace(/\s+/g," ").trim()}},f=window.ReactJSXRuntime,h=({attributes:t,id:e,device:n="desktop"})=>{const{alignment:o,styles:r}=t||{},{width:i,imgRadius:c,hotspot:l={},info:h={},title:m={},desc:g={},btnGroup:v}=r||{},{column:y,gap:b,index:x={},activeIndex:w={}}=v||{},O=`#${e} .productSpotWrapper`,S=`${O} .productSpot`,D=`${S} .image`,j=`${S} .hotspot`,E=`${S} .simpleInfo`,T=`${S} .info`,$=`${S} .tippy-box[data-theme~='hotspot']`,A=`${S} .title`,H=`${S} .desc`,M=`${S} .btnGroup`,P=`${S} .icon svg`;return(0,f.jsx)("style",{dangerouslySetInnerHTML:{__html:`\n\n\t\t${d("",m.typo)?.googleFontLink}\n\t\t${d("",g.typo)?.googleFontLink}\n\n\t\t${d(A,m.typo)?.styles}\n\t\t${d(H,g.typo)?.styles}\n\n\t\t\n\t\t${O} {\n\t\t\tjustify-content: ${o};\n\t\t}\n\n\t\t${S} {\n\t\t\twidth: ${i[n]};\n\t\t}\n\n\t\t${D} {\n\t\t\tborder-radius: ${c};\n\t\t}\n\n\t\t${j} {\n\t\t\twidth: ${l.width[n]};\n\t\t\theight: ${l.height[n]};\n\t\t\tpadding: ${l.padding};\n\t\t\tbackground-color: ${l.colors.bg};\n\t\t\tborder-radius: ${l.border.radius};\n\t\t\t${u(l.border||{})}\n\t\t}\n\n\t\t${P} {\n\t\t\twidth: ${l.iconWidth};\n\t\t\theight: ${l.iconHeight};\n\t\t\tfill: ${l.colors.color};\n\t\t}\n\n\t\t${E}, ${T}, ${$} {\n\t\t\tbackground-color: ${h.bg};\n\t\t\tborder-radius: ${h.radius};\n\t\t\tpadding: ${h.padding};\n\t\t}\n\n\t\t${A} {\n\t\t\tcolor: ${m.color};\n\t\t\t${d(m.typo||{})}\n\t\t}\n\n\t\t${H} {\n\t\t\tcolor: ${g.color};\n\t\t\t${d(g.typo||{})}\n\t\t}\n\n\t\t${M} {\n\t\t\t  grid-template-columns: repeat(${y}, minmax(30px, 55px));\n\t\t\t  gap: ${b};\n\n\t\t\t  .indexBtn {\n\t\t\t\tborder-radius: ${x.radius};\n\t\t\t\t${p(x.colors)}\n\n\t\t\t\t\t&:hover{\n\t\t\t\t\t\t${p(x.hoverColors)}\n\t\t\t\t\t}\n\t\t\t\t\t&.activeIdx{\n\t\t\t\t\t\t${p(w.colors)}\n\t\t\t\t\t}\n\t\t\t   }\n\t\t}\n\t\t\n\n\n\t\t${s}{\n\t\t\t${S} {\n\t\t\t\twidth: ${i.tablet};\n\t\t\t}\n\t\t\t\n\t\t\t${j} {\n\t\t\t\twidth: ${l.width.tablet};\n\t\t\t\theight: ${l.height.tablet};\n\t\t\t}\n\t\t}\n\n\n\t\t${a}{\n\t\t\t${S} {\n\t\t\t\twidth: ${i.mobile};\n\t\t\t}\n\n\t\t\t${j} {\n\t\t\t\twidth: ${l.width.mobile};\n\t\t\t\theight: ${l.height.mobile};\n\t\t\t}\n\t\t}\n\t\t\n\n\t`}})},m=(t={},e=()=>{})=>{const{img:n={},themeSl:o,hotspots:i=[]}=t,[s,a]=(0,r.useState)("sidepanel"===o?1:null),[c,l]=(0,r.useState)({width:0,height:0}),u=(0,r.useRef)(null),p=(0,r.useRef)(null),d=i.find((t=>t.id===s));return(0,r.useEffect)((()=>{if(null!==s){const t=i.findIndex((t=>t.id===s));-1!==t&&e({activeIndex:t})}}),[s,i]),(0,r.useEffect)((()=>{const t=p.current;if(!t)return;const e=new ResizeObserver((()=>{const e=t.getBoundingClientRect();l({width:e.width,height:e.height})}));return e.observe(t),()=>{e.disconnect()}}),[]),{containerRef:u,imageRef:p,containerSize:c,setContainerSize:l,activeHotspot:s,setActiveHotspot:a,selectedHotspot:d,addSpot:(t,n=!1,o=()=>{})=>{!n&&i?.length>=3?o(!0):(t=>{if(t.target.closest(".hotspot"))return;const n=p.current.getBoundingClientRect(),o=(t.clientX-n.left)/n.width*100,r=(t.clientY-n.top)/n.height*100,s=i.length>0?Math.max(...i.map((t=>t.id)))+1:1,c={id:s,icon:"",x:o,y:r,title:`Hotspot Title ${s}`,description:`Hotspot Description ${s}`};e({hotspots:[...i,c]}),a(c.id)})(t)},handleStop:(t,n,o)=>{const r=p.current.getBoundingClientRect(),s=(n.x+12)/r.width*100,a=(n.y+12)/r.height*100,c=i.map((t=>t.id===o?{...t,x:s,y:a}:t));e({hotspots:c})},handleDeleteHotspot:t=>{const n=i.filter((e=>e.id!==t));e({hotspots:n}),a(null)},img:n,hotspots:i}},g=({imageRef:t,img:e={}})=>(0,f.jsx)("img",{ref:t,src:e?.url,alt:e?.alt||"product-image",className:"image"}),v=window.wp.blockEditor,y=(t,e,n,o,r)=>{const i=t?.map((t=>t?.id===n?{...t,[o]:r}:t));e({hotspots:i})},b=(t,e,n)=>{const o=e||"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' id='plus'><path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4'></path></svg>";return"single"===t&&n||o},x=({selectedHotspot:t={},setAttributes:e=()=>{},hotspots:n=[]})=>{const{id:o,title:r}=t;return(0,f.jsx)(v.RichText,{tagName:"h3",value:r,onChange:t=>y(n,e,o,"title",t),className:"title"})},w=({selectedHotspot:t={},setAttributes:e=()=>{},hotspots:n=[]})=>{const{id:o,description:r}=t;return(0,f.jsx)(v.RichText,{tagName:"p",value:r,onChange:t=>y(n,e,o,"description",t),className:"desc"})},O=({selectedHotspot:t})=>{const{title:e}=t||{};return(0,f.jsx)("h3",{dangerouslySetInnerHTML:{__html:e},className:"title"})},S=({selectedHotspot:t})=>{const{description:e}=t||{};return(0,f.jsx)("p",{dangerouslySetInnerHTML:{__html:e},className:"desc"})},D=({attributes:t,setAttributes:e,isBackend:n=!0,Hotspot:o,isPremium:i,setIsSpotModalOpen:s})=>{const{containerRef:a,imageRef:c,containerSize:l,activeHotspot:u,setActiveHotspot:p,selectedHotspot:d,addSpot:h,handleStop:v,handleDeleteHotspot:y,img:b,hotspots:D=[]}=m(t,e),j=(0,r.useRef)(null),E=(0,r.useRef)(null),{options:T}=t||{},{isTitle:$,isDesc:A}=T||{},H=n?{containerSize:l,boundsTarget:".imageAndHotspot",handleStop:v,handleDeleteHotspot:y}:{};return(0,r.useLayoutEffect)((()=>{if(c.current){const t=()=>{if(E.current&&j.current){const t=j.current.clientHeight;E.current.style.maxHeight=`${t}px`}};return c.current.complete?t():c.current.addEventListener("load",t),()=>{c.current?.removeEventListener("load",t)}}}),[b]),(0,f.jsxs)("div",{className:"sidePanel",ref:a,children:[(0,f.jsxs)("div",{className:"imageAndHotspot",ref:j,children:[(0,f.jsx)("div",{onClick:n?t=>h(t,i,s):void 0,children:(0,f.jsx)(g,{imageRef:c,img:b})}),l.width>0&&D?.map((e=>(0,f.jsx)(o,{hotspot:e,activeHotspot:u,setActiveHotspot:p,attributes:t,...H},e?.id)))]}),(0,f.jsx)("div",{className:"infoBox",ref:E,children:(0,f.jsxs)("div",{className:"info",children:[D?.length>0?(0,f.jsx)(f.Fragment,{children:n?(0,f.jsxs)(f.Fragment,{children:[$&&(0,f.jsx)(x,{selectedHotspot:d,setAttributes:e,hotspots:D}),A&&(0,f.jsx)(w,{selectedHotspot:d,setAttributes:e,hotspots:D})]}):(0,f.jsxs)(f.Fragment,{children:[$&&(0,f.jsx)(O,{selectedHotspot:d}),A&&(0,f.jsx)(S,{selectedHotspot:d})]})}):n?(0,f.jsx)("h4",{className:"noHotspot",children:"Please add hotspot !"}):(0,f.jsx)("h4",{className:"noHotspot",children:"Spot not  found !"}),(0,f.jsx)("div",{className:"btnGroup",children:D.map((t=>(0,f.jsx)("button",{type:"button",className:"indexBtn "+(u===t.id?"activeIdx":""),onClick:()=>p(t.id),children:t.id},t.id)))})]})})]})},j=({attributes:t,setAttributes:e,isBackend:n=!0,Hotspot:o,isPremium:r,setIsSpotModalOpen:i})=>{const{containerRef:s,imageRef:a,containerSize:c,activeHotspot:l,setActiveHotspot:u,selectedHotspot:p,addSpot:d,handleStop:h,handleDeleteHotspot:v,img:y,hotspots:b=[]}=m(t,e),{options:D}=t||{},{isTitle:j,isDesc:E}=D||{},T=n?{containerSize:c,handleStop:h,handleDeleteHotspot:v}:{};return(0,f.jsxs)(f.Fragment,{children:[(0,f.jsxs)("div",{className:"simple",ref:s,children:[(0,f.jsx)("div",{onClick:n?t=>d(t,r,i):void 0,children:(0,f.jsx)(g,{imageRef:a,img:y})}),c.width>0&&b?.map((e=>(0,f.jsx)(o,{hotspot:e,activeHotspot:l,setActiveHotspot:u,attributes:t,...T},e?.id)))]}),null!==l&&p&&(0,f.jsx)("div",{className:"simpleInfo",children:n?(0,f.jsxs)(f.Fragment,{children:[j&&(0,f.jsx)(x,{selectedHotspot:p,setAttributes:e,hotspots:b}),E&&(0,f.jsx)(w,{selectedHotspot:p,setAttributes:e,hotspots:b})]}):(0,f.jsxs)(f.Fragment,{children:[j&&(0,f.jsx)(O,{selectedHotspot:p}),E&&(0,f.jsx)(S,{selectedHotspot:p})]})})]})};function E(t){if(null==t)return window;if("[object Window]"!==t.toString()){var e=t.ownerDocument;return e&&e.defaultView||window}return t}function T(t){return t instanceof E(t).Element||t instanceof Element}function $(t){return t instanceof E(t).HTMLElement||t instanceof HTMLElement}function A(t){return"undefined"!=typeof ShadowRoot&&(t instanceof E(t).ShadowRoot||t instanceof ShadowRoot)}var H=Math.max,M=Math.min,P=Math.round;function C(){var t=navigator.userAgentData;return null!=t&&t.brands&&Array.isArray(t.brands)?t.brands.map((function(t){return t.brand+"/"+t.version})).join(" "):navigator.userAgent}function k(){return!/^((?!chrome|android).)*safari/i.test(C())}function N(t,e,n){void 0===e&&(e=!1),void 0===n&&(n=!1);var o=t.getBoundingClientRect(),r=1,i=1;e&&$(t)&&(r=t.offsetWidth>0&&P(o.width)/t.offsetWidth||1,i=t.offsetHeight>0&&P(o.height)/t.offsetHeight||1);var s=(T(t)?E(t):window).visualViewport,a=!k()&&n,c=(o.left+(a&&s?s.offsetLeft:0))/r,l=(o.top+(a&&s?s.offsetTop:0))/i,u=o.width/r,p=o.height/i;return{width:u,height:p,top:l,right:c+u,bottom:l+p,left:c,x:c,y:l}}function L(t){var e=E(t);return{scrollLeft:e.pageXOffset,scrollTop:e.pageYOffset}}function R(t){return t?(t.nodeName||"").toLowerCase():null}function _(t){return((T(t)?t.ownerDocument:t.document)||window.document).documentElement}function I(t){return N(_(t)).left+L(t).scrollLeft}function W(t){return E(t).getComputedStyle(t)}function B(t){var e=W(t),n=e.overflow,o=e.overflowX,r=e.overflowY;return/auto|scroll|overlay|hidden/.test(n+r+o)}function V(t,e,n){void 0===n&&(n=!1);var o,r,i=$(e),s=$(e)&&function(t){var e=t.getBoundingClientRect(),n=P(e.width)/t.offsetWidth||1,o=P(e.height)/t.offsetHeight||1;return 1!==n||1!==o}(e),a=_(e),c=N(t,s,n),l={scrollLeft:0,scrollTop:0},u={x:0,y:0};return(i||!i&&!n)&&(("body"!==R(e)||B(a))&&(l=(o=e)!==E(o)&&$(o)?{scrollLeft:(r=o).scrollLeft,scrollTop:r.scrollTop}:L(o)),$(e)?((u=N(e,!0)).x+=e.clientLeft,u.y+=e.clientTop):a&&(u.x=I(a))),{x:c.left+l.scrollLeft-u.x,y:c.top+l.scrollTop-u.y,width:c.width,height:c.height}}function U(t){var e=N(t),n=t.offsetWidth,o=t.offsetHeight;return Math.abs(e.width-n)<=1&&(n=e.width),Math.abs(e.height-o)<=1&&(o=e.height),{x:t.offsetLeft,y:t.offsetTop,width:n,height:o}}function F(t){return"html"===R(t)?t:t.assignedSlot||t.parentNode||(A(t)?t.host:null)||_(t)}function X(t){return["html","body","#document"].indexOf(R(t))>=0?t.ownerDocument.body:$(t)&&B(t)?t:X(F(t))}function Y(t,e){var n;void 0===e&&(e=[]);var o=X(t),r=o===(null==(n=t.ownerDocument)?void 0:n.body),i=E(o),s=r?[i].concat(i.visualViewport||[],B(o)?o:[]):o,a=e.concat(s);return r?a:a.concat(Y(F(s)))}function q(t){return["table","td","th"].indexOf(R(t))>=0}function z(t){return $(t)&&"fixed"!==W(t).position?t.offsetParent:null}function G(t){for(var e=E(t),n=z(t);n&&q(n)&&"static"===W(n).position;)n=z(n);return n&&("html"===R(n)||"body"===R(n)&&"static"===W(n).position)?e:n||function(t){var e=/firefox/i.test(C());if(/Trident/i.test(C())&&$(t)&&"fixed"===W(t).position)return null;var n=F(t);for(A(n)&&(n=n.host);$(n)&&["html","body"].indexOf(R(n))<0;){var o=W(n);if("none"!==o.transform||"none"!==o.perspective||"paint"===o.contain||-1!==["transform","perspective"].indexOf(o.willChange)||e&&"filter"===o.willChange||e&&o.filter&&"none"!==o.filter)return n;n=n.parentNode}return null}(t)||e}var J="top",K="bottom",Q="right",Z="left",tt="auto",et=[J,K,Q,Z],nt="start",ot="end",rt="viewport",it="popper",st=et.reduce((function(t,e){return t.concat([e+"-"+nt,e+"-"+ot])}),[]),at=[].concat(et,[tt]).reduce((function(t,e){return t.concat([e,e+"-"+nt,e+"-"+ot])}),[]),ct=["beforeRead","read","afterRead","beforeMain","main","afterMain","beforeWrite","write","afterWrite"];function lt(t){var e=new Map,n=new Set,o=[];function r(t){n.add(t.name),[].concat(t.requires||[],t.requiresIfExists||[]).forEach((function(t){if(!n.has(t)){var o=e.get(t);o&&r(o)}})),o.push(t)}return t.forEach((function(t){e.set(t.name,t)})),t.forEach((function(t){n.has(t.name)||r(t)})),o}var ut={placement:"bottom",modifiers:[],strategy:"absolute"};function pt(){for(var t=arguments.length,e=new Array(t),n=0;n<t;n++)e[n]=arguments[n];return!e.some((function(t){return!(t&&"function"==typeof t.getBoundingClientRect)}))}function dt(t){void 0===t&&(t={});var e=t,n=e.defaultModifiers,o=void 0===n?[]:n,r=e.defaultOptions,i=void 0===r?ut:r;return function(t,e,n){void 0===n&&(n=i);var r,s,a={placement:"bottom",orderedModifiers:[],options:Object.assign({},ut,i),modifiersData:{},elements:{reference:t,popper:e},attributes:{},styles:{}},c=[],l=!1,u={state:a,setOptions:function(n){var r="function"==typeof n?n(a.options):n;p(),a.options=Object.assign({},i,a.options,r),a.scrollParents={reference:T(t)?Y(t):t.contextElement?Y(t.contextElement):[],popper:Y(e)};var s,l,d=function(t){var e=lt(t);return ct.reduce((function(t,n){return t.concat(e.filter((function(t){return t.phase===n})))}),[])}((s=[].concat(o,a.options.modifiers),l=s.reduce((function(t,e){var n=t[e.name];return t[e.name]=n?Object.assign({},n,e,{options:Object.assign({},n.options,e.options),data:Object.assign({},n.data,e.data)}):e,t}),{}),Object.keys(l).map((function(t){return l[t]}))));return a.orderedModifiers=d.filter((function(t){return t.enabled})),a.orderedModifiers.forEach((function(t){var e=t.name,n=t.options,o=void 0===n?{}:n,r=t.effect;if("function"==typeof r){var i=r({state:a,name:e,instance:u,options:o});c.push(i||function(){})}})),u.update()},forceUpdate:function(){if(!l){var t=a.elements,e=t.reference,n=t.popper;if(pt(e,n)){a.rects={reference:V(e,G(n),"fixed"===a.options.strategy),popper:U(n)},a.reset=!1,a.placement=a.options.placement,a.orderedModifiers.forEach((function(t){return a.modifiersData[t.name]=Object.assign({},t.data)}));for(var o=0;o<a.orderedModifiers.length;o++)if(!0!==a.reset){var r=a.orderedModifiers[o],i=r.fn,s=r.options,c=void 0===s?{}:s,p=r.name;"function"==typeof i&&(a=i({state:a,options:c,name:p,instance:u})||a)}else a.reset=!1,o=-1}}},update:(r=function(){return new Promise((function(t){u.forceUpdate(),t(a)}))},function(){return s||(s=new Promise((function(t){Promise.resolve().then((function(){s=void 0,t(r())}))}))),s}),destroy:function(){p(),l=!0}};if(!pt(t,e))return u;function p(){c.forEach((function(t){return t()})),c=[]}return u.setOptions(n).then((function(t){!l&&n.onFirstUpdate&&n.onFirstUpdate(t)})),u}}var ft={passive:!0};function ht(t){return t.split("-")[0]}function mt(t){return t.split("-")[1]}function gt(t){return["top","bottom"].indexOf(t)>=0?"x":"y"}function vt(t){var e,n=t.reference,o=t.element,r=t.placement,i=r?ht(r):null,s=r?mt(r):null,a=n.x+n.width/2-o.width/2,c=n.y+n.height/2-o.height/2;switch(i){case J:e={x:a,y:n.y-o.height};break;case K:e={x:a,y:n.y+n.height};break;case Q:e={x:n.x+n.width,y:c};break;case Z:e={x:n.x-o.width,y:c};break;default:e={x:n.x,y:n.y}}var l=i?gt(i):null;if(null!=l){var u="y"===l?"height":"width";switch(s){case nt:e[l]=e[l]-(n[u]/2-o[u]/2);break;case ot:e[l]=e[l]+(n[u]/2-o[u]/2)}}return e}var yt={top:"auto",right:"auto",bottom:"auto",left:"auto"};function bt(t){var e,n=t.popper,o=t.popperRect,r=t.placement,i=t.variation,s=t.offsets,a=t.position,c=t.gpuAcceleration,l=t.adaptive,u=t.roundOffsets,p=t.isFixed,d=s.x,f=void 0===d?0:d,h=s.y,m=void 0===h?0:h,g="function"==typeof u?u({x:f,y:m}):{x:f,y:m};f=g.x,m=g.y;var v=s.hasOwnProperty("x"),y=s.hasOwnProperty("y"),b=Z,x=J,w=window;if(l){var O=G(n),S="clientHeight",D="clientWidth";O===E(n)&&"static"!==W(O=_(n)).position&&"absolute"===a&&(S="scrollHeight",D="scrollWidth"),(r===J||(r===Z||r===Q)&&i===ot)&&(x=K,m-=(p&&O===w&&w.visualViewport?w.visualViewport.height:O[S])-o.height,m*=c?1:-1),r!==Z&&(r!==J&&r!==K||i!==ot)||(b=Q,f-=(p&&O===w&&w.visualViewport?w.visualViewport.width:O[D])-o.width,f*=c?1:-1)}var j,T=Object.assign({position:a},l&&yt),$=!0===u?function(t,e){var n=t.x,o=t.y,r=e.devicePixelRatio||1;return{x:P(n*r)/r||0,y:P(o*r)/r||0}}({x:f,y:m},E(n)):{x:f,y:m};return f=$.x,m=$.y,c?Object.assign({},T,((j={})[x]=y?"0":"",j[b]=v?"0":"",j.transform=(w.devicePixelRatio||1)<=1?"translate("+f+"px, "+m+"px)":"translate3d("+f+"px, "+m+"px, 0)",j)):Object.assign({},T,((e={})[x]=y?m+"px":"",e[b]=v?f+"px":"",e.transform="",e))}const xt={name:"applyStyles",enabled:!0,phase:"write",fn:function(t){var e=t.state;Object.keys(e.elements).forEach((function(t){var n=e.styles[t]||{},o=e.attributes[t]||{},r=e.elements[t];$(r)&&R(r)&&(Object.assign(r.style,n),Object.keys(o).forEach((function(t){var e=o[t];!1===e?r.removeAttribute(t):r.setAttribute(t,!0===e?"":e)})))}))},effect:function(t){var e=t.state,n={popper:{position:e.options.strategy,left:"0",top:"0",margin:"0"},arrow:{position:"absolute"},reference:{}};return Object.assign(e.elements.popper.style,n.popper),e.styles=n,e.elements.arrow&&Object.assign(e.elements.arrow.style,n.arrow),function(){Object.keys(e.elements).forEach((function(t){var o=e.elements[t],r=e.attributes[t]||{},i=Object.keys(e.styles.hasOwnProperty(t)?e.styles[t]:n[t]).reduce((function(t,e){return t[e]="",t}),{});$(o)&&R(o)&&(Object.assign(o.style,i),Object.keys(r).forEach((function(t){o.removeAttribute(t)})))}))}},requires:["computeStyles"]};var wt={left:"right",right:"left",bottom:"top",top:"bottom"};function Ot(t){return t.replace(/left|right|bottom|top/g,(function(t){return wt[t]}))}var St={start:"end",end:"start"};function Dt(t){return t.replace(/start|end/g,(function(t){return St[t]}))}function jt(t,e){var n=e.getRootNode&&e.getRootNode();if(t.contains(e))return!0;if(n&&A(n)){var o=e;do{if(o&&t.isSameNode(o))return!0;o=o.parentNode||o.host}while(o)}return!1}function Et(t){return Object.assign({},t,{left:t.x,top:t.y,right:t.x+t.width,bottom:t.y+t.height})}function Tt(t,e,n){return e===rt?Et(function(t,e){var n=E(t),o=_(t),r=n.visualViewport,i=o.clientWidth,s=o.clientHeight,a=0,c=0;if(r){i=r.width,s=r.height;var l=k();(l||!l&&"fixed"===e)&&(a=r.offsetLeft,c=r.offsetTop)}return{width:i,height:s,x:a+I(t),y:c}}(t,n)):T(e)?function(t,e){var n=N(t,!1,"fixed"===e);return n.top=n.top+t.clientTop,n.left=n.left+t.clientLeft,n.bottom=n.top+t.clientHeight,n.right=n.left+t.clientWidth,n.width=t.clientWidth,n.height=t.clientHeight,n.x=n.left,n.y=n.top,n}(e,n):Et(function(t){var e,n=_(t),o=L(t),r=null==(e=t.ownerDocument)?void 0:e.body,i=H(n.scrollWidth,n.clientWidth,r?r.scrollWidth:0,r?r.clientWidth:0),s=H(n.scrollHeight,n.clientHeight,r?r.scrollHeight:0,r?r.clientHeight:0),a=-o.scrollLeft+I(t),c=-o.scrollTop;return"rtl"===W(r||n).direction&&(a+=H(n.clientWidth,r?r.clientWidth:0)-i),{width:i,height:s,x:a,y:c}}(_(t)))}function $t(t){return Object.assign({},{top:0,right:0,bottom:0,left:0},t)}function At(t,e){return e.reduce((function(e,n){return e[n]=t,e}),{})}function Ht(t,e){void 0===e&&(e={});var n=e,o=n.placement,r=void 0===o?t.placement:o,i=n.strategy,s=void 0===i?t.strategy:i,a=n.boundary,c=void 0===a?"clippingParents":a,l=n.rootBoundary,u=void 0===l?rt:l,p=n.elementContext,d=void 0===p?it:p,f=n.altBoundary,h=void 0!==f&&f,m=n.padding,g=void 0===m?0:m,v=$t("number"!=typeof g?g:At(g,et)),y=d===it?"reference":it,b=t.rects.popper,x=t.elements[h?y:d],w=function(t,e,n,o){var r="clippingParents"===e?function(t){var e=Y(F(t)),n=["absolute","fixed"].indexOf(W(t).position)>=0&&$(t)?G(t):t;return T(n)?e.filter((function(t){return T(t)&&jt(t,n)&&"body"!==R(t)})):[]}(t):[].concat(e),i=[].concat(r,[n]),s=i[0],a=i.reduce((function(e,n){var r=Tt(t,n,o);return e.top=H(r.top,e.top),e.right=M(r.right,e.right),e.bottom=M(r.bottom,e.bottom),e.left=H(r.left,e.left),e}),Tt(t,s,o));return a.width=a.right-a.left,a.height=a.bottom-a.top,a.x=a.left,a.y=a.top,a}(T(x)?x:x.contextElement||_(t.elements.popper),c,u,s),O=N(t.elements.reference),S=vt({reference:O,element:b,strategy:"absolute",placement:r}),D=Et(Object.assign({},b,S)),j=d===it?D:O,E={top:w.top-j.top+v.top,bottom:j.bottom-w.bottom+v.bottom,left:w.left-j.left+v.left,right:j.right-w.right+v.right},A=t.modifiersData.offset;if(d===it&&A){var P=A[r];Object.keys(E).forEach((function(t){var e=[Q,K].indexOf(t)>=0?1:-1,n=[J,K].indexOf(t)>=0?"y":"x";E[t]+=P[n]*e}))}return E}function Mt(t,e,n){return H(t,M(e,n))}function Pt(t,e,n){return void 0===n&&(n={x:0,y:0}),{top:t.top-e.height-n.y,right:t.right-e.width+n.x,bottom:t.bottom-e.height+n.y,left:t.left-e.width-n.x}}function Ct(t){return[J,Q,K,Z].some((function(e){return t[e]>=0}))}var kt=dt({defaultModifiers:[{name:"eventListeners",enabled:!0,phase:"write",fn:function(){},effect:function(t){var e=t.state,n=t.instance,o=t.options,r=o.scroll,i=void 0===r||r,s=o.resize,a=void 0===s||s,c=E(e.elements.popper),l=[].concat(e.scrollParents.reference,e.scrollParents.popper);return i&&l.forEach((function(t){t.addEventListener("scroll",n.update,ft)})),a&&c.addEventListener("resize",n.update,ft),function(){i&&l.forEach((function(t){t.removeEventListener("scroll",n.update,ft)})),a&&c.removeEventListener("resize",n.update,ft)}},data:{}},{name:"popperOffsets",enabled:!0,phase:"read",fn:function(t){var e=t.state,n=t.name;e.modifiersData[n]=vt({reference:e.rects.reference,element:e.rects.popper,strategy:"absolute",placement:e.placement})},data:{}},{name:"computeStyles",enabled:!0,phase:"beforeWrite",fn:function(t){var e=t.state,n=t.options,o=n.gpuAcceleration,r=void 0===o||o,i=n.adaptive,s=void 0===i||i,a=n.roundOffsets,c=void 0===a||a,l={placement:ht(e.placement),variation:mt(e.placement),popper:e.elements.popper,popperRect:e.rects.popper,gpuAcceleration:r,isFixed:"fixed"===e.options.strategy};null!=e.modifiersData.popperOffsets&&(e.styles.popper=Object.assign({},e.styles.popper,bt(Object.assign({},l,{offsets:e.modifiersData.popperOffsets,position:e.options.strategy,adaptive:s,roundOffsets:c})))),null!=e.modifiersData.arrow&&(e.styles.arrow=Object.assign({},e.styles.arrow,bt(Object.assign({},l,{offsets:e.modifiersData.arrow,position:"absolute",adaptive:!1,roundOffsets:c})))),e.attributes.popper=Object.assign({},e.attributes.popper,{"data-popper-placement":e.placement})},data:{}},xt,{name:"offset",enabled:!0,phase:"main",requires:["popperOffsets"],fn:function(t){var e=t.state,n=t.options,o=t.name,r=n.offset,i=void 0===r?[0,0]:r,s=at.reduce((function(t,n){return t[n]=function(t,e,n){var o=ht(t),r=[Z,J].indexOf(o)>=0?-1:1,i="function"==typeof n?n(Object.assign({},e,{placement:t})):n,s=i[0],a=i[1];return s=s||0,a=(a||0)*r,[Z,Q].indexOf(o)>=0?{x:a,y:s}:{x:s,y:a}}(n,e.rects,i),t}),{}),a=s[e.placement],c=a.x,l=a.y;null!=e.modifiersData.popperOffsets&&(e.modifiersData.popperOffsets.x+=c,e.modifiersData.popperOffsets.y+=l),e.modifiersData[o]=s}},{name:"flip",enabled:!0,phase:"main",fn:function(t){var e=t.state,n=t.options,o=t.name;if(!e.modifiersData[o]._skip){for(var r=n.mainAxis,i=void 0===r||r,s=n.altAxis,a=void 0===s||s,c=n.fallbackPlacements,l=n.padding,u=n.boundary,p=n.rootBoundary,d=n.altBoundary,f=n.flipVariations,h=void 0===f||f,m=n.allowedAutoPlacements,g=e.options.placement,v=ht(g),y=c||(v!==g&&h?function(t){if(ht(t)===tt)return[];var e=Ot(t);return[Dt(t),e,Dt(e)]}(g):[Ot(g)]),b=[g].concat(y).reduce((function(t,n){return t.concat(ht(n)===tt?function(t,e){void 0===e&&(e={});var n=e,o=n.placement,r=n.boundary,i=n.rootBoundary,s=n.padding,a=n.flipVariations,c=n.allowedAutoPlacements,l=void 0===c?at:c,u=mt(o),p=u?a?st:st.filter((function(t){return mt(t)===u})):et,d=p.filter((function(t){return l.indexOf(t)>=0}));0===d.length&&(d=p);var f=d.reduce((function(e,n){return e[n]=Ht(t,{placement:n,boundary:r,rootBoundary:i,padding:s})[ht(n)],e}),{});return Object.keys(f).sort((function(t,e){return f[t]-f[e]}))}(e,{placement:n,boundary:u,rootBoundary:p,padding:l,flipVariations:h,allowedAutoPlacements:m}):n)}),[]),x=e.rects.reference,w=e.rects.popper,O=new Map,S=!0,D=b[0],j=0;j<b.length;j++){var E=b[j],T=ht(E),$=mt(E)===nt,A=[J,K].indexOf(T)>=0,H=A?"width":"height",M=Ht(e,{placement:E,boundary:u,rootBoundary:p,altBoundary:d,padding:l}),P=A?$?Q:Z:$?K:J;x[H]>w[H]&&(P=Ot(P));var C=Ot(P),k=[];if(i&&k.push(M[T]<=0),a&&k.push(M[P]<=0,M[C]<=0),k.every((function(t){return t}))){D=E,S=!1;break}O.set(E,k)}if(S)for(var N=function(t){var e=b.find((function(e){var n=O.get(e);if(n)return n.slice(0,t).every((function(t){return t}))}));if(e)return D=e,"break"},L=h?3:1;L>0&&"break"!==N(L);L--);e.placement!==D&&(e.modifiersData[o]._skip=!0,e.placement=D,e.reset=!0)}},requiresIfExists:["offset"],data:{_skip:!1}},{name:"preventOverflow",enabled:!0,phase:"main",fn:function(t){var e=t.state,n=t.options,o=t.name,r=n.mainAxis,i=void 0===r||r,s=n.altAxis,a=void 0!==s&&s,c=n.boundary,l=n.rootBoundary,u=n.altBoundary,p=n.padding,d=n.tether,f=void 0===d||d,h=n.tetherOffset,m=void 0===h?0:h,g=Ht(e,{boundary:c,rootBoundary:l,padding:p,altBoundary:u}),v=ht(e.placement),y=mt(e.placement),b=!y,x=gt(v),w="x"===x?"y":"x",O=e.modifiersData.popperOffsets,S=e.rects.reference,D=e.rects.popper,j="function"==typeof m?m(Object.assign({},e.rects,{placement:e.placement})):m,E="number"==typeof j?{mainAxis:j,altAxis:j}:Object.assign({mainAxis:0,altAxis:0},j),T=e.modifiersData.offset?e.modifiersData.offset[e.placement]:null,$={x:0,y:0};if(O){if(i){var A,P="y"===x?J:Z,C="y"===x?K:Q,k="y"===x?"height":"width",N=O[x],L=N+g[P],R=N-g[C],_=f?-D[k]/2:0,I=y===nt?S[k]:D[k],W=y===nt?-D[k]:-S[k],B=e.elements.arrow,V=f&&B?U(B):{width:0,height:0},F=e.modifiersData["arrow#persistent"]?e.modifiersData["arrow#persistent"].padding:{top:0,right:0,bottom:0,left:0},X=F[P],Y=F[C],q=Mt(0,S[k],V[k]),z=b?S[k]/2-_-q-X-E.mainAxis:I-q-X-E.mainAxis,tt=b?-S[k]/2+_+q+Y+E.mainAxis:W+q+Y+E.mainAxis,et=e.elements.arrow&&G(e.elements.arrow),ot=et?"y"===x?et.clientTop||0:et.clientLeft||0:0,rt=null!=(A=null==T?void 0:T[x])?A:0,it=N+tt-rt,st=Mt(f?M(L,N+z-rt-ot):L,N,f?H(R,it):R);O[x]=st,$[x]=st-N}if(a){var at,ct="x"===x?J:Z,lt="x"===x?K:Q,ut=O[w],pt="y"===w?"height":"width",dt=ut+g[ct],ft=ut-g[lt],vt=-1!==[J,Z].indexOf(v),yt=null!=(at=null==T?void 0:T[w])?at:0,bt=vt?dt:ut-S[pt]-D[pt]-yt+E.altAxis,xt=vt?ut+S[pt]+D[pt]-yt-E.altAxis:ft,wt=f&&vt?function(t,e,n){var o=Mt(t,e,n);return o>n?n:o}(bt,ut,xt):Mt(f?bt:dt,ut,f?xt:ft);O[w]=wt,$[w]=wt-ut}e.modifiersData[o]=$}},requiresIfExists:["offset"]},{name:"arrow",enabled:!0,phase:"main",fn:function(t){var e,n=t.state,o=t.name,r=t.options,i=n.elements.arrow,s=n.modifiersData.popperOffsets,a=ht(n.placement),c=gt(a),l=[Z,Q].indexOf(a)>=0?"height":"width";if(i&&s){var u=function(t,e){return $t("number"!=typeof(t="function"==typeof t?t(Object.assign({},e.rects,{placement:e.placement})):t)?t:At(t,et))}(r.padding,n),p=U(i),d="y"===c?J:Z,f="y"===c?K:Q,h=n.rects.reference[l]+n.rects.reference[c]-s[c]-n.rects.popper[l],m=s[c]-n.rects.reference[c],g=G(i),v=g?"y"===c?g.clientHeight||0:g.clientWidth||0:0,y=h/2-m/2,b=u[d],x=v-p[l]-u[f],w=v/2-p[l]/2+y,O=Mt(b,w,x),S=c;n.modifiersData[o]=((e={})[S]=O,e.centerOffset=O-w,e)}},effect:function(t){var e=t.state,n=t.options.element,o=void 0===n?"[data-popper-arrow]":n;null!=o&&("string"!=typeof o||(o=e.elements.popper.querySelector(o)))&&jt(e.elements.popper,o)&&(e.elements.arrow=o)},requires:["popperOffsets"],requiresIfExists:["preventOverflow"]},{name:"hide",enabled:!0,phase:"main",requiresIfExists:["preventOverflow"],fn:function(t){var e=t.state,n=t.name,o=e.rects.reference,r=e.rects.popper,i=e.modifiersData.preventOverflow,s=Ht(e,{elementContext:"reference"}),a=Ht(e,{altBoundary:!0}),c=Pt(s,o),l=Pt(a,r,i),u=Ct(c),p=Ct(l);e.modifiersData[n]={referenceClippingOffsets:c,popperEscapeOffsets:l,isReferenceHidden:u,hasPopperEscaped:p},e.attributes.popper=Object.assign({},e.attributes.popper,{"data-popper-reference-hidden":u,"data-popper-escaped":p})}}]}),Nt="tippy-content",Lt="tippy-arrow",Rt="tippy-svg-arrow",_t={passive:!0,capture:!0},It=function(){return document.body};function Wt(t,e,n){if(Array.isArray(t)){var o=t[e];return null==o?Array.isArray(n)?n[e]:n:o}return t}function Bt(t,e){var n={}.toString.call(t);return 0===n.indexOf("[object")&&n.indexOf(e+"]")>-1}function Vt(t,e){return"function"==typeof t?t.apply(void 0,e):t}function Ut(t,e){return 0===e?t:function(o){clearTimeout(n),n=setTimeout((function(){t(o)}),e)};var n}function Ft(t){return[].concat(t)}function Xt(t,e){-1===t.indexOf(e)&&t.push(e)}function Yt(t){return[].slice.call(t)}function qt(t){return Object.keys(t).reduce((function(e,n){return void 0!==t[n]&&(e[n]=t[n]),e}),{})}function zt(){return document.createElement("div")}function Gt(t){return["Element","Fragment"].some((function(e){return Bt(t,e)}))}function Jt(t,e){t.forEach((function(t){t&&(t.style.transitionDuration=e+"ms")}))}function Kt(t,e){t.forEach((function(t){t&&t.setAttribute("data-state",e)}))}function Qt(t,e,n){var o=e+"EventListener";["transitionend","webkitTransitionEnd"].forEach((function(e){t[o](e,n)}))}function Zt(t,e){for(var n=e;n;){var o;if(t.contains(n))return!0;n=null==n.getRootNode||null==(o=n.getRootNode())?void 0:o.host}return!1}var te={isTouch:!1},ee=0;function ne(){te.isTouch||(te.isTouch=!0,window.performance&&document.addEventListener("mousemove",oe))}function oe(){var t=performance.now();t-ee<20&&(te.isTouch=!1,document.removeEventListener("mousemove",oe)),ee=t}function re(){var t,e=document.activeElement;if((t=e)&&t._tippy&&t._tippy.reference===t){var n=e._tippy;e.blur&&!n.state.isVisible&&e.blur()}}var ie=!("undefined"==typeof window||"undefined"==typeof document||!window.msCrypto),se=Object.assign({appendTo:It,aria:{content:"auto",expanded:"auto"},delay:0,duration:[300,250],getReferenceClientRect:null,hideOnClick:!0,ignoreAttributes:!1,interactive:!1,interactiveBorder:2,interactiveDebounce:0,moveTransition:"",offset:[0,10],onAfterUpdate:function(){},onBeforeUpdate:function(){},onCreate:function(){},onDestroy:function(){},onHidden:function(){},onHide:function(){},onMount:function(){},onShow:function(){},onShown:function(){},onTrigger:function(){},onUntrigger:function(){},onClickOutside:function(){},placement:"top",plugins:[],popperOptions:{},render:null,showOnCreate:!1,touch:!0,trigger:"mouseenter focus",triggerTarget:null},{animateFill:!1,followCursor:!1,inlinePositioning:!1,sticky:!1},{allowHTML:!1,animation:"fade",arrow:!0,content:"",inertia:!1,maxWidth:350,role:"tooltip",theme:"",zIndex:9999}),ae=Object.keys(se);function ce(t){var e=(t.plugins||[]).reduce((function(e,n){var o,r=n.name,i=n.defaultValue;return r&&(e[r]=void 0!==t[r]?t[r]:null!=(o=se[r])?o:i),e}),{});return Object.assign({},t,e)}function le(t,e){var n=Object.assign({},e,{content:Vt(e.content,[t])},e.ignoreAttributes?{}:function(t,e){return(e?Object.keys(ce(Object.assign({},se,{plugins:e}))):ae).reduce((function(e,n){var o=(t.getAttribute("data-tippy-"+n)||"").trim();if(!o)return e;if("content"===n)e[n]=o;else try{e[n]=JSON.parse(o)}catch(t){e[n]=o}return e}),{})}(t,e.plugins));return n.aria=Object.assign({},se.aria,n.aria),n.aria={expanded:"auto"===n.aria.expanded?e.interactive:n.aria.expanded,content:"auto"===n.aria.content?e.interactive?null:"describedby":n.aria.content},n}function ue(t,e){t.innerHTML=e}function pe(t){var e=zt();return!0===t?e.className=Lt:(e.className=Rt,Gt(t)?e.appendChild(t):ue(e,t)),e}function de(t,e){Gt(e.content)?(ue(t,""),t.appendChild(e.content)):"function"!=typeof e.content&&(e.allowHTML?ue(t,e.content):t.textContent=e.content)}function fe(t){var e=t.firstElementChild,n=Yt(e.children);return{box:e,content:n.find((function(t){return t.classList.contains(Nt)})),arrow:n.find((function(t){return t.classList.contains(Lt)||t.classList.contains(Rt)})),backdrop:n.find((function(t){return t.classList.contains("tippy-backdrop")}))}}function he(t){var e=zt(),n=zt();n.className="tippy-box",n.setAttribute("data-state","hidden"),n.setAttribute("tabindex","-1");var o=zt();function r(n,o){var r=fe(e),i=r.box,s=r.content,a=r.arrow;o.theme?i.setAttribute("data-theme",o.theme):i.removeAttribute("data-theme"),"string"==typeof o.animation?i.setAttribute("data-animation",o.animation):i.removeAttribute("data-animation"),o.inertia?i.setAttribute("data-inertia",""):i.removeAttribute("data-inertia"),i.style.maxWidth="number"==typeof o.maxWidth?o.maxWidth+"px":o.maxWidth,o.role?i.setAttribute("role",o.role):i.removeAttribute("role"),n.content===o.content&&n.allowHTML===o.allowHTML||de(s,t.props),o.arrow?a?n.arrow!==o.arrow&&(i.removeChild(a),i.appendChild(pe(o.arrow))):i.appendChild(pe(o.arrow)):a&&i.removeChild(a)}return o.className=Nt,o.setAttribute("data-state","hidden"),de(o,t.props),e.appendChild(n),n.appendChild(o),r(t.props,t.props),{popper:e,onUpdate:r}}he.$$tippy=!0;var me=1,ge=[],ve=[];function ye(t,e){var n,o,r,i,s,a,c,l,u=le(t,Object.assign({},se,ce(qt(e)))),p=!1,d=!1,f=!1,h=!1,m=[],g=Ut(q,u.interactiveDebounce),v=me++,y=(l=u.plugins).filter((function(t,e){return l.indexOf(t)===e})),b={id:v,reference:t,popper:zt(),popperInstance:null,props:u,state:{isEnabled:!0,isVisible:!1,isDestroyed:!1,isMounted:!1,isShown:!1},plugins:y,clearDelayTimeouts:function(){clearTimeout(n),clearTimeout(o),cancelAnimationFrame(r)},setProps:function(e){if(!b.state.isDestroyed){C("onBeforeUpdate",[b,e]),X();var n=b.props,o=le(t,Object.assign({},n,qt(e),{ignoreAttributes:!0}));b.props=o,F(),n.interactiveDebounce!==o.interactiveDebounce&&(L(),g=Ut(q,o.interactiveDebounce)),n.triggerTarget&&!o.triggerTarget?Ft(n.triggerTarget).forEach((function(t){t.removeAttribute("aria-expanded")})):o.triggerTarget&&t.removeAttribute("aria-expanded"),N(),P(),O&&O(n,o),b.popperInstance&&(K(),Z().forEach((function(t){requestAnimationFrame(t._tippy.popperInstance.forceUpdate)}))),C("onAfterUpdate",[b,e])}},setContent:function(t){b.setProps({content:t})},show:function(){var t=b.state.isVisible,e=b.state.isDestroyed,n=!b.state.isEnabled,o=te.isTouch&&!b.props.touch,r=Wt(b.props.duration,0,se.duration);if(!(t||e||n||o||$().hasAttribute("disabled")||(C("onShow",[b],!1),!1===b.props.onShow(b)))){if(b.state.isVisible=!0,T()&&(w.style.visibility="visible"),P(),W(),b.state.isMounted||(w.style.transition="none"),T()){var i=H();Jt([i.box,i.content],0)}var s,c,l;a=function(){var t;if(b.state.isVisible&&!h){if(h=!0,w.offsetHeight,w.style.transition=b.props.moveTransition,T()&&b.props.animation){var e=H(),n=e.box,o=e.content;Jt([n,o],r),Kt([n,o],"visible")}k(),N(),Xt(ve,b),null==(t=b.popperInstance)||t.forceUpdate(),C("onMount",[b]),b.props.animation&&T()&&function(t){V(t,(function(){b.state.isShown=!0,C("onShown",[b])}))}(r)}},c=b.props.appendTo,l=$(),(s=b.props.interactive&&c===It||"parent"===c?l.parentNode:Vt(c,[l])).contains(w)||s.appendChild(w),b.state.isMounted=!0,K()}},hide:function(){var t=!b.state.isVisible,e=b.state.isDestroyed,n=!b.state.isEnabled,o=Wt(b.props.duration,1,se.duration);if(!(t||e||n)&&(C("onHide",[b],!1),!1!==b.props.onHide(b))){if(b.state.isVisible=!1,b.state.isShown=!1,h=!1,p=!1,T()&&(w.style.visibility="hidden"),L(),B(),P(!0),T()){var r=H(),i=r.box,s=r.content;b.props.animation&&(Jt([i,s],o),Kt([i,s],"hidden"))}k(),N(),b.props.animation?T()&&function(t,e){V(t,(function(){!b.state.isVisible&&w.parentNode&&w.parentNode.contains(w)&&e()}))}(o,b.unmount):b.unmount()}},hideWithInteractivity:function(t){A().addEventListener("mousemove",g),Xt(ge,g),g(t)},enable:function(){b.state.isEnabled=!0},disable:function(){b.hide(),b.state.isEnabled=!1},unmount:function(){b.state.isVisible&&b.hide(),b.state.isMounted&&(Q(),Z().forEach((function(t){t._tippy.unmount()})),w.parentNode&&w.parentNode.removeChild(w),ve=ve.filter((function(t){return t!==b})),b.state.isMounted=!1,C("onHidden",[b]))},destroy:function(){b.state.isDestroyed||(b.clearDelayTimeouts(),b.unmount(),X(),delete t._tippy,b.state.isDestroyed=!0,C("onDestroy",[b]))}};if(!u.render)return b;var x=u.render(b),w=x.popper,O=x.onUpdate;w.setAttribute("data-tippy-root",""),w.id="tippy-"+b.id,b.popper=w,t._tippy=b,w._tippy=b;var S=y.map((function(t){return t.fn(b)})),D=t.hasAttribute("aria-expanded");return F(),N(),P(),C("onCreate",[b]),u.showOnCreate&&tt(),w.addEventListener("mouseenter",(function(){b.props.interactive&&b.state.isVisible&&b.clearDelayTimeouts()})),w.addEventListener("mouseleave",(function(){b.props.interactive&&b.props.trigger.indexOf("mouseenter")>=0&&A().addEventListener("mousemove",g)})),b;function j(){var t=b.props.touch;return Array.isArray(t)?t:[t,0]}function E(){return"hold"===j()[0]}function T(){var t;return!(null==(t=b.props.render)||!t.$$tippy)}function $(){return c||t}function A(){var t,e,n=$().parentNode;return n?null!=(e=Ft(n)[0])&&null!=(t=e.ownerDocument)&&t.body?e.ownerDocument:document:document}function H(){return fe(w)}function M(t){return b.state.isMounted&&!b.state.isVisible||te.isTouch||i&&"focus"===i.type?0:Wt(b.props.delay,t?0:1,se.delay)}function P(t){void 0===t&&(t=!1),w.style.pointerEvents=b.props.interactive&&!t?"":"none",w.style.zIndex=""+b.props.zIndex}function C(t,e,n){var o;void 0===n&&(n=!0),S.forEach((function(n){n[t]&&n[t].apply(n,e)})),n&&(o=b.props)[t].apply(o,e)}function k(){var e=b.props.aria;if(e.content){var n="aria-"+e.content,o=w.id;Ft(b.props.triggerTarget||t).forEach((function(t){var e=t.getAttribute(n);if(b.state.isVisible)t.setAttribute(n,e?e+" "+o:o);else{var r=e&&e.replace(o,"").trim();r?t.setAttribute(n,r):t.removeAttribute(n)}}))}}function N(){!D&&b.props.aria.expanded&&Ft(b.props.triggerTarget||t).forEach((function(t){b.props.interactive?t.setAttribute("aria-expanded",b.state.isVisible&&t===$()?"true":"false"):t.removeAttribute("aria-expanded")}))}function L(){A().removeEventListener("mousemove",g),ge=ge.filter((function(t){return t!==g}))}function R(e){if(!te.isTouch||!f&&"mousedown"!==e.type){var n=e.composedPath&&e.composedPath()[0]||e.target;if(!b.props.interactive||!Zt(w,n)){if(Ft(b.props.triggerTarget||t).some((function(t){return Zt(t,n)}))){if(te.isTouch)return;if(b.state.isVisible&&b.props.trigger.indexOf("click")>=0)return}else C("onClickOutside",[b,e]);!0===b.props.hideOnClick&&(b.clearDelayTimeouts(),b.hide(),d=!0,setTimeout((function(){d=!1})),b.state.isMounted||B())}}}function _(){f=!0}function I(){f=!1}function W(){var t=A();t.addEventListener("mousedown",R,!0),t.addEventListener("touchend",R,_t),t.addEventListener("touchstart",I,_t),t.addEventListener("touchmove",_,_t)}function B(){var t=A();t.removeEventListener("mousedown",R,!0),t.removeEventListener("touchend",R,_t),t.removeEventListener("touchstart",I,_t),t.removeEventListener("touchmove",_,_t)}function V(t,e){var n=H().box;function o(t){t.target===n&&(Qt(n,"remove",o),e())}if(0===t)return e();Qt(n,"remove",s),Qt(n,"add",o),s=o}function U(e,n,o){void 0===o&&(o=!1),Ft(b.props.triggerTarget||t).forEach((function(t){t.addEventListener(e,n,o),m.push({node:t,eventType:e,handler:n,options:o})}))}function F(){var t;E()&&(U("touchstart",Y,{passive:!0}),U("touchend",z,{passive:!0})),(t=b.props.trigger,t.split(/\s+/).filter(Boolean)).forEach((function(t){if("manual"!==t)switch(U(t,Y),t){case"mouseenter":U("mouseleave",z);break;case"focus":U(ie?"focusout":"blur",G);break;case"focusin":U("focusout",G)}}))}function X(){m.forEach((function(t){var e=t.node,n=t.eventType,o=t.handler,r=t.options;e.removeEventListener(n,o,r)})),m=[]}function Y(t){var e,n=!1;if(b.state.isEnabled&&!J(t)&&!d){var o="focus"===(null==(e=i)?void 0:e.type);i=t,c=t.currentTarget,N(),!b.state.isVisible&&Bt(t,"MouseEvent")&&ge.forEach((function(e){return e(t)})),"click"===t.type&&(b.props.trigger.indexOf("mouseenter")<0||p)&&!1!==b.props.hideOnClick&&b.state.isVisible?n=!0:tt(t),"click"===t.type&&(p=!n),n&&!o&&et(t)}}function q(t){var e=t.target,n=$().contains(e)||w.contains(e);if("mousemove"!==t.type||!n){var o=Z().concat(w).map((function(t){var e,n=null==(e=t._tippy.popperInstance)?void 0:e.state;return n?{popperRect:t.getBoundingClientRect(),popperState:n,props:u}:null})).filter(Boolean);(function(t,e){var n=e.clientX,o=e.clientY;return t.every((function(t){var e=t.popperRect,r=t.popperState,i=t.props.interactiveBorder,s=r.placement.split("-")[0],a=r.modifiersData.offset;if(!a)return!0;var c="bottom"===s?a.top.y:0,l="top"===s?a.bottom.y:0,u="right"===s?a.left.x:0,p="left"===s?a.right.x:0,d=e.top-o+c>i,f=o-e.bottom-l>i,h=e.left-n+u>i,m=n-e.right-p>i;return d||f||h||m}))})(o,t)&&(L(),et(t))}}function z(t){J(t)||b.props.trigger.indexOf("click")>=0&&p||(b.props.interactive?b.hideWithInteractivity(t):et(t))}function G(t){b.props.trigger.indexOf("focusin")<0&&t.target!==$()||b.props.interactive&&t.relatedTarget&&w.contains(t.relatedTarget)||et(t)}function J(t){return!!te.isTouch&&E()!==t.type.indexOf("touch")>=0}function K(){Q();var e=b.props,n=e.popperOptions,o=e.placement,r=e.offset,i=e.getReferenceClientRect,s=e.moveTransition,c=T()?fe(w).arrow:null,l=i?{getBoundingClientRect:i,contextElement:i.contextElement||$()}:t,u=[{name:"offset",options:{offset:r}},{name:"preventOverflow",options:{padding:{top:2,bottom:2,left:5,right:5}}},{name:"flip",options:{padding:5}},{name:"computeStyles",options:{adaptive:!s}},{name:"$$tippy",enabled:!0,phase:"beforeWrite",requires:["computeStyles"],fn:function(t){var e=t.state;if(T()){var n=H().box;["placement","reference-hidden","escaped"].forEach((function(t){"placement"===t?n.setAttribute("data-placement",e.placement):e.attributes.popper["data-popper-"+t]?n.setAttribute("data-"+t,""):n.removeAttribute("data-"+t)})),e.attributes.popper={}}}}];T()&&c&&u.push({name:"arrow",options:{element:c,padding:3}}),u.push.apply(u,(null==n?void 0:n.modifiers)||[]),b.popperInstance=kt(l,w,Object.assign({},n,{placement:o,onFirstUpdate:a,modifiers:u}))}function Q(){b.popperInstance&&(b.popperInstance.destroy(),b.popperInstance=null)}function Z(){return Yt(w.querySelectorAll("[data-tippy-root]"))}function tt(t){b.clearDelayTimeouts(),t&&C("onTrigger",[b,t]),W();var e=M(!0),o=j(),r=o[0],i=o[1];te.isTouch&&"hold"===r&&i&&(e=i),e?n=setTimeout((function(){b.show()}),e):b.show()}function et(t){if(b.clearDelayTimeouts(),C("onUntrigger",[b,t]),b.state.isVisible){if(!(b.props.trigger.indexOf("mouseenter")>=0&&b.props.trigger.indexOf("click")>=0&&["mouseleave","mousemove"].indexOf(t.type)>=0&&p)){var e=M(!1);e?o=setTimeout((function(){b.state.isVisible&&b.hide()}),e):r=requestAnimationFrame((function(){b.hide()}))}}else B()}}function be(t,e){void 0===e&&(e={});var n=se.plugins.concat(e.plugins||[]);document.addEventListener("touchstart",ne,_t),window.addEventListener("blur",re);var o,r=Object.assign({},e,{plugins:n}),i=(o=t,Gt(o)?[o]:function(t){return Bt(t,"NodeList")}(o)?Yt(o):Array.isArray(o)?o:Yt(document.querySelectorAll(o))).reduce((function(t,e){var n=e&&ye(e,r);return n&&t.push(n),t}),[]);return Gt(t)?i[0]:i}be.defaultProps=se,be.setDefaultProps=function(t){Object.keys(t).forEach((function(e){se[e]=t[e]}))},be.currentInput=te,Object.assign({},xt,{effect:function(t){var e=t.state,n={popper:{position:e.options.strategy,left:"0",top:"0",margin:"0"},arrow:{position:"absolute"},reference:{}};Object.assign(e.elements.popper.style,n.popper),e.styles=n,e.elements.arrow&&Object.assign(e.elements.arrow.style,n.arrow)}}),be.setDefaultProps({render:he});const xe=be;var we=n(5795);function Oe(t,e){if(null==t)return{};var n,o,r={},i=Object.keys(t);for(o=0;o<i.length;o++)n=i[o],e.indexOf(n)>=0||(r[n]=t[n]);return r}var Se="undefined"!=typeof window&&"undefined"!=typeof document;function De(t,e){t&&("function"==typeof t&&t(e),{}.hasOwnProperty.call(t,"current")&&(t.current=e))}function je(){return Se&&document.createElement("div")}function Ee(t,e){if(t===e)return!0;if("object"==typeof t&&null!=t&&"object"==typeof e&&null!=e){if(Object.keys(t).length!==Object.keys(e).length)return!1;for(var n in t){if(!e.hasOwnProperty(n))return!1;if(!Ee(t[n],e[n]))return!1}return!0}return!1}function Te(t){var e=[];return t.forEach((function(t){e.find((function(e){return Ee(t,e)}))||e.push(t)})),e}var $e=Se?r.useLayoutEffect:r.useEffect;function Ae(t,e,n){n.split(/\s+/).forEach((function(n){n&&t.classList[e](n)}))}var He={name:"className",defaultValue:"",fn:function(t){var e=t.popper.firstElementChild,n=function(){var e;return!!(null==(e=t.props.render)?void 0:e.$$tippy)};function o(){t.props.className&&!n()||Ae(e,"add",t.props.className)}return{onCreate:o,onBeforeUpdate:function(){n()&&Ae(e,"remove",t.props.className)},onAfterUpdate:o}}};function Me(t){return function(e){var n,o,s=e.children,a=e.content,c=e.visible,l=e.singleton,u=e.render,p=e.reference,d=e.disabled,f=void 0!==d&&d,h=e.ignoreAttributes,m=void 0===h||h,g=(e.__source,e.__self,Oe(e,["children","content","visible","singleton","render","reference","disabled","ignoreAttributes","__source","__self"])),v=void 0!==c,y=void 0!==l,b=(0,r.useState)(!1),x=b[0],w=b[1],O=(0,r.useState)({}),S=O[0],D=O[1],j=(0,r.useState)(),E=j[0],T=j[1],$=(n=function(){return{container:je(),renders:1}},(o=(0,r.useRef)()).current||(o.current="function"==typeof n?n():n),o.current),A=Object.assign({ignoreAttributes:m},g,{content:$.container});v&&(A.trigger="manual",A.hideOnClick=!1),y&&(f=!0);var H=A,M=A.plugins||[];u&&(H=Object.assign({},A,{plugins:y&&null!=l.data?[].concat(M,[{fn:function(){return{onTrigger:function(t,e){var n=l.data.children.find((function(t){return t.instance.reference===e.currentTarget}));t.state.$$activeSingletonInstance=n.instance,T(n.content)}}}}]):M,render:function(){return{popper:$.container}}}));var P=[p].concat(s?[s.type]:[]);return $e((function(){var e=p;p&&p.hasOwnProperty("current")&&(e=p.current);var n=t(e||$.ref||je(),Object.assign({},H,{plugins:[He].concat(A.plugins||[])}));return $.instance=n,f&&n.disable(),c&&n.show(),y&&l.hook({instance:n,content:a,props:H,setSingletonContent:T}),w(!0),function(){n.destroy(),null==l||l.cleanup(n)}}),P),$e((function(){var t,e,n,o,r;if(1!==$.renders){var i=$.instance;i.setProps((e=i.props,n=H,Object.assign({},n,{popperOptions:Object.assign({},e.popperOptions,n.popperOptions,{modifiers:Te([].concat((null==(o=e.popperOptions)?void 0:o.modifiers)||[],(null==(r=n.popperOptions)?void 0:r.modifiers)||[]))})}))),null==(t=i.popperInstance)||t.forceUpdate(),f?i.disable():i.enable(),v&&(c?i.show():i.hide()),y&&l.hook({instance:i,content:a,props:H,setSingletonContent:T})}else $.renders++})),$e((function(){var t;if(u){var e=$.instance;e.setProps({popperOptions:Object.assign({},e.props.popperOptions,{modifiers:[].concat(((null==(t=e.props.popperOptions)?void 0:t.modifiers)||[]).filter((function(t){return"$$tippyReact"!==t.name})),[{name:"$$tippyReact",enabled:!0,phase:"beforeWrite",requires:["computeStyles"],fn:function(t){var e,n=t.state,o=null==(e=n.modifiersData)?void 0:e.hide;S.placement===n.placement&&S.referenceHidden===(null==o?void 0:o.isReferenceHidden)&&S.escaped===(null==o?void 0:o.hasPopperEscaped)||D({placement:n.placement,referenceHidden:null==o?void 0:o.isReferenceHidden,escaped:null==o?void 0:o.hasPopperEscaped}),n.attributes.popper={}}}])})})}}),[S.placement,S.referenceHidden,S.escaped].concat(P)),i().createElement(i().Fragment,null,s?(0,r.cloneElement)(s,{ref:function(t){$.ref=t,De(s.ref,t)}}):null,x&&(0,we.createPortal)(u?u(function(t){var e={"data-placement":t.placement};return t.referenceHidden&&(e["data-reference-hidden"]=""),t.escaped&&(e["data-escaped"]=""),e}(S),E,$.instance):a,$.container))}}var Pe=function(t,e){return(0,r.forwardRef)((function(n,o){var s=n.children,a=Oe(n,["children"]);return i().createElement(t,Object.assign({},e,a),s?(0,r.cloneElement)(s,{ref:function(t){De(o,t),De(s.ref,t)}}):null)}))};const Ce=Pe(Me(xe));var ke=n(5794),Ne=n.n(ke);const Le=({hotspot:t,containerSize:e,activeHotspot:n,setActiveHotspot:o,selectedHotspot:r,setAttributes:i,hotspots:s,handleStop:a,handleDeleteHotspot:c,isTitle:l,isDesc:u,iconMode:p,globalIcon:d})=>{const h={x:t.x/100*e.width-12,y:t.y/100*e.height-12};return(0,f.jsx)(Ne(),{position:h,bounds:".image",onStop:(e,n)=>a(e,n,t.id),children:(0,f.jsx)("div",{className:"hotspot "+(n===t.id?"activeHotspot":""),children:(0,f.jsx)(Ce,{content:(0,f.jsxs)(f.Fragment,{children:[l&&(0,f.jsx)(x,{selectedHotspot:r,setAttributes:i,hotspots:s}),u&&(0,f.jsx)(w,{selectedHotspot:r,setAttributes:i,hotspots:s})]}),placement:"top",theme:"hotspot",arrow:!0,interactive:!0,onShow:()=>o(t.id),onHide:()=>o(null),children:(0,f.jsxs)("div",{children:[(0,f.jsx)("span",{className:"icon",dangerouslySetInnerHTML:{__html:b(p,d,t?.icon)}}),(0,f.jsx)("span",{className:"deleteIcon",onClick:e=>{e.stopPropagation(),c(t.id)},children:"x"})]})})})},t.id)};function Re({attributes:t,setAttributes:e,isPremium:n,setIsSpotModalOpen:o,isBackend:r=!0}){const{containerRef:i,imageRef:s,containerSize:a,activeHotspot:c,setActiveHotspot:l,selectedHotspot:u,addSpot:p,handleStop:d,handleDeleteHotspot:h,img:v,hotspots:y=[]}=m(t,e),{options:x,iconMode:w,globalIcon:D}=t||{},{isTitle:j,isDesc:E}=x||{};return(0,f.jsxs)("div",{className:"tippy",ref:i,children:[(0,f.jsx)("div",{onClick:r?t=>p(t,n,o):void 0,children:(0,f.jsx)(g,{imageRef:s,img:v})}),a.width>0&&y?.map((t=>r?(0,f.jsx)(Le,{hotspot:t,containerSize:a,activeHotspot:c,setActiveHotspot:l,selectedHotspot:u,setAttributes:e,hotspots:y,handleStop:d,handleDeleteHotspot:h,isTitle:j,isDesc:E,iconMode:w,globalIcon:D},t.id):(0,f.jsx)("div",{className:"hotspot "+(c===t.id?"activeHotspot":""),style:{left:`${t.x}%`,top:`${t.y}%`},children:(0,f.jsx)(Ce,{content:(0,f.jsxs)(f.Fragment,{children:[j&&(0,f.jsx)(O,{selectedHotspot:u}),E&&(0,f.jsx)(S,{selectedHotspot:u})]}),theme:"hotspot",arrow:!0,interactive:!0,onShow:()=>l(t.id),onHide:()=>l(null),children:(0,f.jsx)("span",{className:"icon",dangerouslySetInnerHTML:{__html:b(w,D,t?.icon)}})})},t.id)))]})}const _e=t=>{const{attributes:e}=t,{themeSl:n="simple"}=e||{};return(0,f.jsx)(Ie,{themeSl:n,...t})},Ie=({themeSl:t,...e})=>{switch(t){case"sidepanel":return(0,f.jsx)(D,{...e});case"tippy":return(0,f.jsx)(Re,{...e});default:return(0,f.jsx)(j,{...e})}},We=({activeHotspot:t,hotspot:e,setActiveHotspot:n,attributes:o})=>{const{iconMode:r,globalIcon:i}=o||{};return(0,f.jsx)("div",{className:"hotspot "+(t===e.id?"activeHotspot":""),onClick:()=>n(t===e.id?null:e.id),style:{left:`${e.x}%`,top:`${e.y}%`},children:(0,f.jsx)("span",{className:"icon",dangerouslySetInnerHTML:{__html:b(r,i,e?.icon)}})})};document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll(".wp-block-psb-product-spot").forEach((t=>{const e=JSON.parse(t.dataset.attributes);(0,o.H)(t).render((0,f.jsxs)(f.Fragment,{children:[(0,f.jsx)(h,{attributes:e,id:t.id}),(0,f.jsx)("div",{className:"productSpotWrapper",children:e?.img?.url&&(0,f.jsx)("div",{className:"productSpot",children:(0,f.jsx)(_e,{attributes:e,isBackend:!1,Hotspot:We})})})]})),t?.removeAttribute("data-attributes")}));const t=document.querySelector(".psb-product-spot-on-woo");if(t){const e=t.classList.contains("psb-top-image"),n=t.classList.contains("psb-bottom-image"),o=t.classList.contains("psb-replace-image"),r=t.querySelector(".wp-block-psb-product-spot");r?.classList.contains("alignwide")&&r.classList.remove("alignwide"),[document.querySelector(".woocommerce-product-gallery"),document.querySelector(".product-gallery")].forEach((r=>{r&&(o?(r.innerHTML="",r.append(t)):(e&&r.prepend(t),n&&r.append(t)))}))}}))},1508:t=>{function e(t){var n,o,r="";if("string"==typeof t||"number"==typeof t)r+=t;else if("object"==typeof t)if(Array.isArray(t)){var i=t.length;for(n=0;n<i;n++)t[n]&&(o=e(t[n]))&&(r&&(r+=" "),r+=o)}else for(o in t)t[o]&&(r&&(r+=" "),r+=o);return r}function n(){for(var t,n,o=0,r="",i=arguments.length;o<i;o++)(t=arguments[o])&&(n=e(t))&&(r&&(r+=" "),r+=n);return r}t.exports=n,t.exports.clsx=n},2694:(t,e,n)=>{"use strict";var o=n(6925);function r(){}function i(){}i.resetWarningCache=r,t.exports=function(){function t(t,e,n,r,i,s){if(s!==o){var a=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");throw a.name="Invariant Violation",a}}function e(){return t}t.isRequired=t;var n={array:t,bigint:t,bool:t,func:t,number:t,object:t,string:t,symbol:t,any:t,arrayOf:e,element:t,elementType:t,instanceOf:e,node:t,objectOf:e,oneOf:e,oneOfType:e,shape:e,exact:e,checkPropTypes:i,resetWarningCache:r};return n.PropTypes=n,n}},5556:(t,e,n)=>{t.exports=n(2694)()},6925:t=>{"use strict";t.exports="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED"},5338:(t,e,n)=>{"use strict";var o=n(5795);e.H=o.createRoot,o.hydrateRoot},6027:(t,e,n)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"DraggableCore",{enumerable:!0,get:function(){return u.default}}),e.default=void 0;var o=function(t){if("function"==typeof WeakMap){var e=new WeakMap;new WeakMap}return function(t){if(t&&t.__esModule)return t;var n,o,r={__proto__:null,default:t};if(null===t||"object"!=typeof t&&"function"!=typeof t)return r;if(n=e){if(n.has(t))return n.get(t);n.set(t,r)}for(const e in t)"default"!==e&&{}.hasOwnProperty.call(t,e)&&((o=(n=Object.defineProperty)&&Object.getOwnPropertyDescriptor(t,e))&&(o.get||o.set)?n(r,e,o):r[e]=t[e]);return r}(t)}(n(1609)),r=d(n(5556)),i=d(n(5795)),s=n(1508),a=n(1089),c=n(1726),l=n(7056),u=d(n(6888)),p=d(n(8696));function d(t){return t&&t.__esModule?t:{default:t}}function f(){return f=Object.assign?Object.assign.bind():function(t){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var o in n)({}).hasOwnProperty.call(n,o)&&(t[o]=n[o])}return t},f.apply(null,arguments)}function h(t,e,n){return(e=function(t){var e=function(t){if("object"!=typeof t||!t)return t;var e=t[Symbol.toPrimitive];if(void 0!==e){var n=e.call(t,"string");if("object"!=typeof n)return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t);return"symbol"==typeof e?e:e+""}(e))in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}class m extends o.Component{static getDerivedStateFromProps(t,e){let{position:n}=t,{prevPropsPosition:o}=e;return!n||o&&n.x===o.x&&n.y===o.y?null:((0,p.default)("Draggable: getDerivedStateFromProps %j",{position:n,prevPropsPosition:o}),{x:n.x,y:n.y,prevPropsPosition:{...n}})}constructor(t){super(t),h(this,"onDragStart",((t,e)=>{if((0,p.default)("Draggable: onDragStart: %j",e),!1===this.props.onStart(t,(0,c.createDraggableData)(this,e)))return!1;this.setState({dragging:!0,dragged:!0})})),h(this,"onDrag",((t,e)=>{if(!this.state.dragging)return!1;(0,p.default)("Draggable: onDrag: %j",e);const n=(0,c.createDraggableData)(this,e),o={x:n.x,y:n.y,slackX:0,slackY:0};if(this.props.bounds){const{x:t,y:e}=o;o.x+=this.state.slackX,o.y+=this.state.slackY;const[r,i]=(0,c.getBoundPosition)(this,o.x,o.y);o.x=r,o.y=i,o.slackX=this.state.slackX+(t-o.x),o.slackY=this.state.slackY+(e-o.y),n.x=o.x,n.y=o.y,n.deltaX=o.x-this.state.x,n.deltaY=o.y-this.state.y}if(!1===this.props.onDrag(t,n))return!1;this.setState(o)})),h(this,"onDragStop",((t,e)=>{if(!this.state.dragging)return!1;if(!1===this.props.onStop(t,(0,c.createDraggableData)(this,e)))return!1;(0,p.default)("Draggable: onDragStop: %j",e);const n={dragging:!1,slackX:0,slackY:0};if(Boolean(this.props.position)){const{x:t,y:e}=this.props.position;n.x=t,n.y=e}this.setState(n)})),this.state={dragging:!1,dragged:!1,x:t.position?t.position.x:t.defaultPosition.x,y:t.position?t.position.y:t.defaultPosition.y,prevPropsPosition:{...t.position},slackX:0,slackY:0,isElementSVG:!1},!t.position||t.onDrag||t.onStop||console.warn("A `position` was applied to this <Draggable>, without drag handlers. This will make this component effectively undraggable. Please attach `onDrag` or `onStop` handlers so you can adjust the `position` of this element.")}componentDidMount(){void 0!==window.SVGElement&&this.findDOMNode()instanceof window.SVGElement&&this.setState({isElementSVG:!0})}componentWillUnmount(){this.state.dragging&&this.setState({dragging:!1})}findDOMNode(){return this.props?.nodeRef?.current??i.default.findDOMNode(this)}render(){const{axis:t,bounds:e,children:n,defaultPosition:r,defaultClassName:i,defaultClassNameDragging:l,defaultClassNameDragged:p,position:d,positionOffset:h,scale:m,...g}=this.props;let v={},y=null;const b=!Boolean(d)||this.state.dragging,x=d||r,w={x:(0,c.canDragX)(this)&&b?this.state.x:x.x,y:(0,c.canDragY)(this)&&b?this.state.y:x.y};this.state.isElementSVG?y=(0,a.createSVGTransform)(w,h):v=(0,a.createCSSTransform)(w,h);const O=(0,s.clsx)(n.props.className||"",i,{[l]:this.state.dragging,[p]:this.state.dragged});return o.createElement(u.default,f({},g,{onStart:this.onDragStart,onDrag:this.onDrag,onStop:this.onDragStop}),o.cloneElement(o.Children.only(n),{className:O,style:{...n.props.style,...v},transform:y}))}}e.default=m,h(m,"displayName","Draggable"),h(m,"propTypes",{...u.default.propTypes,axis:r.default.oneOf(["both","x","y","none"]),bounds:r.default.oneOfType([r.default.shape({left:r.default.number,right:r.default.number,top:r.default.number,bottom:r.default.number}),r.default.string,r.default.oneOf([!1])]),defaultClassName:r.default.string,defaultClassNameDragging:r.default.string,defaultClassNameDragged:r.default.string,defaultPosition:r.default.shape({x:r.default.number,y:r.default.number}),positionOffset:r.default.shape({x:r.default.oneOfType([r.default.number,r.default.string]),y:r.default.oneOfType([r.default.number,r.default.string])}),position:r.default.shape({x:r.default.number,y:r.default.number}),className:l.dontSetMe,style:l.dontSetMe,transform:l.dontSetMe}),h(m,"defaultProps",{...u.default.defaultProps,axis:"both",bounds:!1,defaultClassName:"react-draggable",defaultClassNameDragging:"react-draggable-dragging",defaultClassNameDragged:"react-draggable-dragged",defaultPosition:{x:0,y:0},scale:1})},6888:(t,e,n)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var o=function(t){if("function"==typeof WeakMap){var e=new WeakMap;new WeakMap}return function(t){if(t&&t.__esModule)return t;var n,o,r={__proto__:null,default:t};if(null===t||"object"!=typeof t&&"function"!=typeof t)return r;if(n=e){if(n.has(t))return n.get(t);n.set(t,r)}for(const e in t)"default"!==e&&{}.hasOwnProperty.call(t,e)&&((o=(n=Object.defineProperty)&&Object.getOwnPropertyDescriptor(t,e))&&(o.get||o.set)?n(r,e,o):r[e]=t[e]);return r}(t)}(n(1609)),r=u(n(5556)),i=u(n(5795)),s=n(1089),a=n(1726),c=n(7056),l=u(n(8696));function u(t){return t&&t.__esModule?t:{default:t}}function p(t,e,n){return(e=function(t){var e=function(t){if("object"!=typeof t||!t)return t;var e=t[Symbol.toPrimitive];if(void 0!==e){var n=e.call(t,"string");if("object"!=typeof n)return n;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t);return"symbol"==typeof e?e:e+""}(e))in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}const d={start:"touchstart",move:"touchmove",stop:"touchend"},f={start:"mousedown",move:"mousemove",stop:"mouseup"};let h=f;class m extends o.Component{constructor(){super(...arguments),p(this,"dragging",!1),p(this,"lastX",NaN),p(this,"lastY",NaN),p(this,"touchIdentifier",null),p(this,"mounted",!1),p(this,"handleDragStart",(t=>{if(this.props.onMouseDown(t),!this.props.allowAnyClick&&"number"==typeof t.button&&0!==t.button)return!1;const e=this.findDOMNode();if(!e||!e.ownerDocument||!e.ownerDocument.body)throw new Error("<DraggableCore> not mounted on DragStart!");const{ownerDocument:n}=e;if(this.props.disabled||!(t.target instanceof n.defaultView.Node)||this.props.handle&&!(0,s.matchesSelectorAndParentsTo)(t.target,this.props.handle,e)||this.props.cancel&&(0,s.matchesSelectorAndParentsTo)(t.target,this.props.cancel,e))return;"touchstart"!==t.type||this.props.allowMobileScroll||t.preventDefault();const o=(0,s.getTouchIdentifier)(t);this.touchIdentifier=o;const r=(0,a.getControlPosition)(t,o,this);if(null==r)return;const{x:i,y:c}=r,u=(0,a.createCoreData)(this,i,c);(0,l.default)("DraggableCore: handleDragStart: %j",u),(0,l.default)("calling",this.props.onStart),!1!==this.props.onStart(t,u)&&!1!==this.mounted&&(this.props.enableUserSelectHack&&(0,s.addUserSelectStyles)(n),this.dragging=!0,this.lastX=i,this.lastY=c,(0,s.addEvent)(n,h.move,this.handleDrag),(0,s.addEvent)(n,h.stop,this.handleDragStop))})),p(this,"handleDrag",(t=>{const e=(0,a.getControlPosition)(t,this.touchIdentifier,this);if(null==e)return;let{x:n,y:o}=e;if(Array.isArray(this.props.grid)){let t=n-this.lastX,e=o-this.lastY;if([t,e]=(0,a.snapToGrid)(this.props.grid,t,e),!t&&!e)return;n=this.lastX+t,o=this.lastY+e}const r=(0,a.createCoreData)(this,n,o);if((0,l.default)("DraggableCore: handleDrag: %j",r),!1!==this.props.onDrag(t,r)&&!1!==this.mounted)this.lastX=n,this.lastY=o;else try{this.handleDragStop(new MouseEvent("mouseup"))}catch(t){const e=document.createEvent("MouseEvents");e.initMouseEvent("mouseup",!0,!0,window,0,0,0,0,0,!1,!1,!1,!1,0,null),this.handleDragStop(e)}})),p(this,"handleDragStop",(t=>{if(!this.dragging)return;const e=(0,a.getControlPosition)(t,this.touchIdentifier,this);if(null==e)return;let{x:n,y:o}=e;if(Array.isArray(this.props.grid)){let t=n-this.lastX||0,e=o-this.lastY||0;[t,e]=(0,a.snapToGrid)(this.props.grid,t,e),n=this.lastX+t,o=this.lastY+e}const r=(0,a.createCoreData)(this,n,o);if(!1===this.props.onStop(t,r)||!1===this.mounted)return!1;const i=this.findDOMNode();i&&this.props.enableUserSelectHack&&(0,s.scheduleRemoveUserSelectStyles)(i.ownerDocument),(0,l.default)("DraggableCore: handleDragStop: %j",r),this.dragging=!1,this.lastX=NaN,this.lastY=NaN,i&&((0,l.default)("DraggableCore: Removing handlers"),(0,s.removeEvent)(i.ownerDocument,h.move,this.handleDrag),(0,s.removeEvent)(i.ownerDocument,h.stop,this.handleDragStop))})),p(this,"onMouseDown",(t=>(h=f,this.handleDragStart(t)))),p(this,"onMouseUp",(t=>(h=f,this.handleDragStop(t)))),p(this,"onTouchStart",(t=>(h=d,this.handleDragStart(t)))),p(this,"onTouchEnd",(t=>(h=d,this.handleDragStop(t))))}componentDidMount(){this.mounted=!0;const t=this.findDOMNode();t&&(0,s.addEvent)(t,d.start,this.onTouchStart,{passive:!1})}componentWillUnmount(){this.mounted=!1;const t=this.findDOMNode();if(t){const{ownerDocument:e}=t;(0,s.removeEvent)(e,f.move,this.handleDrag),(0,s.removeEvent)(e,d.move,this.handleDrag),(0,s.removeEvent)(e,f.stop,this.handleDragStop),(0,s.removeEvent)(e,d.stop,this.handleDragStop),(0,s.removeEvent)(t,d.start,this.onTouchStart,{passive:!1}),this.props.enableUserSelectHack&&(0,s.scheduleRemoveUserSelectStyles)(e)}}findDOMNode(){return this.props?.nodeRef?this.props?.nodeRef?.current:i.default.findDOMNode(this)}render(){return o.cloneElement(o.Children.only(this.props.children),{onMouseDown:this.onMouseDown,onMouseUp:this.onMouseUp,onTouchEnd:this.onTouchEnd})}}e.default=m,p(m,"displayName","DraggableCore"),p(m,"propTypes",{allowAnyClick:r.default.bool,allowMobileScroll:r.default.bool,children:r.default.node.isRequired,disabled:r.default.bool,enableUserSelectHack:r.default.bool,offsetParent:function(t,e){if(t[e]&&1!==t[e].nodeType)throw new Error("Draggable's offsetParent must be a DOM Node.")},grid:r.default.arrayOf(r.default.number),handle:r.default.string,cancel:r.default.string,nodeRef:r.default.object,onStart:r.default.func,onDrag:r.default.func,onStop:r.default.func,onMouseDown:r.default.func,scale:r.default.number,className:c.dontSetMe,style:c.dontSetMe,transform:c.dontSetMe}),p(m,"defaultProps",{allowAnyClick:!1,allowMobileScroll:!1,disabled:!1,enableUserSelectHack:!0,onStart:function(){},onDrag:function(){},onStop:function(){},onMouseDown:function(){},scale:1})},5794:(t,e,n)=>{"use strict";const{default:o,DraggableCore:r}=n(6027);t.exports=o,t.exports.default=o,t.exports.DraggableCore=r},1089:(t,e,n)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.addClassName=l,e.addEvent=function(t,e,n,o){if(!t)return;const r={capture:!0,...o};t.addEventListener?t.addEventListener(e,n,r):t.attachEvent?t.attachEvent("on"+e,n):t["on"+e]=n},e.addUserSelectStyles=function(t){if(!t)return;let e=t.getElementById("react-draggable-style-el");e||(e=t.createElement("style"),e.type="text/css",e.id="react-draggable-style-el",e.innerHTML=".react-draggable-transparent-selection *::-moz-selection {all: inherit;}\n",e.innerHTML+=".react-draggable-transparent-selection *::selection {all: inherit;}\n",t.getElementsByTagName("head")[0].appendChild(e)),t.body&&l(t.body,"react-draggable-transparent-selection")},e.createCSSTransform=function(t,e){const n=a(t,e,"px");return{[(0,r.browserPrefixToKey)("transform",r.default)]:n}},e.createSVGTransform=function(t,e){return a(t,e,"")},e.getTouch=function(t,e){return t.targetTouches&&(0,o.findInArray)(t.targetTouches,(t=>e===t.identifier))||t.changedTouches&&(0,o.findInArray)(t.changedTouches,(t=>e===t.identifier))},e.getTouchIdentifier=function(t){return t.targetTouches&&t.targetTouches[0]?t.targetTouches[0].identifier:t.changedTouches&&t.changedTouches[0]?t.changedTouches[0].identifier:void 0},e.getTranslation=a,e.innerHeight=function(t){let e=t.clientHeight;const n=t.ownerDocument.defaultView.getComputedStyle(t);return e-=(0,o.int)(n.paddingTop),e-=(0,o.int)(n.paddingBottom),e},e.innerWidth=function(t){let e=t.clientWidth;const n=t.ownerDocument.defaultView.getComputedStyle(t);return e-=(0,o.int)(n.paddingLeft),e-=(0,o.int)(n.paddingRight),e},e.matchesSelector=s,e.matchesSelectorAndParentsTo=function(t,e,n){let o=t;do{if(s(o,e))return!0;if(o===n)return!1;o=o.parentNode}while(o);return!1},e.offsetXYFromParent=function(t,e,n){const o=e===e.ownerDocument.body?{left:0,top:0}:e.getBoundingClientRect();return{x:(t.clientX+e.scrollLeft-o.left)/n,y:(t.clientY+e.scrollTop-o.top)/n}},e.outerHeight=function(t){let e=t.clientHeight;const n=t.ownerDocument.defaultView.getComputedStyle(t);return e+=(0,o.int)(n.borderTopWidth),e+=(0,o.int)(n.borderBottomWidth),e},e.outerWidth=function(t){let e=t.clientWidth;const n=t.ownerDocument.defaultView.getComputedStyle(t);return e+=(0,o.int)(n.borderLeftWidth),e+=(0,o.int)(n.borderRightWidth),e},e.removeClassName=u,e.removeEvent=function(t,e,n,o){if(!t)return;const r={capture:!0,...o};t.removeEventListener?t.removeEventListener(e,n,r):t.detachEvent?t.detachEvent("on"+e,n):t["on"+e]=null},e.scheduleRemoveUserSelectStyles=function(t){window.requestAnimationFrame?window.requestAnimationFrame((()=>{c(t)})):c(t)};var o=n(7056),r=function(t){if("function"==typeof WeakMap){var e=new WeakMap;new WeakMap}return function(t){if(t&&t.__esModule)return t;var n,o,r={__proto__:null,default:t};if(null===t||"object"!=typeof t&&"function"!=typeof t)return r;if(n=e){if(n.has(t))return n.get(t);n.set(t,r)}for(const e in t)"default"!==e&&{}.hasOwnProperty.call(t,e)&&((o=(n=Object.defineProperty)&&Object.getOwnPropertyDescriptor(t,e))&&(o.get||o.set)?n(r,e,o):r[e]=t[e]);return r}(t)}(n(3514));let i="";function s(t,e){return i||(i=(0,o.findInArray)(["matches","webkitMatchesSelector","mozMatchesSelector","msMatchesSelector","oMatchesSelector"],(function(e){return(0,o.isFunction)(t[e])}))),!!(0,o.isFunction)(t[i])&&t[i](e)}function a(t,e,n){let{x:o,y:r}=t,i=`translate(${o}${n},${r}${n})`;return e&&(i=`translate(${"string"==typeof e.x?e.x:e.x+n}, ${"string"==typeof e.y?e.y:e.y+n})`+i),i}function c(t){if(t)try{if(t.body&&u(t.body,"react-draggable-transparent-selection"),t.selection)t.selection.empty();else{const e=(t.defaultView||window).getSelection();e&&"Caret"!==e.type&&e.removeAllRanges()}}catch(t){}}function l(t,e){t.classList?t.classList.add(e):t.className.match(new RegExp(`(?:^|\\s)${e}(?!\\S)`))||(t.className+=` ${e}`)}function u(t,e){t.classList?t.classList.remove(e):t.className=t.className.replace(new RegExp(`(?:^|\\s)${e}(?!\\S)`,"g"),"")}},3514:(t,e)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.browserPrefixToKey=r,e.browserPrefixToStyle=function(t,e){return e?`-${e.toLowerCase()}-${t}`:t},e.default=void 0,e.getPrefix=o;const n=["Moz","Webkit","O","ms"];function o(){let t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"transform";if("undefined"==typeof window)return"";const e=window.document?.documentElement?.style;if(!e)return"";if(t in e)return"";for(let o=0;o<n.length;o++)if(r(t,n[o])in e)return n[o];return""}function r(t,e){return e?`${e}${function(t){let e="",n=!0;for(let o=0;o<t.length;o++)n?(e+=t[o].toUpperCase(),n=!1):"-"===t[o]?n=!0:e+=t[o];return e}(t)}`:t}e.default=o()},8696:(t,e)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){}},1726:(t,e,n)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.canDragX=function(t){return"both"===t.props.axis||"x"===t.props.axis},e.canDragY=function(t){return"both"===t.props.axis||"y"===t.props.axis},e.createCoreData=function(t,e,n){const r=!(0,o.isNum)(t.lastX),s=i(t);return r?{node:s,deltaX:0,deltaY:0,lastX:e,lastY:n,x:e,y:n}:{node:s,deltaX:e-t.lastX,deltaY:n-t.lastY,lastX:t.lastX,lastY:t.lastY,x:e,y:n}},e.createDraggableData=function(t,e){const n=t.props.scale;return{node:e.node,x:t.state.x+e.deltaX/n,y:t.state.y+e.deltaY/n,deltaX:e.deltaX/n,deltaY:e.deltaY/n,lastX:t.state.x,lastY:t.state.y}},e.getBoundPosition=function(t,e,n){if(!t.props.bounds)return[e,n];let{bounds:s}=t.props;s="string"==typeof s?s:function(t){return{left:t.left,top:t.top,right:t.right,bottom:t.bottom}}(s);const a=i(t);if("string"==typeof s){const{ownerDocument:t}=a,e=t.defaultView;let n;if(n="parent"===s?a.parentNode:a.getRootNode().querySelector(s),!(n instanceof e.HTMLElement))throw new Error('Bounds selector "'+s+'" could not find an element.');const i=n,c=e.getComputedStyle(a),l=e.getComputedStyle(i);s={left:-a.offsetLeft+(0,o.int)(l.paddingLeft)+(0,o.int)(c.marginLeft),top:-a.offsetTop+(0,o.int)(l.paddingTop)+(0,o.int)(c.marginTop),right:(0,r.innerWidth)(i)-(0,r.outerWidth)(a)-a.offsetLeft+(0,o.int)(l.paddingRight)-(0,o.int)(c.marginRight),bottom:(0,r.innerHeight)(i)-(0,r.outerHeight)(a)-a.offsetTop+(0,o.int)(l.paddingBottom)-(0,o.int)(c.marginBottom)}}return(0,o.isNum)(s.right)&&(e=Math.min(e,s.right)),(0,o.isNum)(s.bottom)&&(n=Math.min(n,s.bottom)),(0,o.isNum)(s.left)&&(e=Math.max(e,s.left)),(0,o.isNum)(s.top)&&(n=Math.max(n,s.top)),[e,n]},e.getControlPosition=function(t,e,n){const o="number"==typeof e?(0,r.getTouch)(t,e):null;if("number"==typeof e&&!o)return null;const s=i(n),a=n.props.offsetParent||s.offsetParent||s.ownerDocument.body;return(0,r.offsetXYFromParent)(o||t,a,n.props.scale)},e.snapToGrid=function(t,e,n){return[Math.round(e/t[0])*t[0],Math.round(n/t[1])*t[1]]};var o=n(7056),r=n(1089);function i(t){const e=t.findDOMNode();if(!e)throw new Error("<DraggableCore>: Unmounted during event!");return e}},7056:(t,e)=>{"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.dontSetMe=function(t,e,n){if(t[e])return new Error(`Invalid prop ${e} passed to ${n} - do not set this, set it on the child.`)},e.findInArray=function(t,e){for(let n=0,o=t.length;n<o;n++)if(e.apply(e,[t[n],n,t]))return t[n]},e.int=function(t){return parseInt(t,10)},e.isFunction=function(t){return"function"==typeof t||"[object Function]"===Object.prototype.toString.call(t)},e.isNum=function(t){return"number"==typeof t&&!isNaN(t)}},1609:t=>{"use strict";t.exports=window.React},5795:t=>{"use strict";t.exports=window.ReactDOM}},n={};function o(t){var r=n[t];if(void 0!==r)return r.exports;var i=n[t]={exports:{}};return e[t](i,i.exports,o),i.exports}o.m=e,t=[],o.O=(e,n,r,i)=>{if(!n){var s=1/0;for(u=0;u<t.length;u++){for(var[n,r,i]=t[u],a=!0,c=0;c<n.length;c++)(!1&i||s>=i)&&Object.keys(o.O).every((t=>o.O[t](n[c])))?n.splice(c--,1):(a=!1,i<s&&(s=i));if(a){t.splice(u--,1);var l=r();void 0!==l&&(e=l)}}return e}i=i||0;for(var u=t.length;u>0&&t[u-1][2]>i;u--)t[u]=t[u-1];t[u]=[n,r,i]},o.n=t=>{var e=t&&t.__esModule?()=>t.default:()=>t;return o.d(e,{a:e}),e},o.d=(t,e)=>{for(var n in e)o.o(e,n)&&!o.o(t,n)&&Object.defineProperty(t,n,{enumerable:!0,get:e[n]})},o.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),(()=>{var t={342:0,78:0};o.O.j=e=>0===t[e];var e=(e,n)=>{var r,i,[s,a,c]=n,l=0;if(s.some((e=>0!==t[e]))){for(r in a)o.o(a,r)&&(o.m[r]=a[r]);if(c)var u=c(o)}for(e&&e(n);l<s.length;l++)i=s[l],o.o(t,i)&&t[i]&&t[i][0](),t[i]=0;return o.O(u)},n=globalThis.webpackChunk=globalThis.webpackChunk||[];n.forEach(e.bind(null,0)),n.push=e.bind(null,n.push.bind(n))})();var r=o.O(void 0,[78],(()=>o(4051)));r=o.O(r)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/@popperjs/core/lib/createPopper.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/createPopper.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createPopper: () => (/* binding */ createPopper),
+/* harmony export */   detectOverflow: () => (/* reexport safe */ _utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_8__["default"]),
+/* harmony export */   popperGenerator: () => (/* binding */ popperGenerator)
+/* harmony export */ });
+/* harmony import */ var _dom_utils_getCompositeRect_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dom-utils/getCompositeRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js");
+/* harmony import */ var _dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dom-utils/getLayoutRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js");
+/* harmony import */ var _dom_utils_listScrollParents_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom-utils/listScrollParents.js */ "./node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js");
+/* harmony import */ var _dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dom-utils/getOffsetParent.js */ "./node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js");
+/* harmony import */ var _utils_orderModifiers_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/orderModifiers.js */ "./node_modules/@popperjs/core/lib/utils/orderModifiers.js");
+/* harmony import */ var _utils_debounce_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/debounce.js */ "./node_modules/@popperjs/core/lib/utils/debounce.js");
+/* harmony import */ var _utils_mergeByName_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/mergeByName.js */ "./node_modules/@popperjs/core/lib/utils/mergeByName.js");
+/* harmony import */ var _utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/detectOverflow.js */ "./node_modules/@popperjs/core/lib/utils/detectOverflow.js");
+/* harmony import */ var _dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom-utils/instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+
+
+
+
+
+
+
+
+
+var DEFAULT_OPTIONS = {
+  placement: 'bottom',
+  modifiers: [],
+  strategy: 'absolute'
+};
+
+function areValidElements() {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+
+  return !args.some(function (element) {
+    return !(element && typeof element.getBoundingClientRect === 'function');
+  });
+}
+
+function popperGenerator(generatorOptions) {
+  if (generatorOptions === void 0) {
+    generatorOptions = {};
+  }
+
+  var _generatorOptions = generatorOptions,
+      _generatorOptions$def = _generatorOptions.defaultModifiers,
+      defaultModifiers = _generatorOptions$def === void 0 ? [] : _generatorOptions$def,
+      _generatorOptions$def2 = _generatorOptions.defaultOptions,
+      defaultOptions = _generatorOptions$def2 === void 0 ? DEFAULT_OPTIONS : _generatorOptions$def2;
+  return function createPopper(reference, popper, options) {
+    if (options === void 0) {
+      options = defaultOptions;
+    }
+
+    var state = {
+      placement: 'bottom',
+      orderedModifiers: [],
+      options: Object.assign({}, DEFAULT_OPTIONS, defaultOptions),
+      modifiersData: {},
+      elements: {
+        reference: reference,
+        popper: popper
+      },
+      attributes: {},
+      styles: {}
+    };
+    var effectCleanupFns = [];
+    var isDestroyed = false;
+    var instance = {
+      state: state,
+      setOptions: function setOptions(setOptionsAction) {
+        var options = typeof setOptionsAction === 'function' ? setOptionsAction(state.options) : setOptionsAction;
+        cleanupModifierEffects();
+        state.options = Object.assign({}, defaultOptions, state.options, options);
+        state.scrollParents = {
+          reference: (0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isElement)(reference) ? (0,_dom_utils_listScrollParents_js__WEBPACK_IMPORTED_MODULE_1__["default"])(reference) : reference.contextElement ? (0,_dom_utils_listScrollParents_js__WEBPACK_IMPORTED_MODULE_1__["default"])(reference.contextElement) : [],
+          popper: (0,_dom_utils_listScrollParents_js__WEBPACK_IMPORTED_MODULE_1__["default"])(popper)
+        }; // Orders the modifiers based on their dependencies and `phase`
+        // properties
+
+        var orderedModifiers = (0,_utils_orderModifiers_js__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_utils_mergeByName_js__WEBPACK_IMPORTED_MODULE_3__["default"])([].concat(defaultModifiers, state.options.modifiers))); // Strip out disabled modifiers
+
+        state.orderedModifiers = orderedModifiers.filter(function (m) {
+          return m.enabled;
+        });
+        runModifierEffects();
+        return instance.update();
+      },
+      // Sync update – it will always be executed, even if not necessary. This
+      // is useful for low frequency updates where sync behavior simplifies the
+      // logic.
+      // For high frequency updates (e.g. `resize` and `scroll` events), always
+      // prefer the async Popper#update method
+      forceUpdate: function forceUpdate() {
+        if (isDestroyed) {
+          return;
+        }
+
+        var _state$elements = state.elements,
+            reference = _state$elements.reference,
+            popper = _state$elements.popper; // Don't proceed if `reference` or `popper` are not valid elements
+        // anymore
+
+        if (!areValidElements(reference, popper)) {
+          return;
+        } // Store the reference and popper rects to be read by modifiers
+
+
+        state.rects = {
+          reference: (0,_dom_utils_getCompositeRect_js__WEBPACK_IMPORTED_MODULE_4__["default"])(reference, (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_5__["default"])(popper), state.options.strategy === 'fixed'),
+          popper: (0,_dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_6__["default"])(popper)
+        }; // Modifiers have the ability to reset the current update cycle. The
+        // most common use case for this is the `flip` modifier changing the
+        // placement, which then needs to re-run all the modifiers, because the
+        // logic was previously ran for the previous placement and is therefore
+        // stale/incorrect
+
+        state.reset = false;
+        state.placement = state.options.placement; // On each update cycle, the `modifiersData` property for each modifier
+        // is filled with the initial data specified by the modifier. This means
+        // it doesn't persist and is fresh on each update.
+        // To ensure persistent data, use `${name}#persistent`
+
+        state.orderedModifiers.forEach(function (modifier) {
+          return state.modifiersData[modifier.name] = Object.assign({}, modifier.data);
+        });
+
+        for (var index = 0; index < state.orderedModifiers.length; index++) {
+          if (state.reset === true) {
+            state.reset = false;
+            index = -1;
+            continue;
+          }
+
+          var _state$orderedModifie = state.orderedModifiers[index],
+              fn = _state$orderedModifie.fn,
+              _state$orderedModifie2 = _state$orderedModifie.options,
+              _options = _state$orderedModifie2 === void 0 ? {} : _state$orderedModifie2,
+              name = _state$orderedModifie.name;
+
+          if (typeof fn === 'function') {
+            state = fn({
+              state: state,
+              options: _options,
+              name: name,
+              instance: instance
+            }) || state;
+          }
+        }
+      },
+      // Async and optimistically optimized update – it will not be executed if
+      // not necessary (debounced to run at most once-per-tick)
+      update: (0,_utils_debounce_js__WEBPACK_IMPORTED_MODULE_7__["default"])(function () {
+        return new Promise(function (resolve) {
+          instance.forceUpdate();
+          resolve(state);
+        });
+      }),
+      destroy: function destroy() {
+        cleanupModifierEffects();
+        isDestroyed = true;
+      }
+    };
+
+    if (!areValidElements(reference, popper)) {
+      return instance;
+    }
+
+    instance.setOptions(options).then(function (state) {
+      if (!isDestroyed && options.onFirstUpdate) {
+        options.onFirstUpdate(state);
+      }
+    }); // Modifiers have the ability to execute arbitrary code before the first
+    // update cycle runs. They will be executed in the same order as the update
+    // cycle. This is useful when a modifier adds some persistent data that
+    // other modifiers need to use, but the modifier is run after the dependent
+    // one.
+
+    function runModifierEffects() {
+      state.orderedModifiers.forEach(function (_ref) {
+        var name = _ref.name,
+            _ref$options = _ref.options,
+            options = _ref$options === void 0 ? {} : _ref$options,
+            effect = _ref.effect;
+
+        if (typeof effect === 'function') {
+          var cleanupFn = effect({
+            state: state,
+            name: name,
+            instance: instance,
+            options: options
+          });
+
+          var noopFn = function noopFn() {};
+
+          effectCleanupFns.push(cleanupFn || noopFn);
+        }
+      });
+    }
+
+    function cleanupModifierEffects() {
+      effectCleanupFns.forEach(function (fn) {
+        return fn();
+      });
+      effectCleanupFns = [];
+    }
+
+    return instance;
+  };
+}
+var createPopper = /*#__PURE__*/popperGenerator(); // eslint-disable-next-line import/no-unused-modules
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/contains.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/contains.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ contains)
+/* harmony export */ });
+/* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+
+function contains(parent, child) {
+  var rootNode = child.getRootNode && child.getRootNode(); // First, attempt with faster native method
+
+  if (parent.contains(child)) {
+    return true;
+  } // then fallback to custom implementation with Shadow DOM support
+  else if (rootNode && (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isShadowRoot)(rootNode)) {
+      var next = child;
+
+      do {
+        if (next && parent.isSameNode(next)) {
+          return true;
+        } // $FlowFixMe[prop-missing]: need a better way to handle this...
+
+
+        next = next.parentNode || next.host;
+      } while (next);
+    } // Give up, the result is false
+
+
+  return false;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getBoundingClientRect)
+/* harmony export */ });
+/* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+/* harmony import */ var _utils_math_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/math.js */ "./node_modules/@popperjs/core/lib/utils/math.js");
+/* harmony import */ var _getWindow_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
+/* harmony import */ var _isLayoutViewport_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./isLayoutViewport.js */ "./node_modules/@popperjs/core/lib/dom-utils/isLayoutViewport.js");
+
+
+
+
+function getBoundingClientRect(element, includeScale, isFixedStrategy) {
+  if (includeScale === void 0) {
+    includeScale = false;
+  }
+
+  if (isFixedStrategy === void 0) {
+    isFixedStrategy = false;
+  }
+
+  var clientRect = element.getBoundingClientRect();
+  var scaleX = 1;
+  var scaleY = 1;
+
+  if (includeScale && (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element)) {
+    scaleX = element.offsetWidth > 0 ? (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_1__.round)(clientRect.width) / element.offsetWidth || 1 : 1;
+    scaleY = element.offsetHeight > 0 ? (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_1__.round)(clientRect.height) / element.offsetHeight || 1 : 1;
+  }
+
+  var _ref = (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isElement)(element) ? (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_2__["default"])(element) : window,
+      visualViewport = _ref.visualViewport;
+
+  var addVisualOffsets = !(0,_isLayoutViewport_js__WEBPACK_IMPORTED_MODULE_3__["default"])() && isFixedStrategy;
+  var x = (clientRect.left + (addVisualOffsets && visualViewport ? visualViewport.offsetLeft : 0)) / scaleX;
+  var y = (clientRect.top + (addVisualOffsets && visualViewport ? visualViewport.offsetTop : 0)) / scaleY;
+  var width = clientRect.width / scaleX;
+  var height = clientRect.height / scaleY;
+  return {
+    width: width,
+    height: height,
+    top: y,
+    right: x + width,
+    bottom: y + height,
+    left: x,
+    x: x,
+    y: y
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getClippingRect)
+/* harmony export */ });
+/* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
+/* harmony import */ var _getViewportRect_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getViewportRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js");
+/* harmony import */ var _getDocumentRect_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./getDocumentRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js");
+/* harmony import */ var _listScrollParents_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./listScrollParents.js */ "./node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js");
+/* harmony import */ var _getOffsetParent_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./getOffsetParent.js */ "./node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js");
+/* harmony import */ var _getDocumentElement_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
+/* harmony import */ var _getComputedStyle_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./getComputedStyle.js */ "./node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js");
+/* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+/* harmony import */ var _getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getBoundingClientRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js");
+/* harmony import */ var _getParentNode_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./getParentNode.js */ "./node_modules/@popperjs/core/lib/dom-utils/getParentNode.js");
+/* harmony import */ var _contains_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./contains.js */ "./node_modules/@popperjs/core/lib/dom-utils/contains.js");
+/* harmony import */ var _getNodeName_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./getNodeName.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js");
+/* harmony import */ var _utils_rectToClientRect_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/rectToClientRect.js */ "./node_modules/@popperjs/core/lib/utils/rectToClientRect.js");
+/* harmony import */ var _utils_math_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../utils/math.js */ "./node_modules/@popperjs/core/lib/utils/math.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getInnerBoundingClientRect(element, strategy) {
+  var rect = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element, false, strategy === 'fixed');
+  rect.top = rect.top + element.clientTop;
+  rect.left = rect.left + element.clientLeft;
+  rect.bottom = rect.top + element.clientHeight;
+  rect.right = rect.left + element.clientWidth;
+  rect.width = element.clientWidth;
+  rect.height = element.clientHeight;
+  rect.x = rect.left;
+  rect.y = rect.top;
+  return rect;
+}
+
+function getClientRectFromMixedType(element, clippingParent, strategy) {
+  return clippingParent === _enums_js__WEBPACK_IMPORTED_MODULE_1__.viewport ? (0,_utils_rectToClientRect_js__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_getViewportRect_js__WEBPACK_IMPORTED_MODULE_3__["default"])(element, strategy)) : (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isElement)(clippingParent) ? getInnerBoundingClientRect(clippingParent, strategy) : (0,_utils_rectToClientRect_js__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_getDocumentRect_js__WEBPACK_IMPORTED_MODULE_5__["default"])((0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_6__["default"])(element)));
+} // A "clipping parent" is an overflowable container with the characteristic of
+// clipping (or hiding) overflowing elements with a position different from
+// `initial`
+
+
+function getClippingParents(element) {
+  var clippingParents = (0,_listScrollParents_js__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_8__["default"])(element));
+  var canEscapeClipping = ['absolute', 'fixed'].indexOf((0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_9__["default"])(element).position) >= 0;
+  var clipperElement = canEscapeClipping && (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isHTMLElement)(element) ? (0,_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_10__["default"])(element) : element;
+
+  if (!(0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isElement)(clipperElement)) {
+    return [];
+  } // $FlowFixMe[incompatible-return]: https://github.com/facebook/flow/issues/1414
+
+
+  return clippingParents.filter(function (clippingParent) {
+    return (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isElement)(clippingParent) && (0,_contains_js__WEBPACK_IMPORTED_MODULE_11__["default"])(clippingParent, clipperElement) && (0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_12__["default"])(clippingParent) !== 'body';
+  });
+} // Gets the maximum area that the element is visible in due to any number of
+// clipping parents
+
+
+function getClippingRect(element, boundary, rootBoundary, strategy) {
+  var mainClippingParents = boundary === 'clippingParents' ? getClippingParents(element) : [].concat(boundary);
+  var clippingParents = [].concat(mainClippingParents, [rootBoundary]);
+  var firstClippingParent = clippingParents[0];
+  var clippingRect = clippingParents.reduce(function (accRect, clippingParent) {
+    var rect = getClientRectFromMixedType(element, clippingParent, strategy);
+    accRect.top = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_13__.max)(rect.top, accRect.top);
+    accRect.right = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_13__.min)(rect.right, accRect.right);
+    accRect.bottom = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_13__.min)(rect.bottom, accRect.bottom);
+    accRect.left = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_13__.max)(rect.left, accRect.left);
+    return accRect;
+  }, getClientRectFromMixedType(element, firstClippingParent, strategy));
+  clippingRect.width = clippingRect.right - clippingRect.left;
+  clippingRect.height = clippingRect.bottom - clippingRect.top;
+  clippingRect.x = clippingRect.left;
+  clippingRect.y = clippingRect.top;
+  return clippingRect;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getCompositeRect)
+/* harmony export */ });
+/* harmony import */ var _getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getBoundingClientRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js");
+/* harmony import */ var _getNodeScroll_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./getNodeScroll.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js");
+/* harmony import */ var _getNodeName_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./getNodeName.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js");
+/* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+/* harmony import */ var _getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./getWindowScrollBarX.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js");
+/* harmony import */ var _getDocumentElement_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
+/* harmony import */ var _isScrollParent_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./isScrollParent.js */ "./node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js");
+/* harmony import */ var _utils_math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/math.js */ "./node_modules/@popperjs/core/lib/utils/math.js");
+
+
+
+
+
+
+
+
+
+function isElementScaled(element) {
+  var rect = element.getBoundingClientRect();
+  var scaleX = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)(rect.width) / element.offsetWidth || 1;
+  var scaleY = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)(rect.height) / element.offsetHeight || 1;
+  return scaleX !== 1 || scaleY !== 1;
+} // Returns the composite rect of an element relative to its offsetParent.
+// Composite means it takes into account transforms as well as layout.
+
+
+function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
+  if (isFixed === void 0) {
+    isFixed = false;
+  }
+
+  var isOffsetParentAnElement = (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(offsetParent);
+  var offsetParentIsScaled = (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(offsetParent) && isElementScaled(offsetParent);
+  var documentElement = (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(offsetParent);
+  var rect = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_3__["default"])(elementOrVirtualElement, offsetParentIsScaled, isFixed);
+  var scroll = {
+    scrollLeft: 0,
+    scrollTop: 0
+  };
+  var offsets = {
+    x: 0,
+    y: 0
+  };
+
+  if (isOffsetParentAnElement || !isOffsetParentAnElement && !isFixed) {
+    if ((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_4__["default"])(offsetParent) !== 'body' || // https://github.com/popperjs/popper-core/issues/1078
+    (0,_isScrollParent_js__WEBPACK_IMPORTED_MODULE_5__["default"])(documentElement)) {
+      scroll = (0,_getNodeScroll_js__WEBPACK_IMPORTED_MODULE_6__["default"])(offsetParent);
+    }
+
+    if ((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(offsetParent)) {
+      offsets = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_3__["default"])(offsetParent, true);
+      offsets.x += offsetParent.clientLeft;
+      offsets.y += offsetParent.clientTop;
+    } else if (documentElement) {
+      offsets.x = (0,_getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_7__["default"])(documentElement);
+    }
+  }
+
+  return {
+    x: rect.left + scroll.scrollLeft - offsets.x,
+    y: rect.top + scroll.scrollTop - offsets.y,
+    width: rect.width,
+    height: rect.height
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getComputedStyle)
+/* harmony export */ });
+/* harmony import */ var _getWindow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
+
+function getComputedStyle(element) {
+  return (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element).getComputedStyle(element);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getDocumentElement)
+/* harmony export */ });
+/* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+
+function getDocumentElement(element) {
+  // $FlowFixMe[incompatible-return]: assume body is always available
+  return (((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isElement)(element) ? element.ownerDocument : // $FlowFixMe[prop-missing]
+  element.document) || window.document).documentElement;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getDocumentRect)
+/* harmony export */ });
+/* harmony import */ var _getDocumentElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
+/* harmony import */ var _getComputedStyle_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./getComputedStyle.js */ "./node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js");
+/* harmony import */ var _getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getWindowScrollBarX.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js");
+/* harmony import */ var _getWindowScroll_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getWindowScroll.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js");
+/* harmony import */ var _utils_math_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/math.js */ "./node_modules/@popperjs/core/lib/utils/math.js");
+
+
+
+
+ // Gets the entire size of the scrollable document area, even extending outside
+// of the `<html>` and `<body>` rect bounds if horizontally scrollable
+
+function getDocumentRect(element) {
+  var _element$ownerDocumen;
+
+  var html = (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element);
+  var winScroll = (0,_getWindowScroll_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element);
+  var body = (_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body;
+  var width = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_2__.max)(html.scrollWidth, html.clientWidth, body ? body.scrollWidth : 0, body ? body.clientWidth : 0);
+  var height = (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_2__.max)(html.scrollHeight, html.clientHeight, body ? body.scrollHeight : 0, body ? body.clientHeight : 0);
+  var x = -winScroll.scrollLeft + (0,_getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_3__["default"])(element);
+  var y = -winScroll.scrollTop;
+
+  if ((0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_4__["default"])(body || html).direction === 'rtl') {
+    x += (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_2__.max)(html.clientWidth, body ? body.clientWidth : 0) - width;
+  }
+
+  return {
+    width: width,
+    height: height,
+    x: x,
+    y: y
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getHTMLElementScroll)
+/* harmony export */ });
+function getHTMLElementScroll(element) {
+  return {
+    scrollLeft: element.scrollLeft,
+    scrollTop: element.scrollTop
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getLayoutRect)
+/* harmony export */ });
+/* harmony import */ var _getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getBoundingClientRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js");
+ // Returns the layout rect of an element relative to its offsetParent. Layout
+// means it doesn't take into account transforms.
+
+function getLayoutRect(element) {
+  var clientRect = (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element); // Use the clientRect sizes if it's not been transformed.
+  // Fixes https://github.com/popperjs/popper-core/issues/1223
+
+  var width = element.offsetWidth;
+  var height = element.offsetHeight;
+
+  if (Math.abs(clientRect.width - width) <= 1) {
+    width = clientRect.width;
+  }
+
+  if (Math.abs(clientRect.height - height) <= 1) {
+    height = clientRect.height;
+  }
+
+  return {
+    x: element.offsetLeft,
+    y: element.offsetTop,
+    width: width,
+    height: height
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getNodeName)
+/* harmony export */ });
+function getNodeName(element) {
+  return element ? (element.nodeName || '').toLowerCase() : null;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getNodeScroll)
+/* harmony export */ });
+/* harmony import */ var _getWindowScroll_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getWindowScroll.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js");
+/* harmony import */ var _getWindow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
+/* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+/* harmony import */ var _getHTMLElementScroll_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getHTMLElementScroll.js */ "./node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js");
+
+
+
+
+function getNodeScroll(node) {
+  if (node === (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node) || !(0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(node)) {
+    return (0,_getWindowScroll_js__WEBPACK_IMPORTED_MODULE_2__["default"])(node);
+  } else {
+    return (0,_getHTMLElementScroll_js__WEBPACK_IMPORTED_MODULE_3__["default"])(node);
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getOffsetParent)
+/* harmony export */ });
+/* harmony import */ var _getWindow_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
+/* harmony import */ var _getNodeName_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./getNodeName.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js");
+/* harmony import */ var _getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getComputedStyle.js */ "./node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js");
+/* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+/* harmony import */ var _isTableElement_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./isTableElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/isTableElement.js");
+/* harmony import */ var _getParentNode_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getParentNode.js */ "./node_modules/@popperjs/core/lib/dom-utils/getParentNode.js");
+/* harmony import */ var _utils_userAgent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/userAgent.js */ "./node_modules/@popperjs/core/lib/utils/userAgent.js");
+
+
+
+
+
+
+
+
+function getTrueOffsetParent(element) {
+  if (!(0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element) || // https://github.com/popperjs/popper-core/issues/837
+  (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element).position === 'fixed') {
+    return null;
+  }
+
+  return element.offsetParent;
+} // `.offsetParent` reports `null` for fixed elements, while absolute elements
+// return the containing block
+
+
+function getContainingBlock(element) {
+  var isFirefox = /firefox/i.test((0,_utils_userAgent_js__WEBPACK_IMPORTED_MODULE_2__["default"])());
+  var isIE = /Trident/i.test((0,_utils_userAgent_js__WEBPACK_IMPORTED_MODULE_2__["default"])());
+
+  if (isIE && (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element)) {
+    // In IE 9, 10 and 11 fixed elements containing block is always established by the viewport
+    var elementCss = (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element);
+
+    if (elementCss.position === 'fixed') {
+      return null;
+    }
+  }
+
+  var currentNode = (0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_3__["default"])(element);
+
+  if ((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isShadowRoot)(currentNode)) {
+    currentNode = currentNode.host;
+  }
+
+  while ((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(currentNode) && ['html', 'body'].indexOf((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_4__["default"])(currentNode)) < 0) {
+    var css = (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__["default"])(currentNode); // This is non-exhaustive but covers the most common CSS properties that
+    // create a containing block.
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
+
+    if (css.transform !== 'none' || css.perspective !== 'none' || css.contain === 'paint' || ['transform', 'perspective'].indexOf(css.willChange) !== -1 || isFirefox && css.willChange === 'filter' || isFirefox && css.filter && css.filter !== 'none') {
+      return currentNode;
+    } else {
+      currentNode = currentNode.parentNode;
+    }
+  }
+
+  return null;
+} // Gets the closest ancestor positioned element. Handles some edge cases,
+// such as table ancestors and cross browser bugs.
+
+
+function getOffsetParent(element) {
+  var window = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_5__["default"])(element);
+  var offsetParent = getTrueOffsetParent(element);
+
+  while (offsetParent && (0,_isTableElement_js__WEBPACK_IMPORTED_MODULE_6__["default"])(offsetParent) && (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__["default"])(offsetParent).position === 'static') {
+    offsetParent = getTrueOffsetParent(offsetParent);
+  }
+
+  if (offsetParent && ((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_4__["default"])(offsetParent) === 'html' || (0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_4__["default"])(offsetParent) === 'body' && (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_1__["default"])(offsetParent).position === 'static')) {
+    return window;
+  }
+
+  return offsetParent || getContainingBlock(element) || window;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getParentNode.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getParentNode.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getParentNode)
+/* harmony export */ });
+/* harmony import */ var _getNodeName_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getNodeName.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js");
+/* harmony import */ var _getDocumentElement_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
+/* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+
+
+
+function getParentNode(element) {
+  if ((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element) === 'html') {
+    return element;
+  }
+
+  return (// this is a quicker (but less type safe) way to save quite some bytes from the bundle
+    // $FlowFixMe[incompatible-return]
+    // $FlowFixMe[prop-missing]
+    element.assignedSlot || // step into the shadow DOM of the parent of a slotted node
+    element.parentNode || ( // DOM Element detected
+    (0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isShadowRoot)(element) ? element.host : null) || // ShadowRoot detected
+    // $FlowFixMe[incompatible-call]: HTMLElement is a Node
+    (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(element) // fallback
+
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getScrollParent)
+/* harmony export */ });
+/* harmony import */ var _getParentNode_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getParentNode.js */ "./node_modules/@popperjs/core/lib/dom-utils/getParentNode.js");
+/* harmony import */ var _isScrollParent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./isScrollParent.js */ "./node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js");
+/* harmony import */ var _getNodeName_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getNodeName.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js");
+/* harmony import */ var _instanceOf_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+
+
+
+
+function getScrollParent(node) {
+  if (['html', 'body', '#document'].indexOf((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node)) >= 0) {
+    // $FlowFixMe[incompatible-return]: assume body is always available
+    return node.ownerDocument.body;
+  }
+
+  if ((0,_instanceOf_js__WEBPACK_IMPORTED_MODULE_1__.isHTMLElement)(node) && (0,_isScrollParent_js__WEBPACK_IMPORTED_MODULE_2__["default"])(node)) {
+    return node;
+  }
+
+  return getScrollParent((0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_3__["default"])(node));
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getViewportRect)
+/* harmony export */ });
+/* harmony import */ var _getWindow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
+/* harmony import */ var _getDocumentElement_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
+/* harmony import */ var _getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getWindowScrollBarX.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js");
+/* harmony import */ var _isLayoutViewport_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./isLayoutViewport.js */ "./node_modules/@popperjs/core/lib/dom-utils/isLayoutViewport.js");
+
+
+
+
+function getViewportRect(element, strategy) {
+  var win = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element);
+  var html = (0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element);
+  var visualViewport = win.visualViewport;
+  var width = html.clientWidth;
+  var height = html.clientHeight;
+  var x = 0;
+  var y = 0;
+
+  if (visualViewport) {
+    width = visualViewport.width;
+    height = visualViewport.height;
+    var layoutViewport = (0,_isLayoutViewport_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+
+    if (layoutViewport || !layoutViewport && strategy === 'fixed') {
+      x = visualViewport.offsetLeft;
+      y = visualViewport.offsetTop;
+    }
+  }
+
+  return {
+    width: width,
+    height: height,
+    x: x + (0,_getWindowScrollBarX_js__WEBPACK_IMPORTED_MODULE_3__["default"])(element),
+    y: y
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getWindow.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getWindow)
+/* harmony export */ });
+function getWindow(node) {
+  if (node == null) {
+    return window;
+  }
+
+  if (node.toString() !== '[object Window]') {
+    var ownerDocument = node.ownerDocument;
+    return ownerDocument ? ownerDocument.defaultView || window : window;
+  }
+
+  return node;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getWindowScroll)
+/* harmony export */ });
+/* harmony import */ var _getWindow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
+
+function getWindowScroll(node) {
+  var win = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node);
+  var scrollLeft = win.pageXOffset;
+  var scrollTop = win.pageYOffset;
+  return {
+    scrollLeft: scrollLeft,
+    scrollTop: scrollTop
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getWindowScrollBarX)
+/* harmony export */ });
+/* harmony import */ var _getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getBoundingClientRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js");
+/* harmony import */ var _getDocumentElement_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
+/* harmony import */ var _getWindowScroll_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getWindowScroll.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js");
+
+
+
+function getWindowScrollBarX(element) {
+  // If <html> has a CSS width greater than the viewport, then this will be
+  // incorrect for RTL.
+  // Popper 1 is broken in this case and never had a bug report so let's assume
+  // it's not an issue. I don't think anyone ever specifies width on <html>
+  // anyway.
+  // Browsers where the left scrollbar doesn't cause an issue report `0` for
+  // this (e.g. Edge 2019, IE11, Safari)
+  return (0,_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element)).left + (0,_getWindowScroll_js__WEBPACK_IMPORTED_MODULE_2__["default"])(element).scrollLeft;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isElement: () => (/* binding */ isElement),
+/* harmony export */   isHTMLElement: () => (/* binding */ isHTMLElement),
+/* harmony export */   isShadowRoot: () => (/* binding */ isShadowRoot)
+/* harmony export */ });
+/* harmony import */ var _getWindow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
+
+
+function isElement(node) {
+  var OwnElement = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node).Element;
+  return node instanceof OwnElement || node instanceof Element;
+}
+
+function isHTMLElement(node) {
+  var OwnElement = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node).HTMLElement;
+  return node instanceof OwnElement || node instanceof HTMLElement;
+}
+
+function isShadowRoot(node) {
+  // IE 11 has no ShadowRoot
+  if (typeof ShadowRoot === 'undefined') {
+    return false;
+  }
+
+  var OwnElement = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(node).ShadowRoot;
+  return node instanceof OwnElement || node instanceof ShadowRoot;
+}
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/isLayoutViewport.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/isLayoutViewport.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ isLayoutViewport)
+/* harmony export */ });
+/* harmony import */ var _utils_userAgent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/userAgent.js */ "./node_modules/@popperjs/core/lib/utils/userAgent.js");
+
+function isLayoutViewport() {
+  return !/^((?!chrome|android).)*safari/i.test((0,_utils_userAgent_js__WEBPACK_IMPORTED_MODULE_0__["default"])());
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ isScrollParent)
+/* harmony export */ });
+/* harmony import */ var _getComputedStyle_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getComputedStyle.js */ "./node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js");
+
+function isScrollParent(element) {
+  // Firefox wants us to check `-x` and `-y` variations as well
+  var _getComputedStyle = (0,_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element),
+      overflow = _getComputedStyle.overflow,
+      overflowX = _getComputedStyle.overflowX,
+      overflowY = _getComputedStyle.overflowY;
+
+  return /auto|scroll|overlay|hidden/.test(overflow + overflowY + overflowX);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/isTableElement.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/isTableElement.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ isTableElement)
+/* harmony export */ });
+/* harmony import */ var _getNodeName_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getNodeName.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js");
+
+function isTableElement(element) {
+  return ['table', 'td', 'th'].indexOf((0,_getNodeName_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element)) >= 0;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ listScrollParents)
+/* harmony export */ });
+/* harmony import */ var _getScrollParent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getScrollParent.js */ "./node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js");
+/* harmony import */ var _getParentNode_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getParentNode.js */ "./node_modules/@popperjs/core/lib/dom-utils/getParentNode.js");
+/* harmony import */ var _getWindow_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
+/* harmony import */ var _isScrollParent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./isScrollParent.js */ "./node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js");
+
+
+
+
+/*
+given a DOM element, return the list of all scroll parents, up the list of ancesors
+until we get to the top window object. This list is what we attach scroll listeners
+to, because if any of these parent elements scroll, we'll need to re-calculate the
+reference element's position.
+*/
+
+function listScrollParents(element, list) {
+  var _element$ownerDocumen;
+
+  if (list === void 0) {
+    list = [];
+  }
+
+  var scrollParent = (0,_getScrollParent_js__WEBPACK_IMPORTED_MODULE_0__["default"])(element);
+  var isBody = scrollParent === ((_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body);
+  var win = (0,_getWindow_js__WEBPACK_IMPORTED_MODULE_1__["default"])(scrollParent);
+  var target = isBody ? [win].concat(win.visualViewport || [], (0,_isScrollParent_js__WEBPACK_IMPORTED_MODULE_2__["default"])(scrollParent) ? scrollParent : []) : scrollParent;
+  var updatedList = list.concat(target);
+  return isBody ? updatedList : // $FlowFixMe[incompatible-call]: isBody tells us target will be an HTMLElement here
+  updatedList.concat(listScrollParents((0,_getParentNode_js__WEBPACK_IMPORTED_MODULE_3__["default"])(target)));
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/enums.js":
+/*!**************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/enums.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   afterMain: () => (/* binding */ afterMain),
+/* harmony export */   afterRead: () => (/* binding */ afterRead),
+/* harmony export */   afterWrite: () => (/* binding */ afterWrite),
+/* harmony export */   auto: () => (/* binding */ auto),
+/* harmony export */   basePlacements: () => (/* binding */ basePlacements),
+/* harmony export */   beforeMain: () => (/* binding */ beforeMain),
+/* harmony export */   beforeRead: () => (/* binding */ beforeRead),
+/* harmony export */   beforeWrite: () => (/* binding */ beforeWrite),
+/* harmony export */   bottom: () => (/* binding */ bottom),
+/* harmony export */   clippingParents: () => (/* binding */ clippingParents),
+/* harmony export */   end: () => (/* binding */ end),
+/* harmony export */   left: () => (/* binding */ left),
+/* harmony export */   main: () => (/* binding */ main),
+/* harmony export */   modifierPhases: () => (/* binding */ modifierPhases),
+/* harmony export */   placements: () => (/* binding */ placements),
+/* harmony export */   popper: () => (/* binding */ popper),
+/* harmony export */   read: () => (/* binding */ read),
+/* harmony export */   reference: () => (/* binding */ reference),
+/* harmony export */   right: () => (/* binding */ right),
+/* harmony export */   start: () => (/* binding */ start),
+/* harmony export */   top: () => (/* binding */ top),
+/* harmony export */   variationPlacements: () => (/* binding */ variationPlacements),
+/* harmony export */   viewport: () => (/* binding */ viewport),
+/* harmony export */   write: () => (/* binding */ write)
+/* harmony export */ });
+var top = 'top';
+var bottom = 'bottom';
+var right = 'right';
+var left = 'left';
+var auto = 'auto';
+var basePlacements = [top, bottom, right, left];
+var start = 'start';
+var end = 'end';
+var clippingParents = 'clippingParents';
+var viewport = 'viewport';
+var popper = 'popper';
+var reference = 'reference';
+var variationPlacements = /*#__PURE__*/basePlacements.reduce(function (acc, placement) {
+  return acc.concat([placement + "-" + start, placement + "-" + end]);
+}, []);
+var placements = /*#__PURE__*/[].concat(basePlacements, [auto]).reduce(function (acc, placement) {
+  return acc.concat([placement, placement + "-" + start, placement + "-" + end]);
+}, []); // modifiers that need to read the DOM
+
+var beforeRead = 'beforeRead';
+var read = 'read';
+var afterRead = 'afterRead'; // pure-logic modifiers
+
+var beforeMain = 'beforeMain';
+var main = 'main';
+var afterMain = 'afterMain'; // modifier with the purpose to write to the DOM (or write into a framework state)
+
+var beforeWrite = 'beforeWrite';
+var write = 'write';
+var afterWrite = 'afterWrite';
+var modifierPhases = [beforeRead, read, afterRead, beforeMain, main, afterMain, beforeWrite, write, afterWrite];
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/modifiers/applyStyles.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/modifiers/applyStyles.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _dom_utils_getNodeName_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../dom-utils/getNodeName.js */ "./node_modules/@popperjs/core/lib/dom-utils/getNodeName.js");
+/* harmony import */ var _dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../dom-utils/instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+
+ // This modifier takes the styles prepared by the `computeStyles` modifier
+// and applies them to the HTMLElements such as popper and arrow
+
+function applyStyles(_ref) {
+  var state = _ref.state;
+  Object.keys(state.elements).forEach(function (name) {
+    var style = state.styles[name] || {};
+    var attributes = state.attributes[name] || {};
+    var element = state.elements[name]; // arrow is optional + virtual elements
+
+    if (!(0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element) || !(0,_dom_utils_getNodeName_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element)) {
+      return;
+    } // Flow doesn't support to extend this property, but it's the most
+    // effective way to apply styles to an HTMLElement
+    // $FlowFixMe[cannot-write]
+
+
+    Object.assign(element.style, style);
+    Object.keys(attributes).forEach(function (name) {
+      var value = attributes[name];
+
+      if (value === false) {
+        element.removeAttribute(name);
+      } else {
+        element.setAttribute(name, value === true ? '' : value);
+      }
+    });
+  });
+}
+
+function effect(_ref2) {
+  var state = _ref2.state;
+  var initialStyles = {
+    popper: {
+      position: state.options.strategy,
+      left: '0',
+      top: '0',
+      margin: '0'
+    },
+    arrow: {
+      position: 'absolute'
+    },
+    reference: {}
+  };
+  Object.assign(state.elements.popper.style, initialStyles.popper);
+  state.styles = initialStyles;
+
+  if (state.elements.arrow) {
+    Object.assign(state.elements.arrow.style, initialStyles.arrow);
+  }
+
+  return function () {
+    Object.keys(state.elements).forEach(function (name) {
+      var element = state.elements[name];
+      var attributes = state.attributes[name] || {};
+      var styleProperties = Object.keys(state.styles.hasOwnProperty(name) ? state.styles[name] : initialStyles[name]); // Set all values to an empty string to unset them
+
+      var style = styleProperties.reduce(function (style, property) {
+        style[property] = '';
+        return style;
+      }, {}); // arrow is optional + virtual elements
+
+      if (!(0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_0__.isHTMLElement)(element) || !(0,_dom_utils_getNodeName_js__WEBPACK_IMPORTED_MODULE_1__["default"])(element)) {
+        return;
+      }
+
+      Object.assign(element.style, style);
+      Object.keys(attributes).forEach(function (attribute) {
+        element.removeAttribute(attribute);
+      });
+    });
+  };
+} // eslint-disable-next-line import/no-unused-modules
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'applyStyles',
+  enabled: true,
+  phase: 'write',
+  fn: applyStyles,
+  effect: effect,
+  requires: ['computeStyles']
+});
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/modifiers/arrow.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/modifiers/arrow.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/getBasePlacement.js */ "./node_modules/@popperjs/core/lib/utils/getBasePlacement.js");
+/* harmony import */ var _dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dom-utils/getLayoutRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js");
+/* harmony import */ var _dom_utils_contains_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../dom-utils/contains.js */ "./node_modules/@popperjs/core/lib/dom-utils/contains.js");
+/* harmony import */ var _dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dom-utils/getOffsetParent.js */ "./node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js");
+/* harmony import */ var _utils_getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/getMainAxisFromPlacement.js */ "./node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js");
+/* harmony import */ var _utils_within_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/within.js */ "./node_modules/@popperjs/core/lib/utils/within.js");
+/* harmony import */ var _utils_mergePaddingObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/mergePaddingObject.js */ "./node_modules/@popperjs/core/lib/utils/mergePaddingObject.js");
+/* harmony import */ var _utils_expandToHashMap_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/expandToHashMap.js */ "./node_modules/@popperjs/core/lib/utils/expandToHashMap.js");
+/* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
+
+
+
+
+
+
+
+
+ // eslint-disable-next-line import/no-unused-modules
+
+var toPaddingObject = function toPaddingObject(padding, state) {
+  padding = typeof padding === 'function' ? padding(Object.assign({}, state.rects, {
+    placement: state.placement
+  })) : padding;
+  return (0,_utils_mergePaddingObject_js__WEBPACK_IMPORTED_MODULE_0__["default"])(typeof padding !== 'number' ? padding : (0,_utils_expandToHashMap_js__WEBPACK_IMPORTED_MODULE_1__["default"])(padding, _enums_js__WEBPACK_IMPORTED_MODULE_2__.basePlacements));
+};
+
+function arrow(_ref) {
+  var _state$modifiersData$;
+
+  var state = _ref.state,
+      name = _ref.name,
+      options = _ref.options;
+  var arrowElement = state.elements.arrow;
+  var popperOffsets = state.modifiersData.popperOffsets;
+  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(state.placement);
+  var axis = (0,_utils_getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_4__["default"])(basePlacement);
+  var isVertical = [_enums_js__WEBPACK_IMPORTED_MODULE_2__.left, _enums_js__WEBPACK_IMPORTED_MODULE_2__.right].indexOf(basePlacement) >= 0;
+  var len = isVertical ? 'height' : 'width';
+
+  if (!arrowElement || !popperOffsets) {
+    return;
+  }
+
+  var paddingObject = toPaddingObject(options.padding, state);
+  var arrowRect = (0,_dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_5__["default"])(arrowElement);
+  var minProp = axis === 'y' ? _enums_js__WEBPACK_IMPORTED_MODULE_2__.top : _enums_js__WEBPACK_IMPORTED_MODULE_2__.left;
+  var maxProp = axis === 'y' ? _enums_js__WEBPACK_IMPORTED_MODULE_2__.bottom : _enums_js__WEBPACK_IMPORTED_MODULE_2__.right;
+  var endDiff = state.rects.reference[len] + state.rects.reference[axis] - popperOffsets[axis] - state.rects.popper[len];
+  var startDiff = popperOffsets[axis] - state.rects.reference[axis];
+  var arrowOffsetParent = (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_6__["default"])(arrowElement);
+  var clientSize = arrowOffsetParent ? axis === 'y' ? arrowOffsetParent.clientHeight || 0 : arrowOffsetParent.clientWidth || 0 : 0;
+  var centerToReference = endDiff / 2 - startDiff / 2; // Make sure the arrow doesn't overflow the popper if the center point is
+  // outside of the popper bounds
+
+  var min = paddingObject[minProp];
+  var max = clientSize - arrowRect[len] - paddingObject[maxProp];
+  var center = clientSize / 2 - arrowRect[len] / 2 + centerToReference;
+  var offset = (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_7__.within)(min, center, max); // Prevents breaking syntax highlighting...
+
+  var axisProp = axis;
+  state.modifiersData[name] = (_state$modifiersData$ = {}, _state$modifiersData$[axisProp] = offset, _state$modifiersData$.centerOffset = offset - center, _state$modifiersData$);
+}
+
+function effect(_ref2) {
+  var state = _ref2.state,
+      options = _ref2.options;
+  var _options$element = options.element,
+      arrowElement = _options$element === void 0 ? '[data-popper-arrow]' : _options$element;
+
+  if (arrowElement == null) {
+    return;
+  } // CSS selector
+
+
+  if (typeof arrowElement === 'string') {
+    arrowElement = state.elements.popper.querySelector(arrowElement);
+
+    if (!arrowElement) {
+      return;
+    }
+  }
+
+  if (!(0,_dom_utils_contains_js__WEBPACK_IMPORTED_MODULE_8__["default"])(state.elements.popper, arrowElement)) {
+    return;
+  }
+
+  state.elements.arrow = arrowElement;
+} // eslint-disable-next-line import/no-unused-modules
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'arrow',
+  enabled: true,
+  phase: 'main',
+  fn: arrow,
+  effect: effect,
+  requires: ['popperOffsets'],
+  requiresIfExists: ['preventOverflow']
+});
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/modifiers/computeStyles.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/modifiers/computeStyles.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   mapToStyles: () => (/* binding */ mapToStyles)
+/* harmony export */ });
+/* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
+/* harmony import */ var _dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dom-utils/getOffsetParent.js */ "./node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js");
+/* harmony import */ var _dom_utils_getWindow_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../dom-utils/getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
+/* harmony import */ var _dom_utils_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../dom-utils/getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
+/* harmony import */ var _dom_utils_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dom-utils/getComputedStyle.js */ "./node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js");
+/* harmony import */ var _utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/getBasePlacement.js */ "./node_modules/@popperjs/core/lib/utils/getBasePlacement.js");
+/* harmony import */ var _utils_getVariation_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/getVariation.js */ "./node_modules/@popperjs/core/lib/utils/getVariation.js");
+/* harmony import */ var _utils_math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/math.js */ "./node_modules/@popperjs/core/lib/utils/math.js");
+
+
+
+
+
+
+
+ // eslint-disable-next-line import/no-unused-modules
+
+var unsetSides = {
+  top: 'auto',
+  right: 'auto',
+  bottom: 'auto',
+  left: 'auto'
+}; // Round the offsets to the nearest suitable subpixel based on the DPR.
+// Zooming can change the DPR, but it seems to report a value that will
+// cleanly divide the values into the appropriate subpixels.
+
+function roundOffsetsByDPR(_ref, win) {
+  var x = _ref.x,
+      y = _ref.y;
+  var dpr = win.devicePixelRatio || 1;
+  return {
+    x: (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)(x * dpr) / dpr || 0,
+    y: (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_0__.round)(y * dpr) / dpr || 0
+  };
+}
+
+function mapToStyles(_ref2) {
+  var _Object$assign2;
+
+  var popper = _ref2.popper,
+      popperRect = _ref2.popperRect,
+      placement = _ref2.placement,
+      variation = _ref2.variation,
+      offsets = _ref2.offsets,
+      position = _ref2.position,
+      gpuAcceleration = _ref2.gpuAcceleration,
+      adaptive = _ref2.adaptive,
+      roundOffsets = _ref2.roundOffsets,
+      isFixed = _ref2.isFixed;
+  var _offsets$x = offsets.x,
+      x = _offsets$x === void 0 ? 0 : _offsets$x,
+      _offsets$y = offsets.y,
+      y = _offsets$y === void 0 ? 0 : _offsets$y;
+
+  var _ref3 = typeof roundOffsets === 'function' ? roundOffsets({
+    x: x,
+    y: y
+  }) : {
+    x: x,
+    y: y
+  };
+
+  x = _ref3.x;
+  y = _ref3.y;
+  var hasX = offsets.hasOwnProperty('x');
+  var hasY = offsets.hasOwnProperty('y');
+  var sideX = _enums_js__WEBPACK_IMPORTED_MODULE_1__.left;
+  var sideY = _enums_js__WEBPACK_IMPORTED_MODULE_1__.top;
+  var win = window;
+
+  if (adaptive) {
+    var offsetParent = (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_2__["default"])(popper);
+    var heightProp = 'clientHeight';
+    var widthProp = 'clientWidth';
+
+    if (offsetParent === (0,_dom_utils_getWindow_js__WEBPACK_IMPORTED_MODULE_3__["default"])(popper)) {
+      offsetParent = (0,_dom_utils_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_4__["default"])(popper);
+
+      if ((0,_dom_utils_getComputedStyle_js__WEBPACK_IMPORTED_MODULE_5__["default"])(offsetParent).position !== 'static' && position === 'absolute') {
+        heightProp = 'scrollHeight';
+        widthProp = 'scrollWidth';
+      }
+    } // $FlowFixMe[incompatible-cast]: force type refinement, we compare offsetParent with window above, but Flow doesn't detect it
+
+
+    offsetParent = offsetParent;
+
+    if (placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.top || (placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.left || placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.right) && variation === _enums_js__WEBPACK_IMPORTED_MODULE_1__.end) {
+      sideY = _enums_js__WEBPACK_IMPORTED_MODULE_1__.bottom;
+      var offsetY = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.height : // $FlowFixMe[prop-missing]
+      offsetParent[heightProp];
+      y -= offsetY - popperRect.height;
+      y *= gpuAcceleration ? 1 : -1;
+    }
+
+    if (placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.left || (placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.top || placement === _enums_js__WEBPACK_IMPORTED_MODULE_1__.bottom) && variation === _enums_js__WEBPACK_IMPORTED_MODULE_1__.end) {
+      sideX = _enums_js__WEBPACK_IMPORTED_MODULE_1__.right;
+      var offsetX = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.width : // $FlowFixMe[prop-missing]
+      offsetParent[widthProp];
+      x -= offsetX - popperRect.width;
+      x *= gpuAcceleration ? 1 : -1;
+    }
+  }
+
+  var commonStyles = Object.assign({
+    position: position
+  }, adaptive && unsetSides);
+
+  var _ref4 = roundOffsets === true ? roundOffsetsByDPR({
+    x: x,
+    y: y
+  }, (0,_dom_utils_getWindow_js__WEBPACK_IMPORTED_MODULE_3__["default"])(popper)) : {
+    x: x,
+    y: y
+  };
+
+  x = _ref4.x;
+  y = _ref4.y;
+
+  if (gpuAcceleration) {
+    var _Object$assign;
+
+    return Object.assign({}, commonStyles, (_Object$assign = {}, _Object$assign[sideY] = hasY ? '0' : '', _Object$assign[sideX] = hasX ? '0' : '', _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
+  }
+
+  return Object.assign({}, commonStyles, (_Object$assign2 = {}, _Object$assign2[sideY] = hasY ? y + "px" : '', _Object$assign2[sideX] = hasX ? x + "px" : '', _Object$assign2.transform = '', _Object$assign2));
+}
+
+function computeStyles(_ref5) {
+  var state = _ref5.state,
+      options = _ref5.options;
+  var _options$gpuAccelerat = options.gpuAcceleration,
+      gpuAcceleration = _options$gpuAccelerat === void 0 ? true : _options$gpuAccelerat,
+      _options$adaptive = options.adaptive,
+      adaptive = _options$adaptive === void 0 ? true : _options$adaptive,
+      _options$roundOffsets = options.roundOffsets,
+      roundOffsets = _options$roundOffsets === void 0 ? true : _options$roundOffsets;
+  var commonStyles = {
+    placement: (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_6__["default"])(state.placement),
+    variation: (0,_utils_getVariation_js__WEBPACK_IMPORTED_MODULE_7__["default"])(state.placement),
+    popper: state.elements.popper,
+    popperRect: state.rects.popper,
+    gpuAcceleration: gpuAcceleration,
+    isFixed: state.options.strategy === 'fixed'
+  };
+
+  if (state.modifiersData.popperOffsets != null) {
+    state.styles.popper = Object.assign({}, state.styles.popper, mapToStyles(Object.assign({}, commonStyles, {
+      offsets: state.modifiersData.popperOffsets,
+      position: state.options.strategy,
+      adaptive: adaptive,
+      roundOffsets: roundOffsets
+    })));
+  }
+
+  if (state.modifiersData.arrow != null) {
+    state.styles.arrow = Object.assign({}, state.styles.arrow, mapToStyles(Object.assign({}, commonStyles, {
+      offsets: state.modifiersData.arrow,
+      position: 'absolute',
+      adaptive: false,
+      roundOffsets: roundOffsets
+    })));
+  }
+
+  state.attributes.popper = Object.assign({}, state.attributes.popper, {
+    'data-popper-placement': state.placement
+  });
+} // eslint-disable-next-line import/no-unused-modules
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'computeStyles',
+  enabled: true,
+  phase: 'beforeWrite',
+  fn: computeStyles,
+  data: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/modifiers/eventListeners.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/modifiers/eventListeners.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _dom_utils_getWindow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../dom-utils/getWindow.js */ "./node_modules/@popperjs/core/lib/dom-utils/getWindow.js");
+ // eslint-disable-next-line import/no-unused-modules
+
+var passive = {
+  passive: true
+};
+
+function effect(_ref) {
+  var state = _ref.state,
+      instance = _ref.instance,
+      options = _ref.options;
+  var _options$scroll = options.scroll,
+      scroll = _options$scroll === void 0 ? true : _options$scroll,
+      _options$resize = options.resize,
+      resize = _options$resize === void 0 ? true : _options$resize;
+  var window = (0,_dom_utils_getWindow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(state.elements.popper);
+  var scrollParents = [].concat(state.scrollParents.reference, state.scrollParents.popper);
+
+  if (scroll) {
+    scrollParents.forEach(function (scrollParent) {
+      scrollParent.addEventListener('scroll', instance.update, passive);
+    });
+  }
+
+  if (resize) {
+    window.addEventListener('resize', instance.update, passive);
+  }
+
+  return function () {
+    if (scroll) {
+      scrollParents.forEach(function (scrollParent) {
+        scrollParent.removeEventListener('scroll', instance.update, passive);
+      });
+    }
+
+    if (resize) {
+      window.removeEventListener('resize', instance.update, passive);
+    }
+  };
+} // eslint-disable-next-line import/no-unused-modules
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'eventListeners',
+  enabled: true,
+  phase: 'write',
+  fn: function fn() {},
+  effect: effect,
+  data: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/modifiers/flip.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/modifiers/flip.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/getOppositePlacement.js */ "./node_modules/@popperjs/core/lib/utils/getOppositePlacement.js");
+/* harmony import */ var _utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/getBasePlacement.js */ "./node_modules/@popperjs/core/lib/utils/getBasePlacement.js");
+/* harmony import */ var _utils_getOppositeVariationPlacement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/getOppositeVariationPlacement.js */ "./node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js");
+/* harmony import */ var _utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/detectOverflow.js */ "./node_modules/@popperjs/core/lib/utils/detectOverflow.js");
+/* harmony import */ var _utils_computeAutoPlacement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/computeAutoPlacement.js */ "./node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js");
+/* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
+/* harmony import */ var _utils_getVariation_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/getVariation.js */ "./node_modules/@popperjs/core/lib/utils/getVariation.js");
+
+
+
+
+
+
+ // eslint-disable-next-line import/no-unused-modules
+
+function getExpandedFallbackPlacements(placement) {
+  if ((0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(placement) === _enums_js__WEBPACK_IMPORTED_MODULE_1__.auto) {
+    return [];
+  }
+
+  var oppositePlacement = (0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(placement);
+  return [(0,_utils_getOppositeVariationPlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(placement), oppositePlacement, (0,_utils_getOppositeVariationPlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(oppositePlacement)];
+}
+
+function flip(_ref) {
+  var state = _ref.state,
+      options = _ref.options,
+      name = _ref.name;
+
+  if (state.modifiersData[name]._skip) {
+    return;
+  }
+
+  var _options$mainAxis = options.mainAxis,
+      checkMainAxis = _options$mainAxis === void 0 ? true : _options$mainAxis,
+      _options$altAxis = options.altAxis,
+      checkAltAxis = _options$altAxis === void 0 ? true : _options$altAxis,
+      specifiedFallbackPlacements = options.fallbackPlacements,
+      padding = options.padding,
+      boundary = options.boundary,
+      rootBoundary = options.rootBoundary,
+      altBoundary = options.altBoundary,
+      _options$flipVariatio = options.flipVariations,
+      flipVariations = _options$flipVariatio === void 0 ? true : _options$flipVariatio,
+      allowedAutoPlacements = options.allowedAutoPlacements;
+  var preferredPlacement = state.options.placement;
+  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(preferredPlacement);
+  var isBasePlacement = basePlacement === preferredPlacement;
+  var fallbackPlacements = specifiedFallbackPlacements || (isBasePlacement || !flipVariations ? [(0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(preferredPlacement)] : getExpandedFallbackPlacements(preferredPlacement));
+  var placements = [preferredPlacement].concat(fallbackPlacements).reduce(function (acc, placement) {
+    return acc.concat((0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(placement) === _enums_js__WEBPACK_IMPORTED_MODULE_1__.auto ? (0,_utils_computeAutoPlacement_js__WEBPACK_IMPORTED_MODULE_4__["default"])(state, {
+      placement: placement,
+      boundary: boundary,
+      rootBoundary: rootBoundary,
+      padding: padding,
+      flipVariations: flipVariations,
+      allowedAutoPlacements: allowedAutoPlacements
+    }) : placement);
+  }, []);
+  var referenceRect = state.rects.reference;
+  var popperRect = state.rects.popper;
+  var checksMap = new Map();
+  var makeFallbackChecks = true;
+  var firstFittingPlacement = placements[0];
+
+  for (var i = 0; i < placements.length; i++) {
+    var placement = placements[i];
+
+    var _basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(placement);
+
+    var isStartVariation = (0,_utils_getVariation_js__WEBPACK_IMPORTED_MODULE_5__["default"])(placement) === _enums_js__WEBPACK_IMPORTED_MODULE_1__.start;
+    var isVertical = [_enums_js__WEBPACK_IMPORTED_MODULE_1__.top, _enums_js__WEBPACK_IMPORTED_MODULE_1__.bottom].indexOf(_basePlacement) >= 0;
+    var len = isVertical ? 'width' : 'height';
+    var overflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_6__["default"])(state, {
+      placement: placement,
+      boundary: boundary,
+      rootBoundary: rootBoundary,
+      altBoundary: altBoundary,
+      padding: padding
+    });
+    var mainVariationSide = isVertical ? isStartVariation ? _enums_js__WEBPACK_IMPORTED_MODULE_1__.right : _enums_js__WEBPACK_IMPORTED_MODULE_1__.left : isStartVariation ? _enums_js__WEBPACK_IMPORTED_MODULE_1__.bottom : _enums_js__WEBPACK_IMPORTED_MODULE_1__.top;
+
+    if (referenceRect[len] > popperRect[len]) {
+      mainVariationSide = (0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(mainVariationSide);
+    }
+
+    var altVariationSide = (0,_utils_getOppositePlacement_js__WEBPACK_IMPORTED_MODULE_2__["default"])(mainVariationSide);
+    var checks = [];
+
+    if (checkMainAxis) {
+      checks.push(overflow[_basePlacement] <= 0);
+    }
+
+    if (checkAltAxis) {
+      checks.push(overflow[mainVariationSide] <= 0, overflow[altVariationSide] <= 0);
+    }
+
+    if (checks.every(function (check) {
+      return check;
+    })) {
+      firstFittingPlacement = placement;
+      makeFallbackChecks = false;
+      break;
+    }
+
+    checksMap.set(placement, checks);
+  }
+
+  if (makeFallbackChecks) {
+    // `2` may be desired in some cases – research later
+    var numberOfChecks = flipVariations ? 3 : 1;
+
+    var _loop = function _loop(_i) {
+      var fittingPlacement = placements.find(function (placement) {
+        var checks = checksMap.get(placement);
+
+        if (checks) {
+          return checks.slice(0, _i).every(function (check) {
+            return check;
+          });
+        }
+      });
+
+      if (fittingPlacement) {
+        firstFittingPlacement = fittingPlacement;
+        return "break";
+      }
+    };
+
+    for (var _i = numberOfChecks; _i > 0; _i--) {
+      var _ret = _loop(_i);
+
+      if (_ret === "break") break;
+    }
+  }
+
+  if (state.placement !== firstFittingPlacement) {
+    state.modifiersData[name]._skip = true;
+    state.placement = firstFittingPlacement;
+    state.reset = true;
+  }
+} // eslint-disable-next-line import/no-unused-modules
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'flip',
+  enabled: true,
+  phase: 'main',
+  fn: flip,
+  requiresIfExists: ['offset'],
+  data: {
+    _skip: false
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/modifiers/hide.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/modifiers/hide.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
+/* harmony import */ var _utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/detectOverflow.js */ "./node_modules/@popperjs/core/lib/utils/detectOverflow.js");
+
+
+
+function getSideOffsets(overflow, rect, preventedOffsets) {
+  if (preventedOffsets === void 0) {
+    preventedOffsets = {
+      x: 0,
+      y: 0
+    };
+  }
+
+  return {
+    top: overflow.top - rect.height - preventedOffsets.y,
+    right: overflow.right - rect.width + preventedOffsets.x,
+    bottom: overflow.bottom - rect.height + preventedOffsets.y,
+    left: overflow.left - rect.width - preventedOffsets.x
+  };
+}
+
+function isAnySideFullyClipped(overflow) {
+  return [_enums_js__WEBPACK_IMPORTED_MODULE_0__.top, _enums_js__WEBPACK_IMPORTED_MODULE_0__.right, _enums_js__WEBPACK_IMPORTED_MODULE_0__.bottom, _enums_js__WEBPACK_IMPORTED_MODULE_0__.left].some(function (side) {
+    return overflow[side] >= 0;
+  });
+}
+
+function hide(_ref) {
+  var state = _ref.state,
+      name = _ref.name;
+  var referenceRect = state.rects.reference;
+  var popperRect = state.rects.popper;
+  var preventedOffsets = state.modifiersData.preventOverflow;
+  var referenceOverflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_1__["default"])(state, {
+    elementContext: 'reference'
+  });
+  var popperAltOverflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_1__["default"])(state, {
+    altBoundary: true
+  });
+  var referenceClippingOffsets = getSideOffsets(referenceOverflow, referenceRect);
+  var popperEscapeOffsets = getSideOffsets(popperAltOverflow, popperRect, preventedOffsets);
+  var isReferenceHidden = isAnySideFullyClipped(referenceClippingOffsets);
+  var hasPopperEscaped = isAnySideFullyClipped(popperEscapeOffsets);
+  state.modifiersData[name] = {
+    referenceClippingOffsets: referenceClippingOffsets,
+    popperEscapeOffsets: popperEscapeOffsets,
+    isReferenceHidden: isReferenceHidden,
+    hasPopperEscaped: hasPopperEscaped
+  };
+  state.attributes.popper = Object.assign({}, state.attributes.popper, {
+    'data-popper-reference-hidden': isReferenceHidden,
+    'data-popper-escaped': hasPopperEscaped
+  });
+} // eslint-disable-next-line import/no-unused-modules
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'hide',
+  enabled: true,
+  phase: 'main',
+  requiresIfExists: ['preventOverflow'],
+  fn: hide
+});
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/modifiers/index.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/modifiers/index.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   applyStyles: () => (/* reexport safe */ _applyStyles_js__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   arrow: () => (/* reexport safe */ _arrow_js__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   computeStyles: () => (/* reexport safe */ _computeStyles_js__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   eventListeners: () => (/* reexport safe */ _eventListeners_js__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   flip: () => (/* reexport safe */ _flip_js__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   hide: () => (/* reexport safe */ _hide_js__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   offset: () => (/* reexport safe */ _offset_js__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   popperOffsets: () => (/* reexport safe */ _popperOffsets_js__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   preventOverflow: () => (/* reexport safe */ _preventOverflow_js__WEBPACK_IMPORTED_MODULE_8__["default"])
+/* harmony export */ });
+/* harmony import */ var _applyStyles_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./applyStyles.js */ "./node_modules/@popperjs/core/lib/modifiers/applyStyles.js");
+/* harmony import */ var _arrow_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./arrow.js */ "./node_modules/@popperjs/core/lib/modifiers/arrow.js");
+/* harmony import */ var _computeStyles_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./computeStyles.js */ "./node_modules/@popperjs/core/lib/modifiers/computeStyles.js");
+/* harmony import */ var _eventListeners_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./eventListeners.js */ "./node_modules/@popperjs/core/lib/modifiers/eventListeners.js");
+/* harmony import */ var _flip_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./flip.js */ "./node_modules/@popperjs/core/lib/modifiers/flip.js");
+/* harmony import */ var _hide_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./hide.js */ "./node_modules/@popperjs/core/lib/modifiers/hide.js");
+/* harmony import */ var _offset_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./offset.js */ "./node_modules/@popperjs/core/lib/modifiers/offset.js");
+/* harmony import */ var _popperOffsets_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./popperOffsets.js */ "./node_modules/@popperjs/core/lib/modifiers/popperOffsets.js");
+/* harmony import */ var _preventOverflow_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./preventOverflow.js */ "./node_modules/@popperjs/core/lib/modifiers/preventOverflow.js");
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/modifiers/offset.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/modifiers/offset.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   distanceAndSkiddingToXY: () => (/* binding */ distanceAndSkiddingToXY)
+/* harmony export */ });
+/* harmony import */ var _utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/getBasePlacement.js */ "./node_modules/@popperjs/core/lib/utils/getBasePlacement.js");
+/* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
+
+ // eslint-disable-next-line import/no-unused-modules
+
+function distanceAndSkiddingToXY(placement, rects, offset) {
+  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(placement);
+  var invertDistance = [_enums_js__WEBPACK_IMPORTED_MODULE_1__.left, _enums_js__WEBPACK_IMPORTED_MODULE_1__.top].indexOf(basePlacement) >= 0 ? -1 : 1;
+
+  var _ref = typeof offset === 'function' ? offset(Object.assign({}, rects, {
+    placement: placement
+  })) : offset,
+      skidding = _ref[0],
+      distance = _ref[1];
+
+  skidding = skidding || 0;
+  distance = (distance || 0) * invertDistance;
+  return [_enums_js__WEBPACK_IMPORTED_MODULE_1__.left, _enums_js__WEBPACK_IMPORTED_MODULE_1__.right].indexOf(basePlacement) >= 0 ? {
+    x: distance,
+    y: skidding
+  } : {
+    x: skidding,
+    y: distance
+  };
+}
+
+function offset(_ref2) {
+  var state = _ref2.state,
+      options = _ref2.options,
+      name = _ref2.name;
+  var _options$offset = options.offset,
+      offset = _options$offset === void 0 ? [0, 0] : _options$offset;
+  var data = _enums_js__WEBPACK_IMPORTED_MODULE_1__.placements.reduce(function (acc, placement) {
+    acc[placement] = distanceAndSkiddingToXY(placement, state.rects, offset);
+    return acc;
+  }, {});
+  var _data$state$placement = data[state.placement],
+      x = _data$state$placement.x,
+      y = _data$state$placement.y;
+
+  if (state.modifiersData.popperOffsets != null) {
+    state.modifiersData.popperOffsets.x += x;
+    state.modifiersData.popperOffsets.y += y;
+  }
+
+  state.modifiersData[name] = data;
+} // eslint-disable-next-line import/no-unused-modules
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'offset',
+  enabled: true,
+  phase: 'main',
+  requires: ['popperOffsets'],
+  fn: offset
+});
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/modifiers/popperOffsets.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/modifiers/popperOffsets.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_computeOffsets_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/computeOffsets.js */ "./node_modules/@popperjs/core/lib/utils/computeOffsets.js");
+
+
+function popperOffsets(_ref) {
+  var state = _ref.state,
+      name = _ref.name;
+  // Offsets are the actual position the popper needs to have to be
+  // properly positioned near its reference element
+  // This is the most basic placement, and will be adjusted by
+  // the modifiers in the next step
+  state.modifiersData[name] = (0,_utils_computeOffsets_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    reference: state.rects.reference,
+    element: state.rects.popper,
+    strategy: 'absolute',
+    placement: state.placement
+  });
+} // eslint-disable-next-line import/no-unused-modules
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'popperOffsets',
+  enabled: true,
+  phase: 'read',
+  fn: popperOffsets,
+  data: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/modifiers/preventOverflow.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/modifiers/preventOverflow.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
+/* harmony import */ var _utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/getBasePlacement.js */ "./node_modules/@popperjs/core/lib/utils/getBasePlacement.js");
+/* harmony import */ var _utils_getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/getMainAxisFromPlacement.js */ "./node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js");
+/* harmony import */ var _utils_getAltAxis_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/getAltAxis.js */ "./node_modules/@popperjs/core/lib/utils/getAltAxis.js");
+/* harmony import */ var _utils_within_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/within.js */ "./node_modules/@popperjs/core/lib/utils/within.js");
+/* harmony import */ var _dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dom-utils/getLayoutRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js");
+/* harmony import */ var _dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../dom-utils/getOffsetParent.js */ "./node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js");
+/* harmony import */ var _utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/detectOverflow.js */ "./node_modules/@popperjs/core/lib/utils/detectOverflow.js");
+/* harmony import */ var _utils_getVariation_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/getVariation.js */ "./node_modules/@popperjs/core/lib/utils/getVariation.js");
+/* harmony import */ var _utils_getFreshSideObject_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/getFreshSideObject.js */ "./node_modules/@popperjs/core/lib/utils/getFreshSideObject.js");
+/* harmony import */ var _utils_math_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/math.js */ "./node_modules/@popperjs/core/lib/utils/math.js");
+
+
+
+
+
+
+
+
+
+
+
+
+function preventOverflow(_ref) {
+  var state = _ref.state,
+      options = _ref.options,
+      name = _ref.name;
+  var _options$mainAxis = options.mainAxis,
+      checkMainAxis = _options$mainAxis === void 0 ? true : _options$mainAxis,
+      _options$altAxis = options.altAxis,
+      checkAltAxis = _options$altAxis === void 0 ? false : _options$altAxis,
+      boundary = options.boundary,
+      rootBoundary = options.rootBoundary,
+      altBoundary = options.altBoundary,
+      padding = options.padding,
+      _options$tether = options.tether,
+      tether = _options$tether === void 0 ? true : _options$tether,
+      _options$tetherOffset = options.tetherOffset,
+      tetherOffset = _options$tetherOffset === void 0 ? 0 : _options$tetherOffset;
+  var overflow = (0,_utils_detectOverflow_js__WEBPACK_IMPORTED_MODULE_0__["default"])(state, {
+    boundary: boundary,
+    rootBoundary: rootBoundary,
+    padding: padding,
+    altBoundary: altBoundary
+  });
+  var basePlacement = (0,_utils_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_1__["default"])(state.placement);
+  var variation = (0,_utils_getVariation_js__WEBPACK_IMPORTED_MODULE_2__["default"])(state.placement);
+  var isBasePlacement = !variation;
+  var mainAxis = (0,_utils_getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(basePlacement);
+  var altAxis = (0,_utils_getAltAxis_js__WEBPACK_IMPORTED_MODULE_4__["default"])(mainAxis);
+  var popperOffsets = state.modifiersData.popperOffsets;
+  var referenceRect = state.rects.reference;
+  var popperRect = state.rects.popper;
+  var tetherOffsetValue = typeof tetherOffset === 'function' ? tetherOffset(Object.assign({}, state.rects, {
+    placement: state.placement
+  })) : tetherOffset;
+  var normalizedTetherOffsetValue = typeof tetherOffsetValue === 'number' ? {
+    mainAxis: tetherOffsetValue,
+    altAxis: tetherOffsetValue
+  } : Object.assign({
+    mainAxis: 0,
+    altAxis: 0
+  }, tetherOffsetValue);
+  var offsetModifierState = state.modifiersData.offset ? state.modifiersData.offset[state.placement] : null;
+  var data = {
+    x: 0,
+    y: 0
+  };
+
+  if (!popperOffsets) {
+    return;
+  }
+
+  if (checkMainAxis) {
+    var _offsetModifierState$;
+
+    var mainSide = mainAxis === 'y' ? _enums_js__WEBPACK_IMPORTED_MODULE_5__.top : _enums_js__WEBPACK_IMPORTED_MODULE_5__.left;
+    var altSide = mainAxis === 'y' ? _enums_js__WEBPACK_IMPORTED_MODULE_5__.bottom : _enums_js__WEBPACK_IMPORTED_MODULE_5__.right;
+    var len = mainAxis === 'y' ? 'height' : 'width';
+    var offset = popperOffsets[mainAxis];
+    var min = offset + overflow[mainSide];
+    var max = offset - overflow[altSide];
+    var additive = tether ? -popperRect[len] / 2 : 0;
+    var minLen = variation === _enums_js__WEBPACK_IMPORTED_MODULE_5__.start ? referenceRect[len] : popperRect[len];
+    var maxLen = variation === _enums_js__WEBPACK_IMPORTED_MODULE_5__.start ? -popperRect[len] : -referenceRect[len]; // We need to include the arrow in the calculation so the arrow doesn't go
+    // outside the reference bounds
+
+    var arrowElement = state.elements.arrow;
+    var arrowRect = tether && arrowElement ? (0,_dom_utils_getLayoutRect_js__WEBPACK_IMPORTED_MODULE_6__["default"])(arrowElement) : {
+      width: 0,
+      height: 0
+    };
+    var arrowPaddingObject = state.modifiersData['arrow#persistent'] ? state.modifiersData['arrow#persistent'].padding : (0,_utils_getFreshSideObject_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
+    var arrowPaddingMin = arrowPaddingObject[mainSide];
+    var arrowPaddingMax = arrowPaddingObject[altSide]; // If the reference length is smaller than the arrow length, we don't want
+    // to include its full size in the calculation. If the reference is small
+    // and near the edge of a boundary, the popper can overflow even if the
+    // reference is not overflowing as well (e.g. virtual elements with no
+    // width or height)
+
+    var arrowLen = (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_8__.within)(0, referenceRect[len], arrowRect[len]);
+    var minOffset = isBasePlacement ? referenceRect[len] / 2 - additive - arrowLen - arrowPaddingMin - normalizedTetherOffsetValue.mainAxis : minLen - arrowLen - arrowPaddingMin - normalizedTetherOffsetValue.mainAxis;
+    var maxOffset = isBasePlacement ? -referenceRect[len] / 2 + additive + arrowLen + arrowPaddingMax + normalizedTetherOffsetValue.mainAxis : maxLen + arrowLen + arrowPaddingMax + normalizedTetherOffsetValue.mainAxis;
+    var arrowOffsetParent = state.elements.arrow && (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_9__["default"])(state.elements.arrow);
+    var clientOffset = arrowOffsetParent ? mainAxis === 'y' ? arrowOffsetParent.clientTop || 0 : arrowOffsetParent.clientLeft || 0 : 0;
+    var offsetModifierValue = (_offsetModifierState$ = offsetModifierState == null ? void 0 : offsetModifierState[mainAxis]) != null ? _offsetModifierState$ : 0;
+    var tetherMin = offset + minOffset - offsetModifierValue - clientOffset;
+    var tetherMax = offset + maxOffset - offsetModifierValue;
+    var preventedOffset = (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_8__.within)(tether ? (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_10__.min)(min, tetherMin) : min, offset, tether ? (0,_utils_math_js__WEBPACK_IMPORTED_MODULE_10__.max)(max, tetherMax) : max);
+    popperOffsets[mainAxis] = preventedOffset;
+    data[mainAxis] = preventedOffset - offset;
+  }
+
+  if (checkAltAxis) {
+    var _offsetModifierState$2;
+
+    var _mainSide = mainAxis === 'x' ? _enums_js__WEBPACK_IMPORTED_MODULE_5__.top : _enums_js__WEBPACK_IMPORTED_MODULE_5__.left;
+
+    var _altSide = mainAxis === 'x' ? _enums_js__WEBPACK_IMPORTED_MODULE_5__.bottom : _enums_js__WEBPACK_IMPORTED_MODULE_5__.right;
+
+    var _offset = popperOffsets[altAxis];
+
+    var _len = altAxis === 'y' ? 'height' : 'width';
+
+    var _min = _offset + overflow[_mainSide];
+
+    var _max = _offset - overflow[_altSide];
+
+    var isOriginSide = [_enums_js__WEBPACK_IMPORTED_MODULE_5__.top, _enums_js__WEBPACK_IMPORTED_MODULE_5__.left].indexOf(basePlacement) !== -1;
+
+    var _offsetModifierValue = (_offsetModifierState$2 = offsetModifierState == null ? void 0 : offsetModifierState[altAxis]) != null ? _offsetModifierState$2 : 0;
+
+    var _tetherMin = isOriginSide ? _min : _offset - referenceRect[_len] - popperRect[_len] - _offsetModifierValue + normalizedTetherOffsetValue.altAxis;
+
+    var _tetherMax = isOriginSide ? _offset + referenceRect[_len] + popperRect[_len] - _offsetModifierValue - normalizedTetherOffsetValue.altAxis : _max;
+
+    var _preventedOffset = tether && isOriginSide ? (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_8__.withinMaxClamp)(_tetherMin, _offset, _tetherMax) : (0,_utils_within_js__WEBPACK_IMPORTED_MODULE_8__.within)(tether ? _tetherMin : _min, _offset, tether ? _tetherMax : _max);
+
+    popperOffsets[altAxis] = _preventedOffset;
+    data[altAxis] = _preventedOffset - _offset;
+  }
+
+  state.modifiersData[name] = data;
+} // eslint-disable-next-line import/no-unused-modules
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'preventOverflow',
+  enabled: true,
+  phase: 'main',
+  fn: preventOverflow,
+  requiresIfExists: ['offset']
+});
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/popper-lite.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/popper-lite.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createPopper: () => (/* binding */ createPopper),
+/* harmony export */   defaultModifiers: () => (/* binding */ defaultModifiers),
+/* harmony export */   detectOverflow: () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   popperGenerator: () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_4__.popperGenerator)
+/* harmony export */ });
+/* harmony import */ var _createPopper_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createPopper.js */ "./node_modules/@popperjs/core/lib/createPopper.js");
+/* harmony import */ var _createPopper_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./createPopper.js */ "./node_modules/@popperjs/core/lib/utils/detectOverflow.js");
+/* harmony import */ var _modifiers_eventListeners_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modifiers/eventListeners.js */ "./node_modules/@popperjs/core/lib/modifiers/eventListeners.js");
+/* harmony import */ var _modifiers_popperOffsets_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modifiers/popperOffsets.js */ "./node_modules/@popperjs/core/lib/modifiers/popperOffsets.js");
+/* harmony import */ var _modifiers_computeStyles_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modifiers/computeStyles.js */ "./node_modules/@popperjs/core/lib/modifiers/computeStyles.js");
+/* harmony import */ var _modifiers_applyStyles_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modifiers/applyStyles.js */ "./node_modules/@popperjs/core/lib/modifiers/applyStyles.js");
+
+
+
+
+
+var defaultModifiers = [_modifiers_eventListeners_js__WEBPACK_IMPORTED_MODULE_0__["default"], _modifiers_popperOffsets_js__WEBPACK_IMPORTED_MODULE_1__["default"], _modifiers_computeStyles_js__WEBPACK_IMPORTED_MODULE_2__["default"], _modifiers_applyStyles_js__WEBPACK_IMPORTED_MODULE_3__["default"]];
+var createPopper = /*#__PURE__*/(0,_createPopper_js__WEBPACK_IMPORTED_MODULE_4__.popperGenerator)({
+  defaultModifiers: defaultModifiers
+}); // eslint-disable-next-line import/no-unused-modules
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/popper.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/popper.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   applyStyles: () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__.applyStyles),
+/* harmony export */   arrow: () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__.arrow),
+/* harmony export */   computeStyles: () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__.computeStyles),
+/* harmony export */   createPopper: () => (/* binding */ createPopper),
+/* harmony export */   createPopperLite: () => (/* reexport safe */ _popper_lite_js__WEBPACK_IMPORTED_MODULE_11__.createPopper),
+/* harmony export */   defaultModifiers: () => (/* binding */ defaultModifiers),
+/* harmony export */   detectOverflow: () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   eventListeners: () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__.eventListeners),
+/* harmony export */   flip: () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__.flip),
+/* harmony export */   hide: () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__.hide),
+/* harmony export */   offset: () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__.offset),
+/* harmony export */   popperGenerator: () => (/* reexport safe */ _createPopper_js__WEBPACK_IMPORTED_MODULE_9__.popperGenerator),
+/* harmony export */   popperOffsets: () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__.popperOffsets),
+/* harmony export */   preventOverflow: () => (/* reexport safe */ _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__.preventOverflow)
+/* harmony export */ });
+/* harmony import */ var _createPopper_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./createPopper.js */ "./node_modules/@popperjs/core/lib/createPopper.js");
+/* harmony import */ var _createPopper_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./createPopper.js */ "./node_modules/@popperjs/core/lib/utils/detectOverflow.js");
+/* harmony import */ var _modifiers_eventListeners_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modifiers/eventListeners.js */ "./node_modules/@popperjs/core/lib/modifiers/eventListeners.js");
+/* harmony import */ var _modifiers_popperOffsets_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modifiers/popperOffsets.js */ "./node_modules/@popperjs/core/lib/modifiers/popperOffsets.js");
+/* harmony import */ var _modifiers_computeStyles_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modifiers/computeStyles.js */ "./node_modules/@popperjs/core/lib/modifiers/computeStyles.js");
+/* harmony import */ var _modifiers_applyStyles_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modifiers/applyStyles.js */ "./node_modules/@popperjs/core/lib/modifiers/applyStyles.js");
+/* harmony import */ var _modifiers_offset_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modifiers/offset.js */ "./node_modules/@popperjs/core/lib/modifiers/offset.js");
+/* harmony import */ var _modifiers_flip_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modifiers/flip.js */ "./node_modules/@popperjs/core/lib/modifiers/flip.js");
+/* harmony import */ var _modifiers_preventOverflow_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modifiers/preventOverflow.js */ "./node_modules/@popperjs/core/lib/modifiers/preventOverflow.js");
+/* harmony import */ var _modifiers_arrow_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modifiers/arrow.js */ "./node_modules/@popperjs/core/lib/modifiers/arrow.js");
+/* harmony import */ var _modifiers_hide_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modifiers/hide.js */ "./node_modules/@popperjs/core/lib/modifiers/hide.js");
+/* harmony import */ var _popper_lite_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./popper-lite.js */ "./node_modules/@popperjs/core/lib/popper-lite.js");
+/* harmony import */ var _modifiers_index_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modifiers/index.js */ "./node_modules/@popperjs/core/lib/modifiers/index.js");
+
+
+
+
+
+
+
+
+
+
+var defaultModifiers = [_modifiers_eventListeners_js__WEBPACK_IMPORTED_MODULE_0__["default"], _modifiers_popperOffsets_js__WEBPACK_IMPORTED_MODULE_1__["default"], _modifiers_computeStyles_js__WEBPACK_IMPORTED_MODULE_2__["default"], _modifiers_applyStyles_js__WEBPACK_IMPORTED_MODULE_3__["default"], _modifiers_offset_js__WEBPACK_IMPORTED_MODULE_4__["default"], _modifiers_flip_js__WEBPACK_IMPORTED_MODULE_5__["default"], _modifiers_preventOverflow_js__WEBPACK_IMPORTED_MODULE_6__["default"], _modifiers_arrow_js__WEBPACK_IMPORTED_MODULE_7__["default"], _modifiers_hide_js__WEBPACK_IMPORTED_MODULE_8__["default"]];
+var createPopper = /*#__PURE__*/(0,_createPopper_js__WEBPACK_IMPORTED_MODULE_9__.popperGenerator)({
+  defaultModifiers: defaultModifiers
+}); // eslint-disable-next-line import/no-unused-modules
+
+ // eslint-disable-next-line import/no-unused-modules
+
+ // eslint-disable-next-line import/no-unused-modules
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ computeAutoPlacement)
+/* harmony export */ });
+/* harmony import */ var _getVariation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getVariation.js */ "./node_modules/@popperjs/core/lib/utils/getVariation.js");
+/* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
+/* harmony import */ var _detectOverflow_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./detectOverflow.js */ "./node_modules/@popperjs/core/lib/utils/detectOverflow.js");
+/* harmony import */ var _getBasePlacement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getBasePlacement.js */ "./node_modules/@popperjs/core/lib/utils/getBasePlacement.js");
+
+
+
+
+function computeAutoPlacement(state, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  var _options = options,
+      placement = _options.placement,
+      boundary = _options.boundary,
+      rootBoundary = _options.rootBoundary,
+      padding = _options.padding,
+      flipVariations = _options.flipVariations,
+      _options$allowedAutoP = _options.allowedAutoPlacements,
+      allowedAutoPlacements = _options$allowedAutoP === void 0 ? _enums_js__WEBPACK_IMPORTED_MODULE_0__.placements : _options$allowedAutoP;
+  var variation = (0,_getVariation_js__WEBPACK_IMPORTED_MODULE_1__["default"])(placement);
+  var placements = variation ? flipVariations ? _enums_js__WEBPACK_IMPORTED_MODULE_0__.variationPlacements : _enums_js__WEBPACK_IMPORTED_MODULE_0__.variationPlacements.filter(function (placement) {
+    return (0,_getVariation_js__WEBPACK_IMPORTED_MODULE_1__["default"])(placement) === variation;
+  }) : _enums_js__WEBPACK_IMPORTED_MODULE_0__.basePlacements;
+  var allowedPlacements = placements.filter(function (placement) {
+    return allowedAutoPlacements.indexOf(placement) >= 0;
+  });
+
+  if (allowedPlacements.length === 0) {
+    allowedPlacements = placements;
+  } // $FlowFixMe[incompatible-type]: Flow seems to have problems with two array unions...
+
+
+  var overflows = allowedPlacements.reduce(function (acc, placement) {
+    acc[placement] = (0,_detectOverflow_js__WEBPACK_IMPORTED_MODULE_2__["default"])(state, {
+      placement: placement,
+      boundary: boundary,
+      rootBoundary: rootBoundary,
+      padding: padding
+    })[(0,_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(placement)];
+    return acc;
+  }, {});
+  return Object.keys(overflows).sort(function (a, b) {
+    return overflows[a] - overflows[b];
+  });
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/computeOffsets.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/computeOffsets.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ computeOffsets)
+/* harmony export */ });
+/* harmony import */ var _getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getBasePlacement.js */ "./node_modules/@popperjs/core/lib/utils/getBasePlacement.js");
+/* harmony import */ var _getVariation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getVariation.js */ "./node_modules/@popperjs/core/lib/utils/getVariation.js");
+/* harmony import */ var _getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getMainAxisFromPlacement.js */ "./node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js");
+/* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
+
+
+
+
+function computeOffsets(_ref) {
+  var reference = _ref.reference,
+      element = _ref.element,
+      placement = _ref.placement;
+  var basePlacement = placement ? (0,_getBasePlacement_js__WEBPACK_IMPORTED_MODULE_0__["default"])(placement) : null;
+  var variation = placement ? (0,_getVariation_js__WEBPACK_IMPORTED_MODULE_1__["default"])(placement) : null;
+  var commonX = reference.x + reference.width / 2 - element.width / 2;
+  var commonY = reference.y + reference.height / 2 - element.height / 2;
+  var offsets;
+
+  switch (basePlacement) {
+    case _enums_js__WEBPACK_IMPORTED_MODULE_2__.top:
+      offsets = {
+        x: commonX,
+        y: reference.y - element.height
+      };
+      break;
+
+    case _enums_js__WEBPACK_IMPORTED_MODULE_2__.bottom:
+      offsets = {
+        x: commonX,
+        y: reference.y + reference.height
+      };
+      break;
+
+    case _enums_js__WEBPACK_IMPORTED_MODULE_2__.right:
+      offsets = {
+        x: reference.x + reference.width,
+        y: commonY
+      };
+      break;
+
+    case _enums_js__WEBPACK_IMPORTED_MODULE_2__.left:
+      offsets = {
+        x: reference.x - element.width,
+        y: commonY
+      };
+      break;
+
+    default:
+      offsets = {
+        x: reference.x,
+        y: reference.y
+      };
+  }
+
+  var mainAxis = basePlacement ? (0,_getMainAxisFromPlacement_js__WEBPACK_IMPORTED_MODULE_3__["default"])(basePlacement) : null;
+
+  if (mainAxis != null) {
+    var len = mainAxis === 'y' ? 'height' : 'width';
+
+    switch (variation) {
+      case _enums_js__WEBPACK_IMPORTED_MODULE_2__.start:
+        offsets[mainAxis] = offsets[mainAxis] - (reference[len] / 2 - element[len] / 2);
+        break;
+
+      case _enums_js__WEBPACK_IMPORTED_MODULE_2__.end:
+        offsets[mainAxis] = offsets[mainAxis] + (reference[len] / 2 - element[len] / 2);
+        break;
+
+      default:
+    }
+  }
+
+  return offsets;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/debounce.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/debounce.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ debounce)
+/* harmony export */ });
+function debounce(fn) {
+  var pending;
+  return function () {
+    if (!pending) {
+      pending = new Promise(function (resolve) {
+        Promise.resolve().then(function () {
+          pending = undefined;
+          resolve(fn());
+        });
+      });
+    }
+
+    return pending;
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/detectOverflow.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/detectOverflow.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ detectOverflow)
+/* harmony export */ });
+/* harmony import */ var _dom_utils_getClippingRect_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../dom-utils/getClippingRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js");
+/* harmony import */ var _dom_utils_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dom-utils/getDocumentElement.js */ "./node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js");
+/* harmony import */ var _dom_utils_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dom-utils/getBoundingClientRect.js */ "./node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js");
+/* harmony import */ var _computeOffsets_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./computeOffsets.js */ "./node_modules/@popperjs/core/lib/utils/computeOffsets.js");
+/* harmony import */ var _rectToClientRect_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./rectToClientRect.js */ "./node_modules/@popperjs/core/lib/utils/rectToClientRect.js");
+/* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
+/* harmony import */ var _dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../dom-utils/instanceOf.js */ "./node_modules/@popperjs/core/lib/dom-utils/instanceOf.js");
+/* harmony import */ var _mergePaddingObject_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mergePaddingObject.js */ "./node_modules/@popperjs/core/lib/utils/mergePaddingObject.js");
+/* harmony import */ var _expandToHashMap_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./expandToHashMap.js */ "./node_modules/@popperjs/core/lib/utils/expandToHashMap.js");
+
+
+
+
+
+
+
+
+ // eslint-disable-next-line import/no-unused-modules
+
+function detectOverflow(state, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  var _options = options,
+      _options$placement = _options.placement,
+      placement = _options$placement === void 0 ? state.placement : _options$placement,
+      _options$strategy = _options.strategy,
+      strategy = _options$strategy === void 0 ? state.strategy : _options$strategy,
+      _options$boundary = _options.boundary,
+      boundary = _options$boundary === void 0 ? _enums_js__WEBPACK_IMPORTED_MODULE_0__.clippingParents : _options$boundary,
+      _options$rootBoundary = _options.rootBoundary,
+      rootBoundary = _options$rootBoundary === void 0 ? _enums_js__WEBPACK_IMPORTED_MODULE_0__.viewport : _options$rootBoundary,
+      _options$elementConte = _options.elementContext,
+      elementContext = _options$elementConte === void 0 ? _enums_js__WEBPACK_IMPORTED_MODULE_0__.popper : _options$elementConte,
+      _options$altBoundary = _options.altBoundary,
+      altBoundary = _options$altBoundary === void 0 ? false : _options$altBoundary,
+      _options$padding = _options.padding,
+      padding = _options$padding === void 0 ? 0 : _options$padding;
+  var paddingObject = (0,_mergePaddingObject_js__WEBPACK_IMPORTED_MODULE_1__["default"])(typeof padding !== 'number' ? padding : (0,_expandToHashMap_js__WEBPACK_IMPORTED_MODULE_2__["default"])(padding, _enums_js__WEBPACK_IMPORTED_MODULE_0__.basePlacements));
+  var altContext = elementContext === _enums_js__WEBPACK_IMPORTED_MODULE_0__.popper ? _enums_js__WEBPACK_IMPORTED_MODULE_0__.reference : _enums_js__WEBPACK_IMPORTED_MODULE_0__.popper;
+  var popperRect = state.rects.popper;
+  var element = state.elements[altBoundary ? altContext : elementContext];
+  var clippingClientRect = (0,_dom_utils_getClippingRect_js__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_dom_utils_instanceOf_js__WEBPACK_IMPORTED_MODULE_4__.isElement)(element) ? element : element.contextElement || (0,_dom_utils_getDocumentElement_js__WEBPACK_IMPORTED_MODULE_5__["default"])(state.elements.popper), boundary, rootBoundary, strategy);
+  var referenceClientRect = (0,_dom_utils_getBoundingClientRect_js__WEBPACK_IMPORTED_MODULE_6__["default"])(state.elements.reference);
+  var popperOffsets = (0,_computeOffsets_js__WEBPACK_IMPORTED_MODULE_7__["default"])({
+    reference: referenceClientRect,
+    element: popperRect,
+    strategy: 'absolute',
+    placement: placement
+  });
+  var popperClientRect = (0,_rectToClientRect_js__WEBPACK_IMPORTED_MODULE_8__["default"])(Object.assign({}, popperRect, popperOffsets));
+  var elementClientRect = elementContext === _enums_js__WEBPACK_IMPORTED_MODULE_0__.popper ? popperClientRect : referenceClientRect; // positive = overflowing the clipping rect
+  // 0 or negative = within the clipping rect
+
+  var overflowOffsets = {
+    top: clippingClientRect.top - elementClientRect.top + paddingObject.top,
+    bottom: elementClientRect.bottom - clippingClientRect.bottom + paddingObject.bottom,
+    left: clippingClientRect.left - elementClientRect.left + paddingObject.left,
+    right: elementClientRect.right - clippingClientRect.right + paddingObject.right
+  };
+  var offsetData = state.modifiersData.offset; // Offsets can be applied only to the popper element
+
+  if (elementContext === _enums_js__WEBPACK_IMPORTED_MODULE_0__.popper && offsetData) {
+    var offset = offsetData[placement];
+    Object.keys(overflowOffsets).forEach(function (key) {
+      var multiply = [_enums_js__WEBPACK_IMPORTED_MODULE_0__.right, _enums_js__WEBPACK_IMPORTED_MODULE_0__.bottom].indexOf(key) >= 0 ? 1 : -1;
+      var axis = [_enums_js__WEBPACK_IMPORTED_MODULE_0__.top, _enums_js__WEBPACK_IMPORTED_MODULE_0__.bottom].indexOf(key) >= 0 ? 'y' : 'x';
+      overflowOffsets[key] += offset[axis] * multiply;
+    });
+  }
+
+  return overflowOffsets;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/expandToHashMap.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/expandToHashMap.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ expandToHashMap)
+/* harmony export */ });
+function expandToHashMap(value, keys) {
+  return keys.reduce(function (hashMap, key) {
+    hashMap[key] = value;
+    return hashMap;
+  }, {});
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/getAltAxis.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/getAltAxis.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getAltAxis)
+/* harmony export */ });
+function getAltAxis(axis) {
+  return axis === 'x' ? 'y' : 'x';
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/getBasePlacement.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/getBasePlacement.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getBasePlacement)
+/* harmony export */ });
+
+function getBasePlacement(placement) {
+  return placement.split('-')[0];
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/getFreshSideObject.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/getFreshSideObject.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getFreshSideObject)
+/* harmony export */ });
+function getFreshSideObject() {
+  return {
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getMainAxisFromPlacement)
+/* harmony export */ });
+function getMainAxisFromPlacement(placement) {
+  return ['top', 'bottom'].indexOf(placement) >= 0 ? 'x' : 'y';
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/getOppositePlacement.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/getOppositePlacement.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getOppositePlacement)
+/* harmony export */ });
+var hash = {
+  left: 'right',
+  right: 'left',
+  bottom: 'top',
+  top: 'bottom'
+};
+function getOppositePlacement(placement) {
+  return placement.replace(/left|right|bottom|top/g, function (matched) {
+    return hash[matched];
+  });
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getOppositeVariationPlacement)
+/* harmony export */ });
+var hash = {
+  start: 'end',
+  end: 'start'
+};
+function getOppositeVariationPlacement(placement) {
+  return placement.replace(/start|end/g, function (matched) {
+    return hash[matched];
+  });
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/getVariation.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/getVariation.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getVariation)
+/* harmony export */ });
+function getVariation(placement) {
+  return placement.split('-')[1];
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/math.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/math.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   max: () => (/* binding */ max),
+/* harmony export */   min: () => (/* binding */ min),
+/* harmony export */   round: () => (/* binding */ round)
+/* harmony export */ });
+var max = Math.max;
+var min = Math.min;
+var round = Math.round;
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/mergeByName.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/mergeByName.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ mergeByName)
+/* harmony export */ });
+function mergeByName(modifiers) {
+  var merged = modifiers.reduce(function (merged, current) {
+    var existing = merged[current.name];
+    merged[current.name] = existing ? Object.assign({}, existing, current, {
+      options: Object.assign({}, existing.options, current.options),
+      data: Object.assign({}, existing.data, current.data)
+    }) : current;
+    return merged;
+  }, {}); // IE11 does not support Object.values
+
+  return Object.keys(merged).map(function (key) {
+    return merged[key];
+  });
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/mergePaddingObject.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/mergePaddingObject.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ mergePaddingObject)
+/* harmony export */ });
+/* harmony import */ var _getFreshSideObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getFreshSideObject.js */ "./node_modules/@popperjs/core/lib/utils/getFreshSideObject.js");
+
+function mergePaddingObject(paddingObject) {
+  return Object.assign({}, (0,_getFreshSideObject_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), paddingObject);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/orderModifiers.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/orderModifiers.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ orderModifiers)
+/* harmony export */ });
+/* harmony import */ var _enums_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../enums.js */ "./node_modules/@popperjs/core/lib/enums.js");
+ // source: https://stackoverflow.com/questions/49875255
+
+function order(modifiers) {
+  var map = new Map();
+  var visited = new Set();
+  var result = [];
+  modifiers.forEach(function (modifier) {
+    map.set(modifier.name, modifier);
+  }); // On visiting object, check for its dependencies and visit them recursively
+
+  function sort(modifier) {
+    visited.add(modifier.name);
+    var requires = [].concat(modifier.requires || [], modifier.requiresIfExists || []);
+    requires.forEach(function (dep) {
+      if (!visited.has(dep)) {
+        var depModifier = map.get(dep);
+
+        if (depModifier) {
+          sort(depModifier);
+        }
+      }
+    });
+    result.push(modifier);
+  }
+
+  modifiers.forEach(function (modifier) {
+    if (!visited.has(modifier.name)) {
+      // check for visited object
+      sort(modifier);
+    }
+  });
+  return result;
+}
+
+function orderModifiers(modifiers) {
+  // order based on dependencies
+  var orderedModifiers = order(modifiers); // order based on phase
+
+  return _enums_js__WEBPACK_IMPORTED_MODULE_0__.modifierPhases.reduce(function (acc, phase) {
+    return acc.concat(orderedModifiers.filter(function (modifier) {
+      return modifier.phase === phase;
+    }));
+  }, []);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/rectToClientRect.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/rectToClientRect.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ rectToClientRect)
+/* harmony export */ });
+function rectToClientRect(rect) {
+  return Object.assign({}, rect, {
+    left: rect.x,
+    top: rect.y,
+    right: rect.x + rect.width,
+    bottom: rect.y + rect.height
+  });
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/userAgent.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/userAgent.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getUAString)
+/* harmony export */ });
+function getUAString() {
+  var uaData = navigator.userAgentData;
+
+  if (uaData != null && uaData.brands && Array.isArray(uaData.brands)) {
+    return uaData.brands.map(function (item) {
+      return item.brand + "/" + item.version;
+    }).join(' ');
+  }
+
+  return navigator.userAgent;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@popperjs/core/lib/utils/within.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@popperjs/core/lib/utils/within.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   within: () => (/* binding */ within),
+/* harmony export */   withinMaxClamp: () => (/* binding */ withinMaxClamp)
+/* harmony export */ });
+/* harmony import */ var _math_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./math.js */ "./node_modules/@popperjs/core/lib/utils/math.js");
+
+function within(min, value, max) {
+  return (0,_math_js__WEBPACK_IMPORTED_MODULE_0__.max)(min, (0,_math_js__WEBPACK_IMPORTED_MODULE_0__.min)(value, max));
+}
+function withinMaxClamp(min, value, max) {
+  var v = within(min, value, max);
+  return v > max ? max : v;
+}
+
+/***/ }),
+
+/***/ "../bpl-tools/Components/Mask/assets/shapes/blob.svg":
+/*!***********************************************************!*\
+  !*** ../bpl-tools/Components/Mask/assets/shapes/blob.svg ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReactComponent: () => (/* binding */ SvgBlob),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _path;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+
+var SvgBlob = function SvgBlob(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 121,
+    height: 89
+  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M100.016 7.397c-9.77-6.177-26.708-11.063-35.59-3.684-7.442 6.177-2.38 15.204-9.416 21.59-10.6 9.614-28.159-5.442-41.858 2.632C.676 35.255-4.28 59.149 4.278 73.798c13.137 22.524 53.13 13.854 61.194 12.106 4.5-.993 53.495-12.265 55.469-42.705.957-14.946-9.841-28.78-20.925-35.802"
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjEuMDAwMiIgaGVpZ2h0PSI4OSIgdmlld0JveD0iMCAwIDEyMS4wMDAyIDg5Ij48cGF0aCBkPSJNMTAwLjAxNiw3LjM5NzJDOTAuMjQ1MiwxLjIyLDczLjMwODQtMy42NjYzLDY0LjQyNTUsMy43MTI2LDU2Ljk4MzYsOS44OSw2Mi4wNDY5LDE4LjkxNzQsNTUuMDEsMjUuMzAzMmMtMTAuNiw5LjYxMzQtMjguMTU4OS01LjQ0MjMtNDEuODU4NCwyLjYzMThDLjY3NTcsMzUuMjU0My00LjI3OTEsNTkuMTQ4OSw0LjI3ODEsNzMuNzk3NWMxMy4xMzY5LDIyLjUyNCw1My4xMywxMy44NTQxLDYxLjE5MzYsMTIuMTA2MSw0LjUwMDctLjk5MzEsNTMuNDk1My0xMi4yNjUsNTUuNDY5My00Mi43MDQzQzEyMS44OTgsMjguMjUyOCwxMTEuMSwxNC40MTg1LDEwMC4wMTYsNy4zOTcyWiIvPjwvc3ZnPg==");
+
+/***/ }),
+
+/***/ "../bpl-tools/Components/Mask/assets/shapes/circle.svg":
+/*!*************************************************************!*\
+  !*** ../bpl-tools/Components/Mask/assets/shapes/circle.svg ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReactComponent: () => (/* binding */ SvgCircle),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _circle;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+
+var SvgCircle = function SvgCircle(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 89,
+    height: 89
+  }, props), _circle || (_circle = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("circle", {
+    cx: 44.5,
+    cy: 44.5,
+    r: 44.5
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4OSIgaGVpZ2h0PSI4OSIgdmlld0JveD0iMCAwIDg5IDg5Ij48Y2lyY2xlIGN4PSI0NC41IiBjeT0iNDQuNSIgcj0iNDQuNSIvPjwvc3ZnPg==");
+
+/***/ }),
+
+/***/ "../bpl-tools/Components/Mask/assets/shapes/flower.svg":
+/*!*************************************************************!*\
+  !*** ../bpl-tools/Components/Mask/assets/shapes/flower.svg ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReactComponent: () => (/* binding */ SvgFlower),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _path;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+
+var SvgFlower = function SvgFlower(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 89,
+    height: 89
+  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "m76.133 44.475 6.33-6.328a22.349 22.349 0 0 0-31.613-31.6l-6.318 6.318-6.372-6.318a22.352 22.352 0 1 0-31.612 31.61l6.318 6.318-6.318 6.372a22.352 22.352 0 0 0 31.612 31.61l6.318-6.318 6.372 6.253a22.349 22.349 0 0 0 31.612-31.6Z"
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4OSIgaGVpZ2h0PSI4OSIgdmlld0JveD0iMCAwIDg5IDg5Ij48cGF0aCBkPSJNNzYuMTMzMiw0NC40NzUybDYuMzI4OS02LjMyODVBMjIuMzQ4NiwyMi4zNDg2LDAsMCwwLDUwLjg1LDYuNTQ3NEw0NC41MzIsMTIuODY1MSwzOC4xNiw2LjU0NzRhMjIuMzUyNCwyMi4zNTI0LDAsMSwwLTMxLjYxMiwzMS42MWw2LjMxODEsNi4zMTc3TDYuNTQ3OCw1MC44NDdhMjIuMzUyNCwyMi4zNTI0LDAsMCwwLDMxLjYxMiwzMS42MWw2LjMxODEtNi4zMTc3TDUwLjg1LDgyLjM5MjJhMjIuMzQ4NiwyMi4zNDg2LDAsMCwwLDMxLjYxMi0zMS41OTkzWiIvPjwvc3ZnPg==");
+
+/***/ }),
+
+/***/ "../bpl-tools/Components/Mask/assets/shapes/hexagon.svg":
+/*!**************************************************************!*\
+  !*** ../bpl-tools/Components/Mask/assets/shapes/hexagon.svg ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReactComponent: () => (/* binding */ SvgHexagon),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _path;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+
+var SvgHexagon = function SvgHexagon(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 103,
+    height: 89
+  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M77.211 0H25.752L0 44.505 25.752 89h51.46L103 44.505ZM61.77 62.261H41.222L30.939 44.504 41.222 26.74h20.547l10.283 17.766Z"
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDMiIGhlaWdodD0iODkiIHZpZXdCb3g9IjAgMCAxMDMgODkiPjxwYXRoIGQ9Ik03Ny4yMTE0LDBIMjUuNzUyM0wwLDQ0LjUwNDUsMjUuNzUyMyw4OUg3Ny4yMTE0TDEwMyw0NC41MDQ1Wk02MS43NjkxLDYyLjI2MUg0MS4yMjE4TDMwLjkzOTEsNDQuNTA0NSw0MS4yMjE4LDI2LjczOUg2MS43NjkxTDcyLjA1MTksNDQuNTA0NVoiLz48L3N2Zz4=");
+
+/***/ }),
+
+/***/ "../bpl-tools/Components/Mask/assets/shapes/sketch.svg":
+/*!*************************************************************!*\
+  !*** ../bpl-tools/Components/Mask/assets/shapes/sketch.svg ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReactComponent: () => (/* binding */ SvgSketch),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _path;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+
+var SvgSketch = function SvgSketch(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 91.114,
+    height: 89
+  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "m82.175 37.527 1.612-1.612c.948-.949-6.37-5.931-7.05-6.378a45 45 0 0 0-5.776-3.325c-.247-.115-.602-.3-.987-.478q1.781-1.897 3.586-3.771c.949-.98-6.363-5.923-7.05-6.37a44 44 0 0 0-5.76-3.332l-.293-.147 1.396-1.542c.94-1.05-6.332-5.9-7.05-6.37a44 44 0 0 0-5.76-3.34c-.54-.247-2.314-1.265-2.847-.687q-13.458 14.993-28.08 28.891c-7.844 7.45-16.567 15.58-18.11 26.87-.115.825 1.327 1.974 1.744 2.314a41 41 0 0 0 5.314 4.057 44 44 0 0 0 5.76 3.34c.64.293 2.176 1.203 2.847.686l2.074-1.558c1.45 1.859 5.97 4.72 6.671 5.175l1.489.956a257 257 0 0 0-4.435 5.622c-.91 1.188 6.263 5.862 7.05 6.37a44 44 0 0 0 5.76 3.332c.602.278 2.23 1.234 2.846.694l9.255-8.098c.825 2.568 14.569 11.63 15.672 9.972L91.06 45.362c.632-.948-4.335-5.036-8.885-7.835"
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MS4xMTQzIiBoZWlnaHQ9Ijg4Ljk5OTkiIHZpZXdCb3g9IjAgMCA5MS4xMTQzIDg4Ljk5OTkiPjxwYXRoIGQ9Ik04Mi4xNzQ5LDM3LjUyNjZsMS42MTE5LTEuNjExOWMuOTQ4Ni0uOTQ4Ny02LjM3LTUuOTMwOS03LjA0OTItNi4zNzgyYTQ1LjE1MTYsNDUuMTUxNiwwLDAsMC01Ljc3NjYtMy4zMjQxYy0uMjQ2OC0uMTE1Ny0uNjAxNi0uMzAwOC0uOTg3Mi0uNDc4MnExLjc4MTYtMS44OTcyLDMuNTg2My0zLjc3MTNjLjk0ODYtLjk4LTYuMzYyOC01LjkyMzItNy4wNDkyLTYuMzcwNUE0NC4xNTc5LDQ0LjE1NzksMCwwLDAsNjAuNzUsMTIuMjYwNmwtLjI5My0uMTQ2NSwxLjM5NTktMS41NDI1Yy45NDA5LTEuMDQ4OS02LjMzMTktNS45LTcuMDQ5Mi02LjM3QTQ0LjIxMiw0NC4yMTIsMCwwLDAsNDkuMDQyMi44NjE2Yy0uNTQtLjI0NjctMi4zMTM3LTEuMjY0OC0yLjg0NTgtLjY4NjRRMzIuNzM4MSwxNS4xNjgyLDE4LjExNTQsMjkuMDY2Yy03Ljg0MzYsNy40NS0xNi41NjYzLDE1LjU3OTEtMTguMTA4OCwyNi44Ny0uMTE1Ny44MjUzLDEuMzI2NSwxLjk3NDQsMS43NDMsMi4zMTM4YTQwLjc5OSw0MC43OTksMCwwLDAsNS4zMTM5LDQuMDU2Nyw0NC4yMTc0LDQ0LjIxNzQsMCwwLDAsNS43NjExLDMuMzRjLjY0LjI5MzEsMi4xNzUsMS4yMDMxLDIuODQ1OS42ODY0bDIuMDc0Ny0xLjU1NzljMS40NSwxLjg1ODcsNS45Njk0LDQuNzIsNi42NzEyLDUuMTc1bDEuNDg4NS45NTY0QzI0LjQwMSw3Mi43NjQ3LDIyLjkyLDc0LjYzMTEsMjEuNDcsNzYuNTI4M2MtLjkxLDEuMTg3OCw2LjI2MjUsNS44NjE1LDcuMDQ5Miw2LjM3YTQ0LjE2MzMsNDQuMTYzMywwLDAsMCw1Ljc2MTEsMy4zMzE4Yy42MDE2LjI3NzYsMi4yMjg5LDEuMjM0LDIuODQ1OS42OTQxbDkuMjU1LTguMDk4Yy44MjUyLDIuNTY4MiwxNC41Njg3LDExLjYzLDE1LjY3MTYsOS45NzIxTDkxLjA2LDQ1LjM2MjRDOTEuNjkyLDQ0LjQxMzgsODYuNzI1Miw0MC4zMjYyLDgyLjE3NDksMzcuNTI2NloiLz48L3N2Zz4=");
+
+/***/ }),
+
+/***/ "../bpl-tools/Components/Mask/assets/shapes/triangle.svg":
+/*!***************************************************************!*\
+  !*** ../bpl-tools/Components/Mask/assets/shapes/triangle.svg ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReactComponent: () => (/* binding */ SvgTriangle),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _path;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+
+var SvgTriangle = function SvgTriangle(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 103,
+    height: 89
+  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M77.255 44.505 51.5 0 25.755 44.505 0 89h103z"
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDMiIGhlaWdodD0iODkiIHZpZXdCb3g9IjAgMCAxMDMgODkiPjxwb2x5Z29uIHBvaW50cz0iNzcuMjU1IDQ0LjUwNSA1MS41IDAgMjUuNzU1IDQ0LjUwNSAwIDg5IDUxLjUgODkgMTAzIDg5IDc3LjI1NSA0NC41MDUiLz48L3N2Zz4=");
+
+/***/ }),
+
+/***/ "./node_modules/@tippyjs/react/dist/tippy-react.esm.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@tippyjs/react/dist/tippy-react.esm.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   tippy: () => (/* reexport safe */ tippy_js__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   useSingleton: () => (/* binding */ useSingleton)
+/* harmony export */ });
+/* harmony import */ var tippy_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tippy.js */ "./node_modules/tippy.js/dist/tippy.esm.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "react-dom");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+function preserveRef(ref, node) {
+  if (ref) {
+    if (typeof ref === 'function') {
+      ref(node);
+    }
+
+    if ({}.hasOwnProperty.call(ref, 'current')) {
+      ref.current = node;
+    }
+  }
+}
+function ssrSafeCreateDiv() {
+  return isBrowser && document.createElement('div');
+}
+function toDataAttributes(attrs) {
+  var dataAttrs = {
+    'data-placement': attrs.placement
+  };
+
+  if (attrs.referenceHidden) {
+    dataAttrs['data-reference-hidden'] = '';
+  }
+
+  if (attrs.escaped) {
+    dataAttrs['data-escaped'] = '';
+  }
+
+  return dataAttrs;
+}
+
+function deepEqual(x, y) {
+  if (x === y) {
+    return true;
+  } else if (typeof x === 'object' && x != null && typeof y === 'object' && y != null) {
+    if (Object.keys(x).length !== Object.keys(y).length) {
+      return false;
+    }
+
+    for (var prop in x) {
+      if (y.hasOwnProperty(prop)) {
+        if (!deepEqual(x[prop], y[prop])) {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    }
+
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function uniqueByShape(arr) {
+  var output = [];
+  arr.forEach(function (item) {
+    if (!output.find(function (outputItem) {
+      return deepEqual(item, outputItem);
+    })) {
+      output.push(item);
+    }
+  });
+  return output;
+}
+function deepPreserveProps(instanceProps, componentProps) {
+  var _instanceProps$popper, _componentProps$poppe;
+
+  return Object.assign({}, componentProps, {
+    popperOptions: Object.assign({}, instanceProps.popperOptions, componentProps.popperOptions, {
+      modifiers: uniqueByShape([].concat(((_instanceProps$popper = instanceProps.popperOptions) == null ? void 0 : _instanceProps$popper.modifiers) || [], ((_componentProps$poppe = componentProps.popperOptions) == null ? void 0 : _componentProps$poppe.modifiers) || []))
+    })
+  });
+}
+
+var useIsomorphicLayoutEffect = isBrowser ? react__WEBPACK_IMPORTED_MODULE_1__.useLayoutEffect : react__WEBPACK_IMPORTED_MODULE_1__.useEffect;
+function useMutableBox(initialValue) {
+  // Using refs instead of state as it's recommended to not store imperative
+  // values in state due to memory problems in React(?)
+  var ref = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
+
+  if (!ref.current) {
+    ref.current = typeof initialValue === 'function' ? initialValue() : initialValue;
+  }
+
+  return ref.current;
+}
+
+function updateClassName(box, action, classNames) {
+  classNames.split(/\s+/).forEach(function (name) {
+    if (name) {
+      box.classList[action](name);
+    }
+  });
+}
+
+var classNamePlugin = {
+  name: 'className',
+  defaultValue: '',
+  fn: function fn(instance) {
+    var box = instance.popper.firstElementChild;
+
+    var isDefaultRenderFn = function isDefaultRenderFn() {
+      var _instance$props$rende;
+
+      return !!((_instance$props$rende = instance.props.render) == null ? void 0 : _instance$props$rende.$$tippy);
+    };
+
+    function add() {
+      if (instance.props.className && !isDefaultRenderFn()) {
+        if (true) {
+          console.warn(['@tippyjs/react: Cannot use `className` prop in conjunction with', '`render` prop. Place the className on the element you are', 'rendering.'].join(' '));
+        }
+
+        return;
+      }
+
+      updateClassName(box, 'add', instance.props.className);
+    }
+
+    function remove() {
+      if (isDefaultRenderFn()) {
+        updateClassName(box, 'remove', instance.props.className);
+      }
+    }
+
+    return {
+      onCreate: add,
+      onBeforeUpdate: remove,
+      onAfterUpdate: add
+    };
+  }
+};
+
+function TippyGenerator(tippy) {
+  function Tippy(_ref) {
+    var children = _ref.children,
+        content = _ref.content,
+        visible = _ref.visible,
+        singleton = _ref.singleton,
+        render = _ref.render,
+        reference = _ref.reference,
+        _ref$disabled = _ref.disabled,
+        disabled = _ref$disabled === void 0 ? false : _ref$disabled,
+        _ref$ignoreAttributes = _ref.ignoreAttributes,
+        ignoreAttributes = _ref$ignoreAttributes === void 0 ? true : _ref$ignoreAttributes,
+        __source = _ref.__source,
+        __self = _ref.__self,
+        restOfNativeProps = _objectWithoutPropertiesLoose(_ref, ["children", "content", "visible", "singleton", "render", "reference", "disabled", "ignoreAttributes", "__source", "__self"]);
+
+    var isControlledMode = visible !== undefined;
+    var isSingletonMode = singleton !== undefined;
+
+    var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+        mounted = _useState[0],
+        setMounted = _useState[1];
+
+    var _useState2 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({}),
+        attrs = _useState2[0],
+        setAttrs = _useState2[1];
+
+    var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
+        singletonContent = _useState3[0],
+        setSingletonContent = _useState3[1];
+
+    var mutableBox = useMutableBox(function () {
+      return {
+        container: ssrSafeCreateDiv(),
+        renders: 1
+      };
+    });
+    var props = Object.assign({
+      ignoreAttributes: ignoreAttributes
+    }, restOfNativeProps, {
+      content: mutableBox.container
+    });
+
+    if (isControlledMode) {
+      if (true) {
+        ['trigger', 'hideOnClick', 'showOnCreate'].forEach(function (nativeStateProp) {
+          if (props[nativeStateProp] !== undefined) {
+            console.warn(["@tippyjs/react: Cannot specify `" + nativeStateProp + "` prop in", "controlled mode (`visible` prop)"].join(' '));
+          }
+        });
+      }
+
+      props.trigger = 'manual';
+      props.hideOnClick = false;
+    }
+
+    if (isSingletonMode) {
+      disabled = true;
+    }
+
+    var computedProps = props;
+    var plugins = props.plugins || [];
+
+    if (render) {
+      computedProps = Object.assign({}, props, {
+        plugins: isSingletonMode && singleton.data != null ? [].concat(plugins, [{
+          fn: function fn() {
+            return {
+              onTrigger: function onTrigger(instance, event) {
+                var node = singleton.data.children.find(function (_ref2) {
+                  var instance = _ref2.instance;
+                  return instance.reference === event.currentTarget;
+                });
+                instance.state.$$activeSingletonInstance = node.instance;
+                setSingletonContent(node.content);
+              }
+            };
+          }
+        }]) : plugins,
+        render: function render() {
+          return {
+            popper: mutableBox.container
+          };
+        }
+      });
+    }
+
+    var deps = [reference].concat(children ? [children.type] : []); // CREATE
+
+    useIsomorphicLayoutEffect(function () {
+      var element = reference;
+
+      if (reference && reference.hasOwnProperty('current')) {
+        element = reference.current;
+      }
+
+      var instance = tippy(element || mutableBox.ref || ssrSafeCreateDiv(), Object.assign({}, computedProps, {
+        plugins: [classNamePlugin].concat(props.plugins || [])
+      }));
+      mutableBox.instance = instance;
+
+      if (disabled) {
+        instance.disable();
+      }
+
+      if (visible) {
+        instance.show();
+      }
+
+      if (isSingletonMode) {
+        singleton.hook({
+          instance: instance,
+          content: content,
+          props: computedProps,
+          setSingletonContent: setSingletonContent
+        });
+      }
+
+      setMounted(true);
+      return function () {
+        instance.destroy();
+        singleton == null ? void 0 : singleton.cleanup(instance);
+      };
+    }, deps); // UPDATE
+
+    useIsomorphicLayoutEffect(function () {
+      var _instance$popperInsta;
+
+      // Prevent this effect from running on 1st render
+      if (mutableBox.renders === 1) {
+        mutableBox.renders++;
+        return;
+      }
+
+      var instance = mutableBox.instance;
+      instance.setProps(deepPreserveProps(instance.props, computedProps)); // Fixes #264
+
+      (_instance$popperInsta = instance.popperInstance) == null ? void 0 : _instance$popperInsta.forceUpdate();
+
+      if (disabled) {
+        instance.disable();
+      } else {
+        instance.enable();
+      }
+
+      if (isControlledMode) {
+        if (visible) {
+          instance.show();
+        } else {
+          instance.hide();
+        }
+      }
+
+      if (isSingletonMode) {
+        singleton.hook({
+          instance: instance,
+          content: content,
+          props: computedProps,
+          setSingletonContent: setSingletonContent
+        });
+      }
+    });
+    useIsomorphicLayoutEffect(function () {
+      var _instance$props$poppe;
+
+      if (!render) {
+        return;
+      }
+
+      var instance = mutableBox.instance;
+      instance.setProps({
+        popperOptions: Object.assign({}, instance.props.popperOptions, {
+          modifiers: [].concat((((_instance$props$poppe = instance.props.popperOptions) == null ? void 0 : _instance$props$poppe.modifiers) || []).filter(function (_ref3) {
+            var name = _ref3.name;
+            return name !== '$$tippyReact';
+          }), [{
+            name: '$$tippyReact',
+            enabled: true,
+            phase: 'beforeWrite',
+            requires: ['computeStyles'],
+            fn: function fn(_ref4) {
+              var _state$modifiersData;
+
+              var state = _ref4.state;
+              var hideData = (_state$modifiersData = state.modifiersData) == null ? void 0 : _state$modifiersData.hide; // WARNING: this is a high-risk path that can cause an infinite
+              // loop. This expression _must_ evaluate to false when required
+
+              if (attrs.placement !== state.placement || attrs.referenceHidden !== (hideData == null ? void 0 : hideData.isReferenceHidden) || attrs.escaped !== (hideData == null ? void 0 : hideData.hasPopperEscaped)) {
+                setAttrs({
+                  placement: state.placement,
+                  referenceHidden: hideData == null ? void 0 : hideData.isReferenceHidden,
+                  escaped: hideData == null ? void 0 : hideData.hasPopperEscaped
+                });
+              }
+
+              state.attributes.popper = {};
+            }
+          }])
+        })
+      });
+    }, [attrs.placement, attrs.referenceHidden, attrs.escaped].concat(deps));
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null, children ? /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.cloneElement)(children, {
+      ref: function ref(node) {
+        mutableBox.ref = node;
+        preserveRef(children.ref, node);
+      }
+    }) : null, mounted && /*#__PURE__*/(0,react_dom__WEBPACK_IMPORTED_MODULE_2__.createPortal)(render ? render(toDataAttributes(attrs), singletonContent, mutableBox.instance) : content, mutableBox.container));
+  }
+
+  return Tippy;
+}
+
+function useSingletonGenerator(createSingleton) {
+  return function useSingleton(_temp) {
+    var _ref = _temp === void 0 ? {} : _temp,
+        _ref$disabled = _ref.disabled,
+        disabled = _ref$disabled === void 0 ? false : _ref$disabled,
+        _ref$overrides = _ref.overrides,
+        overrides = _ref$overrides === void 0 ? [] : _ref$overrides;
+
+    var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+        mounted = _useState[0],
+        setMounted = _useState[1];
+
+    var mutableBox = useMutableBox({
+      children: [],
+      renders: 1
+    });
+    useIsomorphicLayoutEffect(function () {
+      if (!mounted) {
+        setMounted(true);
+        return;
+      }
+
+      var children = mutableBox.children,
+          sourceData = mutableBox.sourceData;
+
+      if (!sourceData) {
+        if (true) {
+          console.error(['@tippyjs/react: The `source` variable from `useSingleton()` has', 'not been passed to a <Tippy /> component.'].join(' '));
+        }
+
+        return;
+      }
+
+      var instance = createSingleton(children.map(function (child) {
+        return child.instance;
+      }), Object.assign({}, sourceData.props, {
+        popperOptions: sourceData.instance.props.popperOptions,
+        overrides: overrides,
+        plugins: [classNamePlugin].concat(sourceData.props.plugins || [])
+      }));
+      mutableBox.instance = instance;
+
+      if (disabled) {
+        instance.disable();
+      }
+
+      return function () {
+        instance.destroy();
+        mutableBox.children = children.filter(function (_ref2) {
+          var instance = _ref2.instance;
+          return !instance.state.isDestroyed;
+        });
+      };
+    }, [mounted]);
+    useIsomorphicLayoutEffect(function () {
+      if (!mounted) {
+        return;
+      }
+
+      if (mutableBox.renders === 1) {
+        mutableBox.renders++;
+        return;
+      }
+
+      var children = mutableBox.children,
+          instance = mutableBox.instance,
+          sourceData = mutableBox.sourceData;
+
+      if (!(instance && sourceData)) {
+        return;
+      }
+
+      var _sourceData$props = sourceData.props,
+          content = _sourceData$props.content,
+          props = _objectWithoutPropertiesLoose(_sourceData$props, ["content"]);
+
+      instance.setProps(deepPreserveProps(instance.props, Object.assign({}, props, {
+        overrides: overrides
+      })));
+      instance.setInstances(children.map(function (child) {
+        return child.instance;
+      }));
+
+      if (disabled) {
+        instance.disable();
+      } else {
+        instance.enable();
+      }
+    });
+    return (0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(function () {
+      var source = {
+        data: mutableBox,
+        hook: function hook(data) {
+          mutableBox.sourceData = data;
+          mutableBox.setSingletonContent = data.setSingletonContent;
+        },
+        cleanup: function cleanup() {
+          mutableBox.sourceData = null;
+        }
+      };
+      var target = {
+        hook: function hook(data) {
+          var _mutableBox$instance, _mutableBox$instance2;
+
+          mutableBox.children = mutableBox.children.filter(function (_ref3) {
+            var instance = _ref3.instance;
+            return data.instance !== instance;
+          });
+          mutableBox.children.push(data);
+
+          if (((_mutableBox$instance = mutableBox.instance) == null ? void 0 : _mutableBox$instance.state.isMounted) && ((_mutableBox$instance2 = mutableBox.instance) == null ? void 0 : _mutableBox$instance2.state.$$activeSingletonInstance) === data.instance) {
+            mutableBox.setSingletonContent == null ? void 0 : mutableBox.setSingletonContent(data.content);
+          }
+
+          if (mutableBox.instance && !mutableBox.instance.state.isDestroyed) {
+            mutableBox.instance.setInstances(mutableBox.children.map(function (child) {
+              return child.instance;
+            }));
+          }
+        },
+        cleanup: function cleanup(instance) {
+          mutableBox.children = mutableBox.children.filter(function (data) {
+            return data.instance !== instance;
+          });
+
+          if (mutableBox.instance && !mutableBox.instance.state.isDestroyed) {
+            mutableBox.instance.setInstances(mutableBox.children.map(function (child) {
+              return child.instance;
+            }));
+          }
+        }
+      };
+      return [source, target];
+    }, []);
+  };
+}
+
+var forwardRef = (function (Tippy, defaultProps) {
+  return /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(function TippyWrapper(_ref, _ref2) {
+    var children = _ref.children,
+        props = _objectWithoutPropertiesLoose(_ref, ["children"]);
+
+    return (
+      /*#__PURE__*/
+      // If I spread them separately here, Babel adds the _extends ponyfill for
+      // some reason
+      react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Tippy, Object.assign({}, defaultProps, props), children ? /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.cloneElement)(children, {
+        ref: function ref(node) {
+          preserveRef(_ref2, node);
+          preserveRef(children.ref, node);
+        }
+      }) : null)
+    );
+  });
+});
+
+var useSingleton = /*#__PURE__*/useSingletonGenerator(tippy_js__WEBPACK_IMPORTED_MODULE_0__.createSingleton);
+var index = /*#__PURE__*/forwardRef( /*#__PURE__*/TippyGenerator(tippy_js__WEBPACK_IMPORTED_MODULE_0__["default"]));
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (index);
+
+//# sourceMappingURL=tippy-react.esm.js.map
+
+
+/***/ }),
+
+/***/ "../bpl-tools/utils/common.js":
+/*!************************************!*\
+  !*** ../bpl-tools/utils/common.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SVGSanitizer: () => (/* binding */ SVGSanitizer),
+/* harmony export */   escapeHTML: () => (/* binding */ escapeHTML),
+/* harmony export */   isExist: () => (/* binding */ isExist),
+/* harmony export */   sanitizeHTML: () => (/* binding */ sanitizeHTML),
+/* harmony export */   sanitizeInput: () => (/* binding */ sanitizeInput),
+/* harmony export */   sanitizeURL: () => (/* binding */ sanitizeURL)
+/* harmony export */ });
+const isExist = value => {
+  if (value === undefined || value === null || value === '') {
+    return false;
+  }
+  if (Array.isArray(value) && value.length === 0) {
+    return false;
+  }
+  if (typeof value === 'object' && Object.keys(value).length === 0) {
+    return false;
+  }
+  if (typeof value === 'string' && value.trim() === '') {
+    return false;
+  }
+  if (typeof value === 'number' && value === 0) {
+    return false;
+  }
+  return true;
+};
+const escapeHTML = (input = '') => {
+  if (!input) {
+    return '';
+  }
+
+  // Regular expression to match all HTML tags and their attributes
+  return input?.replace(/<([a-z][a-z0-9]*)\b([^>]*)>/gi, (match, tagName, attrs) => {
+    // List of allowed tags and their attributes
+    const allowedTags = ['b', 'strong', 'i', 'em', 'span', 'a', 'br'];
+    const allowedAttrs = ['style', 'href', 'target', 'rel', 'class'];
+
+    // If the tag is allowed, keep it, but sanitize its attributes
+    if (allowedTags.includes(tagName.toLowerCase())) {
+      // Process the tag's attributes
+      const sanitizedAttrs = attrs.replace(/([a-z0-9-]+)=["'][^"']*["']/gi, (attrMatch, attrName) => {
+        // Only keep allowed attributes
+        if (allowedAttrs.includes(attrName.toLowerCase())) {
+          return attrMatch; // Keep allowed attributes as they are
+        }
+        return ''; // Remove any other attributes
+      });
+      return `<${tagName}${sanitizedAttrs}>`;
+    }
+    return match?.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  });
+};
+const sanitizeURL = inputUrl => {
+  try {
+    const url = new URL(inputUrl);
+
+    // 1. Check for safe protocols
+    if (!['http:', 'https:'].includes(url.protocol)) {
+      return null;
+    } else {
+      // 2. Strip query and fragment for safety
+      // url.search = '';
+      // url.hash = '';
+
+      return url.toString();
+    }
+  } catch (err) {
+    if (typeof inputUrl === 'string' && inputUrl.startsWith('/') && !inputUrl.startsWith('//')) {
+      return inputUrl;
+    } else {
+      return null;
+    }
+  }
+};
+const sanitizeHTML = input => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(input, 'text/html');
+  const allowedTags = ['b', 'strong', 'i', 'em', 'span', 'a', 'br'];
+  const allowedAttrs = ['style', 'href', 'target', 'rel', 'class'];
+  doc.body.querySelectorAll('*').forEach(node => {
+    // Remove disallowed tags
+    if (!allowedTags.includes(node.tagName.toLowerCase())) {
+      node.remove();
+      return;
+    }
+
+    // Loop through attributes and sanitize
+    [...node.attributes].forEach(attr => {
+      if (!allowedAttrs.includes(attr.name)) {
+        node.removeAttribute(attr.name);
+      }
+
+      // if (attr.name === 'href' && attr.value.trim().toLowerCase().startsWith('javascript:')) {
+      // 	node.removeAttribute('href');
+      // }
+
+      if (attr.name === 'href') {
+        const sanitizeHref = sanitizeURL(attr.value);
+        if (sanitizeHref) {
+          node.setAttribute('href', sanitizeHref);
+        } else {
+          node.removeAttribute('href');
+        }
+      }
+    });
+  });
+  return doc.body.innerHTML;
+};
+const sanitizeInput = input => {
+  return input.replace(/[<>]/g, '').replace(/javascript:/gi, '').replace(/on\w+=/gi, '').trim();
+};
+
+//-------- Sanitize SVG ----------//
+class SVGSanitizer {
+  constructor(options = {}) {
+    this.defaultOptions = {
+      allowedTags: ['svg', 'g', 'path', 'rect', 'circle', 'ellipse', 'line', 'polyline', 'polygon', 'text', 'tspan', 'defs', 'clipPath', 'mask', 'linearGradient', 'radialGradient', 'stop', 'style', 'title', 'desc'],
+      allowedAttributes: ['id', 'class', 'style', 'transform', 'd', 'x', 'y', 'width', 'height', 'cx', 'cy', 'r', 'rx', 'ry', 'points', 'x1', 'y1', 'x2', 'y2', 'fill', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin', 'opacity', 'fill-opacity', 'stroke-opacity', 'viewBox', 'preserveAspectRatio', 'xmlns', 'xmlns:xlink'],
+      allowedProtocols: ['http', 'https', 'data'],
+      removeScripts: true,
+      removeEvents: true,
+      removeExternalResources: true,
+      sanitizeStyle: true
+    };
+    this.options = {
+      ...this.defaultOptions,
+      ...options
+    };
+  }
+  sanitize(svgString) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(svgString, 'image/svg+xml');
+    this.removeScripts(doc);
+    this.sanitizeElements(doc);
+    const serializer = new XMLSerializer();
+    return serializer.serializeToString(doc.documentElement);
+  }
+
+  // ✅ New method: sanitize from File object
+  async sanitizeFile(file) {
+    const response = await fetch(file);
+    const svgText = await response.text();
+    // console.log(svgText)
+    return this.sanitize(`${svgText}`);
+    // return "";
+  }
+  removeScripts(doc) {
+    if (this.options.removeScripts) {
+      const scripts = doc.querySelectorAll('script');
+      scripts.forEach(script => script.remove());
+      const allElements = doc.querySelectorAll('*');
+      allElements.forEach(el => {
+        if (el.tagName.toLowerCase().includes('script')) {
+          el.remove();
+        }
+      });
+    }
+  }
+  sanitizeElements(doc) {
+    const allElements = doc.querySelectorAll('*');
+    allElements.forEach(element => {
+      const tagName = element.tagName.toLowerCase();
+      if (!this.options.allowedTags.includes(tagName)) {
+        element.remove();
+        return;
+      }
+      this.sanitizeAttributes(element);
+    });
+  }
+  sanitizeAttributes(element) {
+    const attributes = Array.from(element.attributes);
+    attributes.forEach(attr => {
+      const attrName = attr.name.toLowerCase();
+      const attrValue = attr.value;
+      if (this.options.removeEvents && attrName.startsWith('on')) {
+        element.removeAttribute(attrName);
+        return;
+      }
+      if (this.options.removeExternalResources) {
+        if ((attrName === 'href' || attrName === 'xlink:href') && !this.isAllowedUrl(attrValue)) {
+          element.removeAttribute(attrName);
+          return;
+        }
+      }
+      const baseAttrName = attrName.replace('xlink:', '');
+      if (!this.options.allowedAttributes.includes(baseAttrName)) {
+        element.removeAttribute(attrName);
+        return;
+      }
+      if (attrName === 'style' && this.options.sanitizeStyle) {
+        this.sanitizeStyleAttribute(element, attrValue);
+      }
+    });
+  }
+  isAllowedUrl(url) {
+    if (url.startsWith('data:') || url.startsWith('#')) {
+      return true;
+    }
+    try {
+      const parsedUrl = new URL(url);
+      return this.options.allowedProtocols.includes(parsedUrl.protocol.replace(':', ''));
+    } catch {
+      return false;
+    }
+  }
+  sanitizeStyleAttribute(element, styleValue) {
+    const safeStyle = styleValue.replace(/expression\(|javascript:|url\(javascript:/gi, '').replace(/behavior\s*:/gi, '').replace(/binding\s*:/gi, '');
+    element.setAttribute('style', safeStyle);
+  }
+}
+
+/***/ }),
+
+/***/ "../bpl-tools/utils/data.js":
+/*!**********************************!*\
+  !*** ../bpl-tools/utils/data.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   contentColor: () => (/* binding */ contentColor),
+/* harmony export */   deskBreakpoint: () => (/* binding */ deskBreakpoint),
+/* harmony export */   gradient: () => (/* binding */ gradient),
+/* harmony export */   mobileBreakpoint: () => (/* binding */ mobileBreakpoint),
+/* harmony export */   primaryColor: () => (/* binding */ primaryColor),
+/* harmony export */   primaryColor100: () => (/* binding */ primaryColor100),
+/* harmony export */   primaryColor1000: () => (/* binding */ primaryColor1000),
+/* harmony export */   primaryColor200: () => (/* binding */ primaryColor200),
+/* harmony export */   primaryColor300: () => (/* binding */ primaryColor300),
+/* harmony export */   primaryColor400: () => (/* binding */ primaryColor400),
+/* harmony export */   primaryColor500: () => (/* binding */ primaryColor500),
+/* harmony export */   primaryColor600: () => (/* binding */ primaryColor600),
+/* harmony export */   primaryColor700: () => (/* binding */ primaryColor700),
+/* harmony export */   primaryColor800: () => (/* binding */ primaryColor800),
+/* harmony export */   primaryColor900: () => (/* binding */ primaryColor900),
+/* harmony export */   secondaryColor: () => (/* binding */ secondaryColor),
+/* harmony export */   tabBreakpoint: () => (/* binding */ tabBreakpoint),
+/* harmony export */   titleColor: () => (/* binding */ titleColor)
+/* harmony export */ });
+const deskBreakpoint = '@media only screen and (min-width: 1025px)';
+const tabBreakpoint = '@media only screen and (max-width: 1024px)';
+const mobileBreakpoint = '@media only screen and (max-width: 640px)';
+const primaryColor = '#146EF5';
+const primaryColor100 = '#e7f0fe';
+const primaryColor200 = '#b6d2fc';
+const primaryColor300 = '#85b4fa';
+const primaryColor400 = '#5495f8';
+const primaryColor500 = '#2377f6';
+const primaryColor600 = '#095edc';
+const primaryColor700 = '#0749ab';
+const primaryColor800 = '#05347a';
+const primaryColor900 = '#031f49';
+const primaryColor1000 = '#010a18';
+const secondaryColor = '#FF7A00';
+const titleColor = '#070127';
+const contentColor = '#485781';
+const gradient = 'linear-gradient(135deg, #0040E3, #18D4FD)';
+
+/***/ }),
+
+/***/ "../bpl-tools/utils/getCSS.js":
+/*!************************************!*\
+  !*** ../bpl-tools/utils/getCSS.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getAdvBGCSS: () => (/* binding */ getAdvBGCSS),
+/* harmony export */   getBackgroundCSS: () => (/* binding */ getBackgroundCSS),
+/* harmony export */   getBorderBoxCSS: () => (/* binding */ getBorderBoxCSS),
+/* harmony export */   getBorderCSS: () => (/* binding */ getBorderCSS),
+/* harmony export */   getBoxCSS: () => (/* binding */ getBoxCSS),
+/* harmony export */   getColorsCSS: () => (/* binding */ getColorsCSS),
+/* harmony export */   getGradientCSS: () => (/* binding */ getGradientCSS),
+/* harmony export */   getIconCSS: () => (/* binding */ getIconCSS),
+/* harmony export */   getMaskCSS: () => (/* binding */ getMaskCSS),
+/* harmony export */   getMultiShadowCSS: () => (/* binding */ getMultiShadowCSS),
+/* harmony export */   getOverlayCSS: () => (/* binding */ getOverlayCSS),
+/* harmony export */   getSeparatorCSS: () => (/* binding */ getSeparatorCSS),
+/* harmony export */   getShadowCSS: () => (/* binding */ getShadowCSS),
+/* harmony export */   getSpaceCSS: () => (/* binding */ getSpaceCSS),
+/* harmony export */   getTransformCSS: () => (/* binding */ getTransformCSS),
+/* harmony export */   getTypoCSS: () => (/* binding */ getTypoCSS),
+/* harmony export */   isValidCSS: () => (/* binding */ isValidCSS)
+/* harmony export */ });
+/* harmony import */ var _Components_Mask_assets_shapes_blob_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/Mask/assets/shapes/blob.svg */ "../bpl-tools/Components/Mask/assets/shapes/blob.svg");
+/* harmony import */ var _Components_Mask_assets_shapes_circle_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Mask/assets/shapes/circle.svg */ "../bpl-tools/Components/Mask/assets/shapes/circle.svg");
+/* harmony import */ var _Components_Mask_assets_shapes_flower_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Mask/assets/shapes/flower.svg */ "../bpl-tools/Components/Mask/assets/shapes/flower.svg");
+/* harmony import */ var _Components_Mask_assets_shapes_hexagon_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Mask/assets/shapes/hexagon.svg */ "../bpl-tools/Components/Mask/assets/shapes/hexagon.svg");
+/* harmony import */ var _Components_Mask_assets_shapes_sketch_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Mask/assets/shapes/sketch.svg */ "../bpl-tools/Components/Mask/assets/shapes/sketch.svg");
+/* harmony import */ var _Components_Mask_assets_shapes_triangle_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/Mask/assets/shapes/triangle.svg */ "../bpl-tools/Components/Mask/assets/shapes/triangle.svg");
+/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./common */ "../bpl-tools/utils/common.js");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./data */ "../bpl-tools/utils/data.js");
+
+
+
+
+
+
+
+
+const isValidCSS = (p, v) => (0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(v) ? `${p}: ${v};` : '';
+const getBackgroundCSS = (bg, isSolid = true, isGradient = true, isImage = true) => {
+  const {
+    type = 'solid',
+    color = '',
+    gradient = _data__WEBPACK_IMPORTED_MODULE_7__.gradient,
+    image = {},
+    position = 'center center',
+    attachment = '',
+    repeat = 'no-repeat',
+    size = '',
+    overlayColor = ''
+  } = bg || {};
+  const styles = 'gradient' === type && isGradient ? isValidCSS('background', gradient) : 'image' === type && isImage ? `background: url(${image?.url});
+				${isValidCSS('background-color', overlayColor)}
+				${isValidCSS('background-position', position)}
+				${isValidCSS('background-size', size)}
+				${isValidCSS('background-repeat', repeat)}
+				${isValidCSS('background-attachment', attachment)}
+				${isValidCSS('background-repeat', repeat)}
+				background-blend-mode: overlay;` : isSolid && isValidCSS('background', color);
+  return styles;
+};
+const getBorderCSS = border => {
+  const {
+    width = '',
+    style = 'solid',
+    color = '',
+    side = 'all',
+    radius = ''
+  } = border || {};
+  const borderSideCheck = s => {
+    const bSide = side?.toLowerCase();
+    return bSide?.includes('all') || bSide?.includes(s);
+  };
+  const borderCSS = `${width} ${style} ${color}`;
+  const styles = `
+		${!width || parseInt(width) === 0 ? '' : ['top', 'right', 'bottom', 'left'].map(side => borderSideCheck(side) ? `border-${side}: ${borderCSS};` : '').join('')}
+		${isValidCSS('border-radius', radius)}
+	`;
+  return styles;
+};
+const getBorderBoxCSS = border => {
+  if (!border) return '';
+  const generateBorderCSS = borderObj => {
+    const {
+      color = '#000000',
+      style = 'solid',
+      width = '0px'
+    } = borderObj;
+    return `${width} ${style} ${color}`;
+  };
+  if ('object' === typeof border && !Array.isArray(border)) {
+    if (border.hasOwnProperty('top') || border.hasOwnProperty('right') || border.hasOwnProperty('bottom') || border.hasOwnProperty('left')) {
+      const sides = ['top', 'right', 'bottom', 'left'];
+      return sides.map(side => border[side] ? `border-${side}: ${generateBorderCSS(border[side])};` : '').join(' ').trim();
+    } else {
+      return isValidCSS('border', generateBorderCSS(border));
+    }
+  }
+  return '';
+};
+const getColorsCSS = colors => {
+  const {
+    color = '',
+    bgType = 'solid',
+    bg = '',
+    gradient = _data__WEBPACK_IMPORTED_MODULE_7__.gradient
+  } = colors || {};
+  const styles = `
+		${isValidCSS('color', color)}
+		${gradient || bg ? isValidCSS('background', 'gradient' === bgType ? gradient : bg) : ''}
+	`;
+  return styles;
+};
+const getIconCSS = (icon, isSize = true, isColor = true) => {
+  const {
+    fontSize = 16,
+    colorType = 'solid',
+    color = 'inherit',
+    gradient = _data__WEBPACK_IMPORTED_MODULE_7__.gradient
+  } = icon || {};
+  const colorCSS = 'gradient' === colorType ? `color: transparent; background-image: ${gradient}; -webkit-background-clip: text; background-clip: text;` : isValidCSS('color', color);
+  const styles = `
+		${!fontSize || !isSize ? '' : isValidCSS('font-size', fontSize ? `${fontSize}px` : '')}
+		${isColor ? colorCSS : ''}
+	`;
+  return styles;
+};
+const getMultiShadowCSS = (value, type = 'box') => {
+  let styles = '';
+  value?.map((item, index) => {
+    const {
+      hOffset = '0px',
+      vOffset = '0px',
+      blur = '0px',
+      spreed = '0px',
+      color = '#e7f0fe',
+      isInset = false
+    } = item || {};
+    const inset = isInset ? 'inset' : '';
+    const offsetBlur = `${hOffset} ${vOffset} ${blur}`;
+    const isComa = index + 1 >= value.length ? '' : ', ';
+    styles += 'text' === type ? `${offsetBlur} ${color}${isComa}` : `${offsetBlur} ${spreed} ${color} ${inset}${isComa}`;
+  });
+  return styles || '';
+};
+const getSeparatorCSS = separator => {
+  const {
+    width = '50%',
+    height = '2px',
+    style = 'solid',
+    color = _data__WEBPACK_IMPORTED_MODULE_7__.primaryColor300
+  } = separator || {};
+  const styles = `
+		${isValidCSS('width', width)}
+		${0 === parseInt(height) ? '' : `border-top: ${height} ${style} ${color};`}
+	`;
+  return styles;
+};
+const getShadowCSS = (shadow, type = 'box') => {
+  const {
+    hOffset = '0px',
+    vOffset = '0px',
+    blur = '0px',
+    spreed = '0px',
+    color = '#7090b0',
+    isInset = false
+  } = shadow || {};
+  const inset = isInset ? 'inset' : '';
+  const offsetBlur = `${hOffset} ${vOffset} ${blur}`;
+  const styles = 'text' === type ? `${offsetBlur} ${color}` : `${offsetBlur} ${spreed} ${color} ${inset}`;
+  return styles || 'none';
+};
+const getSpaceCSS = space => {
+  const {
+    side = 2,
+    vertical = '0px',
+    horizontal = '0px',
+    top = '0px',
+    right = '0px',
+    bottom = '0px',
+    left = '0px'
+  } = space || {};
+  const styles = 2 === side ? `${vertical} ${horizontal}` : `${top} ${right} ${bottom} ${left}`;
+  return styles;
+};
+const getTypoCSS = (selector, typo, isFamily = true) => {
+  const {
+    fontFamily = 'Default',
+    fontCategory = 'sans-serif',
+    fontVariant = 400,
+    fontWeight,
+    isUploadFont = true,
+    fontSize = {
+      desktop: null,
+      tablet: null,
+      mobile: null
+    },
+    fontStyle,
+    textTransform,
+    textDecoration,
+    lineHeight,
+    letterSpace
+  } = typo || {};
+  const isEmptyFamily = !isFamily || !fontFamily || 'Default' === fontFamily;
+  const desktopFontSize = fontSize?.desktop || fontSize;
+  const tabletFontSize = fontSize?.tablet || desktopFontSize;
+  const mobileFontSize = fontSize?.mobile || tabletFontSize;
+  const checkUnit = size => {
+    const value = String(size);
+    const units = ['px', 'em', 'rem', '%', 'vh', 'vw'];
+    if (units.some(unit => value.endsWith(unit))) {
+      return value;
+    } else if (typeof size === 'number') {
+      return `${value}px`;
+    }
+    return '';
+  };
+  const styles = `
+		${isEmptyFamily ? '' : `font-family: '${fontFamily}', ${fontCategory};`}
+		${isValidCSS('font-weight', fontWeight)}
+		${isValidCSS('font-size', checkUnit(desktopFontSize))}
+		${isValidCSS('font-style', fontStyle)}
+		${isValidCSS('text-transform', textTransform)}
+		${isValidCSS('text-decoration', textDecoration)}
+		${isValidCSS('line-height', lineHeight)}
+		${isValidCSS('letter-spacing', letterSpace)}
+	`;
+
+  // Google font link
+  const linkQuery = !fontVariant || 400 === fontVariant ? '' : '400i' === fontVariant ? ':ital@1' : fontVariant?.includes('00i') ? `: ital, wght@1, ${fontVariant?.replace('00i', '00')} ` : `: wght@${fontVariant} `;
+  const link = isEmptyFamily ? '' : `https://fonts.googleapis.com/css2?family=${fontFamily?.split(' ').join('+')}${linkQuery.replace(/ /g, '')}&display=swap`;
+  return {
+    googleFontLink: !isUploadFont || isEmptyFamily ? '' : `@import url(${link});`,
+    styles: `${selector}{
+			${styles}
+		}
+		${_data__WEBPACK_IMPORTED_MODULE_7__.tabBreakpoint} {
+			${selector}{
+				${isValidCSS('font-size', checkUnit(tabletFontSize))}
+			}
+		}
+		${_data__WEBPACK_IMPORTED_MODULE_7__.mobileBreakpoint} {
+			${selector}{
+				${isValidCSS('font-size', checkUnit(mobileFontSize))}
+			}
+		}`.replace(/\s+/g, ' ').trim()
+  };
+};
+const getBoxCSS = val => {
+  if (!val) return '';
+  if (typeof val === 'string') return val;
+  if (typeof val === 'object' && !Array.isArray(val)) {
+    const order = ['top', 'right', 'bottom', 'left'];
+    const values = order.map(side => val[side] || '');
+    const allEmpty = values.every(value => !value);
+    return allEmpty ? '' : order.map(side => val[side] || '0').join(' ');
+  }
+  return '';
+};
+
+// Murad Wahid
+const getGradientCSS = gradient => {
+  const {
+    type = 'linear',
+    radialType = 'ellipse',
+    colors = [],
+    centerPositions = {
+      x: 0,
+      y: 0
+    },
+    angel = 0
+  } = gradient || {};
+  if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(gradient)) {
+    const gradientColors = colors?.map(({
+      color,
+      position
+    }) => `${color} ${position}%`);
+    const liner = `linear-gradient(${angel}deg, ${gradientColors})`;
+    const radial = `radial-gradient(${radialType} at ${centerPositions?.x}% ${centerPositions?.y}%,${gradientColors})`;
+    return isValidCSS('background', type === 'radial' ? radial : liner);
+  }
+  return '';
+};
+const getImagePosition = img => {
+  const {
+    position = 'center center',
+    xPosition = 0,
+    yPosition = 0,
+    attachment = '',
+    repeat = 'no-repeat',
+    size = 'cover',
+    customSize = '0px'
+  } = img || {};
+  const cd = v => 'initial' !== v || (0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(v);
+  return `
+		${cd(position) ? `background-position: ${'custom' === position ? `${xPosition} ${yPosition}` : position};` : ''}
+		${attachment && cd(attachment) ? `background-attachment: ${attachment};` : ''}
+		${cd(repeat) ? `background-repeat: ${repeat};` : ''}
+		${cd(size) ? `background-size: ${'custom' === size ? `${customSize} auto` : size};` : ''}
+	`;
+};
+const getImageCSS = (img = {}) => {
+  if (img) {
+    return {
+      desktop: (0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(img.url) ? `background-image: url(${img.url}); ${getImagePosition(img?.desktop)}` : '',
+      tablet: (0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(img.url) ? getImagePosition(img?.tablet) : '',
+      mobile: (0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(img.url) ? getImagePosition(img?.mobile) : ''
+    };
+  }
+  return '';
+};
+const getVideoCSS = (video, selector) => {
+  const {
+    url,
+    loop
+  } = video || {};
+  const parentEl = document.querySelector(selector);
+  const el = parentEl?.querySelector('.bPlVideo');
+  const videoEl = document.createElement('video');
+  videoEl.muted = true;
+  videoEl.autoplay = true;
+  videoEl.classList.add('bPlVideo');
+  if (!el) {
+    if (parentEl && url) {
+      videoEl.innerHTML = `<source src=${url}></source>`;
+      parentEl.appendChild(videoEl);
+    }
+  }
+  videoEl.loop = loop;
+  videoEl.play();
+  return `${selector} .bPlVideo{
+		left: 0;
+		min-height: 100%;
+		min-width: 100%;
+		position: absolute;
+		width: -webkit-fill-available;
+		top: 0;
+		z-index: 0;
+	}`;
+};
+const getAdvBGCSS = (background, selector, isHover = false) => {
+  const {
+    type = 'color',
+    color,
+    gradient,
+    img,
+    video
+  } = background || {};
+  const bgCSS = type === 'color' ? isValidCSS('background', color) : type === 'gradient' ? getGradientCSS(gradient) : type === 'image' ? getImageCSS(img).desktop : '';
+  const tablet = type === 'image' ? getImageCSS(img).tablet : '';
+  const mobile = type === 'image' ? getImageCSS(img).mobile : '';
+  const sl = isHover ? `${selector}:hover` : selector;
+  return `
+		${type === 'video' ? getVideoCSS(video, selector) : ''}
+
+		${bgCSS ? `${sl}{
+			${bgCSS}
+		}` : ''}
+
+		${tablet ? `${_data__WEBPACK_IMPORTED_MODULE_7__.tabBreakpoint} {
+			${sl}{
+				${tablet}
+			}
+		}` : ''}
+
+		${mobile ? `${_data__WEBPACK_IMPORTED_MODULE_7__.mobileBreakpoint} {
+			${sl}{
+				${mobile}
+			}
+		}` : ''}
+	`.replace(/\s+/g, ' ').trim();
+};
+const getOverlayCSS = (overlay, selector, isHover = false) => {
+  const {
+    isEnabled,
+    colors,
+    opacity = 1,
+    blend,
+    filter = '',
+    blur = 0,
+    brightness = 100,
+    contrast = 100,
+    saturation = 100,
+    hue = 0,
+    position = {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+    },
+    zIndex = -1
+  } = overlay || {};
+  const filterCSSValue = `${100 !== brightness ? `brightness(${brightness}%)` : ''} ${100 !== contrast ? `contrast(${contrast}%)` : ''} ${100 !== saturation ? `saturate(${saturation}%)` : ''} ${0 !== blur ? `blur(${blur}px)` : ''} ${0 !== hue ? `hue-rotate(${hue}deg)` : ''}`;
+  const filterCSS = `${filter}: ${filter ? filterCSSValue : ''}; -webkit-${filter}: ${filter ? filterCSSValue : ''};`;
+  const sl = isHover ? `${selector}:hover::after` : `${selector}::after`;
+  return isEnabled ? `
+		${selector}{
+			position:relative;
+			z-index:1;
+		}
+		${selector}::after{
+			content: '';
+			position: absolute;
+			top:${(0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(position.top) ? position.top : 0};
+			right:${(0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(position.right) ? position.right : 0};
+			bottom:${(0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(position.bottom) ? position.bottom : 0};
+			left:${(0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(position.left) ? position.left : 0};
+			z-index:${zIndex};
+		}
+		${getAdvBGCSS(colors, sl, false)}
+		${sl}{
+			${isValidCSS('opacity', opacity)}
+			${isValidCSS('mix-blend-mode', blend)}
+			${filterCSS}
+		}
+	`.replace(/\s+/g, ' ').trim() : '';
+};
+const getTransformCSS = (transform, selector, isHover = false) => {
+  const generateTransformCSS = (value, device = 'desktop') => {
+    if (!(0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(value)) return '';
+    const {
+      skew,
+      scale,
+      rotate,
+      offset,
+      flipX,
+      flipY
+    } = value;
+    const {
+      threeDRotate
+    } = rotate || {};
+    const {
+      isProportion
+    } = scale || {};
+    const transforms = [];
+    //skew
+    if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(skew)) {
+      if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(skew?.[device]?.x)) transforms.push(`skewX(${skew[device].x}deg)`);
+      if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(skew?.[device]?.y)) transforms.push(`skewY(${skew[device].y}deg)`);
+    }
+    //scale
+    if (isProportion) {
+      if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(scale?.[device]?.scale)) transforms.push(`scale(${scale[device].scale})`);
+    } else {
+      if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(scale?.[device]?.x)) transforms.push(`scaleX(${scale[device].x})`);
+      if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(scale?.[device]?.y)) transforms.push(`scaleY(${scale[device].y})`);
+    }
+
+    //rotate
+    if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(rotate)) {
+      if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(rotate?.[device]?.z)) transforms.push(`rotateZ(${rotate[device].z}deg)`);
+      if (threeDRotate) {
+        if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(rotate?.[device]?.x)) transforms.push(`rotateX(${rotate[device].x}deg)`);
+        if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(rotate?.[device]?.y)) transforms.push(`rotateY(${rotate[device].y}deg)`);
+      }
+    }
+
+    //offset
+    if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(offset)) {
+      if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(offset?.[device]?.x)) transforms.push(`translateX(${offset[device].x})`);
+      if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(offset?.[device]?.y)) transforms.push(`translateY(${offset[device].y})`);
+    }
+
+    //flip
+    if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(flipX)) transforms.push(flipX ? 'scaleX(-1)' : '');
+    if ((0,_common__WEBPACK_IMPORTED_MODULE_6__.isExist)(flipY)) transforms.push(flipY ? 'scaleY(-1)' : '');
+    if (transforms.length === 0) return '';
+    return isValidCSS('transform', transforms.join(' '));
+  };
+  const sl = isHover ? `${selector}:hover` : selector;
+  // ${isExist(hover?.transition)?`transition:transform ${hover.transition}ms ease-in-out`:'' }
+
+  return `
+		${sl} {
+			${generateTransformCSS(transform, 'desktop')}
+		}
+		${_data__WEBPACK_IMPORTED_MODULE_7__.tabBreakpoint}{
+			${sl} {
+				${generateTransformCSS(transform, 'tablet')}
+			}
+		}
+		${_data__WEBPACK_IMPORTED_MODULE_7__.mobileBreakpoint}{
+			${sl} {
+				${generateTransformCSS(transform, 'mobile')}
+			}
+		}
+	`;
+};
+const getMaskCSS = mask => {
+  const {
+    isMask = false,
+    shape = {
+      type: 'circle'
+    },
+    size = {
+      type: 'contain',
+      scale: '100%'
+    },
+    position = {
+      type: 'center center',
+      x: 50,
+      y: 50
+    },
+    repeat = 'no-repeat'
+  } = mask || {};
+  const svgShape = [{
+    svg: _Components_Mask_assets_shapes_circle_svg__WEBPACK_IMPORTED_MODULE_1__["default"],
+    type: 'circle'
+  }, {
+    svg: _Components_Mask_assets_shapes_flower_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
+    type: 'flower'
+  }, {
+    svg: _Components_Mask_assets_shapes_sketch_svg__WEBPACK_IMPORTED_MODULE_4__["default"],
+    type: 'sketch'
+  }, {
+    svg: _Components_Mask_assets_shapes_triangle_svg__WEBPACK_IMPORTED_MODULE_5__["default"],
+    type: 'triangle'
+  }, {
+    svg: _Components_Mask_assets_shapes_blob_svg__WEBPACK_IMPORTED_MODULE_0__["default"],
+    type: 'blob'
+  }, {
+    svg: _Components_Mask_assets_shapes_hexagon_svg__WEBPACK_IMPORTED_MODULE_3__["default"],
+    type: 'hexagon'
+  }];
+  const getShape = type => svgShape.find(e => e.type === type);
+  return isMask ? `-webkit-mask-image: url(${shape.type === 'custom' ? shape.url : getShape(shape.type).svg});
+		-webkit-mask-size: ${size.type === 'custom' ? size.scale : size.type};
+		${position.type === 'custom' ? `${isValidCSS('-webkit-mask-position-x', position.x)}
+			${isValidCSS('-webkit-mask-position-y', position.y)}` : `${isValidCSS('-webkit-mask-position', position.type)}`}
+		${size.type !== 'cover' ? `-webkit-mask-repeat: ${repeat};` : ''}` : '';
+};
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/Backend/TippyDraggble/TippyDraggble.js":
+/*!***********************************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/Backend/TippyDraggble/TippyDraggble.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_draggable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-draggable */ "./node_modules/react-draggable/build/cjs/cjs.js");
+/* harmony import */ var react_draggable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_draggable__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _tippyjs_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @tippyjs/react */ "./node_modules/@tippyjs/react/dist/tippy-react.esm.js");
+/* harmony import */ var _Backend_TtitleDesBack_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Backend/TtitleDesBack/Title */ "./src/blocks/product-spot/Components/Backend/TtitleDesBack/Title.js");
+/* harmony import */ var _Backend_TtitleDesBack_Description__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Backend/TtitleDesBack/Description */ "./src/blocks/product-spot/Components/Backend/TtitleDesBack/Description.js");
+/* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../utils/functions */ "./src/blocks/product-spot/utils/functions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+const TippyDraggble = ({
+  hotspot,
+  containerSize,
+  activeHotspot,
+  setActiveHotspot,
+  selectedHotspot,
+  setAttributes,
+  hotspots,
+  handleStop,
+  handleDeleteHotspot,
+  isTitle,
+  isDesc,
+  iconMode,
+  globalIcon
+}) => {
+  const position = {
+    x: hotspot.x / 100 * containerSize.width - 12,
+    y: hotspot.y / 100 * containerSize.height - 12
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)((react_draggable__WEBPACK_IMPORTED_MODULE_0___default()), {
+    position: position,
+    bounds: ".image",
+    onStop: (e, data) => handleStop(e, data, hotspot.id),
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: `hotspot ${activeHotspot === hotspot.id ? 'activeHotspot' : ''}`,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tippyjs_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [isTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Backend_TtitleDesBack_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            selectedHotspot,
+            setAttributes,
+            hotspots
+          }), isDesc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Backend_TtitleDesBack_Description__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            selectedHotspot,
+            setAttributes,
+            hotspots
+          })]
+        }),
+        placement: "top",
+        theme: "hotspot",
+        arrow: true,
+        interactive: true,
+        onShow: () => setActiveHotspot(hotspot.id),
+        onHide: () => setActiveHotspot(null),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            className: "icon",
+            dangerouslySetInnerHTML: {
+              __html: (0,_utils_functions__WEBPACK_IMPORTED_MODULE_3__.getSpotIcon)(iconMode, globalIcon, hotspot?.icon)
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            className: "deleteIcon",
+            onClick: e => {
+              e.stopPropagation();
+              handleDeleteHotspot(hotspot.id);
+            },
+            children: "x"
+          })]
+        })
+      })
+    })
+  }, hotspot.id);
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TippyDraggble);
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/Backend/TtitleDesBack/Description.js":
+/*!*********************************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/Backend/TtitleDesBack/Description.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils/functions */ "./src/blocks/product-spot/utils/functions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const Description = ({
+  selectedHotspot = {},
+  setAttributes = () => {},
+  hotspots = []
+}) => {
+  const {
+    id,
+    description
+  } = selectedHotspot;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+    tagName: "p",
+    value: description,
+    onChange: val => (0,_utils_functions__WEBPACK_IMPORTED_MODULE_1__.updateHotspotField)(hotspots, setAttributes, id, 'description', val),
+    className: "desc"
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Description);
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/Backend/TtitleDesBack/Title.js":
+/*!***************************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/Backend/TtitleDesBack/Title.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils/functions */ "./src/blocks/product-spot/utils/functions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const Title = ({
+  selectedHotspot = {},
+  setAttributes = () => {},
+  hotspots = []
+}) => {
+  const {
+    id,
+    title
+  } = selectedHotspot;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+    tagName: "h3",
+    value: title,
+    onChange: val => (0,_utils_functions__WEBPACK_IMPORTED_MODULE_1__.updateHotspotField)(hotspots, setAttributes, id, 'title', val),
+    className: "title"
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Title);
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/Common/ProductImg/ProductImg.js":
+/*!****************************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/Common/ProductImg/ProductImg.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const ProductImg = ({
+  imageRef,
+  img = {}
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
+    ref: imageRef,
+    src: img?.url,
+    alt: img?.alt || 'product-image',
+    className: "image"
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductImg);
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/Common/Style.js":
+/*!************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/Common/Style.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../bpl-tools/utils/getCSS */ "../bpl-tools/utils/getCSS.js");
+/* harmony import */ var _bpl_tools_utils_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../bpl-tools/utils/data */ "../bpl-tools/utils/data.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const Style = ({
+  attributes,
+  id,
+  device = "desktop"
+}) => {
+  const {
+    alignment,
+    styles
+  } = attributes || {};
+  const {
+    width,
+    imgRadius,
+    hotspot = {},
+    info = {},
+    title = {},
+    desc = {},
+    btnGroup
+  } = styles || {};
+  const {
+    column,
+    gap,
+    index = {},
+    activeIndex = {}
+  } = btnGroup || {};
+  const mainSl = `#${id}`;
+  const productSpotWrapperSl = `${mainSl} .productSpotWrapper`;
+  const productSpotSl = `${productSpotWrapperSl} .productSpot`;
+  const imageSl = `${productSpotSl} .image`;
+  const hotspotSl = `${productSpotSl} .hotspot`;
+  const simpleInfoSl = `${productSpotSl} .simpleInfo`;
+  const infoSl = `${productSpotSl} .info`;
+  const tippyInfoSl = `${productSpotSl} .tippy-box[data-theme~='hotspot']`;
+  const titleSl = `${productSpotSl} .title`;
+  const descSl = `${productSpotSl} .desc`;
+  const btnGroupSl = `${productSpotSl} .btnGroup`;
+  const iconSl = `${productSpotSl} .icon svg`;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("style", {
+    dangerouslySetInnerHTML: {
+      __html: `
+
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_0__.getTypoCSS)('', title.typo)?.googleFontLink}
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_0__.getTypoCSS)('', desc.typo)?.googleFontLink}
+
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_0__.getTypoCSS)(titleSl, title.typo)?.styles}
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_0__.getTypoCSS)(descSl, desc.typo)?.styles}
+
+		
+		${productSpotWrapperSl} {
+			justify-content: ${alignment};
+		}
+
+		${productSpotSl} {
+			width: ${width[device]};
+		}
+
+		${imageSl} {
+			border-radius: ${imgRadius};
+		}
+
+		${hotspotSl} {
+			width: ${hotspot.width[device]};
+			height: ${hotspot.height[device]};
+			padding: ${hotspot.padding};
+			background-color: ${hotspot.colors.bg};
+			border-radius: ${hotspot.border.radius};
+			${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_0__.getBorderBoxCSS)(hotspot.border || {})}
+		}
+
+		${iconSl} {
+			width: ${hotspot.iconWidth};
+			height: ${hotspot.iconHeight};
+			fill: ${hotspot.colors.color};
+		}
+
+		${simpleInfoSl}, ${infoSl}, ${tippyInfoSl} {
+			background-color: ${info.bg};
+			border-radius: ${info.radius};
+			padding: ${info.padding};
+		}
+
+		${titleSl} {
+			color: ${title.color};
+			${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_0__.getTypoCSS)(title.typo || {})}
+		}
+
+		${descSl} {
+			color: ${desc.color};
+			${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_0__.getTypoCSS)(desc.typo || {})}
+		}
+
+		${btnGroupSl} {
+			  grid-template-columns: ${`repeat(${column}, minmax(30px, 55px))`};
+			  gap: ${gap};
+
+			  .indexBtn {
+				border-radius: ${index.radius};
+				${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_0__.getColorsCSS)(index.colors)}
+
+					&:hover{
+						${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_0__.getColorsCSS)(index.hoverColors)}
+					}
+					&.activeIdx{
+						${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_0__.getColorsCSS)(activeIndex.colors)}
+					}
+			   }
+		}
+		
+
+
+		${_bpl_tools_utils_data__WEBPACK_IMPORTED_MODULE_1__.tabBreakpoint}{
+			${productSpotSl} {
+				width: ${width.tablet};
+			}
+			
+			${hotspotSl} {
+				width: ${hotspot.width.tablet};
+				height: ${hotspot.height.tablet};
+			}
+		}
+
+
+		${_bpl_tools_utils_data__WEBPACK_IMPORTED_MODULE_1__.mobileBreakpoint}{
+			${productSpotSl} {
+				width: ${width.mobile};
+			}
+
+			${hotspotSl} {
+				width: ${hotspot.width.mobile};
+				height: ${hotspot.height.mobile};
+			}
+		}
+		
+
+	`
+    }
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Style);
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/Common/theme/SidePanel.js":
+/*!**********************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/Common/theme/SidePanel.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_useHotspotManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/useHotspotManager */ "./src/blocks/product-spot/hooks/useHotspotManager.js");
+/* harmony import */ var _ProductImg_ProductImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ProductImg/ProductImg */ "./src/blocks/product-spot/Components/Common/ProductImg/ProductImg.js");
+/* harmony import */ var _Backend_TtitleDesBack_Title__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Backend/TtitleDesBack/Title */ "./src/blocks/product-spot/Components/Backend/TtitleDesBack/Title.js");
+/* harmony import */ var _Backend_TtitleDesBack_Description__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Backend/TtitleDesBack/Description */ "./src/blocks/product-spot/Components/Backend/TtitleDesBack/Description.js");
+/* harmony import */ var _frontend_TitleDes_TitleF__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../frontend/TitleDes/TitleF */ "./src/blocks/product-spot/Components/frontend/TitleDes/TitleF.js");
+/* harmony import */ var _frontend_TitleDes_DescriptionF__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../frontend/TitleDes/DescriptionF */ "./src/blocks/product-spot/Components/frontend/TitleDes/DescriptionF.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
+
+
+
+
+const SidePanel = ({
+  attributes,
+  setAttributes,
+  isBackend = true,
+  Hotspot,
+  isPremium,
+  setIsSpotModalOpen
+}) => {
+  const {
+    containerRef,
+    imageRef,
+    containerSize,
+    activeHotspot,
+    setActiveHotspot,
+    selectedHotspot,
+    addSpot,
+    handleStop,
+    handleDeleteHotspot,
+    img,
+    hotspots = []
+  } = (0,_hooks_useHotspotManager__WEBPACK_IMPORTED_MODULE_1__["default"])(attributes, setAttributes);
+  const imageAndHotspotRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const infoBoxRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const {
+    options
+  } = attributes || {};
+  const {
+    isTitle,
+    isDesc
+  } = options || {};
+  const backendHotspotProps = isBackend ? {
+    containerSize,
+    boundsTarget: ".imageAndHotspot",
+    handleStop,
+    handleDeleteHotspot
+  } : {};
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(() => {
+    if (imageRef.current) {
+      const handleLoad = () => {
+        if (infoBoxRef.current && imageAndHotspotRef.current) {
+          const height = imageAndHotspotRef.current.clientHeight;
+          infoBoxRef.current.style.maxHeight = `${height}px`;
+        }
+      };
+      if (imageRef.current.complete) {
+        handleLoad();
+      } else {
+        imageRef.current.addEventListener("load", handleLoad);
+      }
+      return () => {
+        imageRef.current?.removeEventListener("load", handleLoad);
+      };
+    }
+  }, [img]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    className: "sidePanel",
+    ref: containerRef,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      className: "imageAndHotspot",
+      ref: imageAndHotspotRef,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        onClick: isBackend ? e => addSpot(e, isPremium, setIsSpotModalOpen) : undefined,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ProductImg_ProductImg__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          imageRef,
+          img
+        })
+      }), containerSize.width > 0 && hotspots?.map(hotspot => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Hotspot, {
+        hotspot,
+        activeHotspot,
+        setActiveHotspot,
+        attributes,
+        ...backendHotspotProps
+      }, hotspot?.id))]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      className: "infoBox",
+      ref: infoBoxRef,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        className: "info",
+        children: [hotspots?.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+          children: isBackend ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+            children: [isTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Backend_TtitleDesBack_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              selectedHotspot,
+              setAttributes,
+              hotspots
+            }), isDesc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Backend_TtitleDesBack_Description__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              selectedHotspot,
+              setAttributes,
+              hotspots
+            })]
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+            children: [isTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_frontend_TitleDes_TitleF__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              selectedHotspot
+            }), isDesc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_frontend_TitleDes_DescriptionF__WEBPACK_IMPORTED_MODULE_6__["default"], {
+              selectedHotspot
+            })]
+          })
+        }) : isBackend ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
+          className: "noHotspot",
+          children: "Please add hotspot !"
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
+          className: "noHotspot",
+          children: "Spot not  found !"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "btnGroup",
+          children: hotspots.map(hotspot => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+            type: "button",
+            className: `indexBtn ${activeHotspot === hotspot.id ? "activeIdx" : ""}`,
+            onClick: () => setActiveHotspot(hotspot.id),
+            children: hotspot.id
+          }, hotspot.id))
+        })]
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SidePanel);
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/Common/theme/Simple.js":
+/*!*******************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/Common/theme/Simple.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _hooks_useHotspotManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../hooks/useHotspotManager */ "./src/blocks/product-spot/hooks/useHotspotManager.js");
+/* harmony import */ var _Backend_TtitleDesBack_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Backend/TtitleDesBack/Title */ "./src/blocks/product-spot/Components/Backend/TtitleDesBack/Title.js");
+/* harmony import */ var _Backend_TtitleDesBack_Description__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Backend/TtitleDesBack/Description */ "./src/blocks/product-spot/Components/Backend/TtitleDesBack/Description.js");
+/* harmony import */ var _frontend_TitleDes_TitleF__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../frontend/TitleDes/TitleF */ "./src/blocks/product-spot/Components/frontend/TitleDes/TitleF.js");
+/* harmony import */ var _frontend_TitleDes_DescriptionF__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../frontend/TitleDes/DescriptionF */ "./src/blocks/product-spot/Components/frontend/TitleDes/DescriptionF.js");
+/* harmony import */ var _ProductImg_ProductImg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ProductImg/ProductImg */ "./src/blocks/product-spot/Components/Common/ProductImg/ProductImg.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+const Simple = ({
+  attributes,
+  setAttributes,
+  isBackend = true,
+  Hotspot,
+  isPremium,
+  setIsSpotModalOpen
+}) => {
+  const {
+    containerRef,
+    imageRef,
+    containerSize,
+    activeHotspot,
+    setActiveHotspot,
+    selectedHotspot,
+    addSpot,
+    handleStop,
+    handleDeleteHotspot,
+    img,
+    hotspots = []
+  } = (0,_hooks_useHotspotManager__WEBPACK_IMPORTED_MODULE_0__["default"])(attributes, setAttributes);
+  const {
+    options
+  } = attributes || {};
+  const {
+    isTitle,
+    isDesc
+  } = options || {};
+  const backendHotspotProps = isBackend ? {
+    containerSize,
+    handleStop,
+    handleDeleteHotspot
+  } : {};
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "simple",
+      ref: containerRef,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        onClick: isBackend ? e => addSpot(e, isPremium, setIsSpotModalOpen) : undefined,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ProductImg_ProductImg__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          imageRef,
+          img
+        })
+      }), containerSize.width > 0 && hotspots?.map(hotspot => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Hotspot, {
+        hotspot,
+        activeHotspot,
+        setActiveHotspot,
+        attributes,
+        ...backendHotspotProps
+      }, hotspot?.id))]
+    }), activeHotspot !== null && selectedHotspot && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "simpleInfo",
+      children: isBackend ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+        children: [isTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Backend_TtitleDesBack_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          selectedHotspot,
+          setAttributes,
+          hotspots
+        }), isDesc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Backend_TtitleDesBack_Description__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          selectedHotspot,
+          setAttributes,
+          hotspots
+        })]
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+        children: [isTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_frontend_TitleDes_TitleF__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          selectedHotspot
+        }), isDesc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_frontend_TitleDes_DescriptionF__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          selectedHotspot
+        })]
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Simple);
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/Common/theme/TippyHotspot.js":
+/*!*************************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/Common/theme/TippyHotspot.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TippyHotspots: () => (/* binding */ TippyHotspots)
+/* harmony export */ });
+/* harmony import */ var _tippyjs_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tippyjs/react */ "./node_modules/@tippyjs/react/dist/tippy-react.esm.js");
+/* harmony import */ var tippy_js_dist_tippy_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tippy.js/dist/tippy.css */ "./node_modules/tippy.js/dist/tippy.css");
+/* harmony import */ var _hooks_useHotspotManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/useHotspotManager */ "./src/blocks/product-spot/hooks/useHotspotManager.js");
+/* harmony import */ var _ProductImg_ProductImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ProductImg/ProductImg */ "./src/blocks/product-spot/Components/Common/ProductImg/ProductImg.js");
+/* harmony import */ var _frontend_TitleDes_TitleF__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../frontend/TitleDes/TitleF */ "./src/blocks/product-spot/Components/frontend/TitleDes/TitleF.js");
+/* harmony import */ var _frontend_TitleDes_DescriptionF__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../frontend/TitleDes/DescriptionF */ "./src/blocks/product-spot/Components/frontend/TitleDes/DescriptionF.js");
+/* harmony import */ var _Backend_TippyDraggble_TippyDraggble__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Backend/TippyDraggble/TippyDraggble */ "./src/blocks/product-spot/Components/Backend/TippyDraggble/TippyDraggble.js");
+/* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../utils/functions */ "./src/blocks/product-spot/utils/functions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
+
+
+
+
+
+function TippyHotspots({
+  attributes,
+  setAttributes,
+  isPremium,
+  setIsSpotModalOpen,
+  isBackend = true
+}) {
+  const {
+    containerRef,
+    imageRef,
+    containerSize,
+    activeHotspot,
+    setActiveHotspot,
+    selectedHotspot,
+    addSpot,
+    handleStop,
+    handleDeleteHotspot,
+    img,
+    hotspots = []
+  } = (0,_hooks_useHotspotManager__WEBPACK_IMPORTED_MODULE_1__["default"])(attributes, setAttributes);
+  const {
+    options,
+    iconMode,
+    globalIcon
+  } = attributes || {};
+  const {
+    isTitle,
+    isDesc
+  } = options || {};
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    className: "tippy",
+    ref: containerRef,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      onClick: isBackend ? e => addSpot(e, isPremium, setIsSpotModalOpen) : undefined,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ProductImg_ProductImg__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        imageRef,
+        img
+      })
+    }), containerSize.width > 0 && hotspots?.map(hotspot => isBackend ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Backend_TippyDraggble_TippyDraggble__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      hotspot,
+      containerSize,
+      activeHotspot,
+      setActiveHotspot,
+      selectedHotspot,
+      setAttributes,
+      hotspots,
+      handleStop,
+      handleDeleteHotspot,
+      isTitle,
+      isDesc,
+      iconMode,
+      globalIcon
+    }, hotspot.id) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      className: `hotspot ${activeHotspot === hotspot.id ? 'activeHotspot' : ''}`,
+      style: {
+        left: `${hotspot.x}%`,
+        top: `${hotspot.y}%`
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tippyjs_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+          children: [isTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_frontend_TitleDes_TitleF__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            selectedHotspot
+          }), isDesc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_frontend_TitleDes_DescriptionF__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            selectedHotspot
+          })]
+        }),
+        theme: "hotspot",
+        arrow: true,
+        interactive: true,
+        onShow: () => setActiveHotspot(hotspot.id),
+        onHide: () => setActiveHotspot(null),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+          className: "icon",
+          dangerouslySetInnerHTML: {
+            __html: (0,_utils_functions__WEBPACK_IMPORTED_MODULE_6__.getSpotIcon)(iconMode, globalIcon, hotspot?.icon)
+          }
+        })
+      })
+    }, hotspot.id))]
+  });
+}
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/Common/theme/index.js":
+/*!******************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/Common/theme/index.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SidePanel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SidePanel */ "./src/blocks/product-spot/Components/Common/theme/SidePanel.js");
+/* harmony import */ var _Simple__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Simple */ "./src/blocks/product-spot/Components/Common/theme/Simple.js");
+/* harmony import */ var _TippyHotspot__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TippyHotspot */ "./src/blocks/product-spot/Components/Common/theme/TippyHotspot.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+const Theme = props => {
+  const {
+    attributes
+  } = props;
+  const {
+    themeSl = 'simple'
+  } = attributes || {};
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(ThemeSwitch, {
+    themeSl: themeSl,
+    ...props
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Theme);
+const ThemeSwitch = ({
+  themeSl,
+  ...props
+}) => {
+  switch (themeSl) {
+    case 'sidepanel':
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_SidePanel__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        ...props
+      });
+    case 'tippy':
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TippyHotspot__WEBPACK_IMPORTED_MODULE_2__.TippyHotspots, {
+        ...props
+      });
+    default:
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Simple__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        ...props
+      });
+  }
+};
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/frontend/Hotspot/Hotspot.js":
+/*!************************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/frontend/Hotspot/Hotspot.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/functions */ "./src/blocks/product-spot/utils/functions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const Hotspot = ({
+  activeHotspot,
+  hotspot,
+  setActiveHotspot,
+  attributes
+}) => {
+  const {
+    iconMode,
+    globalIcon
+  } = attributes || {};
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: `hotspot ${activeHotspot === hotspot.id ? 'activeHotspot' : ''}`,
+    onClick: () => setActiveHotspot(activeHotspot === hotspot.id ? null : hotspot.id),
+    style: {
+      left: `${hotspot.x}%`,
+      top: `${hotspot.y}%`
+    },
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      className: "icon",
+      dangerouslySetInnerHTML: {
+        __html: (0,_utils_functions__WEBPACK_IMPORTED_MODULE_0__.getSpotIcon)(iconMode, globalIcon, hotspot?.icon)
+      }
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Hotspot);
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/frontend/TitleDes/DescriptionF.js":
+/*!******************************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/frontend/TitleDes/DescriptionF.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const DescriptionF = ({
+  selectedHotspot
+}) => {
+  const {
+    description
+  } = selectedHotspot || {};
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+    dangerouslySetInnerHTML: {
+      __html: description
+    },
+    className: "desc"
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DescriptionF);
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/Components/frontend/TitleDes/TitleF.js":
+/*!************************************************************************!*\
+  !*** ./src/blocks/product-spot/Components/frontend/TitleDes/TitleF.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const TitleF = ({
+  selectedHotspot
+}) => {
+  const {
+    title
+  } = selectedHotspot || {};
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+    dangerouslySetInnerHTML: {
+      __html: title
+    },
+    className: "title"
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TitleF);
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/hooks/useHotspotManager.js":
+/*!************************************************************!*\
+  !*** ./src/blocks/product-spot/hooks/useHotspotManager.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const useHotspotManager = (attributes = {}, setAttributes = () => {}) => {
+  const {
+    img = {},
+    themeSl,
+    hotspots = []
+  } = attributes;
+  const [activeHotspot, setActiveHotspot] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(themeSl === "sidepanel" ? 1 : null);
+  const [containerSize, setContainerSize] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    width: 0,
+    height: 0
+  });
+  const containerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const imageRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const selectedHotspot = hotspots.find(h => h.id === activeHotspot);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (activeHotspot !== null) {
+      const index = hotspots.findIndex(h => h.id === activeHotspot);
+      if (index !== -1) {
+        setAttributes({
+          activeIndex: index
+        });
+      }
+    }
+  }, [activeHotspot, hotspots]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const image = imageRef.current;
+    if (!image) return;
+    const observer = new ResizeObserver(() => {
+      const rect = image.getBoundingClientRect();
+      setContainerSize({
+        width: rect.width,
+        height: rect.height
+      });
+    });
+    observer.observe(image);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+  const handleAddHotspot = e => {
+    if (e.target.closest('.hotspot')) return;
+    const rect = imageRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width * 100;
+    const y = (e.clientY - rect.top) / rect.height * 100;
+    const nextId = hotspots.length > 0 ? Math.max(...hotspots.map(h => h.id)) + 1 : 1;
+    const newHotspot = {
+      id: nextId,
+      icon: '',
+      x,
+      y,
+      title: `Hotspot Title ${nextId}`,
+      description: `Hotspot Description ${nextId}`
+    };
+    setAttributes({
+      hotspots: [...hotspots, newHotspot]
+    });
+    setActiveHotspot(newHotspot.id);
+  };
+  const handleStop = (_e, data, hotspotId) => {
+    const rect = imageRef.current.getBoundingClientRect();
+    const xPercent = (data.x + 12) / rect.width * 100;
+    const yPercent = (data.y + 12) / rect.height * 100;
+    const updatedHotspots = hotspots.map(hotspot => hotspot.id === hotspotId ? {
+      ...hotspot,
+      x: xPercent,
+      y: yPercent
+    } : hotspot);
+    setAttributes({
+      hotspots: updatedHotspots
+    });
+  };
+  const handleDeleteHotspot = id => {
+    const updated = hotspots.filter(h => h.id !== id);
+    setAttributes({
+      hotspots: updated
+    });
+    setActiveHotspot(null);
+  };
+  const addSpot = (e, isPremium = false, setIsSpotModalOpen = () => {}) => {
+    if (!isPremium && hotspots?.length >= 3) {
+      setIsSpotModalOpen(true);
+      return;
+    } else {
+      handleAddHotspot(e);
+    }
+  };
+  return {
+    containerRef,
+    imageRef,
+    containerSize,
+    setContainerSize,
+    activeHotspot,
+    setActiveHotspot,
+    selectedHotspot,
+    addSpot,
+    handleStop,
+    handleDeleteHotspot,
+    img,
+    hotspots
+  };
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useHotspotManager);
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/utils/functions.js":
+/*!****************************************************!*\
+  !*** ./src/blocks/product-spot/utils/functions.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getNextId: () => (/* binding */ getNextId),
+/* harmony export */   getSpotIcon: () => (/* binding */ getSpotIcon),
+/* harmony export */   sanitizePerUnitValue: () => (/* binding */ sanitizePerUnitValue),
+/* harmony export */   themeSwitch: () => (/* binding */ themeSwitch),
+/* harmony export */   toolTipPresets: () => (/* binding */ toolTipPresets),
+/* harmony export */   updateHotspotField: () => (/* binding */ updateHotspotField)
+/* harmony export */ });
+/* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immer */ "./node_modules/immer/dist/immer.mjs");
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons */ "./src/blocks/product-spot/utils/icons.js");
+
+
+const sanitizePerUnitValue = value => {
+  if (typeof value === 'string') {
+    if (value.endsWith('%')) {
+      const num = parseFloat(value);
+      if (num > 100) {
+        return '100%';
+      }
+    }
+  }
+  return value;
+};
+const getNextId = hotspots => {
+  const ids = hotspots.map(h => h.id);
+  const maxId = Math.max(...ids);
+  return maxId + 1;
+};
+const updateHotspotField = (hotspots, setAttributes, hotspotId, field, value) => {
+  const updatedHotspots = hotspots?.map(h => h?.id === hotspotId ? {
+    ...h,
+    [field]: value
+  } : h);
+  setAttributes({
+    hotspots: updatedHotspots
+  });
+};
+const toolTipPresets = [{
+  label: "Simple",
+  value: "simple",
+  img: "https://i.ibb.co.com/Ndb58JkY/simple.png",
+  height: "auto",
+  width: "160px",
+  isPro: false
+}, {
+  label: "Sidepanel",
+  value: "sidepanel",
+  img: "https://i.ibb.co.com/BVvNNQMW/sidepanel.png",
+  height: "auto",
+  width: "160px",
+  isPro: false
+}, {
+  label: "Tippy",
+  value: "tippy",
+  img: "https://i.ibb.co.com/8Ld4Fktb/tippy.png",
+  height: "auto",
+  width: "160px",
+  isPro: false
+}];
+const themeSwitch = (theme = 'simple', attributes) => (0,immer__WEBPACK_IMPORTED_MODULE_1__.produce)(attributes, draft => {
+  draft['themeSl'] = theme;
+  switch (theme) {
+    case 'simple':
+      draft['align'] = "";
+      draft['styles']['info']['bg'] = "#F6F6F6";
+      draft['styles']['info']['radius'] = "8px";
+      draft['styles']['info']['padding'] = "15px";
+      draft['styles']['title']['color'] = "#111827";
+      draft['styles']['desc']['color'] = "#374151";
+      break;
+    case 'sidepanel':
+      draft['align'] = "wide";
+      draft['styles']['info']['bg'] = "#F1F1F1";
+      draft['styles']['info']['radius'] = "8px";
+      draft['styles']['info']['padding'] = "15px";
+      draft['styles']['title']['color'] = "#111827";
+      draft['styles']['desc']['color'] = "#374151";
+      break;
+    case 'tippy':
+      draft['align'] = "";
+      draft['styles']['info']['bg'] = "#F1F1F1";
+      draft['styles']['info']['radius'] = "8px";
+      draft['styles']['info']['padding'] = "0px";
+      draft['styles']['title']['color'] = "#111827";
+      draft['styles']['desc']['color'] = "#374151";
+      break;
+  }
+});
+const getSpotIcon = (iconMode, globalIcon, singleIcon) => {
+  const globalIconVal = globalIcon || _icons__WEBPACK_IMPORTED_MODULE_0__.defaultHotspotIcon;
+  const singleIconVal = singleIcon || globalIconVal;
+  return 'single' === iconMode ? singleIconVal : globalIconVal;
+};
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/utils/icons.js":
+/*!************************************************!*\
+  !*** ./src/blocks/product-spot/utils/icons.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   blockIcon: () => (/* binding */ blockIcon),
+/* harmony export */   defaultHotspotIcon: () => (/* binding */ defaultHotspotIcon),
+/* harmony export */   horizontalLineIcon: () => (/* binding */ horizontalLineIcon),
+/* harmony export */   verticalLineIcon: () => (/* binding */ verticalLineIcon)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const iconColor = '#4527a4';
+const blockIcon = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 20 20",
+  fill: iconColor,
+  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+    fill: iconColor,
+    fillRule: "evenodd",
+    d: "M9.938 4.016a.146.146 0 00-.054.057L3.027 15.74a.176.176 0 00-.002.183c.016.03.037.05.054.06.015.01.034.017.066.017h13.713a.12.12 0 00.066-.017.163.163 0 00.055-.06.176.176 0 00-.003-.183L10.12 4.073a.146.146 0 00-.054-.057.13.13 0 00-.063-.016.13.13 0 00-.064.016zm1.043-.45a1.13 1.13 0 00-1.96 0L2.166 15.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L10.982 3.566z"
+  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", {
+    fill: iconColor,
+    width: "2",
+    height: "2",
+    x: "9.002",
+    y: "13",
+    rx: "1"
+  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+    fill: iconColor,
+    d: "M9.1 7.995a.905.905 0 111.8 0l-.35 3.507a.553.553 0 01-1.1 0L9.1 7.995z"
+  })]
+});
+const verticalLineIcon = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 14.707 14.707",
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", {
+    x: "6.275",
+    y: "0",
+    width: "2.158",
+    height: "14.707"
+  })
+});
+const horizontalLineIcon = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 357 357",
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+    d: "M357,204H0v-51h357V204z"
+  })
+});
+const defaultHotspotIcon = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' id='plus'><path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4'></path></svg>";
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/view.js":
+/*!*****************************************!*\
+  !*** ./src/blocks/product-spot/view.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/product-spot/style.scss");
+/* harmony import */ var _Components_Common_Style__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/Common/Style */ "./src/blocks/product-spot/Components/Common/Style.js");
+/* harmony import */ var _Components_Common_theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/Common/theme */ "./src/blocks/product-spot/Components/Common/theme/index.js");
+/* harmony import */ var _Components_frontend_Hotspot_Hotspot__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/frontend/Hotspot/Hotspot */ "./src/blocks/product-spot/Components/frontend/Hotspot/Hotspot.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const productSpotEls = document.querySelectorAll('.wp-block-psb-product-spot');
+  productSpotEls.forEach(productSpotEl => {
+    const attributes = JSON.parse(productSpotEl.dataset.attributes);
+    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_0__.createRoot)(productSpotEl).render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Common_Style__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        attributes: attributes,
+        id: productSpotEl.id
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "productSpotWrapper",
+        children: attributes?.img?.url && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "productSpot",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Common_theme__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            attributes,
+            isBackend: false,
+            Hotspot: _Components_frontend_Hotspot_Hotspot__WEBPACK_IMPORTED_MODULE_4__["default"]
+          })
+        })
+      })]
+    }));
+    productSpotEl?.removeAttribute('data-attributes');
+  });
+
+  // WooCommerce Product Page 
+  const productSpotOnWooEl = document.querySelector('.psb-product-spot-on-woo');
+  if (productSpotOnWooEl) {
+    const isOnTop = productSpotOnWooEl.classList.contains('psb-top-image');
+    const isOnBottom = productSpotOnWooEl.classList.contains('psb-bottom-image');
+    const isReplaced = productSpotOnWooEl.classList.contains('psb-replace-image');
+    const innerSpotEl = productSpotOnWooEl.querySelector('.wp-block-psb-product-spot');
+    if (innerSpotEl?.classList.contains('alignwide')) {
+      innerSpotEl.classList.remove('alignwide');
+    }
+    const containers = [document.querySelector('.woocommerce-product-gallery'), document.querySelector('.product-gallery')];
+    containers.forEach(container => {
+      if (!container) return;
+      if (isReplaced) {
+        container.innerHTML = '';
+        container.append(productSpotOnWooEl);
+      } else {
+        if (isOnTop) container.prepend(productSpotOnWooEl);
+        if (isOnBottom) container.append(productSpotOnWooEl);
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/clsx/dist/clsx.js":
+/*!****************************************!*\
+  !*** ./node_modules/clsx/dist/clsx.js ***!
+  \****************************************/
+/***/ ((module) => {
+
+function r(e){var o,t,f="";if("string"==typeof e||"number"==typeof e)f+=e;else if("object"==typeof e)if(Array.isArray(e)){var n=e.length;for(o=0;o<n;o++)e[o]&&(t=r(e[o]))&&(f&&(f+=" "),f+=t)}else for(t in e)e[t]&&(f&&(f+=" "),f+=t);return f}function e(){for(var e,o,t=0,f="",n=arguments.length;t<n;t++)(e=arguments[t])&&(o=r(e))&&(f&&(f+=" "),f+=o);return f}module.exports=e,module.exports.clsx=e;
+
+/***/ }),
+
+/***/ "./node_modules/tippy.js/dist/tippy.css":
+/*!**********************************************!*\
+  !*** ./node_modules/tippy.js/dist/tippy.css ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/blocks/product-spot/style.scss":
+/*!********************************************!*\
+  !*** ./src/blocks/product-spot/style.scss ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./node_modules/object-assign/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/object-assign/index.js ***!
+  \*********************************************/
+/***/ ((module) => {
+
+"use strict";
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+
+/* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (err) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/checkPropTypes.js":
+/*!***************************************************!*\
+  !*** ./node_modules/prop-types/checkPropTypes.js ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var printWarning = function() {};
+
+if (true) {
+  var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+  var loggedTypeFailures = {};
+  var has = __webpack_require__(/*! ./lib/has */ "./node_modules/prop-types/lib/has.js");
+
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) { /**/ }
+  };
+}
+
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */
+function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+  if (true) {
+    for (var typeSpecName in typeSpecs) {
+      if (has(typeSpecs, typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          if (typeof typeSpecs[typeSpecName] !== 'function') {
+            var err = Error(
+              (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
+              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.' +
+              'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.'
+            );
+            err.name = 'Invariant Violation';
+            throw err;
+          }
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+        } catch (ex) {
+          error = ex;
+        }
+        if (error && !(error instanceof Error)) {
+          printWarning(
+            (componentName || 'React class') + ': type specification of ' +
+            location + ' `' + typeSpecName + '` is invalid; the type checker ' +
+            'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
+            'You may have forgotten to pass an argument to the type checker ' +
+            'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' +
+            'shape all require an argument).'
+          );
+        }
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error.message] = true;
+
+          var stack = getStack ? getStack() : '';
+
+          printWarning(
+            'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
+          );
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Resets warning cache when testing.
+ *
+ * @private
+ */
+checkPropTypes.resetWarningCache = function() {
+  if (true) {
+    loggedTypeFailures = {};
+  }
+}
+
+module.exports = checkPropTypes;
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/factoryWithTypeCheckers.js":
+/*!************************************************************!*\
+  !*** ./node_modules/prop-types/factoryWithTypeCheckers.js ***!
+  \************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/prop-types/node_modules/react-is/index.js");
+var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+
+var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+var has = __webpack_require__(/*! ./lib/has */ "./node_modules/prop-types/lib/has.js");
+var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
+
+var printWarning = function() {};
+
+if (true) {
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+}
+
+function emptyFunctionThatReturnsNull() {
+  return null;
+}
+
+module.exports = function(isValidElement, throwOnDirectAccess) {
+  /* global Symbol */
+  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+  /**
+   * Returns the iterator method function contained on the iterable object.
+   *
+   * Be sure to invoke the function with the iterable as context:
+   *
+   *     var iteratorFn = getIteratorFn(myIterable);
+   *     if (iteratorFn) {
+   *       var iterator = iteratorFn.call(myIterable);
+   *       ...
+   *     }
+   *
+   * @param {?object} maybeIterable
+   * @return {?function}
+   */
+  function getIteratorFn(maybeIterable) {
+    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+    if (typeof iteratorFn === 'function') {
+      return iteratorFn;
+    }
+  }
+
+  /**
+   * Collection of methods that allow declaration and validation of props that are
+   * supplied to React components. Example usage:
+   *
+   *   var Props = require('ReactPropTypes');
+   *   var MyArticle = React.createClass({
+   *     propTypes: {
+   *       // An optional string prop named "description".
+   *       description: Props.string,
+   *
+   *       // A required enum prop named "category".
+   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *
+   *       // A prop named "dialog" that requires an instance of Dialog.
+   *       dialog: Props.instanceOf(Dialog).isRequired
+   *     },
+   *     render: function() { ... }
+   *   });
+   *
+   * A more formal specification of how these methods are used:
+   *
+   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+   *   decl := ReactPropTypes.{type}(.isRequired)?
+   *
+   * Each and every declaration produces a function with the same signature. This
+   * allows the creation of custom validation functions. For example:
+   *
+   *  var MyLink = React.createClass({
+   *    propTypes: {
+   *      // An optional string or URI prop named "href".
+   *      href: function(props, propName, componentName) {
+   *        var propValue = props[propName];
+   *        if (propValue != null && typeof propValue !== 'string' &&
+   *            !(propValue instanceof URI)) {
+   *          return new Error(
+   *            'Expected a string or an URI for ' + propName + ' in ' +
+   *            componentName
+   *          );
+   *        }
+   *      }
+   *    },
+   *    render: function() {...}
+   *  });
+   *
+   * @internal
+   */
+
+  var ANONYMOUS = '<<anonymous>>';
+
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+  var ReactPropTypes = {
+    array: createPrimitiveTypeChecker('array'),
+    bigint: createPrimitiveTypeChecker('bigint'),
+    bool: createPrimitiveTypeChecker('boolean'),
+    func: createPrimitiveTypeChecker('function'),
+    number: createPrimitiveTypeChecker('number'),
+    object: createPrimitiveTypeChecker('object'),
+    string: createPrimitiveTypeChecker('string'),
+    symbol: createPrimitiveTypeChecker('symbol'),
+
+    any: createAnyTypeChecker(),
+    arrayOf: createArrayOfTypeChecker,
+    element: createElementTypeChecker(),
+    elementType: createElementTypeTypeChecker(),
+    instanceOf: createInstanceTypeChecker,
+    node: createNodeChecker(),
+    objectOf: createObjectOfTypeChecker,
+    oneOf: createEnumTypeChecker,
+    oneOfType: createUnionTypeChecker,
+    shape: createShapeTypeChecker,
+    exact: createStrictShapeTypeChecker,
+  };
+
+  /**
+   * inlined Object.is polyfill to avoid requiring consumers ship their own
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+   */
+  /*eslint-disable no-self-compare*/
+  function is(x, y) {
+    // SameValue algorithm
+    if (x === y) {
+      // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
+    }
+  }
+  /*eslint-enable no-self-compare*/
+
+  /**
+   * We use an Error-like object for backward compatibility as people may call
+   * PropTypes directly and inspect their output. However, we don't use real
+   * Errors anymore. We don't inspect their stack anyway, and creating them
+   * is prohibitively expensive if they are created too often, such as what
+   * happens in oneOfType() for any type before the one that matched.
+   */
+  function PropTypeError(message, data) {
+    this.message = message;
+    this.data = data && typeof data === 'object' ? data: {};
+    this.stack = '';
+  }
+  // Make `instanceof Error` still work for returned errors.
+  PropTypeError.prototype = Error.prototype;
+
+  function createChainableTypeChecker(validate) {
+    if (true) {
+      var manualPropTypeCallCache = {};
+      var manualPropTypeWarningCount = 0;
+    }
+    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+      componentName = componentName || ANONYMOUS;
+      propFullName = propFullName || propName;
+
+      if (secret !== ReactPropTypesSecret) {
+        if (throwOnDirectAccess) {
+          // New behavior only for users of `prop-types` package
+          var err = new Error(
+            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+            'Use `PropTypes.checkPropTypes()` to call them. ' +
+            'Read more at http://fb.me/use-check-prop-types'
+          );
+          err.name = 'Invariant Violation';
+          throw err;
+        } else if ( true && typeof console !== 'undefined') {
+          // Old behavior for people using React.PropTypes
+          var cacheKey = componentName + ':' + propName;
+          if (
+            !manualPropTypeCallCache[cacheKey] &&
+            // Avoid spamming the console because they are often not actionable except for lib authors
+            manualPropTypeWarningCount < 3
+          ) {
+            printWarning(
+              'You are manually calling a React.PropTypes validation ' +
+              'function for the `' + propFullName + '` prop on `' + componentName + '`. This is deprecated ' +
+              'and will throw in the standalone `prop-types` package. ' +
+              'You may be seeing this warning due to a third-party PropTypes ' +
+              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
+            );
+            manualPropTypeCallCache[cacheKey] = true;
+            manualPropTypeWarningCount++;
+          }
+        }
+      }
+      if (props[propName] == null) {
+        if (isRequired) {
+          if (props[propName] === null) {
+            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+          }
+          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+        }
+        return null;
+      } else {
+        return validate(props, propName, componentName, location, propFullName);
+      }
+    }
+
+    var chainedCheckType = checkType.bind(null, false);
+    chainedCheckType.isRequired = checkType.bind(null, true);
+
+    return chainedCheckType;
+  }
+
+  function createPrimitiveTypeChecker(expectedType) {
+    function validate(props, propName, componentName, location, propFullName, secret) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== expectedType) {
+        // `propValue` being instance of, say, date/regexp, pass the 'object'
+        // check, but we can offer a more precise error message here rather than
+        // 'of type `object`'.
+        var preciseType = getPreciseType(propValue);
+
+        return new PropTypeError(
+          'Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'),
+          {expectedType: expectedType}
+        );
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createAnyTypeChecker() {
+    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
+  }
+
+  function createArrayOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+      }
+      var propValue = props[propName];
+      if (!Array.isArray(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+      }
+      for (var i = 0; i < propValue.length; i++) {
+        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+        if (error instanceof Error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!isValidElement(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!ReactIs.isValidElementType(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createInstanceTypeChecker(expectedClass) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!(props[propName] instanceof expectedClass)) {
+        var expectedClassName = expectedClass.name || ANONYMOUS;
+        var actualClassName = getClassName(props[propName]);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createEnumTypeChecker(expectedValues) {
+    if (!Array.isArray(expectedValues)) {
+      if (true) {
+        if (arguments.length > 1) {
+          printWarning(
+            'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
+            'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
+          );
+        } else {
+          printWarning('Invalid argument supplied to oneOf, expected an array.');
+        }
+      }
+      return emptyFunctionThatReturnsNull;
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      for (var i = 0; i < expectedValues.length; i++) {
+        if (is(propValue, expectedValues[i])) {
+          return null;
+        }
+      }
+
+      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+        var type = getPreciseType(value);
+        if (type === 'symbol') {
+          return String(value);
+        }
+        return value;
+      });
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createObjectOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+      }
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+      }
+      for (var key in propValue) {
+        if (has(propValue, key)) {
+          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+          if (error instanceof Error) {
+            return error;
+          }
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createUnionTypeChecker(arrayOfTypeCheckers) {
+    if (!Array.isArray(arrayOfTypeCheckers)) {
+       true ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : 0;
+      return emptyFunctionThatReturnsNull;
+    }
+
+    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+      var checker = arrayOfTypeCheckers[i];
+      if (typeof checker !== 'function') {
+        printWarning(
+          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
+          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
+        );
+        return emptyFunctionThatReturnsNull;
+      }
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      var expectedTypes = [];
+      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+        var checker = arrayOfTypeCheckers[i];
+        var checkerResult = checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret);
+        if (checkerResult == null) {
+          return null;
+        }
+        if (checkerResult.data && has(checkerResult.data, 'expectedType')) {
+          expectedTypes.push(checkerResult.data.expectedType);
+        }
+      }
+      var expectedTypesMessage = (expectedTypes.length > 0) ? ', expected one of type [' + expectedTypes.join(', ') + ']': '';
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`' + expectedTypesMessage + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createNodeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!isNode(props[propName])) {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function invalidValidatorError(componentName, location, propFullName, key, type) {
+    return new PropTypeError(
+      (componentName || 'React class') + ': ' + location + ' type `' + propFullName + '.' + key + '` is invalid; ' +
+      'it must be a function, usually from the `prop-types` package, but received `' + type + '`.'
+    );
+  }
+
+  function createShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      for (var key in shapeTypes) {
+        var checker = shapeTypes[key];
+        if (typeof checker !== 'function') {
+          return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createStrictShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      // We need to check all keys in case some are required but missing from props.
+      var allKeys = assign({}, props[propName], shapeTypes);
+      for (var key in allKeys) {
+        var checker = shapeTypes[key];
+        if (has(shapeTypes, key) && typeof checker !== 'function') {
+          return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+        }
+        if (!checker) {
+          return new PropTypeError(
+            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
+            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
+            '\nValid keys: ' + JSON.stringify(Object.keys(shapeTypes), null, '  ')
+          );
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+
+    return createChainableTypeChecker(validate);
+  }
+
+  function isNode(propValue) {
+    switch (typeof propValue) {
+      case 'number':
+      case 'string':
+      case 'undefined':
+        return true;
+      case 'boolean':
+        return !propValue;
+      case 'object':
+        if (Array.isArray(propValue)) {
+          return propValue.every(isNode);
+        }
+        if (propValue === null || isValidElement(propValue)) {
+          return true;
+        }
+
+        var iteratorFn = getIteratorFn(propValue);
+        if (iteratorFn) {
+          var iterator = iteratorFn.call(propValue);
+          var step;
+          if (iteratorFn !== propValue.entries) {
+            while (!(step = iterator.next()).done) {
+              if (!isNode(step.value)) {
+                return false;
+              }
+            }
+          } else {
+            // Iterator will provide entry [k,v] tuples rather than values.
+            while (!(step = iterator.next()).done) {
+              var entry = step.value;
+              if (entry) {
+                if (!isNode(entry[1])) {
+                  return false;
+                }
+              }
+            }
+          }
+        } else {
+          return false;
+        }
+
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  function isSymbol(propType, propValue) {
+    // Native Symbol.
+    if (propType === 'symbol') {
+      return true;
+    }
+
+    // falsy value can't be a Symbol
+    if (!propValue) {
+      return false;
+    }
+
+    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+    if (propValue['@@toStringTag'] === 'Symbol') {
+      return true;
+    }
+
+    // Fallback for non-spec compliant Symbols which are polyfilled.
+    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+      return true;
+    }
+
+    return false;
+  }
+
+  // Equivalent of `typeof` but with special handling for array and regexp.
+  function getPropType(propValue) {
+    var propType = typeof propValue;
+    if (Array.isArray(propValue)) {
+      return 'array';
+    }
+    if (propValue instanceof RegExp) {
+      // Old webkits (at least until Android 4.0) return 'function' rather than
+      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+      // passes PropTypes.object.
+      return 'object';
+    }
+    if (isSymbol(propType, propValue)) {
+      return 'symbol';
+    }
+    return propType;
+  }
+
+  // This handles more types than `getPropType`. Only used for error messages.
+  // See `createPrimitiveTypeChecker`.
+  function getPreciseType(propValue) {
+    if (typeof propValue === 'undefined' || propValue === null) {
+      return '' + propValue;
+    }
+    var propType = getPropType(propValue);
+    if (propType === 'object') {
+      if (propValue instanceof Date) {
+        return 'date';
+      } else if (propValue instanceof RegExp) {
+        return 'regexp';
+      }
+    }
+    return propType;
+  }
+
+  // Returns a string that is postfixed to a warning about an invalid type.
+  // For example, "undefined" or "of type array"
+  function getPostfixForTypeWarning(value) {
+    var type = getPreciseType(value);
+    switch (type) {
+      case 'array':
+      case 'object':
+        return 'an ' + type;
+      case 'boolean':
+      case 'date':
+      case 'regexp':
+        return 'a ' + type;
+      default:
+        return type;
+    }
+  }
+
+  // Returns class name of the object, if any.
+  function getClassName(propValue) {
+    if (!propValue.constructor || !propValue.constructor.name) {
+      return ANONYMOUS;
+    }
+    return propValue.constructor.name;
+  }
+
+  ReactPropTypes.checkPropTypes = checkPropTypes;
+  ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/prop-types/index.js ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (true) {
+  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/prop-types/node_modules/react-is/index.js");
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(/*! ./factoryWithTypeCheckers */ "./node_modules/prop-types/factoryWithTypeCheckers.js")(ReactIs.isElement, throwOnDirectAccess);
+} else {}
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/lib/ReactPropTypesSecret.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+module.exports = ReactPropTypesSecret;
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/lib/has.js":
+/*!********************************************!*\
+  !*** ./node_modules/prop-types/lib/has.js ***!
+  \********************************************/
+/***/ ((module) => {
+
+module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+/** @license React v16.13.1
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+if (true) {
+  (function() {
+'use strict';
+
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+// (unstable) APIs that have been removed. Can we remove the symbols?
+
+var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
+var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
+var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
+var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
+var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
+var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
+
+function isValidElementType(type) {
+  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+}
+
+function typeOf(object) {
+  if (typeof object === 'object' && object !== null) {
+    var $$typeof = object.$$typeof;
+
+    switch ($$typeof) {
+      case REACT_ELEMENT_TYPE:
+        var type = object.type;
+
+        switch (type) {
+          case REACT_ASYNC_MODE_TYPE:
+          case REACT_CONCURRENT_MODE_TYPE:
+          case REACT_FRAGMENT_TYPE:
+          case REACT_PROFILER_TYPE:
+          case REACT_STRICT_MODE_TYPE:
+          case REACT_SUSPENSE_TYPE:
+            return type;
+
+          default:
+            var $$typeofType = type && type.$$typeof;
+
+            switch ($$typeofType) {
+              case REACT_CONTEXT_TYPE:
+              case REACT_FORWARD_REF_TYPE:
+              case REACT_LAZY_TYPE:
+              case REACT_MEMO_TYPE:
+              case REACT_PROVIDER_TYPE:
+                return $$typeofType;
+
+              default:
+                return $$typeof;
+            }
+
+        }
+
+      case REACT_PORTAL_TYPE:
+        return $$typeof;
+    }
+  }
+
+  return undefined;
+} // AsyncMode is deprecated along with isAsyncMode
+
+var AsyncMode = REACT_ASYNC_MODE_TYPE;
+var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+var ContextConsumer = REACT_CONTEXT_TYPE;
+var ContextProvider = REACT_PROVIDER_TYPE;
+var Element = REACT_ELEMENT_TYPE;
+var ForwardRef = REACT_FORWARD_REF_TYPE;
+var Fragment = REACT_FRAGMENT_TYPE;
+var Lazy = REACT_LAZY_TYPE;
+var Memo = REACT_MEMO_TYPE;
+var Portal = REACT_PORTAL_TYPE;
+var Profiler = REACT_PROFILER_TYPE;
+var StrictMode = REACT_STRICT_MODE_TYPE;
+var Suspense = REACT_SUSPENSE_TYPE;
+var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
+
+function isAsyncMode(object) {
+  {
+    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+
+      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+    }
+  }
+
+  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+}
+function isConcurrentMode(object) {
+  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+}
+function isContextConsumer(object) {
+  return typeOf(object) === REACT_CONTEXT_TYPE;
+}
+function isContextProvider(object) {
+  return typeOf(object) === REACT_PROVIDER_TYPE;
+}
+function isElement(object) {
+  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+}
+function isForwardRef(object) {
+  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+}
+function isFragment(object) {
+  return typeOf(object) === REACT_FRAGMENT_TYPE;
+}
+function isLazy(object) {
+  return typeOf(object) === REACT_LAZY_TYPE;
+}
+function isMemo(object) {
+  return typeOf(object) === REACT_MEMO_TYPE;
+}
+function isPortal(object) {
+  return typeOf(object) === REACT_PORTAL_TYPE;
+}
+function isProfiler(object) {
+  return typeOf(object) === REACT_PROFILER_TYPE;
+}
+function isStrictMode(object) {
+  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+}
+function isSuspense(object) {
+  return typeOf(object) === REACT_SUSPENSE_TYPE;
+}
+
+exports.AsyncMode = AsyncMode;
+exports.ConcurrentMode = ConcurrentMode;
+exports.ContextConsumer = ContextConsumer;
+exports.ContextProvider = ContextProvider;
+exports.Element = Element;
+exports.ForwardRef = ForwardRef;
+exports.Fragment = Fragment;
+exports.Lazy = Lazy;
+exports.Memo = Memo;
+exports.Portal = Portal;
+exports.Profiler = Profiler;
+exports.StrictMode = StrictMode;
+exports.Suspense = Suspense;
+exports.isAsyncMode = isAsyncMode;
+exports.isConcurrentMode = isConcurrentMode;
+exports.isContextConsumer = isContextConsumer;
+exports.isContextProvider = isContextProvider;
+exports.isElement = isElement;
+exports.isForwardRef = isForwardRef;
+exports.isFragment = isFragment;
+exports.isLazy = isLazy;
+exports.isMemo = isMemo;
+exports.isPortal = isPortal;
+exports.isProfiler = isProfiler;
+exports.isStrictMode = isStrictMode;
+exports.isSuspense = isSuspense;
+exports.isValidElementType = isValidElementType;
+exports.typeOf = typeOf;
+  })();
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/prop-types/node_modules/react-is/index.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/prop-types/node_modules/react-is/index.js ***!
+  \****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js");
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/react-dom/client.js":
+/*!******************************************!*\
+  !*** ./node_modules/react-dom/client.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var m = __webpack_require__(/*! react-dom */ "react-dom");
+if (false) {} else {
+  var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+  exports.createRoot = function(c, o) {
+    i.usingClientEntryPoint = true;
+    try {
+      return m.createRoot(c, o);
+    } finally {
+      i.usingClientEntryPoint = false;
+    }
+  };
+  exports.hydrateRoot = function(c, h, o) {
+    i.usingClientEntryPoint = true;
+    try {
+      return m.hydrateRoot(c, h, o);
+    } finally {
+      i.usingClientEntryPoint = false;
+    }
+  };
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/react-draggable/build/cjs/Draggable.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-draggable/build/cjs/Draggable.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+Object.defineProperty(exports, "DraggableCore", ({
+  enumerable: true,
+  get: function () {
+    return _DraggableCore.default;
+  }
+}));
+exports["default"] = void 0;
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+var _reactDom = _interopRequireDefault(__webpack_require__(/*! react-dom */ "react-dom"));
+var _clsx = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.js");
+var _domFns = __webpack_require__(/*! ./utils/domFns */ "./node_modules/react-draggable/build/cjs/utils/domFns.js");
+var _positionFns = __webpack_require__(/*! ./utils/positionFns */ "./node_modules/react-draggable/build/cjs/utils/positionFns.js");
+var _shims = __webpack_require__(/*! ./utils/shims */ "./node_modules/react-draggable/build/cjs/utils/shims.js");
+var _DraggableCore = _interopRequireDefault(__webpack_require__(/*! ./DraggableCore */ "./node_modules/react-draggable/build/cjs/DraggableCore.js"));
+var _log = _interopRequireDefault(__webpack_require__(/*! ./utils/log */ "./node_modules/react-draggable/build/cjs/utils/log.js"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); } /*:: import type {ControlPosition, PositionOffsetControlPosition, DraggableCoreProps, DraggableCoreDefaultProps} from './DraggableCore';*/
+/*:: import type {Bounds, DraggableEventHandler} from './utils/types';*/
+/*:: import type {Element as ReactElement} from 'react';*/
+/*:: type DraggableState = {
+  dragging: boolean,
+  dragged: boolean,
+  x: number, y: number,
+  slackX: number, slackY: number,
+  isElementSVG: boolean,
+  prevPropsPosition: ?ControlPosition,
+};*/
+/*:: export type DraggableDefaultProps = {
+  ...DraggableCoreDefaultProps,
+  axis: 'both' | 'x' | 'y' | 'none',
+  bounds: Bounds | string | false,
+  defaultClassName: string,
+  defaultClassNameDragging: string,
+  defaultClassNameDragged: string,
+  defaultPosition: ControlPosition,
+  scale: number,
+};*/
+/*:: export type DraggableProps = {
+  ...DraggableCoreProps,
+  ...DraggableDefaultProps,
+  positionOffset: PositionOffsetControlPosition,
+  position: ControlPosition,
+};*/
+//
+// Define <Draggable>
+//
+class Draggable extends React.Component /*:: <DraggableProps, DraggableState>*/{
+  // React 16.3+
+  // Arity (props, state)
+  static getDerivedStateFromProps(_ref /*:: */, _ref2 /*:: */) /*: ?Partial<DraggableState>*/{
+    let {
+      position
+    } /*: DraggableProps*/ = _ref /*: DraggableProps*/;
+    let {
+      prevPropsPosition
+    } /*: DraggableState*/ = _ref2 /*: DraggableState*/;
+    // Set x/y if a new position is provided in props that is different than the previous.
+    if (position && (!prevPropsPosition || position.x !== prevPropsPosition.x || position.y !== prevPropsPosition.y)) {
+      (0, _log.default)('Draggable: getDerivedStateFromProps %j', {
+        position,
+        prevPropsPosition
+      });
+      return {
+        x: position.x,
+        y: position.y,
+        prevPropsPosition: {
+          ...position
+        }
+      };
+    }
+    return null;
+  }
+  constructor(props /*: DraggableProps*/) {
+    super(props);
+    _defineProperty(this, "onDragStart", (e, coreData) => {
+      (0, _log.default)('Draggable: onDragStart: %j', coreData);
+
+      // Short-circuit if user's callback killed it.
+      const shouldStart = this.props.onStart(e, (0, _positionFns.createDraggableData)(this, coreData));
+      // Kills start event on core as well, so move handlers are never bound.
+      if (shouldStart === false) return false;
+      this.setState({
+        dragging: true,
+        dragged: true
+      });
+    });
+    _defineProperty(this, "onDrag", (e, coreData) => {
+      if (!this.state.dragging) return false;
+      (0, _log.default)('Draggable: onDrag: %j', coreData);
+      const uiData = (0, _positionFns.createDraggableData)(this, coreData);
+      const newState = {
+        x: uiData.x,
+        y: uiData.y,
+        slackX: 0,
+        slackY: 0
+      };
+
+      // Keep within bounds.
+      if (this.props.bounds) {
+        // Save original x and y.
+        const {
+          x,
+          y
+        } = newState;
+
+        // Add slack to the values used to calculate bound position. This will ensure that if
+        // we start removing slack, the element won't react to it right away until it's been
+        // completely removed.
+        newState.x += this.state.slackX;
+        newState.y += this.state.slackY;
+
+        // Get bound position. This will ceil/floor the x and y within the boundaries.
+        const [newStateX, newStateY] = (0, _positionFns.getBoundPosition)(this, newState.x, newState.y);
+        newState.x = newStateX;
+        newState.y = newStateY;
+
+        // Recalculate slack by noting how much was shaved by the boundPosition handler.
+        newState.slackX = this.state.slackX + (x - newState.x);
+        newState.slackY = this.state.slackY + (y - newState.y);
+
+        // Update the event we fire to reflect what really happened after bounds took effect.
+        uiData.x = newState.x;
+        uiData.y = newState.y;
+        uiData.deltaX = newState.x - this.state.x;
+        uiData.deltaY = newState.y - this.state.y;
+      }
+
+      // Short-circuit if user's callback killed it.
+      const shouldUpdate = this.props.onDrag(e, uiData);
+      if (shouldUpdate === false) return false;
+      this.setState(newState);
+    });
+    _defineProperty(this, "onDragStop", (e, coreData) => {
+      if (!this.state.dragging) return false;
+
+      // Short-circuit if user's callback killed it.
+      const shouldContinue = this.props.onStop(e, (0, _positionFns.createDraggableData)(this, coreData));
+      if (shouldContinue === false) return false;
+      (0, _log.default)('Draggable: onDragStop: %j', coreData);
+      const newState /*: Partial<DraggableState>*/ = {
+        dragging: false,
+        slackX: 0,
+        slackY: 0
+      };
+
+      // If this is a controlled component, the result of this operation will be to
+      // revert back to the old position. We expect a handler on `onDragStop`, at the least.
+      const controlled = Boolean(this.props.position);
+      if (controlled) {
+        const {
+          x,
+          y
+        } = this.props.position;
+        newState.x = x;
+        newState.y = y;
+      }
+      this.setState(newState);
+    });
+    this.state = {
+      // Whether or not we are currently dragging.
+      dragging: false,
+      // Whether or not we have been dragged before.
+      dragged: false,
+      // Current transform x and y.
+      x: props.position ? props.position.x : props.defaultPosition.x,
+      y: props.position ? props.position.y : props.defaultPosition.y,
+      prevPropsPosition: {
+        ...props.position
+      },
+      // Used for compensating for out-of-bounds drags
+      slackX: 0,
+      slackY: 0,
+      // Can only determine if SVG after mounting
+      isElementSVG: false
+    };
+    if (props.position && !(props.onDrag || props.onStop)) {
+      // eslint-disable-next-line no-console
+      console.warn('A `position` was applied to this <Draggable>, without drag handlers. This will make this ' + 'component effectively undraggable. Please attach `onDrag` or `onStop` handlers so you can adjust the ' + '`position` of this element.');
+    }
+  }
+  componentDidMount() {
+    // Check to see if the element passed is an instanceof SVGElement
+    if (typeof window.SVGElement !== 'undefined' && this.findDOMNode() instanceof window.SVGElement) {
+      this.setState({
+        isElementSVG: true
+      });
+    }
+  }
+  componentWillUnmount() {
+    if (this.state.dragging) {
+      this.setState({
+        dragging: false
+      }); // prevents invariant if unmounted while dragging
+    }
+  }
+
+  // React Strict Mode compatibility: if `nodeRef` is passed, we will use it instead of trying to find
+  // the underlying DOM node ourselves. See the README for more information.
+  findDOMNode() /*: ?HTMLElement*/{
+    return this.props?.nodeRef?.current ?? _reactDom.default.findDOMNode(this);
+  }
+  render() /*: ReactElement<any>*/{
+    const {
+      axis,
+      bounds,
+      children,
+      defaultPosition,
+      defaultClassName,
+      defaultClassNameDragging,
+      defaultClassNameDragged,
+      position,
+      positionOffset,
+      scale,
+      ...draggableCoreProps
+    } = this.props;
+    let style = {};
+    let svgTransform = null;
+
+    // If this is controlled, we don't want to move it - unless it's dragging.
+    const controlled = Boolean(position);
+    const draggable = !controlled || this.state.dragging;
+    const validPosition = position || defaultPosition;
+    const transformOpts = {
+      // Set left if horizontal drag is enabled
+      x: (0, _positionFns.canDragX)(this) && draggable ? this.state.x : validPosition.x,
+      // Set top if vertical drag is enabled
+      y: (0, _positionFns.canDragY)(this) && draggable ? this.state.y : validPosition.y
+    };
+
+    // If this element was SVG, we use the `transform` attribute.
+    if (this.state.isElementSVG) {
+      svgTransform = (0, _domFns.createSVGTransform)(transformOpts, positionOffset);
+    } else {
+      // Add a CSS transform to move the element around. This allows us to move the element around
+      // without worrying about whether or not it is relatively or absolutely positioned.
+      // If the item you are dragging already has a transform set, wrap it in a <span> so <Draggable>
+      // has a clean slate.
+      style = (0, _domFns.createCSSTransform)(transformOpts, positionOffset);
+    }
+
+    // Mark with class while dragging
+    const className = (0, _clsx.clsx)(children.props.className || '', defaultClassName, {
+      [defaultClassNameDragging]: this.state.dragging,
+      [defaultClassNameDragged]: this.state.dragged
+    });
+
+    // Reuse the child provided
+    // This makes it flexible to use whatever element is wanted (div, ul, etc)
+    return /*#__PURE__*/React.createElement(_DraggableCore.default, _extends({}, draggableCoreProps, {
+      onStart: this.onDragStart,
+      onDrag: this.onDrag,
+      onStop: this.onDragStop
+    }), /*#__PURE__*/React.cloneElement(React.Children.only(children), {
+      className: className,
+      style: {
+        ...children.props.style,
+        ...style
+      },
+      transform: svgTransform
+    }));
+  }
+}
+exports["default"] = Draggable;
+_defineProperty(Draggable, "displayName", 'Draggable');
+_defineProperty(Draggable, "propTypes", {
+  // Accepts all props <DraggableCore> accepts.
+  ..._DraggableCore.default.propTypes,
+  /**
+   * `axis` determines which axis the draggable can move.
+   *
+   *  Note that all callbacks will still return data as normal. This only
+   *  controls flushing to the DOM.
+   *
+   * 'both' allows movement horizontally and vertically.
+   * 'x' limits movement to horizontal axis.
+   * 'y' limits movement to vertical axis.
+   * 'none' limits all movement.
+   *
+   * Defaults to 'both'.
+   */
+  axis: _propTypes.default.oneOf(['both', 'x', 'y', 'none']),
+  /**
+   * `bounds` determines the range of movement available to the element.
+   * Available values are:
+   *
+   * 'parent' restricts movement within the Draggable's parent node.
+   *
+   * Alternatively, pass an object with the following properties, all of which are optional:
+   *
+   * {left: LEFT_BOUND, right: RIGHT_BOUND, bottom: BOTTOM_BOUND, top: TOP_BOUND}
+   *
+   * All values are in px.
+   *
+   * Example:
+   *
+   * ```jsx
+   *   let App = React.createClass({
+   *       render: function () {
+   *         return (
+   *            <Draggable bounds={{right: 300, bottom: 300}}>
+   *              <div>Content</div>
+   *           </Draggable>
+   *         );
+   *       }
+   *   });
+   * ```
+   */
+  bounds: _propTypes.default.oneOfType([_propTypes.default.shape({
+    left: _propTypes.default.number,
+    right: _propTypes.default.number,
+    top: _propTypes.default.number,
+    bottom: _propTypes.default.number
+  }), _propTypes.default.string, _propTypes.default.oneOf([false])]),
+  defaultClassName: _propTypes.default.string,
+  defaultClassNameDragging: _propTypes.default.string,
+  defaultClassNameDragged: _propTypes.default.string,
+  /**
+   * `defaultPosition` specifies the x and y that the dragged item should start at
+   *
+   * Example:
+   *
+   * ```jsx
+   *      let App = React.createClass({
+   *          render: function () {
+   *              return (
+   *                  <Draggable defaultPosition={{x: 25, y: 25}}>
+   *                      <div>I start with transformX: 25px and transformY: 25px;</div>
+   *                  </Draggable>
+   *              );
+   *          }
+   *      });
+   * ```
+   */
+  defaultPosition: _propTypes.default.shape({
+    x: _propTypes.default.number,
+    y: _propTypes.default.number
+  }),
+  positionOffset: _propTypes.default.shape({
+    x: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+    y: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])
+  }),
+  /**
+   * `position`, if present, defines the current position of the element.
+   *
+   *  This is similar to how form elements in React work - if no `position` is supplied, the component
+   *  is uncontrolled.
+   *
+   * Example:
+   *
+   * ```jsx
+   *      let App = React.createClass({
+   *          render: function () {
+   *              return (
+   *                  <Draggable position={{x: 25, y: 25}}>
+   *                      <div>I start with transformX: 25px and transformY: 25px;</div>
+   *                  </Draggable>
+   *              );
+   *          }
+   *      });
+   * ```
+   */
+  position: _propTypes.default.shape({
+    x: _propTypes.default.number,
+    y: _propTypes.default.number
+  }),
+  /**
+   * These properties should be defined on the child, not here.
+   */
+  className: _shims.dontSetMe,
+  style: _shims.dontSetMe,
+  transform: _shims.dontSetMe
+});
+_defineProperty(Draggable, "defaultProps", {
+  ..._DraggableCore.default.defaultProps,
+  axis: 'both',
+  bounds: false,
+  defaultClassName: 'react-draggable',
+  defaultClassNameDragging: 'react-draggable-dragging',
+  defaultClassNameDragged: 'react-draggable-dragged',
+  defaultPosition: {
+    x: 0,
+    y: 0
+  },
+  scale: 1
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-draggable/build/cjs/DraggableCore.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/react-draggable/build/cjs/DraggableCore.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+var _reactDom = _interopRequireDefault(__webpack_require__(/*! react-dom */ "react-dom"));
+var _domFns = __webpack_require__(/*! ./utils/domFns */ "./node_modules/react-draggable/build/cjs/utils/domFns.js");
+var _positionFns = __webpack_require__(/*! ./utils/positionFns */ "./node_modules/react-draggable/build/cjs/utils/positionFns.js");
+var _shims = __webpack_require__(/*! ./utils/shims */ "./node_modules/react-draggable/build/cjs/utils/shims.js");
+var _log = _interopRequireDefault(__webpack_require__(/*! ./utils/log */ "./node_modules/react-draggable/build/cjs/utils/log.js"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+/*:: import type {EventHandler, MouseTouchEvent} from './utils/types';*/
+/*:: import type {Element as ReactElement} from 'react';*/
+// Simple abstraction for dragging events names.
+const eventsFor = {
+  touch: {
+    start: 'touchstart',
+    move: 'touchmove',
+    stop: 'touchend'
+  },
+  mouse: {
+    start: 'mousedown',
+    move: 'mousemove',
+    stop: 'mouseup'
+  }
+};
+
+// Default to mouse events.
+let dragEventFor = eventsFor.mouse;
+/*:: export type DraggableData = {
+  node: HTMLElement,
+  x: number, y: number,
+  deltaX: number, deltaY: number,
+  lastX: number, lastY: number,
+};*/
+/*:: export type DraggableEventHandler = (e: MouseEvent, data: DraggableData) => void | false;*/
+/*:: export type ControlPosition = {x: number, y: number};*/
+/*:: export type PositionOffsetControlPosition = {x: number|string, y: number|string};*/
+/*:: export type DraggableCoreDefaultProps = {
+  allowAnyClick: boolean,
+  allowMobileScroll: boolean,
+  disabled: boolean,
+  enableUserSelectHack: boolean,
+  onStart: DraggableEventHandler,
+  onDrag: DraggableEventHandler,
+  onStop: DraggableEventHandler,
+  onMouseDown: (e: MouseEvent) => void,
+  scale: number,
+};*/
+/*:: export type DraggableCoreProps = {
+  ...DraggableCoreDefaultProps,
+  cancel: string,
+  children: ReactElement<any>,
+  offsetParent: HTMLElement,
+  grid: [number, number],
+  handle: string,
+  nodeRef?: ?React.ElementRef<any>,
+};*/
+//
+// Define <DraggableCore>.
+//
+// <DraggableCore> is for advanced usage of <Draggable>. It maintains minimal internal state so it can
+// work well with libraries that require more control over the element.
+//
+
+class DraggableCore extends React.Component /*:: <DraggableCoreProps>*/{
+  constructor() {
+    super(...arguments);
+    _defineProperty(this, "dragging", false);
+    // Used while dragging to determine deltas.
+    _defineProperty(this, "lastX", NaN);
+    _defineProperty(this, "lastY", NaN);
+    _defineProperty(this, "touchIdentifier", null);
+    _defineProperty(this, "mounted", false);
+    _defineProperty(this, "handleDragStart", e => {
+      // Make it possible to attach event handlers on top of this one.
+      this.props.onMouseDown(e);
+
+      // Only accept left-clicks.
+      if (!this.props.allowAnyClick && typeof e.button === 'number' && e.button !== 0) return false;
+
+      // Get nodes. Be sure to grab relative document (could be iframed)
+      const thisNode = this.findDOMNode();
+      if (!thisNode || !thisNode.ownerDocument || !thisNode.ownerDocument.body) {
+        throw new Error('<DraggableCore> not mounted on DragStart!');
+      }
+      const {
+        ownerDocument
+      } = thisNode;
+
+      // Short circuit if handle or cancel prop was provided and selector doesn't match.
+      if (this.props.disabled || !(e.target instanceof ownerDocument.defaultView.Node) || this.props.handle && !(0, _domFns.matchesSelectorAndParentsTo)(e.target, this.props.handle, thisNode) || this.props.cancel && (0, _domFns.matchesSelectorAndParentsTo)(e.target, this.props.cancel, thisNode)) {
+        return;
+      }
+
+      // Prevent scrolling on mobile devices, like ipad/iphone.
+      // Important that this is after handle/cancel.
+      if (e.type === 'touchstart' && !this.props.allowMobileScroll) e.preventDefault();
+
+      // Set touch identifier in component state if this is a touch event. This allows us to
+      // distinguish between individual touches on multitouch screens by identifying which
+      // touchpoint was set to this element.
+      const touchIdentifier = (0, _domFns.getTouchIdentifier)(e);
+      this.touchIdentifier = touchIdentifier;
+
+      // Get the current drag point from the event. This is used as the offset.
+      const position = (0, _positionFns.getControlPosition)(e, touchIdentifier, this);
+      if (position == null) return; // not possible but satisfies flow
+      const {
+        x,
+        y
+      } = position;
+
+      // Create an event object with all the data parents need to make a decision here.
+      const coreEvent = (0, _positionFns.createCoreData)(this, x, y);
+      (0, _log.default)('DraggableCore: handleDragStart: %j', coreEvent);
+
+      // Call event handler. If it returns explicit false, cancel.
+      (0, _log.default)('calling', this.props.onStart);
+      const shouldUpdate = this.props.onStart(e, coreEvent);
+      if (shouldUpdate === false || this.mounted === false) return;
+
+      // Add a style to the body to disable user-select. This prevents text from
+      // being selected all over the page.
+      if (this.props.enableUserSelectHack) (0, _domFns.addUserSelectStyles)(ownerDocument);
+
+      // Initiate dragging. Set the current x and y as offsets
+      // so we know how much we've moved during the drag. This allows us
+      // to drag elements around even if they have been moved, without issue.
+      this.dragging = true;
+      this.lastX = x;
+      this.lastY = y;
+
+      // Add events to the document directly so we catch when the user's mouse/touch moves outside of
+      // this element. We use different events depending on whether or not we have detected that this
+      // is a touch-capable device.
+      (0, _domFns.addEvent)(ownerDocument, dragEventFor.move, this.handleDrag);
+      (0, _domFns.addEvent)(ownerDocument, dragEventFor.stop, this.handleDragStop);
+    });
+    _defineProperty(this, "handleDrag", e => {
+      // Get the current drag point from the event. This is used as the offset.
+      const position = (0, _positionFns.getControlPosition)(e, this.touchIdentifier, this);
+      if (position == null) return;
+      let {
+        x,
+        y
+      } = position;
+
+      // Snap to grid if prop has been provided
+      if (Array.isArray(this.props.grid)) {
+        let deltaX = x - this.lastX,
+          deltaY = y - this.lastY;
+        [deltaX, deltaY] = (0, _positionFns.snapToGrid)(this.props.grid, deltaX, deltaY);
+        if (!deltaX && !deltaY) return; // skip useless drag
+        x = this.lastX + deltaX, y = this.lastY + deltaY;
+      }
+      const coreEvent = (0, _positionFns.createCoreData)(this, x, y);
+      (0, _log.default)('DraggableCore: handleDrag: %j', coreEvent);
+
+      // Call event handler. If it returns explicit false, trigger end.
+      const shouldUpdate = this.props.onDrag(e, coreEvent);
+      if (shouldUpdate === false || this.mounted === false) {
+        try {
+          // $FlowIgnore
+          this.handleDragStop(new MouseEvent('mouseup'));
+        } catch (err) {
+          // Old browsers
+          const event = ((document.createEvent('MouseEvents') /*: any*/) /*: MouseTouchEvent*/);
+          // I see why this insanity was deprecated
+          // $FlowIgnore
+          event.initMouseEvent('mouseup', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+          this.handleDragStop(event);
+        }
+        return;
+      }
+      this.lastX = x;
+      this.lastY = y;
+    });
+    _defineProperty(this, "handleDragStop", e => {
+      if (!this.dragging) return;
+      const position = (0, _positionFns.getControlPosition)(e, this.touchIdentifier, this);
+      if (position == null) return;
+      let {
+        x,
+        y
+      } = position;
+
+      // Snap to grid if prop has been provided
+      if (Array.isArray(this.props.grid)) {
+        let deltaX = x - this.lastX || 0;
+        let deltaY = y - this.lastY || 0;
+        [deltaX, deltaY] = (0, _positionFns.snapToGrid)(this.props.grid, deltaX, deltaY);
+        x = this.lastX + deltaX, y = this.lastY + deltaY;
+      }
+      const coreEvent = (0, _positionFns.createCoreData)(this, x, y);
+
+      // Call event handler
+      const shouldContinue = this.props.onStop(e, coreEvent);
+      if (shouldContinue === false || this.mounted === false) return false;
+      const thisNode = this.findDOMNode();
+      if (thisNode) {
+        // Remove user-select hack
+        if (this.props.enableUserSelectHack) (0, _domFns.scheduleRemoveUserSelectStyles)(thisNode.ownerDocument);
+      }
+      (0, _log.default)('DraggableCore: handleDragStop: %j', coreEvent);
+
+      // Reset the el.
+      this.dragging = false;
+      this.lastX = NaN;
+      this.lastY = NaN;
+      if (thisNode) {
+        // Remove event handlers
+        (0, _log.default)('DraggableCore: Removing handlers');
+        (0, _domFns.removeEvent)(thisNode.ownerDocument, dragEventFor.move, this.handleDrag);
+        (0, _domFns.removeEvent)(thisNode.ownerDocument, dragEventFor.stop, this.handleDragStop);
+      }
+    });
+    _defineProperty(this, "onMouseDown", e => {
+      dragEventFor = eventsFor.mouse; // on touchscreen laptops we could switch back to mouse
+
+      return this.handleDragStart(e);
+    });
+    _defineProperty(this, "onMouseUp", e => {
+      dragEventFor = eventsFor.mouse;
+      return this.handleDragStop(e);
+    });
+    // Same as onMouseDown (start drag), but now consider this a touch device.
+    _defineProperty(this, "onTouchStart", e => {
+      // We're on a touch device now, so change the event handlers
+      dragEventFor = eventsFor.touch;
+      return this.handleDragStart(e);
+    });
+    _defineProperty(this, "onTouchEnd", e => {
+      // We're on a touch device now, so change the event handlers
+      dragEventFor = eventsFor.touch;
+      return this.handleDragStop(e);
+    });
+  }
+  componentDidMount() {
+    this.mounted = true;
+    // Touch handlers must be added with {passive: false} to be cancelable.
+    // https://developers.google.com/web/updates/2017/01/scrolling-intervention
+    const thisNode = this.findDOMNode();
+    if (thisNode) {
+      (0, _domFns.addEvent)(thisNode, eventsFor.touch.start, this.onTouchStart, {
+        passive: false
+      });
+    }
+  }
+  componentWillUnmount() {
+    this.mounted = false;
+    // Remove any leftover event handlers. Remove both touch and mouse handlers in case
+    // some browser quirk caused a touch event to fire during a mouse move, or vice versa.
+    const thisNode = this.findDOMNode();
+    if (thisNode) {
+      const {
+        ownerDocument
+      } = thisNode;
+      (0, _domFns.removeEvent)(ownerDocument, eventsFor.mouse.move, this.handleDrag);
+      (0, _domFns.removeEvent)(ownerDocument, eventsFor.touch.move, this.handleDrag);
+      (0, _domFns.removeEvent)(ownerDocument, eventsFor.mouse.stop, this.handleDragStop);
+      (0, _domFns.removeEvent)(ownerDocument, eventsFor.touch.stop, this.handleDragStop);
+      (0, _domFns.removeEvent)(thisNode, eventsFor.touch.start, this.onTouchStart, {
+        passive: false
+      });
+      if (this.props.enableUserSelectHack) (0, _domFns.scheduleRemoveUserSelectStyles)(ownerDocument);
+    }
+  }
+
+  // React Strict Mode compatibility: if `nodeRef` is passed, we will use it instead of trying to find
+  // the underlying DOM node ourselves. See the README for more information.
+  findDOMNode() /*: ?HTMLElement*/{
+    return this.props?.nodeRef ? this.props?.nodeRef?.current : _reactDom.default.findDOMNode(this);
+  }
+  render() /*: React.Element<any>*/{
+    // Reuse the child provided
+    // This makes it flexible to use whatever element is wanted (div, ul, etc)
+    return /*#__PURE__*/React.cloneElement(React.Children.only(this.props.children), {
+      // Note: mouseMove handler is attached to document so it will still function
+      // when the user drags quickly and leaves the bounds of the element.
+      onMouseDown: this.onMouseDown,
+      onMouseUp: this.onMouseUp,
+      // onTouchStart is added on `componentDidMount` so they can be added with
+      // {passive: false}, which allows it to cancel. See
+      // https://developers.google.com/web/updates/2017/01/scrolling-intervention
+      onTouchEnd: this.onTouchEnd
+    });
+  }
+}
+exports["default"] = DraggableCore;
+_defineProperty(DraggableCore, "displayName", 'DraggableCore');
+_defineProperty(DraggableCore, "propTypes", {
+  /**
+   * `allowAnyClick` allows dragging using any mouse button.
+   * By default, we only accept the left button.
+   *
+   * Defaults to `false`.
+   */
+  allowAnyClick: _propTypes.default.bool,
+  /**
+   * `allowMobileScroll` turns off cancellation of the 'touchstart' event
+   * on mobile devices. Only enable this if you are having trouble with click
+   * events. Prefer using 'handle' / 'cancel' instead.
+   *
+   * Defaults to `false`.
+   */
+  allowMobileScroll: _propTypes.default.bool,
+  children: _propTypes.default.node.isRequired,
+  /**
+   * `disabled`, if true, stops the <Draggable> from dragging. All handlers,
+   * with the exception of `onMouseDown`, will not fire.
+   */
+  disabled: _propTypes.default.bool,
+  /**
+   * By default, we add 'user-select:none' attributes to the document body
+   * to prevent ugly text selection during drag. If this is causing problems
+   * for your app, set this to `false`.
+   */
+  enableUserSelectHack: _propTypes.default.bool,
+  /**
+   * `offsetParent`, if set, uses the passed DOM node to compute drag offsets
+   * instead of using the parent node.
+   */
+  offsetParent: function (props /*: DraggableCoreProps*/, propName /*: $Keys<DraggableCoreProps>*/) {
+    if (props[propName] && props[propName].nodeType !== 1) {
+      throw new Error('Draggable\'s offsetParent must be a DOM Node.');
+    }
+  },
+  /**
+   * `grid` specifies the x and y that dragging should snap to.
+   */
+  grid: _propTypes.default.arrayOf(_propTypes.default.number),
+  /**
+   * `handle` specifies a selector to be used as the handle that initiates drag.
+   *
+   * Example:
+   *
+   * ```jsx
+   *   let App = React.createClass({
+   *       render: function () {
+   *         return (
+   *            <Draggable handle=".handle">
+   *              <div>
+   *                  <div className="handle">Click me to drag</div>
+   *                  <div>This is some other content</div>
+   *              </div>
+   *           </Draggable>
+   *         );
+   *       }
+   *   });
+   * ```
+   */
+  handle: _propTypes.default.string,
+  /**
+   * `cancel` specifies a selector to be used to prevent drag initialization.
+   *
+   * Example:
+   *
+   * ```jsx
+   *   let App = React.createClass({
+   *       render: function () {
+   *           return(
+   *               <Draggable cancel=".cancel">
+   *                   <div>
+   *                     <div className="cancel">You can't drag from here</div>
+   *                     <div>Dragging here works fine</div>
+   *                   </div>
+   *               </Draggable>
+   *           );
+   *       }
+   *   });
+   * ```
+   */
+  cancel: _propTypes.default.string,
+  /* If running in React Strict mode, ReactDOM.findDOMNode() is deprecated.
+   * Unfortunately, in order for <Draggable> to work properly, we need raw access
+   * to the underlying DOM node. If you want to avoid the warning, pass a `nodeRef`
+   * as in this example:
+   *
+   * function MyComponent() {
+   *   const nodeRef = React.useRef(null);
+   *   return (
+   *     <Draggable nodeRef={nodeRef}>
+   *       <div ref={nodeRef}>Example Target</div>
+   *     </Draggable>
+   *   );
+   * }
+   *
+   * This can be used for arbitrarily nested components, so long as the ref ends up
+   * pointing to the actual child DOM node and not a custom component.
+   */
+  nodeRef: _propTypes.default.object,
+  /**
+   * Called when dragging starts.
+   * If this function returns the boolean false, dragging will be canceled.
+   */
+  onStart: _propTypes.default.func,
+  /**
+   * Called while dragging.
+   * If this function returns the boolean false, dragging will be canceled.
+   */
+  onDrag: _propTypes.default.func,
+  /**
+   * Called when dragging stops.
+   * If this function returns the boolean false, the drag will remain active.
+   */
+  onStop: _propTypes.default.func,
+  /**
+   * A workaround option which can be passed if onMouseDown needs to be accessed,
+   * since it'll always be blocked (as there is internal use of onMouseDown)
+   */
+  onMouseDown: _propTypes.default.func,
+  /**
+   * `scale`, if set, applies scaling while dragging an element
+   */
+  scale: _propTypes.default.number,
+  /**
+   * These properties should be defined on the child, not here.
+   */
+  className: _shims.dontSetMe,
+  style: _shims.dontSetMe,
+  transform: _shims.dontSetMe
+});
+_defineProperty(DraggableCore, "defaultProps", {
+  allowAnyClick: false,
+  // by default only accept left click
+  allowMobileScroll: false,
+  disabled: false,
+  enableUserSelectHack: true,
+  onStart: function () {},
+  onDrag: function () {},
+  onStop: function () {},
+  onMouseDown: function () {},
+  scale: 1
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-draggable/build/cjs/cjs.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-draggable/build/cjs/cjs.js ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+const {
+  default: Draggable,
+  DraggableCore
+} = __webpack_require__(/*! ./Draggable */ "./node_modules/react-draggable/build/cjs/Draggable.js");
+
+// Previous versions of this lib exported <Draggable> as the root export. As to no-// them, or TypeScript, we export *both* as the root and as 'default'.
+// See https://github.com/mzabriskie/react-draggable/pull/254
+// and https://github.com/mzabriskie/react-draggable/issues/266
+module.exports = Draggable;
+module.exports["default"] = Draggable;
+module.exports.DraggableCore = DraggableCore;
+
+/***/ }),
+
+/***/ "./node_modules/react-draggable/build/cjs/utils/domFns.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-draggable/build/cjs/utils/domFns.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.addClassName = addClassName;
+exports.addEvent = addEvent;
+exports.addUserSelectStyles = addUserSelectStyles;
+exports.createCSSTransform = createCSSTransform;
+exports.createSVGTransform = createSVGTransform;
+exports.getTouch = getTouch;
+exports.getTouchIdentifier = getTouchIdentifier;
+exports.getTranslation = getTranslation;
+exports.innerHeight = innerHeight;
+exports.innerWidth = innerWidth;
+exports.matchesSelector = matchesSelector;
+exports.matchesSelectorAndParentsTo = matchesSelectorAndParentsTo;
+exports.offsetXYFromParent = offsetXYFromParent;
+exports.outerHeight = outerHeight;
+exports.outerWidth = outerWidth;
+exports.removeClassName = removeClassName;
+exports.removeEvent = removeEvent;
+exports.scheduleRemoveUserSelectStyles = scheduleRemoveUserSelectStyles;
+var _shims = __webpack_require__(/*! ./shims */ "./node_modules/react-draggable/build/cjs/utils/shims.js");
+var _getPrefix = _interopRequireWildcard(__webpack_require__(/*! ./getPrefix */ "./node_modules/react-draggable/build/cjs/utils/getPrefix.js"));
+function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
+/*:: import type {ControlPosition, PositionOffsetControlPosition, MouseTouchEvent} from './types';*/
+let matchesSelectorFunc = '';
+function matchesSelector(el /*: Node*/, selector /*: string*/) /*: boolean*/{
+  if (!matchesSelectorFunc) {
+    matchesSelectorFunc = (0, _shims.findInArray)(['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'], function (method) {
+      // $FlowIgnore: Doesn't think elements are indexable
+      return (0, _shims.isFunction)(el[method]);
+    });
+  }
+
+  // Might not be found entirely (not an Element?) - in that case, bail
+  // $FlowIgnore: Doesn't think elements are indexable
+  if (!(0, _shims.isFunction)(el[matchesSelectorFunc])) return false;
+
+  // $FlowIgnore: Doesn't think elements are indexable
+  return el[matchesSelectorFunc](selector);
+}
+
+// Works up the tree to the draggable itself attempting to match selector.
+function matchesSelectorAndParentsTo(el /*: Node*/, selector /*: string*/, baseNode /*: Node*/) /*: boolean*/{
+  let node = el;
+  do {
+    if (matchesSelector(node, selector)) return true;
+    if (node === baseNode) return false;
+    // $FlowIgnore[incompatible-type]
+    node = node.parentNode;
+  } while (node);
+  return false;
+}
+function addEvent(el /*: ?Node*/, event /*: string*/, handler /*: Function*/, inputOptions /*: Object*/) /*: void*/{
+  if (!el) return;
+  const options = {
+    capture: true,
+    ...inputOptions
+  };
+  // $FlowIgnore[method-unbinding]
+  if (el.addEventListener) {
+    el.addEventListener(event, handler, options);
+  } else if (el.attachEvent) {
+    el.attachEvent('on' + event, handler);
+  } else {
+    // $FlowIgnore: Doesn't think elements are indexable
+    el['on' + event] = handler;
+  }
+}
+function removeEvent(el /*: ?Node*/, event /*: string*/, handler /*: Function*/, inputOptions /*: Object*/) /*: void*/{
+  if (!el) return;
+  const options = {
+    capture: true,
+    ...inputOptions
+  };
+  // $FlowIgnore[method-unbinding]
+  if (el.removeEventListener) {
+    el.removeEventListener(event, handler, options);
+  } else if (el.detachEvent) {
+    el.detachEvent('on' + event, handler);
+  } else {
+    // $FlowIgnore: Doesn't think elements are indexable
+    el['on' + event] = null;
+  }
+}
+function outerHeight(node /*: HTMLElement*/) /*: number*/{
+  // This is deliberately excluding margin for our calculations, since we are using
+  // offsetTop which is including margin. See getBoundPosition
+  let height = node.clientHeight;
+  const computedStyle = node.ownerDocument.defaultView.getComputedStyle(node);
+  height += (0, _shims.int)(computedStyle.borderTopWidth);
+  height += (0, _shims.int)(computedStyle.borderBottomWidth);
+  return height;
+}
+function outerWidth(node /*: HTMLElement*/) /*: number*/{
+  // This is deliberately excluding margin for our calculations, since we are using
+  // offsetLeft which is including margin. See getBoundPosition
+  let width = node.clientWidth;
+  const computedStyle = node.ownerDocument.defaultView.getComputedStyle(node);
+  width += (0, _shims.int)(computedStyle.borderLeftWidth);
+  width += (0, _shims.int)(computedStyle.borderRightWidth);
+  return width;
+}
+function innerHeight(node /*: HTMLElement*/) /*: number*/{
+  let height = node.clientHeight;
+  const computedStyle = node.ownerDocument.defaultView.getComputedStyle(node);
+  height -= (0, _shims.int)(computedStyle.paddingTop);
+  height -= (0, _shims.int)(computedStyle.paddingBottom);
+  return height;
+}
+function innerWidth(node /*: HTMLElement*/) /*: number*/{
+  let width = node.clientWidth;
+  const computedStyle = node.ownerDocument.defaultView.getComputedStyle(node);
+  width -= (0, _shims.int)(computedStyle.paddingLeft);
+  width -= (0, _shims.int)(computedStyle.paddingRight);
+  return width;
+}
+/*:: interface EventWithOffset {
+  clientX: number, clientY: number
+}*/
+// Get from offsetParent
+function offsetXYFromParent(evt /*: EventWithOffset*/, offsetParent /*: HTMLElement*/, scale /*: number*/) /*: ControlPosition*/{
+  const isBody = offsetParent === offsetParent.ownerDocument.body;
+  const offsetParentRect = isBody ? {
+    left: 0,
+    top: 0
+  } : offsetParent.getBoundingClientRect();
+  const x = (evt.clientX + offsetParent.scrollLeft - offsetParentRect.left) / scale;
+  const y = (evt.clientY + offsetParent.scrollTop - offsetParentRect.top) / scale;
+  return {
+    x,
+    y
+  };
+}
+function createCSSTransform(controlPos /*: ControlPosition*/, positionOffset /*: PositionOffsetControlPosition*/) /*: Object*/{
+  const translation = getTranslation(controlPos, positionOffset, 'px');
+  return {
+    [(0, _getPrefix.browserPrefixToKey)('transform', _getPrefix.default)]: translation
+  };
+}
+function createSVGTransform(controlPos /*: ControlPosition*/, positionOffset /*: PositionOffsetControlPosition*/) /*: string*/{
+  const translation = getTranslation(controlPos, positionOffset, '');
+  return translation;
+}
+function getTranslation(_ref /*:: */, positionOffset /*: PositionOffsetControlPosition*/, unitSuffix /*: string*/) /*: string*/{
+  let {
+    x,
+    y
+  } /*: ControlPosition*/ = _ref /*: ControlPosition*/;
+  let translation = `translate(${x}${unitSuffix},${y}${unitSuffix})`;
+  if (positionOffset) {
+    const defaultX = `${typeof positionOffset.x === 'string' ? positionOffset.x : positionOffset.x + unitSuffix}`;
+    const defaultY = `${typeof positionOffset.y === 'string' ? positionOffset.y : positionOffset.y + unitSuffix}`;
+    translation = `translate(${defaultX}, ${defaultY})` + translation;
+  }
+  return translation;
+}
+function getTouch(e /*: MouseTouchEvent*/, identifier /*: number*/) /*: ?{clientX: number, clientY: number}*/{
+  return e.targetTouches && (0, _shims.findInArray)(e.targetTouches, t => identifier === t.identifier) || e.changedTouches && (0, _shims.findInArray)(e.changedTouches, t => identifier === t.identifier);
+}
+function getTouchIdentifier(e /*: MouseTouchEvent*/) /*: ?number*/{
+  if (e.targetTouches && e.targetTouches[0]) return e.targetTouches[0].identifier;
+  if (e.changedTouches && e.changedTouches[0]) return e.changedTouches[0].identifier;
+}
+
+// User-select Hacks:
+//
+// Useful for preventing blue highlights all over everything when dragging.
+
+// Note we're passing `document` b/c we could be iframed
+function addUserSelectStyles(doc /*: ?Document*/) {
+  if (!doc) return;
+  let styleEl = doc.getElementById('react-draggable-style-el');
+  if (!styleEl) {
+    styleEl = doc.createElement('style');
+    styleEl.type = 'text/css';
+    styleEl.id = 'react-draggable-style-el';
+    styleEl.innerHTML = '.react-draggable-transparent-selection *::-moz-selection {all: inherit;}\n';
+    styleEl.innerHTML += '.react-draggable-transparent-selection *::selection {all: inherit;}\n';
+    doc.getElementsByTagName('head')[0].appendChild(styleEl);
+  }
+  if (doc.body) addClassName(doc.body, 'react-draggable-transparent-selection');
+}
+function scheduleRemoveUserSelectStyles(doc /*: ?Document*/) {
+  // Prevent a possible "forced reflow"
+  if (window.requestAnimationFrame) {
+    window.requestAnimationFrame(() => {
+      removeUserSelectStyles(doc);
+    });
+  } else {
+    removeUserSelectStyles(doc);
+  }
+}
+function removeUserSelectStyles(doc /*: ?Document*/) {
+  if (!doc) return;
+  try {
+    if (doc.body) removeClassName(doc.body, 'react-draggable-transparent-selection');
+    // $FlowIgnore: IE
+    if (doc.selection) {
+      // $FlowIgnore: IE
+      doc.selection.empty();
+    } else {
+      // Remove selection caused by scroll, unless it's a focused input
+      // (we use doc.defaultView in case we're in an iframe)
+      const selection = (doc.defaultView || window).getSelection();
+      if (selection && selection.type !== 'Caret') {
+        selection.removeAllRanges();
+      }
+    }
+  } catch (e) {
+    // probably IE
+  }
+}
+function addClassName(el /*: HTMLElement*/, className /*: string*/) {
+  if (el.classList) {
+    el.classList.add(className);
+  } else {
+    if (!el.className.match(new RegExp(`(?:^|\\s)${className}(?!\\S)`))) {
+      el.className += ` ${className}`;
+    }
+  }
+}
+function removeClassName(el /*: HTMLElement*/, className /*: string*/) {
+  if (el.classList) {
+    el.classList.remove(className);
+  } else {
+    el.className = el.className.replace(new RegExp(`(?:^|\\s)${className}(?!\\S)`, 'g'), '');
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-draggable/build/cjs/utils/getPrefix.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-draggable/build/cjs/utils/getPrefix.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.browserPrefixToKey = browserPrefixToKey;
+exports.browserPrefixToStyle = browserPrefixToStyle;
+exports["default"] = void 0;
+exports.getPrefix = getPrefix;
+const prefixes = ['Moz', 'Webkit', 'O', 'ms'];
+function getPrefix() /*: string*/{
+  let prop /*: string*/ = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'transform';
+  // Ensure we're running in an environment where there is actually a global
+  // `window` obj
+  if (typeof window === 'undefined') return '';
+
+  // If we're in a pseudo-browser server-side environment, this access
+  // path may not exist, so bail out if it doesn't.
+  const style = window.document?.documentElement?.style;
+  if (!style) return '';
+  if (prop in style) return '';
+  for (let i = 0; i < prefixes.length; i++) {
+    if (browserPrefixToKey(prop, prefixes[i]) in style) return prefixes[i];
+  }
+  return '';
+}
+function browserPrefixToKey(prop /*: string*/, prefix /*: string*/) /*: string*/{
+  return prefix ? `${prefix}${kebabToTitleCase(prop)}` : prop;
+}
+function browserPrefixToStyle(prop /*: string*/, prefix /*: string*/) /*: string*/{
+  return prefix ? `-${prefix.toLowerCase()}-${prop}` : prop;
+}
+function kebabToTitleCase(str /*: string*/) /*: string*/{
+  let out = '';
+  let shouldCapitalize = true;
+  for (let i = 0; i < str.length; i++) {
+    if (shouldCapitalize) {
+      out += str[i].toUpperCase();
+      shouldCapitalize = false;
+    } else if (str[i] === '-') {
+      shouldCapitalize = true;
+    } else {
+      out += str[i];
+    }
+  }
+  return out;
+}
+
+// Default export is the prefix itself, like 'Moz', 'Webkit', etc
+// Note that you may have to re-test for certain things; for instance, Chrome 50
+// can handle unprefixed `transform`, but not unprefixed `user-select`
+var _default = exports["default"] = (getPrefix() /*: string*/);
+
+/***/ }),
+
+/***/ "./node_modules/react-draggable/build/cjs/utils/log.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-draggable/build/cjs/utils/log.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = log;
+/*eslint no-console:0*/
+function log() {
+  if (false) {}
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-draggable/build/cjs/utils/positionFns.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/react-draggable/build/cjs/utils/positionFns.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.canDragX = canDragX;
+exports.canDragY = canDragY;
+exports.createCoreData = createCoreData;
+exports.createDraggableData = createDraggableData;
+exports.getBoundPosition = getBoundPosition;
+exports.getControlPosition = getControlPosition;
+exports.snapToGrid = snapToGrid;
+var _shims = __webpack_require__(/*! ./shims */ "./node_modules/react-draggable/build/cjs/utils/shims.js");
+var _domFns = __webpack_require__(/*! ./domFns */ "./node_modules/react-draggable/build/cjs/utils/domFns.js");
+/*:: import type Draggable from '../Draggable';*/
+/*:: import type {Bounds, ControlPosition, DraggableData, MouseTouchEvent} from './types';*/
+/*:: import type DraggableCore from '../DraggableCore';*/
+function getBoundPosition(draggable /*: Draggable*/, x /*: number*/, y /*: number*/) /*: [number, number]*/{
+  // If no bounds, short-circuit and move on
+  if (!draggable.props.bounds) return [x, y];
+
+  // Clone new bounds
+  let {
+    bounds
+  } = draggable.props;
+  bounds = typeof bounds === 'string' ? bounds : cloneBounds(bounds);
+  const node = findDOMNode(draggable);
+  if (typeof bounds === 'string') {
+    const {
+      ownerDocument
+    } = node;
+    const ownerWindow = ownerDocument.defaultView;
+    let boundNode;
+    if (bounds === 'parent') {
+      boundNode = node.parentNode;
+    } else {
+      // Flow assigns the wrong return type (Node) for getRootNode(),
+      // so we cast it to one of the correct types (Element).
+      // The others are Document and ShadowRoot.
+      // All three implement querySelector() so it's safe to call.
+      const rootNode = ((node.getRootNode() /*: any*/) /*: Element*/);
+      boundNode = rootNode.querySelector(bounds);
+    }
+    if (!(boundNode instanceof ownerWindow.HTMLElement)) {
+      throw new Error('Bounds selector "' + bounds + '" could not find an element.');
+    }
+    const boundNodeEl /*: HTMLElement*/ = boundNode; // for Flow, can't seem to refine correctly
+    const nodeStyle = ownerWindow.getComputedStyle(node);
+    const boundNodeStyle = ownerWindow.getComputedStyle(boundNodeEl);
+    // Compute bounds. This is a pain with padding and offsets but this gets it exactly right.
+    bounds = {
+      left: -node.offsetLeft + (0, _shims.int)(boundNodeStyle.paddingLeft) + (0, _shims.int)(nodeStyle.marginLeft),
+      top: -node.offsetTop + (0, _shims.int)(boundNodeStyle.paddingTop) + (0, _shims.int)(nodeStyle.marginTop),
+      right: (0, _domFns.innerWidth)(boundNodeEl) - (0, _domFns.outerWidth)(node) - node.offsetLeft + (0, _shims.int)(boundNodeStyle.paddingRight) - (0, _shims.int)(nodeStyle.marginRight),
+      bottom: (0, _domFns.innerHeight)(boundNodeEl) - (0, _domFns.outerHeight)(node) - node.offsetTop + (0, _shims.int)(boundNodeStyle.paddingBottom) - (0, _shims.int)(nodeStyle.marginBottom)
+    };
+  }
+
+  // Keep x and y below right and bottom limits...
+  if ((0, _shims.isNum)(bounds.right)) x = Math.min(x, bounds.right);
+  if ((0, _shims.isNum)(bounds.bottom)) y = Math.min(y, bounds.bottom);
+
+  // But above left and top limits.
+  if ((0, _shims.isNum)(bounds.left)) x = Math.max(x, bounds.left);
+  if ((0, _shims.isNum)(bounds.top)) y = Math.max(y, bounds.top);
+  return [x, y];
+}
+function snapToGrid(grid /*: [number, number]*/, pendingX /*: number*/, pendingY /*: number*/) /*: [number, number]*/{
+  const x = Math.round(pendingX / grid[0]) * grid[0];
+  const y = Math.round(pendingY / grid[1]) * grid[1];
+  return [x, y];
+}
+function canDragX(draggable /*: Draggable*/) /*: boolean*/{
+  return draggable.props.axis === 'both' || draggable.props.axis === 'x';
+}
+function canDragY(draggable /*: Draggable*/) /*: boolean*/{
+  return draggable.props.axis === 'both' || draggable.props.axis === 'y';
+}
+
+// Get {x, y} positions from event.
+function getControlPosition(e /*: MouseTouchEvent*/, touchIdentifier /*: ?number*/, draggableCore /*: DraggableCore*/) /*: ?ControlPosition*/{
+  const touchObj = typeof touchIdentifier === 'number' ? (0, _domFns.getTouch)(e, touchIdentifier) : null;
+  if (typeof touchIdentifier === 'number' && !touchObj) return null; // not the right touch
+  const node = findDOMNode(draggableCore);
+  // User can provide an offsetParent if desired.
+  const offsetParent = draggableCore.props.offsetParent || node.offsetParent || node.ownerDocument.body;
+  return (0, _domFns.offsetXYFromParent)(touchObj || e, offsetParent, draggableCore.props.scale);
+}
+
+// Create an data object exposed by <DraggableCore>'s events
+function createCoreData(draggable /*: DraggableCore*/, x /*: number*/, y /*: number*/) /*: DraggableData*/{
+  const isStart = !(0, _shims.isNum)(draggable.lastX);
+  const node = findDOMNode(draggable);
+  if (isStart) {
+    // If this is our first move, use the x and y as last coords.
+    return {
+      node,
+      deltaX: 0,
+      deltaY: 0,
+      lastX: x,
+      lastY: y,
+      x,
+      y
+    };
+  } else {
+    // Otherwise calculate proper values.
+    return {
+      node,
+      deltaX: x - draggable.lastX,
+      deltaY: y - draggable.lastY,
+      lastX: draggable.lastX,
+      lastY: draggable.lastY,
+      x,
+      y
+    };
+  }
+}
+
+// Create an data exposed by <Draggable>'s events
+function createDraggableData(draggable /*: Draggable*/, coreData /*: DraggableData*/) /*: DraggableData*/{
+  const scale = draggable.props.scale;
+  return {
+    node: coreData.node,
+    x: draggable.state.x + coreData.deltaX / scale,
+    y: draggable.state.y + coreData.deltaY / scale,
+    deltaX: coreData.deltaX / scale,
+    deltaY: coreData.deltaY / scale,
+    lastX: draggable.state.x,
+    lastY: draggable.state.y
+  };
+}
+
+// A lot faster than stringify/parse
+function cloneBounds(bounds /*: Bounds*/) /*: Bounds*/{
+  return {
+    left: bounds.left,
+    top: bounds.top,
+    right: bounds.right,
+    bottom: bounds.bottom
+  };
+}
+function findDOMNode(draggable /*: Draggable | DraggableCore*/) /*: HTMLElement*/{
+  const node = draggable.findDOMNode();
+  if (!node) {
+    throw new Error('<DraggableCore>: Unmounted during event!');
+  }
+  // $FlowIgnore we can't assert on HTMLElement due to tests... FIXME
+  return node;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-draggable/build/cjs/utils/shims.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-draggable/build/cjs/utils/shims.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.dontSetMe = dontSetMe;
+exports.findInArray = findInArray;
+exports.int = int;
+exports.isFunction = isFunction;
+exports.isNum = isNum;
+// @credits https://gist.github.com/rogozhnikoff/a43cfed27c41e4e68cdc
+function findInArray(array /*: Array<any> | TouchList*/, callback /*: Function*/) /*: any*/{
+  for (let i = 0, length = array.length; i < length; i++) {
+    if (callback.apply(callback, [array[i], i, array])) return array[i];
+  }
+}
+function isFunction(func /*: any*/) /*: boolean %checks*/{
+  // $FlowIgnore[method-unbinding]
+  return typeof func === 'function' || Object.prototype.toString.call(func) === '[object Function]';
+}
+function isNum(num /*: any*/) /*: boolean %checks*/{
+  return typeof num === 'number' && !isNaN(num);
+}
+function int(a /*: string*/) /*: number*/{
+  return parseInt(a, 10);
+}
+function dontSetMe(props /*: Object*/, propName /*: string*/, componentName /*: string*/) /*: ?Error*/{
+  if (props[propName]) {
+    return new Error(`Invalid prop ${propName} passed to ${componentName} - do not set this, set it on the child.`);
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/tippy.js/dist/tippy.esm.js":
+/*!*************************************************!*\
+  !*** ./node_modules/tippy.js/dist/tippy.esm.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   animateFill: () => (/* binding */ animateFill),
+/* harmony export */   createSingleton: () => (/* binding */ createSingleton),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   delegate: () => (/* binding */ delegate),
+/* harmony export */   followCursor: () => (/* binding */ followCursor),
+/* harmony export */   hideAll: () => (/* binding */ hideAll),
+/* harmony export */   inlinePositioning: () => (/* binding */ inlinePositioning),
+/* harmony export */   roundArrow: () => (/* binding */ ROUND_ARROW),
+/* harmony export */   sticky: () => (/* binding */ sticky)
+/* harmony export */ });
+/* harmony import */ var _popperjs_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/popper.js");
+/* harmony import */ var _popperjs_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/modifiers/applyStyles.js");
+/**!
+* tippy.js v6.3.7
+* (c) 2017-2021 atomiks
+* MIT License
+*/
+
+
+var ROUND_ARROW = '<svg width="16" height="6" xmlns="http://www.w3.org/2000/svg"><path d="M0 6s1.796-.013 4.67-3.615C5.851.9 6.93.006 8 0c1.07-.006 2.148.887 3.343 2.385C14.233 6.005 16 6 16 6H0z"></svg>';
+var BOX_CLASS = "tippy-box";
+var CONTENT_CLASS = "tippy-content";
+var BACKDROP_CLASS = "tippy-backdrop";
+var ARROW_CLASS = "tippy-arrow";
+var SVG_ARROW_CLASS = "tippy-svg-arrow";
+var TOUCH_OPTIONS = {
+  passive: true,
+  capture: true
+};
+var TIPPY_DEFAULT_APPEND_TO = function TIPPY_DEFAULT_APPEND_TO() {
+  return document.body;
+};
+
+function hasOwnProperty(obj, key) {
+  return {}.hasOwnProperty.call(obj, key);
+}
+function getValueAtIndexOrReturn(value, index, defaultValue) {
+  if (Array.isArray(value)) {
+    var v = value[index];
+    return v == null ? Array.isArray(defaultValue) ? defaultValue[index] : defaultValue : v;
+  }
+
+  return value;
+}
+function isType(value, type) {
+  var str = {}.toString.call(value);
+  return str.indexOf('[object') === 0 && str.indexOf(type + "]") > -1;
+}
+function invokeWithArgsOrReturn(value, args) {
+  return typeof value === 'function' ? value.apply(void 0, args) : value;
+}
+function debounce(fn, ms) {
+  // Avoid wrapping in `setTimeout` if ms is 0 anyway
+  if (ms === 0) {
+    return fn;
+  }
+
+  var timeout;
+  return function (arg) {
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      fn(arg);
+    }, ms);
+  };
+}
+function removeProperties(obj, keys) {
+  var clone = Object.assign({}, obj);
+  keys.forEach(function (key) {
+    delete clone[key];
+  });
+  return clone;
+}
+function splitBySpaces(value) {
+  return value.split(/\s+/).filter(Boolean);
+}
+function normalizeToArray(value) {
+  return [].concat(value);
+}
+function pushIfUnique(arr, value) {
+  if (arr.indexOf(value) === -1) {
+    arr.push(value);
+  }
+}
+function unique(arr) {
+  return arr.filter(function (item, index) {
+    return arr.indexOf(item) === index;
+  });
+}
+function getBasePlacement(placement) {
+  return placement.split('-')[0];
+}
+function arrayFrom(value) {
+  return [].slice.call(value);
+}
+function removeUndefinedProps(obj) {
+  return Object.keys(obj).reduce(function (acc, key) {
+    if (obj[key] !== undefined) {
+      acc[key] = obj[key];
+    }
+
+    return acc;
+  }, {});
+}
+
+function div() {
+  return document.createElement('div');
+}
+function isElement(value) {
+  return ['Element', 'Fragment'].some(function (type) {
+    return isType(value, type);
+  });
+}
+function isNodeList(value) {
+  return isType(value, 'NodeList');
+}
+function isMouseEvent(value) {
+  return isType(value, 'MouseEvent');
+}
+function isReferenceElement(value) {
+  return !!(value && value._tippy && value._tippy.reference === value);
+}
+function getArrayOfElements(value) {
+  if (isElement(value)) {
+    return [value];
+  }
+
+  if (isNodeList(value)) {
+    return arrayFrom(value);
+  }
+
+  if (Array.isArray(value)) {
+    return value;
+  }
+
+  return arrayFrom(document.querySelectorAll(value));
+}
+function setTransitionDuration(els, value) {
+  els.forEach(function (el) {
+    if (el) {
+      el.style.transitionDuration = value + "ms";
+    }
+  });
+}
+function setVisibilityState(els, state) {
+  els.forEach(function (el) {
+    if (el) {
+      el.setAttribute('data-state', state);
+    }
+  });
+}
+function getOwnerDocument(elementOrElements) {
+  var _element$ownerDocumen;
+
+  var _normalizeToArray = normalizeToArray(elementOrElements),
+      element = _normalizeToArray[0]; // Elements created via a <template> have an ownerDocument with no reference to the body
+
+
+  return element != null && (_element$ownerDocumen = element.ownerDocument) != null && _element$ownerDocumen.body ? element.ownerDocument : document;
+}
+function isCursorOutsideInteractiveBorder(popperTreeData, event) {
+  var clientX = event.clientX,
+      clientY = event.clientY;
+  return popperTreeData.every(function (_ref) {
+    var popperRect = _ref.popperRect,
+        popperState = _ref.popperState,
+        props = _ref.props;
+    var interactiveBorder = props.interactiveBorder;
+    var basePlacement = getBasePlacement(popperState.placement);
+    var offsetData = popperState.modifiersData.offset;
+
+    if (!offsetData) {
+      return true;
+    }
+
+    var topDistance = basePlacement === 'bottom' ? offsetData.top.y : 0;
+    var bottomDistance = basePlacement === 'top' ? offsetData.bottom.y : 0;
+    var leftDistance = basePlacement === 'right' ? offsetData.left.x : 0;
+    var rightDistance = basePlacement === 'left' ? offsetData.right.x : 0;
+    var exceedsTop = popperRect.top - clientY + topDistance > interactiveBorder;
+    var exceedsBottom = clientY - popperRect.bottom - bottomDistance > interactiveBorder;
+    var exceedsLeft = popperRect.left - clientX + leftDistance > interactiveBorder;
+    var exceedsRight = clientX - popperRect.right - rightDistance > interactiveBorder;
+    return exceedsTop || exceedsBottom || exceedsLeft || exceedsRight;
+  });
+}
+function updateTransitionEndListener(box, action, listener) {
+  var method = action + "EventListener"; // some browsers apparently support `transition` (unprefixed) but only fire
+  // `webkitTransitionEnd`...
+
+  ['transitionend', 'webkitTransitionEnd'].forEach(function (event) {
+    box[method](event, listener);
+  });
+}
+/**
+ * Compared to xxx.contains, this function works for dom structures with shadow
+ * dom
+ */
+
+function actualContains(parent, child) {
+  var target = child;
+
+  while (target) {
+    var _target$getRootNode;
+
+    if (parent.contains(target)) {
+      return true;
+    }
+
+    target = target.getRootNode == null ? void 0 : (_target$getRootNode = target.getRootNode()) == null ? void 0 : _target$getRootNode.host;
+  }
+
+  return false;
+}
+
+var currentInput = {
+  isTouch: false
+};
+var lastMouseMoveTime = 0;
+/**
+ * When a `touchstart` event is fired, it's assumed the user is using touch
+ * input. We'll bind a `mousemove` event listener to listen for mouse input in
+ * the future. This way, the `isTouch` property is fully dynamic and will handle
+ * hybrid devices that use a mix of touch + mouse input.
+ */
+
+function onDocumentTouchStart() {
+  if (currentInput.isTouch) {
+    return;
+  }
+
+  currentInput.isTouch = true;
+
+  if (window.performance) {
+    document.addEventListener('mousemove', onDocumentMouseMove);
+  }
+}
+/**
+ * When two `mousemove` event are fired consecutively within 20ms, it's assumed
+ * the user is using mouse input again. `mousemove` can fire on touch devices as
+ * well, but very rarely that quickly.
+ */
+
+function onDocumentMouseMove() {
+  var now = performance.now();
+
+  if (now - lastMouseMoveTime < 20) {
+    currentInput.isTouch = false;
+    document.removeEventListener('mousemove', onDocumentMouseMove);
+  }
+
+  lastMouseMoveTime = now;
+}
+/**
+ * When an element is in focus and has a tippy, leaving the tab/window and
+ * returning causes it to show again. For mouse users this is unexpected, but
+ * for keyboard use it makes sense.
+ * TODO: find a better technique to solve this problem
+ */
+
+function onWindowBlur() {
+  var activeElement = document.activeElement;
+
+  if (isReferenceElement(activeElement)) {
+    var instance = activeElement._tippy;
+
+    if (activeElement.blur && !instance.state.isVisible) {
+      activeElement.blur();
+    }
+  }
+}
+function bindGlobalEventListeners() {
+  document.addEventListener('touchstart', onDocumentTouchStart, TOUCH_OPTIONS);
+  window.addEventListener('blur', onWindowBlur);
+}
+
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+var isIE11 = isBrowser ? // @ts-ignore
+!!window.msCrypto : false;
+
+function createMemoryLeakWarning(method) {
+  var txt = method === 'destroy' ? 'n already-' : ' ';
+  return [method + "() was called on a" + txt + "destroyed instance. This is a no-op but", 'indicates a potential memory leak.'].join(' ');
+}
+function clean(value) {
+  var spacesAndTabs = /[ \t]{2,}/g;
+  var lineStartWithSpaces = /^[ \t]*/gm;
+  return value.replace(spacesAndTabs, ' ').replace(lineStartWithSpaces, '').trim();
+}
+
+function getDevMessage(message) {
+  return clean("\n  %ctippy.js\n\n  %c" + clean(message) + "\n\n  %c\uD83D\uDC77\u200D This is a development-only message. It will be removed in production.\n  ");
+}
+
+function getFormattedMessage(message) {
+  return [getDevMessage(message), // title
+  'color: #00C584; font-size: 1.3em; font-weight: bold;', // message
+  'line-height: 1.5', // footer
+  'color: #a6a095;'];
+} // Assume warnings and errors never have the same message
+
+var visitedMessages;
+
+if (true) {
+  resetVisitedMessages();
+}
+
+function resetVisitedMessages() {
+  visitedMessages = new Set();
+}
+function warnWhen(condition, message) {
+  if (condition && !visitedMessages.has(message)) {
+    var _console;
+
+    visitedMessages.add(message);
+
+    (_console = console).warn.apply(_console, getFormattedMessage(message));
+  }
+}
+function errorWhen(condition, message) {
+  if (condition && !visitedMessages.has(message)) {
+    var _console2;
+
+    visitedMessages.add(message);
+
+    (_console2 = console).error.apply(_console2, getFormattedMessage(message));
+  }
+}
+function validateTargets(targets) {
+  var didPassFalsyValue = !targets;
+  var didPassPlainObject = Object.prototype.toString.call(targets) === '[object Object]' && !targets.addEventListener;
+  errorWhen(didPassFalsyValue, ['tippy() was passed', '`' + String(targets) + '`', 'as its targets (first) argument. Valid types are: String, Element,', 'Element[], or NodeList.'].join(' '));
+  errorWhen(didPassPlainObject, ['tippy() was passed a plain object which is not supported as an argument', 'for virtual positioning. Use props.getReferenceClientRect instead.'].join(' '));
+}
+
+var pluginProps = {
+  animateFill: false,
+  followCursor: false,
+  inlinePositioning: false,
+  sticky: false
+};
+var renderProps = {
+  allowHTML: false,
+  animation: 'fade',
+  arrow: true,
+  content: '',
+  inertia: false,
+  maxWidth: 350,
+  role: 'tooltip',
+  theme: '',
+  zIndex: 9999
+};
+var defaultProps = Object.assign({
+  appendTo: TIPPY_DEFAULT_APPEND_TO,
+  aria: {
+    content: 'auto',
+    expanded: 'auto'
+  },
+  delay: 0,
+  duration: [300, 250],
+  getReferenceClientRect: null,
+  hideOnClick: true,
+  ignoreAttributes: false,
+  interactive: false,
+  interactiveBorder: 2,
+  interactiveDebounce: 0,
+  moveTransition: '',
+  offset: [0, 10],
+  onAfterUpdate: function onAfterUpdate() {},
+  onBeforeUpdate: function onBeforeUpdate() {},
+  onCreate: function onCreate() {},
+  onDestroy: function onDestroy() {},
+  onHidden: function onHidden() {},
+  onHide: function onHide() {},
+  onMount: function onMount() {},
+  onShow: function onShow() {},
+  onShown: function onShown() {},
+  onTrigger: function onTrigger() {},
+  onUntrigger: function onUntrigger() {},
+  onClickOutside: function onClickOutside() {},
+  placement: 'top',
+  plugins: [],
+  popperOptions: {},
+  render: null,
+  showOnCreate: false,
+  touch: true,
+  trigger: 'mouseenter focus',
+  triggerTarget: null
+}, pluginProps, renderProps);
+var defaultKeys = Object.keys(defaultProps);
+var setDefaultProps = function setDefaultProps(partialProps) {
+  /* istanbul ignore else */
+  if (true) {
+    validateProps(partialProps, []);
+  }
+
+  var keys = Object.keys(partialProps);
+  keys.forEach(function (key) {
+    defaultProps[key] = partialProps[key];
+  });
+};
+function getExtendedPassedProps(passedProps) {
+  var plugins = passedProps.plugins || [];
+  var pluginProps = plugins.reduce(function (acc, plugin) {
+    var name = plugin.name,
+        defaultValue = plugin.defaultValue;
+
+    if (name) {
+      var _name;
+
+      acc[name] = passedProps[name] !== undefined ? passedProps[name] : (_name = defaultProps[name]) != null ? _name : defaultValue;
+    }
+
+    return acc;
+  }, {});
+  return Object.assign({}, passedProps, pluginProps);
+}
+function getDataAttributeProps(reference, plugins) {
+  var propKeys = plugins ? Object.keys(getExtendedPassedProps(Object.assign({}, defaultProps, {
+    plugins: plugins
+  }))) : defaultKeys;
+  var props = propKeys.reduce(function (acc, key) {
+    var valueAsString = (reference.getAttribute("data-tippy-" + key) || '').trim();
+
+    if (!valueAsString) {
+      return acc;
+    }
+
+    if (key === 'content') {
+      acc[key] = valueAsString;
+    } else {
+      try {
+        acc[key] = JSON.parse(valueAsString);
+      } catch (e) {
+        acc[key] = valueAsString;
+      }
+    }
+
+    return acc;
+  }, {});
+  return props;
+}
+function evaluateProps(reference, props) {
+  var out = Object.assign({}, props, {
+    content: invokeWithArgsOrReturn(props.content, [reference])
+  }, props.ignoreAttributes ? {} : getDataAttributeProps(reference, props.plugins));
+  out.aria = Object.assign({}, defaultProps.aria, out.aria);
+  out.aria = {
+    expanded: out.aria.expanded === 'auto' ? props.interactive : out.aria.expanded,
+    content: out.aria.content === 'auto' ? props.interactive ? null : 'describedby' : out.aria.content
+  };
+  return out;
+}
+function validateProps(partialProps, plugins) {
+  if (partialProps === void 0) {
+    partialProps = {};
+  }
+
+  if (plugins === void 0) {
+    plugins = [];
+  }
+
+  var keys = Object.keys(partialProps);
+  keys.forEach(function (prop) {
+    var nonPluginProps = removeProperties(defaultProps, Object.keys(pluginProps));
+    var didPassUnknownProp = !hasOwnProperty(nonPluginProps, prop); // Check if the prop exists in `plugins`
+
+    if (didPassUnknownProp) {
+      didPassUnknownProp = plugins.filter(function (plugin) {
+        return plugin.name === prop;
+      }).length === 0;
+    }
+
+    warnWhen(didPassUnknownProp, ["`" + prop + "`", "is not a valid prop. You may have spelled it incorrectly, or if it's", 'a plugin, forgot to pass it in an array as props.plugins.', '\n\n', 'All props: https://atomiks.github.io/tippyjs/v6/all-props/\n', 'Plugins: https://atomiks.github.io/tippyjs/v6/plugins/'].join(' '));
+  });
+}
+
+var innerHTML = function innerHTML() {
+  return 'innerHTML';
+};
+
+function dangerouslySetInnerHTML(element, html) {
+  element[innerHTML()] = html;
+}
+
+function createArrowElement(value) {
+  var arrow = div();
+
+  if (value === true) {
+    arrow.className = ARROW_CLASS;
+  } else {
+    arrow.className = SVG_ARROW_CLASS;
+
+    if (isElement(value)) {
+      arrow.appendChild(value);
+    } else {
+      dangerouslySetInnerHTML(arrow, value);
+    }
+  }
+
+  return arrow;
+}
+
+function setContent(content, props) {
+  if (isElement(props.content)) {
+    dangerouslySetInnerHTML(content, '');
+    content.appendChild(props.content);
+  } else if (typeof props.content !== 'function') {
+    if (props.allowHTML) {
+      dangerouslySetInnerHTML(content, props.content);
+    } else {
+      content.textContent = props.content;
+    }
+  }
+}
+function getChildren(popper) {
+  var box = popper.firstElementChild;
+  var boxChildren = arrayFrom(box.children);
+  return {
+    box: box,
+    content: boxChildren.find(function (node) {
+      return node.classList.contains(CONTENT_CLASS);
+    }),
+    arrow: boxChildren.find(function (node) {
+      return node.classList.contains(ARROW_CLASS) || node.classList.contains(SVG_ARROW_CLASS);
+    }),
+    backdrop: boxChildren.find(function (node) {
+      return node.classList.contains(BACKDROP_CLASS);
+    })
+  };
+}
+function render(instance) {
+  var popper = div();
+  var box = div();
+  box.className = BOX_CLASS;
+  box.setAttribute('data-state', 'hidden');
+  box.setAttribute('tabindex', '-1');
+  var content = div();
+  content.className = CONTENT_CLASS;
+  content.setAttribute('data-state', 'hidden');
+  setContent(content, instance.props);
+  popper.appendChild(box);
+  box.appendChild(content);
+  onUpdate(instance.props, instance.props);
+
+  function onUpdate(prevProps, nextProps) {
+    var _getChildren = getChildren(popper),
+        box = _getChildren.box,
+        content = _getChildren.content,
+        arrow = _getChildren.arrow;
+
+    if (nextProps.theme) {
+      box.setAttribute('data-theme', nextProps.theme);
+    } else {
+      box.removeAttribute('data-theme');
+    }
+
+    if (typeof nextProps.animation === 'string') {
+      box.setAttribute('data-animation', nextProps.animation);
+    } else {
+      box.removeAttribute('data-animation');
+    }
+
+    if (nextProps.inertia) {
+      box.setAttribute('data-inertia', '');
+    } else {
+      box.removeAttribute('data-inertia');
+    }
+
+    box.style.maxWidth = typeof nextProps.maxWidth === 'number' ? nextProps.maxWidth + "px" : nextProps.maxWidth;
+
+    if (nextProps.role) {
+      box.setAttribute('role', nextProps.role);
+    } else {
+      box.removeAttribute('role');
+    }
+
+    if (prevProps.content !== nextProps.content || prevProps.allowHTML !== nextProps.allowHTML) {
+      setContent(content, instance.props);
+    }
+
+    if (nextProps.arrow) {
+      if (!arrow) {
+        box.appendChild(createArrowElement(nextProps.arrow));
+      } else if (prevProps.arrow !== nextProps.arrow) {
+        box.removeChild(arrow);
+        box.appendChild(createArrowElement(nextProps.arrow));
+      }
+    } else if (arrow) {
+      box.removeChild(arrow);
+    }
+  }
+
+  return {
+    popper: popper,
+    onUpdate: onUpdate
+  };
+} // Runtime check to identify if the render function is the default one; this
+// way we can apply default CSS transitions logic and it can be tree-shaken away
+
+render.$$tippy = true;
+
+var idCounter = 1;
+var mouseMoveListeners = []; // Used by `hideAll()`
+
+var mountedInstances = [];
+function createTippy(reference, passedProps) {
+  var props = evaluateProps(reference, Object.assign({}, defaultProps, getExtendedPassedProps(removeUndefinedProps(passedProps)))); // ===========================================================================
+  // 🔒 Private members
+  // ===========================================================================
+
+  var showTimeout;
+  var hideTimeout;
+  var scheduleHideAnimationFrame;
+  var isVisibleFromClick = false;
+  var didHideDueToDocumentMouseDown = false;
+  var didTouchMove = false;
+  var ignoreOnFirstUpdate = false;
+  var lastTriggerEvent;
+  var currentTransitionEndListener;
+  var onFirstUpdate;
+  var listeners = [];
+  var debouncedOnMouseMove = debounce(onMouseMove, props.interactiveDebounce);
+  var currentTarget; // ===========================================================================
+  // 🔑 Public members
+  // ===========================================================================
+
+  var id = idCounter++;
+  var popperInstance = null;
+  var plugins = unique(props.plugins);
+  var state = {
+    // Is the instance currently enabled?
+    isEnabled: true,
+    // Is the tippy currently showing and not transitioning out?
+    isVisible: false,
+    // Has the instance been destroyed?
+    isDestroyed: false,
+    // Is the tippy currently mounted to the DOM?
+    isMounted: false,
+    // Has the tippy finished transitioning in?
+    isShown: false
+  };
+  var instance = {
+    // properties
+    id: id,
+    reference: reference,
+    popper: div(),
+    popperInstance: popperInstance,
+    props: props,
+    state: state,
+    plugins: plugins,
+    // methods
+    clearDelayTimeouts: clearDelayTimeouts,
+    setProps: setProps,
+    setContent: setContent,
+    show: show,
+    hide: hide,
+    hideWithInteractivity: hideWithInteractivity,
+    enable: enable,
+    disable: disable,
+    unmount: unmount,
+    destroy: destroy
+  }; // TODO: Investigate why this early return causes a TDZ error in the tests —
+  // it doesn't seem to happen in the browser
+
+  /* istanbul ignore if */
+
+  if (!props.render) {
+    if (true) {
+      errorWhen(true, 'render() function has not been supplied.');
+    }
+
+    return instance;
+  } // ===========================================================================
+  // Initial mutations
+  // ===========================================================================
+
+
+  var _props$render = props.render(instance),
+      popper = _props$render.popper,
+      onUpdate = _props$render.onUpdate;
+
+  popper.setAttribute('data-tippy-root', '');
+  popper.id = "tippy-" + instance.id;
+  instance.popper = popper;
+  reference._tippy = instance;
+  popper._tippy = instance;
+  var pluginsHooks = plugins.map(function (plugin) {
+    return plugin.fn(instance);
+  });
+  var hasAriaExpanded = reference.hasAttribute('aria-expanded');
+  addListeners();
+  handleAriaExpandedAttribute();
+  handleStyles();
+  invokeHook('onCreate', [instance]);
+
+  if (props.showOnCreate) {
+    scheduleShow();
+  } // Prevent a tippy with a delay from hiding if the cursor left then returned
+  // before it started hiding
+
+
+  popper.addEventListener('mouseenter', function () {
+    if (instance.props.interactive && instance.state.isVisible) {
+      instance.clearDelayTimeouts();
+    }
+  });
+  popper.addEventListener('mouseleave', function () {
+    if (instance.props.interactive && instance.props.trigger.indexOf('mouseenter') >= 0) {
+      getDocument().addEventListener('mousemove', debouncedOnMouseMove);
+    }
+  });
+  return instance; // ===========================================================================
+  // 🔒 Private methods
+  // ===========================================================================
+
+  function getNormalizedTouchSettings() {
+    var touch = instance.props.touch;
+    return Array.isArray(touch) ? touch : [touch, 0];
+  }
+
+  function getIsCustomTouchBehavior() {
+    return getNormalizedTouchSettings()[0] === 'hold';
+  }
+
+  function getIsDefaultRenderFn() {
+    var _instance$props$rende;
+
+    // @ts-ignore
+    return !!((_instance$props$rende = instance.props.render) != null && _instance$props$rende.$$tippy);
+  }
+
+  function getCurrentTarget() {
+    return currentTarget || reference;
+  }
+
+  function getDocument() {
+    var parent = getCurrentTarget().parentNode;
+    return parent ? getOwnerDocument(parent) : document;
+  }
+
+  function getDefaultTemplateChildren() {
+    return getChildren(popper);
+  }
+
+  function getDelay(isShow) {
+    // For touch or keyboard input, force `0` delay for UX reasons
+    // Also if the instance is mounted but not visible (transitioning out),
+    // ignore delay
+    if (instance.state.isMounted && !instance.state.isVisible || currentInput.isTouch || lastTriggerEvent && lastTriggerEvent.type === 'focus') {
+      return 0;
+    }
+
+    return getValueAtIndexOrReturn(instance.props.delay, isShow ? 0 : 1, defaultProps.delay);
+  }
+
+  function handleStyles(fromHide) {
+    if (fromHide === void 0) {
+      fromHide = false;
+    }
+
+    popper.style.pointerEvents = instance.props.interactive && !fromHide ? '' : 'none';
+    popper.style.zIndex = "" + instance.props.zIndex;
+  }
+
+  function invokeHook(hook, args, shouldInvokePropsHook) {
+    if (shouldInvokePropsHook === void 0) {
+      shouldInvokePropsHook = true;
+    }
+
+    pluginsHooks.forEach(function (pluginHooks) {
+      if (pluginHooks[hook]) {
+        pluginHooks[hook].apply(pluginHooks, args);
+      }
+    });
+
+    if (shouldInvokePropsHook) {
+      var _instance$props;
+
+      (_instance$props = instance.props)[hook].apply(_instance$props, args);
+    }
+  }
+
+  function handleAriaContentAttribute() {
+    var aria = instance.props.aria;
+
+    if (!aria.content) {
+      return;
+    }
+
+    var attr = "aria-" + aria.content;
+    var id = popper.id;
+    var nodes = normalizeToArray(instance.props.triggerTarget || reference);
+    nodes.forEach(function (node) {
+      var currentValue = node.getAttribute(attr);
+
+      if (instance.state.isVisible) {
+        node.setAttribute(attr, currentValue ? currentValue + " " + id : id);
+      } else {
+        var nextValue = currentValue && currentValue.replace(id, '').trim();
+
+        if (nextValue) {
+          node.setAttribute(attr, nextValue);
+        } else {
+          node.removeAttribute(attr);
+        }
+      }
+    });
+  }
+
+  function handleAriaExpandedAttribute() {
+    if (hasAriaExpanded || !instance.props.aria.expanded) {
+      return;
+    }
+
+    var nodes = normalizeToArray(instance.props.triggerTarget || reference);
+    nodes.forEach(function (node) {
+      if (instance.props.interactive) {
+        node.setAttribute('aria-expanded', instance.state.isVisible && node === getCurrentTarget() ? 'true' : 'false');
+      } else {
+        node.removeAttribute('aria-expanded');
+      }
+    });
+  }
+
+  function cleanupInteractiveMouseListeners() {
+    getDocument().removeEventListener('mousemove', debouncedOnMouseMove);
+    mouseMoveListeners = mouseMoveListeners.filter(function (listener) {
+      return listener !== debouncedOnMouseMove;
+    });
+  }
+
+  function onDocumentPress(event) {
+    // Moved finger to scroll instead of an intentional tap outside
+    if (currentInput.isTouch) {
+      if (didTouchMove || event.type === 'mousedown') {
+        return;
+      }
+    }
+
+    var actualTarget = event.composedPath && event.composedPath()[0] || event.target; // Clicked on interactive popper
+
+    if (instance.props.interactive && actualContains(popper, actualTarget)) {
+      return;
+    } // Clicked on the event listeners target
+
+
+    if (normalizeToArray(instance.props.triggerTarget || reference).some(function (el) {
+      return actualContains(el, actualTarget);
+    })) {
+      if (currentInput.isTouch) {
+        return;
+      }
+
+      if (instance.state.isVisible && instance.props.trigger.indexOf('click') >= 0) {
+        return;
+      }
+    } else {
+      invokeHook('onClickOutside', [instance, event]);
+    }
+
+    if (instance.props.hideOnClick === true) {
+      instance.clearDelayTimeouts();
+      instance.hide(); // `mousedown` event is fired right before `focus` if pressing the
+      // currentTarget. This lets a tippy with `focus` trigger know that it
+      // should not show
+
+      didHideDueToDocumentMouseDown = true;
+      setTimeout(function () {
+        didHideDueToDocumentMouseDown = false;
+      }); // The listener gets added in `scheduleShow()`, but this may be hiding it
+      // before it shows, and hide()'s early bail-out behavior can prevent it
+      // from being cleaned up
+
+      if (!instance.state.isMounted) {
+        removeDocumentPress();
+      }
+    }
+  }
+
+  function onTouchMove() {
+    didTouchMove = true;
+  }
+
+  function onTouchStart() {
+    didTouchMove = false;
+  }
+
+  function addDocumentPress() {
+    var doc = getDocument();
+    doc.addEventListener('mousedown', onDocumentPress, true);
+    doc.addEventListener('touchend', onDocumentPress, TOUCH_OPTIONS);
+    doc.addEventListener('touchstart', onTouchStart, TOUCH_OPTIONS);
+    doc.addEventListener('touchmove', onTouchMove, TOUCH_OPTIONS);
+  }
+
+  function removeDocumentPress() {
+    var doc = getDocument();
+    doc.removeEventListener('mousedown', onDocumentPress, true);
+    doc.removeEventListener('touchend', onDocumentPress, TOUCH_OPTIONS);
+    doc.removeEventListener('touchstart', onTouchStart, TOUCH_OPTIONS);
+    doc.removeEventListener('touchmove', onTouchMove, TOUCH_OPTIONS);
+  }
+
+  function onTransitionedOut(duration, callback) {
+    onTransitionEnd(duration, function () {
+      if (!instance.state.isVisible && popper.parentNode && popper.parentNode.contains(popper)) {
+        callback();
+      }
+    });
+  }
+
+  function onTransitionedIn(duration, callback) {
+    onTransitionEnd(duration, callback);
+  }
+
+  function onTransitionEnd(duration, callback) {
+    var box = getDefaultTemplateChildren().box;
+
+    function listener(event) {
+      if (event.target === box) {
+        updateTransitionEndListener(box, 'remove', listener);
+        callback();
+      }
+    } // Make callback synchronous if duration is 0
+    // `transitionend` won't fire otherwise
+
+
+    if (duration === 0) {
+      return callback();
+    }
+
+    updateTransitionEndListener(box, 'remove', currentTransitionEndListener);
+    updateTransitionEndListener(box, 'add', listener);
+    currentTransitionEndListener = listener;
+  }
+
+  function on(eventType, handler, options) {
+    if (options === void 0) {
+      options = false;
+    }
+
+    var nodes = normalizeToArray(instance.props.triggerTarget || reference);
+    nodes.forEach(function (node) {
+      node.addEventListener(eventType, handler, options);
+      listeners.push({
+        node: node,
+        eventType: eventType,
+        handler: handler,
+        options: options
+      });
+    });
+  }
+
+  function addListeners() {
+    if (getIsCustomTouchBehavior()) {
+      on('touchstart', onTrigger, {
+        passive: true
+      });
+      on('touchend', onMouseLeave, {
+        passive: true
+      });
+    }
+
+    splitBySpaces(instance.props.trigger).forEach(function (eventType) {
+      if (eventType === 'manual') {
+        return;
+      }
+
+      on(eventType, onTrigger);
+
+      switch (eventType) {
+        case 'mouseenter':
+          on('mouseleave', onMouseLeave);
+          break;
+
+        case 'focus':
+          on(isIE11 ? 'focusout' : 'blur', onBlurOrFocusOut);
+          break;
+
+        case 'focusin':
+          on('focusout', onBlurOrFocusOut);
+          break;
+      }
+    });
+  }
+
+  function removeListeners() {
+    listeners.forEach(function (_ref) {
+      var node = _ref.node,
+          eventType = _ref.eventType,
+          handler = _ref.handler,
+          options = _ref.options;
+      node.removeEventListener(eventType, handler, options);
+    });
+    listeners = [];
+  }
+
+  function onTrigger(event) {
+    var _lastTriggerEvent;
+
+    var shouldScheduleClickHide = false;
+
+    if (!instance.state.isEnabled || isEventListenerStopped(event) || didHideDueToDocumentMouseDown) {
+      return;
+    }
+
+    var wasFocused = ((_lastTriggerEvent = lastTriggerEvent) == null ? void 0 : _lastTriggerEvent.type) === 'focus';
+    lastTriggerEvent = event;
+    currentTarget = event.currentTarget;
+    handleAriaExpandedAttribute();
+
+    if (!instance.state.isVisible && isMouseEvent(event)) {
+      // If scrolling, `mouseenter` events can be fired if the cursor lands
+      // over a new target, but `mousemove` events don't get fired. This
+      // causes interactive tooltips to get stuck open until the cursor is
+      // moved
+      mouseMoveListeners.forEach(function (listener) {
+        return listener(event);
+      });
+    } // Toggle show/hide when clicking click-triggered tooltips
+
+
+    if (event.type === 'click' && (instance.props.trigger.indexOf('mouseenter') < 0 || isVisibleFromClick) && instance.props.hideOnClick !== false && instance.state.isVisible) {
+      shouldScheduleClickHide = true;
+    } else {
+      scheduleShow(event);
+    }
+
+    if (event.type === 'click') {
+      isVisibleFromClick = !shouldScheduleClickHide;
+    }
+
+    if (shouldScheduleClickHide && !wasFocused) {
+      scheduleHide(event);
+    }
+  }
+
+  function onMouseMove(event) {
+    var target = event.target;
+    var isCursorOverReferenceOrPopper = getCurrentTarget().contains(target) || popper.contains(target);
+
+    if (event.type === 'mousemove' && isCursorOverReferenceOrPopper) {
+      return;
+    }
+
+    var popperTreeData = getNestedPopperTree().concat(popper).map(function (popper) {
+      var _instance$popperInsta;
+
+      var instance = popper._tippy;
+      var state = (_instance$popperInsta = instance.popperInstance) == null ? void 0 : _instance$popperInsta.state;
+
+      if (state) {
+        return {
+          popperRect: popper.getBoundingClientRect(),
+          popperState: state,
+          props: props
+        };
+      }
+
+      return null;
+    }).filter(Boolean);
+
+    if (isCursorOutsideInteractiveBorder(popperTreeData, event)) {
+      cleanupInteractiveMouseListeners();
+      scheduleHide(event);
+    }
+  }
+
+  function onMouseLeave(event) {
+    var shouldBail = isEventListenerStopped(event) || instance.props.trigger.indexOf('click') >= 0 && isVisibleFromClick;
+
+    if (shouldBail) {
+      return;
+    }
+
+    if (instance.props.interactive) {
+      instance.hideWithInteractivity(event);
+      return;
+    }
+
+    scheduleHide(event);
+  }
+
+  function onBlurOrFocusOut(event) {
+    if (instance.props.trigger.indexOf('focusin') < 0 && event.target !== getCurrentTarget()) {
+      return;
+    } // If focus was moved to within the popper
+
+
+    if (instance.props.interactive && event.relatedTarget && popper.contains(event.relatedTarget)) {
+      return;
+    }
+
+    scheduleHide(event);
+  }
+
+  function isEventListenerStopped(event) {
+    return currentInput.isTouch ? getIsCustomTouchBehavior() !== event.type.indexOf('touch') >= 0 : false;
+  }
+
+  function createPopperInstance() {
+    destroyPopperInstance();
+    var _instance$props2 = instance.props,
+        popperOptions = _instance$props2.popperOptions,
+        placement = _instance$props2.placement,
+        offset = _instance$props2.offset,
+        getReferenceClientRect = _instance$props2.getReferenceClientRect,
+        moveTransition = _instance$props2.moveTransition;
+    var arrow = getIsDefaultRenderFn() ? getChildren(popper).arrow : null;
+    var computedReference = getReferenceClientRect ? {
+      getBoundingClientRect: getReferenceClientRect,
+      contextElement: getReferenceClientRect.contextElement || getCurrentTarget()
+    } : reference;
+    var tippyModifier = {
+      name: '$$tippy',
+      enabled: true,
+      phase: 'beforeWrite',
+      requires: ['computeStyles'],
+      fn: function fn(_ref2) {
+        var state = _ref2.state;
+
+        if (getIsDefaultRenderFn()) {
+          var _getDefaultTemplateCh = getDefaultTemplateChildren(),
+              box = _getDefaultTemplateCh.box;
+
+          ['placement', 'reference-hidden', 'escaped'].forEach(function (attr) {
+            if (attr === 'placement') {
+              box.setAttribute('data-placement', state.placement);
+            } else {
+              if (state.attributes.popper["data-popper-" + attr]) {
+                box.setAttribute("data-" + attr, '');
+              } else {
+                box.removeAttribute("data-" + attr);
+              }
+            }
+          });
+          state.attributes.popper = {};
+        }
+      }
+    };
+    var modifiers = [{
+      name: 'offset',
+      options: {
+        offset: offset
+      }
+    }, {
+      name: 'preventOverflow',
+      options: {
+        padding: {
+          top: 2,
+          bottom: 2,
+          left: 5,
+          right: 5
+        }
+      }
+    }, {
+      name: 'flip',
+      options: {
+        padding: 5
+      }
+    }, {
+      name: 'computeStyles',
+      options: {
+        adaptive: !moveTransition
+      }
+    }, tippyModifier];
+
+    if (getIsDefaultRenderFn() && arrow) {
+      modifiers.push({
+        name: 'arrow',
+        options: {
+          element: arrow,
+          padding: 3
+        }
+      });
+    }
+
+    modifiers.push.apply(modifiers, (popperOptions == null ? void 0 : popperOptions.modifiers) || []);
+    instance.popperInstance = (0,_popperjs_core__WEBPACK_IMPORTED_MODULE_0__.createPopper)(computedReference, popper, Object.assign({}, popperOptions, {
+      placement: placement,
+      onFirstUpdate: onFirstUpdate,
+      modifiers: modifiers
+    }));
+  }
+
+  function destroyPopperInstance() {
+    if (instance.popperInstance) {
+      instance.popperInstance.destroy();
+      instance.popperInstance = null;
+    }
+  }
+
+  function mount() {
+    var appendTo = instance.props.appendTo;
+    var parentNode; // By default, we'll append the popper to the triggerTargets's parentNode so
+    // it's directly after the reference element so the elements inside the
+    // tippy can be tabbed to
+    // If there are clipping issues, the user can specify a different appendTo
+    // and ensure focus management is handled correctly manually
+
+    var node = getCurrentTarget();
+
+    if (instance.props.interactive && appendTo === TIPPY_DEFAULT_APPEND_TO || appendTo === 'parent') {
+      parentNode = node.parentNode;
+    } else {
+      parentNode = invokeWithArgsOrReturn(appendTo, [node]);
+    } // The popper element needs to exist on the DOM before its position can be
+    // updated as Popper needs to read its dimensions
+
+
+    if (!parentNode.contains(popper)) {
+      parentNode.appendChild(popper);
+    }
+
+    instance.state.isMounted = true;
+    createPopperInstance();
+    /* istanbul ignore else */
+
+    if (true) {
+      // Accessibility check
+      warnWhen(instance.props.interactive && appendTo === defaultProps.appendTo && node.nextElementSibling !== popper, ['Interactive tippy element may not be accessible via keyboard', 'navigation because it is not directly after the reference element', 'in the DOM source order.', '\n\n', 'Using a wrapper <div> or <span> tag around the reference element', 'solves this by creating a new parentNode context.', '\n\n', 'Specifying `appendTo: document.body` silences this warning, but it', 'assumes you are using a focus management solution to handle', 'keyboard navigation.', '\n\n', 'See: https://atomiks.github.io/tippyjs/v6/accessibility/#interactivity'].join(' '));
+    }
+  }
+
+  function getNestedPopperTree() {
+    return arrayFrom(popper.querySelectorAll('[data-tippy-root]'));
+  }
+
+  function scheduleShow(event) {
+    instance.clearDelayTimeouts();
+
+    if (event) {
+      invokeHook('onTrigger', [instance, event]);
+    }
+
+    addDocumentPress();
+    var delay = getDelay(true);
+
+    var _getNormalizedTouchSe = getNormalizedTouchSettings(),
+        touchValue = _getNormalizedTouchSe[0],
+        touchDelay = _getNormalizedTouchSe[1];
+
+    if (currentInput.isTouch && touchValue === 'hold' && touchDelay) {
+      delay = touchDelay;
+    }
+
+    if (delay) {
+      showTimeout = setTimeout(function () {
+        instance.show();
+      }, delay);
+    } else {
+      instance.show();
+    }
+  }
+
+  function scheduleHide(event) {
+    instance.clearDelayTimeouts();
+    invokeHook('onUntrigger', [instance, event]);
+
+    if (!instance.state.isVisible) {
+      removeDocumentPress();
+      return;
+    } // For interactive tippies, scheduleHide is added to a document.body handler
+    // from onMouseLeave so must intercept scheduled hides from mousemove/leave
+    // events when trigger contains mouseenter and click, and the tip is
+    // currently shown as a result of a click.
+
+
+    if (instance.props.trigger.indexOf('mouseenter') >= 0 && instance.props.trigger.indexOf('click') >= 0 && ['mouseleave', 'mousemove'].indexOf(event.type) >= 0 && isVisibleFromClick) {
+      return;
+    }
+
+    var delay = getDelay(false);
+
+    if (delay) {
+      hideTimeout = setTimeout(function () {
+        if (instance.state.isVisible) {
+          instance.hide();
+        }
+      }, delay);
+    } else {
+      // Fixes a `transitionend` problem when it fires 1 frame too
+      // late sometimes, we don't want hide() to be called.
+      scheduleHideAnimationFrame = requestAnimationFrame(function () {
+        instance.hide();
+      });
+    }
+  } // ===========================================================================
+  // 🔑 Public methods
+  // ===========================================================================
+
+
+  function enable() {
+    instance.state.isEnabled = true;
+  }
+
+  function disable() {
+    // Disabling the instance should also hide it
+    // https://github.com/atomiks/tippy.js-react/issues/106
+    instance.hide();
+    instance.state.isEnabled = false;
+  }
+
+  function clearDelayTimeouts() {
+    clearTimeout(showTimeout);
+    clearTimeout(hideTimeout);
+    cancelAnimationFrame(scheduleHideAnimationFrame);
+  }
+
+  function setProps(partialProps) {
+    /* istanbul ignore else */
+    if (true) {
+      warnWhen(instance.state.isDestroyed, createMemoryLeakWarning('setProps'));
+    }
+
+    if (instance.state.isDestroyed) {
+      return;
+    }
+
+    invokeHook('onBeforeUpdate', [instance, partialProps]);
+    removeListeners();
+    var prevProps = instance.props;
+    var nextProps = evaluateProps(reference, Object.assign({}, prevProps, removeUndefinedProps(partialProps), {
+      ignoreAttributes: true
+    }));
+    instance.props = nextProps;
+    addListeners();
+
+    if (prevProps.interactiveDebounce !== nextProps.interactiveDebounce) {
+      cleanupInteractiveMouseListeners();
+      debouncedOnMouseMove = debounce(onMouseMove, nextProps.interactiveDebounce);
+    } // Ensure stale aria-expanded attributes are removed
+
+
+    if (prevProps.triggerTarget && !nextProps.triggerTarget) {
+      normalizeToArray(prevProps.triggerTarget).forEach(function (node) {
+        node.removeAttribute('aria-expanded');
+      });
+    } else if (nextProps.triggerTarget) {
+      reference.removeAttribute('aria-expanded');
+    }
+
+    handleAriaExpandedAttribute();
+    handleStyles();
+
+    if (onUpdate) {
+      onUpdate(prevProps, nextProps);
+    }
+
+    if (instance.popperInstance) {
+      createPopperInstance(); // Fixes an issue with nested tippies if they are all getting re-rendered,
+      // and the nested ones get re-rendered first.
+      // https://github.com/atomiks/tippyjs-react/issues/177
+      // TODO: find a cleaner / more efficient solution(!)
+
+      getNestedPopperTree().forEach(function (nestedPopper) {
+        // React (and other UI libs likely) requires a rAF wrapper as it flushes
+        // its work in one
+        requestAnimationFrame(nestedPopper._tippy.popperInstance.forceUpdate);
+      });
+    }
+
+    invokeHook('onAfterUpdate', [instance, partialProps]);
+  }
+
+  function setContent(content) {
+    instance.setProps({
+      content: content
+    });
+  }
+
+  function show() {
+    /* istanbul ignore else */
+    if (true) {
+      warnWhen(instance.state.isDestroyed, createMemoryLeakWarning('show'));
+    } // Early bail-out
+
+
+    var isAlreadyVisible = instance.state.isVisible;
+    var isDestroyed = instance.state.isDestroyed;
+    var isDisabled = !instance.state.isEnabled;
+    var isTouchAndTouchDisabled = currentInput.isTouch && !instance.props.touch;
+    var duration = getValueAtIndexOrReturn(instance.props.duration, 0, defaultProps.duration);
+
+    if (isAlreadyVisible || isDestroyed || isDisabled || isTouchAndTouchDisabled) {
+      return;
+    } // Normalize `disabled` behavior across browsers.
+    // Firefox allows events on disabled elements, but Chrome doesn't.
+    // Using a wrapper element (i.e. <span>) is recommended.
+
+
+    if (getCurrentTarget().hasAttribute('disabled')) {
+      return;
+    }
+
+    invokeHook('onShow', [instance], false);
+
+    if (instance.props.onShow(instance) === false) {
+      return;
+    }
+
+    instance.state.isVisible = true;
+
+    if (getIsDefaultRenderFn()) {
+      popper.style.visibility = 'visible';
+    }
+
+    handleStyles();
+    addDocumentPress();
+
+    if (!instance.state.isMounted) {
+      popper.style.transition = 'none';
+    } // If flipping to the opposite side after hiding at least once, the
+    // animation will use the wrong placement without resetting the duration
+
+
+    if (getIsDefaultRenderFn()) {
+      var _getDefaultTemplateCh2 = getDefaultTemplateChildren(),
+          box = _getDefaultTemplateCh2.box,
+          content = _getDefaultTemplateCh2.content;
+
+      setTransitionDuration([box, content], 0);
+    }
+
+    onFirstUpdate = function onFirstUpdate() {
+      var _instance$popperInsta2;
+
+      if (!instance.state.isVisible || ignoreOnFirstUpdate) {
+        return;
+      }
+
+      ignoreOnFirstUpdate = true; // reflow
+
+      void popper.offsetHeight;
+      popper.style.transition = instance.props.moveTransition;
+
+      if (getIsDefaultRenderFn() && instance.props.animation) {
+        var _getDefaultTemplateCh3 = getDefaultTemplateChildren(),
+            _box = _getDefaultTemplateCh3.box,
+            _content = _getDefaultTemplateCh3.content;
+
+        setTransitionDuration([_box, _content], duration);
+        setVisibilityState([_box, _content], 'visible');
+      }
+
+      handleAriaContentAttribute();
+      handleAriaExpandedAttribute();
+      pushIfUnique(mountedInstances, instance); // certain modifiers (e.g. `maxSize`) require a second update after the
+      // popper has been positioned for the first time
+
+      (_instance$popperInsta2 = instance.popperInstance) == null ? void 0 : _instance$popperInsta2.forceUpdate();
+      invokeHook('onMount', [instance]);
+
+      if (instance.props.animation && getIsDefaultRenderFn()) {
+        onTransitionedIn(duration, function () {
+          instance.state.isShown = true;
+          invokeHook('onShown', [instance]);
+        });
+      }
+    };
+
+    mount();
+  }
+
+  function hide() {
+    /* istanbul ignore else */
+    if (true) {
+      warnWhen(instance.state.isDestroyed, createMemoryLeakWarning('hide'));
+    } // Early bail-out
+
+
+    var isAlreadyHidden = !instance.state.isVisible;
+    var isDestroyed = instance.state.isDestroyed;
+    var isDisabled = !instance.state.isEnabled;
+    var duration = getValueAtIndexOrReturn(instance.props.duration, 1, defaultProps.duration);
+
+    if (isAlreadyHidden || isDestroyed || isDisabled) {
+      return;
+    }
+
+    invokeHook('onHide', [instance], false);
+
+    if (instance.props.onHide(instance) === false) {
+      return;
+    }
+
+    instance.state.isVisible = false;
+    instance.state.isShown = false;
+    ignoreOnFirstUpdate = false;
+    isVisibleFromClick = false;
+
+    if (getIsDefaultRenderFn()) {
+      popper.style.visibility = 'hidden';
+    }
+
+    cleanupInteractiveMouseListeners();
+    removeDocumentPress();
+    handleStyles(true);
+
+    if (getIsDefaultRenderFn()) {
+      var _getDefaultTemplateCh4 = getDefaultTemplateChildren(),
+          box = _getDefaultTemplateCh4.box,
+          content = _getDefaultTemplateCh4.content;
+
+      if (instance.props.animation) {
+        setTransitionDuration([box, content], duration);
+        setVisibilityState([box, content], 'hidden');
+      }
+    }
+
+    handleAriaContentAttribute();
+    handleAriaExpandedAttribute();
+
+    if (instance.props.animation) {
+      if (getIsDefaultRenderFn()) {
+        onTransitionedOut(duration, instance.unmount);
+      }
+    } else {
+      instance.unmount();
+    }
+  }
+
+  function hideWithInteractivity(event) {
+    /* istanbul ignore else */
+    if (true) {
+      warnWhen(instance.state.isDestroyed, createMemoryLeakWarning('hideWithInteractivity'));
+    }
+
+    getDocument().addEventListener('mousemove', debouncedOnMouseMove);
+    pushIfUnique(mouseMoveListeners, debouncedOnMouseMove);
+    debouncedOnMouseMove(event);
+  }
+
+  function unmount() {
+    /* istanbul ignore else */
+    if (true) {
+      warnWhen(instance.state.isDestroyed, createMemoryLeakWarning('unmount'));
+    }
+
+    if (instance.state.isVisible) {
+      instance.hide();
+    }
+
+    if (!instance.state.isMounted) {
+      return;
+    }
+
+    destroyPopperInstance(); // If a popper is not interactive, it will be appended outside the popper
+    // tree by default. This seems mainly for interactive tippies, but we should
+    // find a workaround if possible
+
+    getNestedPopperTree().forEach(function (nestedPopper) {
+      nestedPopper._tippy.unmount();
+    });
+
+    if (popper.parentNode) {
+      popper.parentNode.removeChild(popper);
+    }
+
+    mountedInstances = mountedInstances.filter(function (i) {
+      return i !== instance;
+    });
+    instance.state.isMounted = false;
+    invokeHook('onHidden', [instance]);
+  }
+
+  function destroy() {
+    /* istanbul ignore else */
+    if (true) {
+      warnWhen(instance.state.isDestroyed, createMemoryLeakWarning('destroy'));
+    }
+
+    if (instance.state.isDestroyed) {
+      return;
+    }
+
+    instance.clearDelayTimeouts();
+    instance.unmount();
+    removeListeners();
+    delete reference._tippy;
+    instance.state.isDestroyed = true;
+    invokeHook('onDestroy', [instance]);
+  }
+}
+
+function tippy(targets, optionalProps) {
+  if (optionalProps === void 0) {
+    optionalProps = {};
+  }
+
+  var plugins = defaultProps.plugins.concat(optionalProps.plugins || []);
+  /* istanbul ignore else */
+
+  if (true) {
+    validateTargets(targets);
+    validateProps(optionalProps, plugins);
+  }
+
+  bindGlobalEventListeners();
+  var passedProps = Object.assign({}, optionalProps, {
+    plugins: plugins
+  });
+  var elements = getArrayOfElements(targets);
+  /* istanbul ignore else */
+
+  if (true) {
+    var isSingleContentElement = isElement(passedProps.content);
+    var isMoreThanOneReferenceElement = elements.length > 1;
+    warnWhen(isSingleContentElement && isMoreThanOneReferenceElement, ['tippy() was passed an Element as the `content` prop, but more than', 'one tippy instance was created by this invocation. This means the', 'content element will only be appended to the last tippy instance.', '\n\n', 'Instead, pass the .innerHTML of the element, or use a function that', 'returns a cloned version of the element instead.', '\n\n', '1) content: element.innerHTML\n', '2) content: () => element.cloneNode(true)'].join(' '));
+  }
+
+  var instances = elements.reduce(function (acc, reference) {
+    var instance = reference && createTippy(reference, passedProps);
+
+    if (instance) {
+      acc.push(instance);
+    }
+
+    return acc;
+  }, []);
+  return isElement(targets) ? instances[0] : instances;
+}
+
+tippy.defaultProps = defaultProps;
+tippy.setDefaultProps = setDefaultProps;
+tippy.currentInput = currentInput;
+var hideAll = function hideAll(_temp) {
+  var _ref = _temp === void 0 ? {} : _temp,
+      excludedReferenceOrInstance = _ref.exclude,
+      duration = _ref.duration;
+
+  mountedInstances.forEach(function (instance) {
+    var isExcluded = false;
+
+    if (excludedReferenceOrInstance) {
+      isExcluded = isReferenceElement(excludedReferenceOrInstance) ? instance.reference === excludedReferenceOrInstance : instance.popper === excludedReferenceOrInstance.popper;
+    }
+
+    if (!isExcluded) {
+      var originalDuration = instance.props.duration;
+      instance.setProps({
+        duration: duration
+      });
+      instance.hide();
+
+      if (!instance.state.isDestroyed) {
+        instance.setProps({
+          duration: originalDuration
+        });
+      }
+    }
+  });
+};
+
+// every time the popper is destroyed (i.e. a new target), removing the styles
+// and causing transitions to break for singletons when the console is open, but
+// most notably for non-transform styles being used, `gpuAcceleration: false`.
+
+var applyStylesModifier = Object.assign({}, _popperjs_core__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  effect: function effect(_ref) {
+    var state = _ref.state;
+    var initialStyles = {
+      popper: {
+        position: state.options.strategy,
+        left: '0',
+        top: '0',
+        margin: '0'
+      },
+      arrow: {
+        position: 'absolute'
+      },
+      reference: {}
+    };
+    Object.assign(state.elements.popper.style, initialStyles.popper);
+    state.styles = initialStyles;
+
+    if (state.elements.arrow) {
+      Object.assign(state.elements.arrow.style, initialStyles.arrow);
+    } // intentionally return no cleanup function
+    // return () => { ... }
+
+  }
+});
+
+var createSingleton = function createSingleton(tippyInstances, optionalProps) {
+  var _optionalProps$popper;
+
+  if (optionalProps === void 0) {
+    optionalProps = {};
+  }
+
+  /* istanbul ignore else */
+  if (true) {
+    errorWhen(!Array.isArray(tippyInstances), ['The first argument passed to createSingleton() must be an array of', 'tippy instances. The passed value was', String(tippyInstances)].join(' '));
+  }
+
+  var individualInstances = tippyInstances;
+  var references = [];
+  var triggerTargets = [];
+  var currentTarget;
+  var overrides = optionalProps.overrides;
+  var interceptSetPropsCleanups = [];
+  var shownOnCreate = false;
+
+  function setTriggerTargets() {
+    triggerTargets = individualInstances.map(function (instance) {
+      return normalizeToArray(instance.props.triggerTarget || instance.reference);
+    }).reduce(function (acc, item) {
+      return acc.concat(item);
+    }, []);
+  }
+
+  function setReferences() {
+    references = individualInstances.map(function (instance) {
+      return instance.reference;
+    });
+  }
+
+  function enableInstances(isEnabled) {
+    individualInstances.forEach(function (instance) {
+      if (isEnabled) {
+        instance.enable();
+      } else {
+        instance.disable();
+      }
+    });
+  }
+
+  function interceptSetProps(singleton) {
+    return individualInstances.map(function (instance) {
+      var originalSetProps = instance.setProps;
+
+      instance.setProps = function (props) {
+        originalSetProps(props);
+
+        if (instance.reference === currentTarget) {
+          singleton.setProps(props);
+        }
+      };
+
+      return function () {
+        instance.setProps = originalSetProps;
+      };
+    });
+  } // have to pass singleton, as it maybe undefined on first call
+
+
+  function prepareInstance(singleton, target) {
+    var index = triggerTargets.indexOf(target); // bail-out
+
+    if (target === currentTarget) {
+      return;
+    }
+
+    currentTarget = target;
+    var overrideProps = (overrides || []).concat('content').reduce(function (acc, prop) {
+      acc[prop] = individualInstances[index].props[prop];
+      return acc;
+    }, {});
+    singleton.setProps(Object.assign({}, overrideProps, {
+      getReferenceClientRect: typeof overrideProps.getReferenceClientRect === 'function' ? overrideProps.getReferenceClientRect : function () {
+        var _references$index;
+
+        return (_references$index = references[index]) == null ? void 0 : _references$index.getBoundingClientRect();
+      }
+    }));
+  }
+
+  enableInstances(false);
+  setReferences();
+  setTriggerTargets();
+  var plugin = {
+    fn: function fn() {
+      return {
+        onDestroy: function onDestroy() {
+          enableInstances(true);
+        },
+        onHidden: function onHidden() {
+          currentTarget = null;
+        },
+        onClickOutside: function onClickOutside(instance) {
+          if (instance.props.showOnCreate && !shownOnCreate) {
+            shownOnCreate = true;
+            currentTarget = null;
+          }
+        },
+        onShow: function onShow(instance) {
+          if (instance.props.showOnCreate && !shownOnCreate) {
+            shownOnCreate = true;
+            prepareInstance(instance, references[0]);
+          }
+        },
+        onTrigger: function onTrigger(instance, event) {
+          prepareInstance(instance, event.currentTarget);
+        }
+      };
+    }
+  };
+  var singleton = tippy(div(), Object.assign({}, removeProperties(optionalProps, ['overrides']), {
+    plugins: [plugin].concat(optionalProps.plugins || []),
+    triggerTarget: triggerTargets,
+    popperOptions: Object.assign({}, optionalProps.popperOptions, {
+      modifiers: [].concat(((_optionalProps$popper = optionalProps.popperOptions) == null ? void 0 : _optionalProps$popper.modifiers) || [], [applyStylesModifier])
+    })
+  }));
+  var originalShow = singleton.show;
+
+  singleton.show = function (target) {
+    originalShow(); // first time, showOnCreate or programmatic call with no params
+    // default to showing first instance
+
+    if (!currentTarget && target == null) {
+      return prepareInstance(singleton, references[0]);
+    } // triggered from event (do nothing as prepareInstance already called by onTrigger)
+    // programmatic call with no params when already visible (do nothing again)
+
+
+    if (currentTarget && target == null) {
+      return;
+    } // target is index of instance
+
+
+    if (typeof target === 'number') {
+      return references[target] && prepareInstance(singleton, references[target]);
+    } // target is a child tippy instance
+
+
+    if (individualInstances.indexOf(target) >= 0) {
+      var ref = target.reference;
+      return prepareInstance(singleton, ref);
+    } // target is a ReferenceElement
+
+
+    if (references.indexOf(target) >= 0) {
+      return prepareInstance(singleton, target);
+    }
+  };
+
+  singleton.showNext = function () {
+    var first = references[0];
+
+    if (!currentTarget) {
+      return singleton.show(0);
+    }
+
+    var index = references.indexOf(currentTarget);
+    singleton.show(references[index + 1] || first);
+  };
+
+  singleton.showPrevious = function () {
+    var last = references[references.length - 1];
+
+    if (!currentTarget) {
+      return singleton.show(last);
+    }
+
+    var index = references.indexOf(currentTarget);
+    var target = references[index - 1] || last;
+    singleton.show(target);
+  };
+
+  var originalSetProps = singleton.setProps;
+
+  singleton.setProps = function (props) {
+    overrides = props.overrides || overrides;
+    originalSetProps(props);
+  };
+
+  singleton.setInstances = function (nextInstances) {
+    enableInstances(true);
+    interceptSetPropsCleanups.forEach(function (fn) {
+      return fn();
+    });
+    individualInstances = nextInstances;
+    enableInstances(false);
+    setReferences();
+    setTriggerTargets();
+    interceptSetPropsCleanups = interceptSetProps(singleton);
+    singleton.setProps({
+      triggerTarget: triggerTargets
+    });
+  };
+
+  interceptSetPropsCleanups = interceptSetProps(singleton);
+  return singleton;
+};
+
+var BUBBLING_EVENTS_MAP = {
+  mouseover: 'mouseenter',
+  focusin: 'focus',
+  click: 'click'
+};
+/**
+ * Creates a delegate instance that controls the creation of tippy instances
+ * for child elements (`target` CSS selector).
+ */
+
+function delegate(targets, props) {
+  /* istanbul ignore else */
+  if (true) {
+    errorWhen(!(props && props.target), ['You must specity a `target` prop indicating a CSS selector string matching', 'the target elements that should receive a tippy.'].join(' '));
+  }
+
+  var listeners = [];
+  var childTippyInstances = [];
+  var disabled = false;
+  var target = props.target;
+  var nativeProps = removeProperties(props, ['target']);
+  var parentProps = Object.assign({}, nativeProps, {
+    trigger: 'manual',
+    touch: false
+  });
+  var childProps = Object.assign({
+    touch: defaultProps.touch
+  }, nativeProps, {
+    showOnCreate: true
+  });
+  var returnValue = tippy(targets, parentProps);
+  var normalizedReturnValue = normalizeToArray(returnValue);
+
+  function onTrigger(event) {
+    if (!event.target || disabled) {
+      return;
+    }
+
+    var targetNode = event.target.closest(target);
+
+    if (!targetNode) {
+      return;
+    } // Get relevant trigger with fallbacks:
+    // 1. Check `data-tippy-trigger` attribute on target node
+    // 2. Fallback to `trigger` passed to `delegate()`
+    // 3. Fallback to `defaultProps.trigger`
+
+
+    var trigger = targetNode.getAttribute('data-tippy-trigger') || props.trigger || defaultProps.trigger; // @ts-ignore
+
+    if (targetNode._tippy) {
+      return;
+    }
+
+    if (event.type === 'touchstart' && typeof childProps.touch === 'boolean') {
+      return;
+    }
+
+    if (event.type !== 'touchstart' && trigger.indexOf(BUBBLING_EVENTS_MAP[event.type]) < 0) {
+      return;
+    }
+
+    var instance = tippy(targetNode, childProps);
+
+    if (instance) {
+      childTippyInstances = childTippyInstances.concat(instance);
+    }
+  }
+
+  function on(node, eventType, handler, options) {
+    if (options === void 0) {
+      options = false;
+    }
+
+    node.addEventListener(eventType, handler, options);
+    listeners.push({
+      node: node,
+      eventType: eventType,
+      handler: handler,
+      options: options
+    });
+  }
+
+  function addEventListeners(instance) {
+    var reference = instance.reference;
+    on(reference, 'touchstart', onTrigger, TOUCH_OPTIONS);
+    on(reference, 'mouseover', onTrigger);
+    on(reference, 'focusin', onTrigger);
+    on(reference, 'click', onTrigger);
+  }
+
+  function removeEventListeners() {
+    listeners.forEach(function (_ref) {
+      var node = _ref.node,
+          eventType = _ref.eventType,
+          handler = _ref.handler,
+          options = _ref.options;
+      node.removeEventListener(eventType, handler, options);
+    });
+    listeners = [];
+  }
+
+  function applyMutations(instance) {
+    var originalDestroy = instance.destroy;
+    var originalEnable = instance.enable;
+    var originalDisable = instance.disable;
+
+    instance.destroy = function (shouldDestroyChildInstances) {
+      if (shouldDestroyChildInstances === void 0) {
+        shouldDestroyChildInstances = true;
+      }
+
+      if (shouldDestroyChildInstances) {
+        childTippyInstances.forEach(function (instance) {
+          instance.destroy();
+        });
+      }
+
+      childTippyInstances = [];
+      removeEventListeners();
+      originalDestroy();
+    };
+
+    instance.enable = function () {
+      originalEnable();
+      childTippyInstances.forEach(function (instance) {
+        return instance.enable();
+      });
+      disabled = false;
+    };
+
+    instance.disable = function () {
+      originalDisable();
+      childTippyInstances.forEach(function (instance) {
+        return instance.disable();
+      });
+      disabled = true;
+    };
+
+    addEventListeners(instance);
+  }
+
+  normalizedReturnValue.forEach(applyMutations);
+  return returnValue;
+}
+
+var animateFill = {
+  name: 'animateFill',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var _instance$props$rende;
+
+    // @ts-ignore
+    if (!((_instance$props$rende = instance.props.render) != null && _instance$props$rende.$$tippy)) {
+      if (true) {
+        errorWhen(instance.props.animateFill, 'The `animateFill` plugin requires the default render function.');
+      }
+
+      return {};
+    }
+
+    var _getChildren = getChildren(instance.popper),
+        box = _getChildren.box,
+        content = _getChildren.content;
+
+    var backdrop = instance.props.animateFill ? createBackdropElement() : null;
+    return {
+      onCreate: function onCreate() {
+        if (backdrop) {
+          box.insertBefore(backdrop, box.firstElementChild);
+          box.setAttribute('data-animatefill', '');
+          box.style.overflow = 'hidden';
+          instance.setProps({
+            arrow: false,
+            animation: 'shift-away'
+          });
+        }
+      },
+      onMount: function onMount() {
+        if (backdrop) {
+          var transitionDuration = box.style.transitionDuration;
+          var duration = Number(transitionDuration.replace('ms', '')); // The content should fade in after the backdrop has mostly filled the
+          // tooltip element. `clip-path` is the other alternative but is not
+          // well-supported and is buggy on some devices.
+
+          content.style.transitionDelay = Math.round(duration / 10) + "ms";
+          backdrop.style.transitionDuration = transitionDuration;
+          setVisibilityState([backdrop], 'visible');
+        }
+      },
+      onShow: function onShow() {
+        if (backdrop) {
+          backdrop.style.transitionDuration = '0ms';
+        }
+      },
+      onHide: function onHide() {
+        if (backdrop) {
+          setVisibilityState([backdrop], 'hidden');
+        }
+      }
+    };
+  }
+};
+
+function createBackdropElement() {
+  var backdrop = div();
+  backdrop.className = BACKDROP_CLASS;
+  setVisibilityState([backdrop], 'hidden');
+  return backdrop;
+}
+
+var mouseCoords = {
+  clientX: 0,
+  clientY: 0
+};
+var activeInstances = [];
+
+function storeMouseCoords(_ref) {
+  var clientX = _ref.clientX,
+      clientY = _ref.clientY;
+  mouseCoords = {
+    clientX: clientX,
+    clientY: clientY
+  };
+}
+
+function addMouseCoordsListener(doc) {
+  doc.addEventListener('mousemove', storeMouseCoords);
+}
+
+function removeMouseCoordsListener(doc) {
+  doc.removeEventListener('mousemove', storeMouseCoords);
+}
+
+var followCursor = {
+  name: 'followCursor',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var reference = instance.reference;
+    var doc = getOwnerDocument(instance.props.triggerTarget || reference);
+    var isInternalUpdate = false;
+    var wasFocusEvent = false;
+    var isUnmounted = true;
+    var prevProps = instance.props;
+
+    function getIsInitialBehavior() {
+      return instance.props.followCursor === 'initial' && instance.state.isVisible;
+    }
+
+    function addListener() {
+      doc.addEventListener('mousemove', onMouseMove);
+    }
+
+    function removeListener() {
+      doc.removeEventListener('mousemove', onMouseMove);
+    }
+
+    function unsetGetReferenceClientRect() {
+      isInternalUpdate = true;
+      instance.setProps({
+        getReferenceClientRect: null
+      });
+      isInternalUpdate = false;
+    }
+
+    function onMouseMove(event) {
+      // If the instance is interactive, avoid updating the position unless it's
+      // over the reference element
+      var isCursorOverReference = event.target ? reference.contains(event.target) : true;
+      var followCursor = instance.props.followCursor;
+      var clientX = event.clientX,
+          clientY = event.clientY;
+      var rect = reference.getBoundingClientRect();
+      var relativeX = clientX - rect.left;
+      var relativeY = clientY - rect.top;
+
+      if (isCursorOverReference || !instance.props.interactive) {
+        instance.setProps({
+          // @ts-ignore - unneeded DOMRect properties
+          getReferenceClientRect: function getReferenceClientRect() {
+            var rect = reference.getBoundingClientRect();
+            var x = clientX;
+            var y = clientY;
+
+            if (followCursor === 'initial') {
+              x = rect.left + relativeX;
+              y = rect.top + relativeY;
+            }
+
+            var top = followCursor === 'horizontal' ? rect.top : y;
+            var right = followCursor === 'vertical' ? rect.right : x;
+            var bottom = followCursor === 'horizontal' ? rect.bottom : y;
+            var left = followCursor === 'vertical' ? rect.left : x;
+            return {
+              width: right - left,
+              height: bottom - top,
+              top: top,
+              right: right,
+              bottom: bottom,
+              left: left
+            };
+          }
+        });
+      }
+    }
+
+    function create() {
+      if (instance.props.followCursor) {
+        activeInstances.push({
+          instance: instance,
+          doc: doc
+        });
+        addMouseCoordsListener(doc);
+      }
+    }
+
+    function destroy() {
+      activeInstances = activeInstances.filter(function (data) {
+        return data.instance !== instance;
+      });
+
+      if (activeInstances.filter(function (data) {
+        return data.doc === doc;
+      }).length === 0) {
+        removeMouseCoordsListener(doc);
+      }
+    }
+
+    return {
+      onCreate: create,
+      onDestroy: destroy,
+      onBeforeUpdate: function onBeforeUpdate() {
+        prevProps = instance.props;
+      },
+      onAfterUpdate: function onAfterUpdate(_, _ref2) {
+        var followCursor = _ref2.followCursor;
+
+        if (isInternalUpdate) {
+          return;
+        }
+
+        if (followCursor !== undefined && prevProps.followCursor !== followCursor) {
+          destroy();
+
+          if (followCursor) {
+            create();
+
+            if (instance.state.isMounted && !wasFocusEvent && !getIsInitialBehavior()) {
+              addListener();
+            }
+          } else {
+            removeListener();
+            unsetGetReferenceClientRect();
+          }
+        }
+      },
+      onMount: function onMount() {
+        if (instance.props.followCursor && !wasFocusEvent) {
+          if (isUnmounted) {
+            onMouseMove(mouseCoords);
+            isUnmounted = false;
+          }
+
+          if (!getIsInitialBehavior()) {
+            addListener();
+          }
+        }
+      },
+      onTrigger: function onTrigger(_, event) {
+        if (isMouseEvent(event)) {
+          mouseCoords = {
+            clientX: event.clientX,
+            clientY: event.clientY
+          };
+        }
+
+        wasFocusEvent = event.type === 'focus';
+      },
+      onHidden: function onHidden() {
+        if (instance.props.followCursor) {
+          unsetGetReferenceClientRect();
+          removeListener();
+          isUnmounted = true;
+        }
+      }
+    };
+  }
+};
+
+function getProps(props, modifier) {
+  var _props$popperOptions;
+
+  return {
+    popperOptions: Object.assign({}, props.popperOptions, {
+      modifiers: [].concat((((_props$popperOptions = props.popperOptions) == null ? void 0 : _props$popperOptions.modifiers) || []).filter(function (_ref) {
+        var name = _ref.name;
+        return name !== modifier.name;
+      }), [modifier])
+    })
+  };
+}
+
+var inlinePositioning = {
+  name: 'inlinePositioning',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var reference = instance.reference;
+
+    function isEnabled() {
+      return !!instance.props.inlinePositioning;
+    }
+
+    var placement;
+    var cursorRectIndex = -1;
+    var isInternalUpdate = false;
+    var triedPlacements = [];
+    var modifier = {
+      name: 'tippyInlinePositioning',
+      enabled: true,
+      phase: 'afterWrite',
+      fn: function fn(_ref2) {
+        var state = _ref2.state;
+
+        if (isEnabled()) {
+          if (triedPlacements.indexOf(state.placement) !== -1) {
+            triedPlacements = [];
+          }
+
+          if (placement !== state.placement && triedPlacements.indexOf(state.placement) === -1) {
+            triedPlacements.push(state.placement);
+            instance.setProps({
+              // @ts-ignore - unneeded DOMRect properties
+              getReferenceClientRect: function getReferenceClientRect() {
+                return _getReferenceClientRect(state.placement);
+              }
+            });
+          }
+
+          placement = state.placement;
+        }
+      }
+    };
+
+    function _getReferenceClientRect(placement) {
+      return getInlineBoundingClientRect(getBasePlacement(placement), reference.getBoundingClientRect(), arrayFrom(reference.getClientRects()), cursorRectIndex);
+    }
+
+    function setInternalProps(partialProps) {
+      isInternalUpdate = true;
+      instance.setProps(partialProps);
+      isInternalUpdate = false;
+    }
+
+    function addModifier() {
+      if (!isInternalUpdate) {
+        setInternalProps(getProps(instance.props, modifier));
+      }
+    }
+
+    return {
+      onCreate: addModifier,
+      onAfterUpdate: addModifier,
+      onTrigger: function onTrigger(_, event) {
+        if (isMouseEvent(event)) {
+          var rects = arrayFrom(instance.reference.getClientRects());
+          var cursorRect = rects.find(function (rect) {
+            return rect.left - 2 <= event.clientX && rect.right + 2 >= event.clientX && rect.top - 2 <= event.clientY && rect.bottom + 2 >= event.clientY;
+          });
+          var index = rects.indexOf(cursorRect);
+          cursorRectIndex = index > -1 ? index : cursorRectIndex;
+        }
+      },
+      onHidden: function onHidden() {
+        cursorRectIndex = -1;
+      }
+    };
+  }
+};
+function getInlineBoundingClientRect(currentBasePlacement, boundingRect, clientRects, cursorRectIndex) {
+  // Not an inline element, or placement is not yet known
+  if (clientRects.length < 2 || currentBasePlacement === null) {
+    return boundingRect;
+  } // There are two rects and they are disjoined
+
+
+  if (clientRects.length === 2 && cursorRectIndex >= 0 && clientRects[0].left > clientRects[1].right) {
+    return clientRects[cursorRectIndex] || boundingRect;
+  }
+
+  switch (currentBasePlacement) {
+    case 'top':
+    case 'bottom':
+      {
+        var firstRect = clientRects[0];
+        var lastRect = clientRects[clientRects.length - 1];
+        var isTop = currentBasePlacement === 'top';
+        var top = firstRect.top;
+        var bottom = lastRect.bottom;
+        var left = isTop ? firstRect.left : lastRect.left;
+        var right = isTop ? firstRect.right : lastRect.right;
+        var width = right - left;
+        var height = bottom - top;
+        return {
+          top: top,
+          bottom: bottom,
+          left: left,
+          right: right,
+          width: width,
+          height: height
+        };
+      }
+
+    case 'left':
+    case 'right':
+      {
+        var minLeft = Math.min.apply(Math, clientRects.map(function (rects) {
+          return rects.left;
+        }));
+        var maxRight = Math.max.apply(Math, clientRects.map(function (rects) {
+          return rects.right;
+        }));
+        var measureRects = clientRects.filter(function (rect) {
+          return currentBasePlacement === 'left' ? rect.left === minLeft : rect.right === maxRight;
+        });
+        var _top = measureRects[0].top;
+        var _bottom = measureRects[measureRects.length - 1].bottom;
+        var _left = minLeft;
+        var _right = maxRight;
+
+        var _width = _right - _left;
+
+        var _height = _bottom - _top;
+
+        return {
+          top: _top,
+          bottom: _bottom,
+          left: _left,
+          right: _right,
+          width: _width,
+          height: _height
+        };
+      }
+
+    default:
+      {
+        return boundingRect;
+      }
+  }
+}
+
+var sticky = {
+  name: 'sticky',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var reference = instance.reference,
+        popper = instance.popper;
+
+    function getReference() {
+      return instance.popperInstance ? instance.popperInstance.state.elements.reference : reference;
+    }
+
+    function shouldCheck(value) {
+      return instance.props.sticky === true || instance.props.sticky === value;
+    }
+
+    var prevRefRect = null;
+    var prevPopRect = null;
+
+    function updatePosition() {
+      var currentRefRect = shouldCheck('reference') ? getReference().getBoundingClientRect() : null;
+      var currentPopRect = shouldCheck('popper') ? popper.getBoundingClientRect() : null;
+
+      if (currentRefRect && areRectsDifferent(prevRefRect, currentRefRect) || currentPopRect && areRectsDifferent(prevPopRect, currentPopRect)) {
+        if (instance.popperInstance) {
+          instance.popperInstance.update();
+        }
+      }
+
+      prevRefRect = currentRefRect;
+      prevPopRect = currentPopRect;
+
+      if (instance.state.isMounted) {
+        requestAnimationFrame(updatePosition);
+      }
+    }
+
+    return {
+      onMount: function onMount() {
+        if (instance.props.sticky) {
+          updatePosition();
+        }
+      }
+    };
+  }
+};
+
+function areRectsDifferent(rectA, rectB) {
+  if (rectA && rectB) {
+    return rectA.top !== rectB.top || rectA.right !== rectB.right || rectA.bottom !== rectB.bottom || rectA.left !== rectB.left;
+  }
+
+  return true;
+}
+
+tippy.setDefaultProps({
+  render: render
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tippy);
+
+//# sourceMappingURL=tippy.esm.js.map
+
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["React"];
+
+/***/ }),
+
+/***/ "react-dom":
+/*!***************************!*\
+  !*** external "ReactDOM" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["ReactDOM"];
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!**********************************!*\
+  !*** external "ReactJSXRuntime" ***!
+  \**********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["ReactJSXRuntime"];
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
+/***/ "./node_modules/immer/dist/immer.mjs":
+/*!*******************************************!*\
+  !*** ./node_modules/immer/dist/immer.mjs ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Immer: () => (/* binding */ Immer2),
+/* harmony export */   applyPatches: () => (/* binding */ applyPatches),
+/* harmony export */   castDraft: () => (/* binding */ castDraft),
+/* harmony export */   castImmutable: () => (/* binding */ castImmutable),
+/* harmony export */   createDraft: () => (/* binding */ createDraft),
+/* harmony export */   current: () => (/* binding */ current),
+/* harmony export */   enableMapSet: () => (/* binding */ enableMapSet),
+/* harmony export */   enablePatches: () => (/* binding */ enablePatches),
+/* harmony export */   finishDraft: () => (/* binding */ finishDraft),
+/* harmony export */   freeze: () => (/* binding */ freeze),
+/* harmony export */   immerable: () => (/* binding */ DRAFTABLE),
+/* harmony export */   isDraft: () => (/* binding */ isDraft),
+/* harmony export */   isDraftable: () => (/* binding */ isDraftable),
+/* harmony export */   nothing: () => (/* binding */ NOTHING),
+/* harmony export */   original: () => (/* binding */ original),
+/* harmony export */   produce: () => (/* binding */ produce),
+/* harmony export */   produceWithPatches: () => (/* binding */ produceWithPatches),
+/* harmony export */   setAutoFreeze: () => (/* binding */ setAutoFreeze),
+/* harmony export */   setUseStrictShallowCopy: () => (/* binding */ setUseStrictShallowCopy)
+/* harmony export */ });
+// src/utils/env.ts
+var NOTHING = Symbol.for("immer-nothing");
+var DRAFTABLE = Symbol.for("immer-draftable");
+var DRAFT_STATE = Symbol.for("immer-state");
+
+// src/utils/errors.ts
+var errors =  true ? [
+  // All error codes, starting by 0:
+  function(plugin) {
+    return `The plugin for '${plugin}' has not been loaded into Immer. To enable the plugin, import and call \`enable${plugin}()\` when initializing your application.`;
+  },
+  function(thing) {
+    return `produce can only be called on things that are draftable: plain objects, arrays, Map, Set or classes that are marked with '[immerable]: true'. Got '${thing}'`;
+  },
+  "This object has been frozen and should not be mutated",
+  function(data) {
+    return "Cannot use a proxy that has been revoked. Did you pass an object from inside an immer function to an async process? " + data;
+  },
+  "An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft.",
+  "Immer forbids circular references",
+  "The first or second argument to `produce` must be a function",
+  "The third argument to `produce` must be a function or undefined",
+  "First argument to `createDraft` must be a plain object, an array, or an immerable object",
+  "First argument to `finishDraft` must be a draft returned by `createDraft`",
+  function(thing) {
+    return `'current' expects a draft, got: ${thing}`;
+  },
+  "Object.defineProperty() cannot be used on an Immer draft",
+  "Object.setPrototypeOf() cannot be used on an Immer draft",
+  "Immer only supports deleting array indices",
+  "Immer only supports setting array indices and the 'length' property",
+  function(thing) {
+    return `'original' expects a draft, got: ${thing}`;
+  }
+  // Note: if more errors are added, the errorOffset in Patches.ts should be increased
+  // See Patches.ts for additional errors
+] : 0;
+function die(error, ...args) {
+  if (true) {
+    const e = errors[error];
+    const msg = typeof e === "function" ? e.apply(null, args) : e;
+    throw new Error(`[Immer] ${msg}`);
+  }
+  throw new Error(
+    `[Immer] minified error nr: ${error}. Full error at: https://bit.ly/3cXEKWf`
+  );
+}
+
+// src/utils/common.ts
+var getPrototypeOf = Object.getPrototypeOf;
+function isDraft(value) {
+  return !!value && !!value[DRAFT_STATE];
+}
+function isDraftable(value) {
+  if (!value)
+    return false;
+  return isPlainObject(value) || Array.isArray(value) || !!value[DRAFTABLE] || !!value.constructor?.[DRAFTABLE] || isMap(value) || isSet(value);
+}
+var objectCtorString = Object.prototype.constructor.toString();
+function isPlainObject(value) {
+  if (!value || typeof value !== "object")
+    return false;
+  const proto = getPrototypeOf(value);
+  if (proto === null) {
+    return true;
+  }
+  const Ctor = Object.hasOwnProperty.call(proto, "constructor") && proto.constructor;
+  if (Ctor === Object)
+    return true;
+  return typeof Ctor == "function" && Function.toString.call(Ctor) === objectCtorString;
+}
+function original(value) {
+  if (!isDraft(value))
+    die(15, value);
+  return value[DRAFT_STATE].base_;
+}
+function each(obj, iter) {
+  if (getArchtype(obj) === 0 /* Object */) {
+    Reflect.ownKeys(obj).forEach((key) => {
+      iter(key, obj[key], obj);
+    });
+  } else {
+    obj.forEach((entry, index) => iter(index, entry, obj));
+  }
+}
+function getArchtype(thing) {
+  const state = thing[DRAFT_STATE];
+  return state ? state.type_ : Array.isArray(thing) ? 1 /* Array */ : isMap(thing) ? 2 /* Map */ : isSet(thing) ? 3 /* Set */ : 0 /* Object */;
+}
+function has(thing, prop) {
+  return getArchtype(thing) === 2 /* Map */ ? thing.has(prop) : Object.prototype.hasOwnProperty.call(thing, prop);
+}
+function get(thing, prop) {
+  return getArchtype(thing) === 2 /* Map */ ? thing.get(prop) : thing[prop];
+}
+function set(thing, propOrOldValue, value) {
+  const t = getArchtype(thing);
+  if (t === 2 /* Map */)
+    thing.set(propOrOldValue, value);
+  else if (t === 3 /* Set */) {
+    thing.add(value);
+  } else
+    thing[propOrOldValue] = value;
+}
+function is(x, y) {
+  if (x === y) {
+    return x !== 0 || 1 / x === 1 / y;
+  } else {
+    return x !== x && y !== y;
+  }
+}
+function isMap(target) {
+  return target instanceof Map;
+}
+function isSet(target) {
+  return target instanceof Set;
+}
+function latest(state) {
+  return state.copy_ || state.base_;
+}
+function shallowCopy(base, strict) {
+  if (isMap(base)) {
+    return new Map(base);
+  }
+  if (isSet(base)) {
+    return new Set(base);
+  }
+  if (Array.isArray(base))
+    return Array.prototype.slice.call(base);
+  const isPlain = isPlainObject(base);
+  if (strict === true || strict === "class_only" && !isPlain) {
+    const descriptors = Object.getOwnPropertyDescriptors(base);
+    delete descriptors[DRAFT_STATE];
+    let keys = Reflect.ownKeys(descriptors);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      const desc = descriptors[key];
+      if (desc.writable === false) {
+        desc.writable = true;
+        desc.configurable = true;
+      }
+      if (desc.get || desc.set)
+        descriptors[key] = {
+          configurable: true,
+          writable: true,
+          // could live with !!desc.set as well here...
+          enumerable: desc.enumerable,
+          value: base[key]
+        };
+    }
+    return Object.create(getPrototypeOf(base), descriptors);
+  } else {
+    const proto = getPrototypeOf(base);
+    if (proto !== null && isPlain) {
+      return { ...base };
+    }
+    const obj = Object.create(proto);
+    return Object.assign(obj, base);
+  }
+}
+function freeze(obj, deep = false) {
+  if (isFrozen(obj) || isDraft(obj) || !isDraftable(obj))
+    return obj;
+  if (getArchtype(obj) > 1) {
+    obj.set = obj.add = obj.clear = obj.delete = dontMutateFrozenCollections;
+  }
+  Object.freeze(obj);
+  if (deep)
+    Object.entries(obj).forEach(([key, value]) => freeze(value, true));
+  return obj;
+}
+function dontMutateFrozenCollections() {
+  die(2);
+}
+function isFrozen(obj) {
+  return Object.isFrozen(obj);
+}
+
+// src/utils/plugins.ts
+var plugins = {};
+function getPlugin(pluginKey) {
+  const plugin = plugins[pluginKey];
+  if (!plugin) {
+    die(0, pluginKey);
+  }
+  return plugin;
+}
+function loadPlugin(pluginKey, implementation) {
+  if (!plugins[pluginKey])
+    plugins[pluginKey] = implementation;
+}
+
+// src/core/scope.ts
+var currentScope;
+function getCurrentScope() {
+  return currentScope;
+}
+function createScope(parent_, immer_) {
+  return {
+    drafts_: [],
+    parent_,
+    immer_,
+    // Whenever the modified draft contains a draft from another scope, we
+    // need to prevent auto-freezing so the unowned draft can be finalized.
+    canAutoFreeze_: true,
+    unfinalizedDrafts_: 0
+  };
+}
+function usePatchesInScope(scope, patchListener) {
+  if (patchListener) {
+    getPlugin("Patches");
+    scope.patches_ = [];
+    scope.inversePatches_ = [];
+    scope.patchListener_ = patchListener;
+  }
+}
+function revokeScope(scope) {
+  leaveScope(scope);
+  scope.drafts_.forEach(revokeDraft);
+  scope.drafts_ = null;
+}
+function leaveScope(scope) {
+  if (scope === currentScope) {
+    currentScope = scope.parent_;
+  }
+}
+function enterScope(immer2) {
+  return currentScope = createScope(currentScope, immer2);
+}
+function revokeDraft(draft) {
+  const state = draft[DRAFT_STATE];
+  if (state.type_ === 0 /* Object */ || state.type_ === 1 /* Array */)
+    state.revoke_();
+  else
+    state.revoked_ = true;
+}
+
+// src/core/finalize.ts
+function processResult(result, scope) {
+  scope.unfinalizedDrafts_ = scope.drafts_.length;
+  const baseDraft = scope.drafts_[0];
+  const isReplaced = result !== void 0 && result !== baseDraft;
+  if (isReplaced) {
+    if (baseDraft[DRAFT_STATE].modified_) {
+      revokeScope(scope);
+      die(4);
+    }
+    if (isDraftable(result)) {
+      result = finalize(scope, result);
+      if (!scope.parent_)
+        maybeFreeze(scope, result);
+    }
+    if (scope.patches_) {
+      getPlugin("Patches").generateReplacementPatches_(
+        baseDraft[DRAFT_STATE].base_,
+        result,
+        scope.patches_,
+        scope.inversePatches_
+      );
+    }
+  } else {
+    result = finalize(scope, baseDraft, []);
+  }
+  revokeScope(scope);
+  if (scope.patches_) {
+    scope.patchListener_(scope.patches_, scope.inversePatches_);
+  }
+  return result !== NOTHING ? result : void 0;
+}
+function finalize(rootScope, value, path) {
+  if (isFrozen(value))
+    return value;
+  const state = value[DRAFT_STATE];
+  if (!state) {
+    each(
+      value,
+      (key, childValue) => finalizeProperty(rootScope, state, value, key, childValue, path)
+    );
+    return value;
+  }
+  if (state.scope_ !== rootScope)
+    return value;
+  if (!state.modified_) {
+    maybeFreeze(rootScope, state.base_, true);
+    return state.base_;
+  }
+  if (!state.finalized_) {
+    state.finalized_ = true;
+    state.scope_.unfinalizedDrafts_--;
+    const result = state.copy_;
+    let resultEach = result;
+    let isSet2 = false;
+    if (state.type_ === 3 /* Set */) {
+      resultEach = new Set(result);
+      result.clear();
+      isSet2 = true;
+    }
+    each(
+      resultEach,
+      (key, childValue) => finalizeProperty(rootScope, state, result, key, childValue, path, isSet2)
+    );
+    maybeFreeze(rootScope, result, false);
+    if (path && rootScope.patches_) {
+      getPlugin("Patches").generatePatches_(
+        state,
+        path,
+        rootScope.patches_,
+        rootScope.inversePatches_
+      );
+    }
+  }
+  return state.copy_;
+}
+function finalizeProperty(rootScope, parentState, targetObject, prop, childValue, rootPath, targetIsSet) {
+  if ( true && childValue === targetObject)
+    die(5);
+  if (isDraft(childValue)) {
+    const path = rootPath && parentState && parentState.type_ !== 3 /* Set */ && // Set objects are atomic since they have no keys.
+    !has(parentState.assigned_, prop) ? rootPath.concat(prop) : void 0;
+    const res = finalize(rootScope, childValue, path);
+    set(targetObject, prop, res);
+    if (isDraft(res)) {
+      rootScope.canAutoFreeze_ = false;
+    } else
+      return;
+  } else if (targetIsSet) {
+    targetObject.add(childValue);
+  }
+  if (isDraftable(childValue) && !isFrozen(childValue)) {
+    if (!rootScope.immer_.autoFreeze_ && rootScope.unfinalizedDrafts_ < 1) {
+      return;
+    }
+    finalize(rootScope, childValue);
+    if ((!parentState || !parentState.scope_.parent_) && typeof prop !== "symbol" && Object.prototype.propertyIsEnumerable.call(targetObject, prop))
+      maybeFreeze(rootScope, childValue);
+  }
+}
+function maybeFreeze(scope, value, deep = false) {
+  if (!scope.parent_ && scope.immer_.autoFreeze_ && scope.canAutoFreeze_) {
+    freeze(value, deep);
+  }
+}
+
+// src/core/proxy.ts
+function createProxyProxy(base, parent) {
+  const isArray = Array.isArray(base);
+  const state = {
+    type_: isArray ? 1 /* Array */ : 0 /* Object */,
+    // Track which produce call this is associated with.
+    scope_: parent ? parent.scope_ : getCurrentScope(),
+    // True for both shallow and deep changes.
+    modified_: false,
+    // Used during finalization.
+    finalized_: false,
+    // Track which properties have been assigned (true) or deleted (false).
+    assigned_: {},
+    // The parent draft state.
+    parent_: parent,
+    // The base state.
+    base_: base,
+    // The base proxy.
+    draft_: null,
+    // set below
+    // The base copy with any updated values.
+    copy_: null,
+    // Called by the `produce` function.
+    revoke_: null,
+    isManual_: false
+  };
+  let target = state;
+  let traps = objectTraps;
+  if (isArray) {
+    target = [state];
+    traps = arrayTraps;
+  }
+  const { revoke, proxy } = Proxy.revocable(target, traps);
+  state.draft_ = proxy;
+  state.revoke_ = revoke;
+  return proxy;
+}
+var objectTraps = {
+  get(state, prop) {
+    if (prop === DRAFT_STATE)
+      return state;
+    const source = latest(state);
+    if (!has(source, prop)) {
+      return readPropFromProto(state, source, prop);
+    }
+    const value = source[prop];
+    if (state.finalized_ || !isDraftable(value)) {
+      return value;
+    }
+    if (value === peek(state.base_, prop)) {
+      prepareCopy(state);
+      return state.copy_[prop] = createProxy(value, state);
+    }
+    return value;
+  },
+  has(state, prop) {
+    return prop in latest(state);
+  },
+  ownKeys(state) {
+    return Reflect.ownKeys(latest(state));
+  },
+  set(state, prop, value) {
+    const desc = getDescriptorFromProto(latest(state), prop);
+    if (desc?.set) {
+      desc.set.call(state.draft_, value);
+      return true;
+    }
+    if (!state.modified_) {
+      const current2 = peek(latest(state), prop);
+      const currentState = current2?.[DRAFT_STATE];
+      if (currentState && currentState.base_ === value) {
+        state.copy_[prop] = value;
+        state.assigned_[prop] = false;
+        return true;
+      }
+      if (is(value, current2) && (value !== void 0 || has(state.base_, prop)))
+        return true;
+      prepareCopy(state);
+      markChanged(state);
+    }
+    if (state.copy_[prop] === value && // special case: handle new props with value 'undefined'
+    (value !== void 0 || prop in state.copy_) || // special case: NaN
+    Number.isNaN(value) && Number.isNaN(state.copy_[prop]))
+      return true;
+    state.copy_[prop] = value;
+    state.assigned_[prop] = true;
+    return true;
+  },
+  deleteProperty(state, prop) {
+    if (peek(state.base_, prop) !== void 0 || prop in state.base_) {
+      state.assigned_[prop] = false;
+      prepareCopy(state);
+      markChanged(state);
+    } else {
+      delete state.assigned_[prop];
+    }
+    if (state.copy_) {
+      delete state.copy_[prop];
+    }
+    return true;
+  },
+  // Note: We never coerce `desc.value` into an Immer draft, because we can't make
+  // the same guarantee in ES5 mode.
+  getOwnPropertyDescriptor(state, prop) {
+    const owner = latest(state);
+    const desc = Reflect.getOwnPropertyDescriptor(owner, prop);
+    if (!desc)
+      return desc;
+    return {
+      writable: true,
+      configurable: state.type_ !== 1 /* Array */ || prop !== "length",
+      enumerable: desc.enumerable,
+      value: owner[prop]
+    };
+  },
+  defineProperty() {
+    die(11);
+  },
+  getPrototypeOf(state) {
+    return getPrototypeOf(state.base_);
+  },
+  setPrototypeOf() {
+    die(12);
+  }
+};
+var arrayTraps = {};
+each(objectTraps, (key, fn) => {
+  arrayTraps[key] = function() {
+    arguments[0] = arguments[0][0];
+    return fn.apply(this, arguments);
+  };
+});
+arrayTraps.deleteProperty = function(state, prop) {
+  if ( true && isNaN(parseInt(prop)))
+    die(13);
+  return arrayTraps.set.call(this, state, prop, void 0);
+};
+arrayTraps.set = function(state, prop, value) {
+  if ( true && prop !== "length" && isNaN(parseInt(prop)))
+    die(14);
+  return objectTraps.set.call(this, state[0], prop, value, state[0]);
+};
+function peek(draft, prop) {
+  const state = draft[DRAFT_STATE];
+  const source = state ? latest(state) : draft;
+  return source[prop];
+}
+function readPropFromProto(state, source, prop) {
+  const desc = getDescriptorFromProto(source, prop);
+  return desc ? `value` in desc ? desc.value : (
+    // This is a very special case, if the prop is a getter defined by the
+    // prototype, we should invoke it with the draft as context!
+    desc.get?.call(state.draft_)
+  ) : void 0;
+}
+function getDescriptorFromProto(source, prop) {
+  if (!(prop in source))
+    return void 0;
+  let proto = getPrototypeOf(source);
+  while (proto) {
+    const desc = Object.getOwnPropertyDescriptor(proto, prop);
+    if (desc)
+      return desc;
+    proto = getPrototypeOf(proto);
+  }
+  return void 0;
+}
+function markChanged(state) {
+  if (!state.modified_) {
+    state.modified_ = true;
+    if (state.parent_) {
+      markChanged(state.parent_);
+    }
+  }
+}
+function prepareCopy(state) {
+  if (!state.copy_) {
+    state.copy_ = shallowCopy(
+      state.base_,
+      state.scope_.immer_.useStrictShallowCopy_
+    );
+  }
+}
+
+// src/core/immerClass.ts
+var Immer2 = class {
+  constructor(config) {
+    this.autoFreeze_ = true;
+    this.useStrictShallowCopy_ = false;
+    /**
+     * The `produce` function takes a value and a "recipe function" (whose
+     * return value often depends on the base state). The recipe function is
+     * free to mutate its first argument however it wants. All mutations are
+     * only ever applied to a __copy__ of the base state.
+     *
+     * Pass only a function to create a "curried producer" which relieves you
+     * from passing the recipe function every time.
+     *
+     * Only plain objects and arrays are made mutable. All other objects are
+     * considered uncopyable.
+     *
+     * Note: This function is __bound__ to its `Immer` instance.
+     *
+     * @param {any} base - the initial state
+     * @param {Function} recipe - function that receives a proxy of the base state as first argument and which can be freely modified
+     * @param {Function} patchListener - optional function that will be called with all the patches produced here
+     * @returns {any} a new state, or the initial state if nothing was modified
+     */
+    this.produce = (base, recipe, patchListener) => {
+      if (typeof base === "function" && typeof recipe !== "function") {
+        const defaultBase = recipe;
+        recipe = base;
+        const self = this;
+        return function curriedProduce(base2 = defaultBase, ...args) {
+          return self.produce(base2, (draft) => recipe.call(this, draft, ...args));
+        };
+      }
+      if (typeof recipe !== "function")
+        die(6);
+      if (patchListener !== void 0 && typeof patchListener !== "function")
+        die(7);
+      let result;
+      if (isDraftable(base)) {
+        const scope = enterScope(this);
+        const proxy = createProxy(base, void 0);
+        let hasError = true;
+        try {
+          result = recipe(proxy);
+          hasError = false;
+        } finally {
+          if (hasError)
+            revokeScope(scope);
+          else
+            leaveScope(scope);
+        }
+        usePatchesInScope(scope, patchListener);
+        return processResult(result, scope);
+      } else if (!base || typeof base !== "object") {
+        result = recipe(base);
+        if (result === void 0)
+          result = base;
+        if (result === NOTHING)
+          result = void 0;
+        if (this.autoFreeze_)
+          freeze(result, true);
+        if (patchListener) {
+          const p = [];
+          const ip = [];
+          getPlugin("Patches").generateReplacementPatches_(base, result, p, ip);
+          patchListener(p, ip);
+        }
+        return result;
+      } else
+        die(1, base);
+    };
+    this.produceWithPatches = (base, recipe) => {
+      if (typeof base === "function") {
+        return (state, ...args) => this.produceWithPatches(state, (draft) => base(draft, ...args));
+      }
+      let patches, inversePatches;
+      const result = this.produce(base, recipe, (p, ip) => {
+        patches = p;
+        inversePatches = ip;
+      });
+      return [result, patches, inversePatches];
+    };
+    if (typeof config?.autoFreeze === "boolean")
+      this.setAutoFreeze(config.autoFreeze);
+    if (typeof config?.useStrictShallowCopy === "boolean")
+      this.setUseStrictShallowCopy(config.useStrictShallowCopy);
+  }
+  createDraft(base) {
+    if (!isDraftable(base))
+      die(8);
+    if (isDraft(base))
+      base = current(base);
+    const scope = enterScope(this);
+    const proxy = createProxy(base, void 0);
+    proxy[DRAFT_STATE].isManual_ = true;
+    leaveScope(scope);
+    return proxy;
+  }
+  finishDraft(draft, patchListener) {
+    const state = draft && draft[DRAFT_STATE];
+    if (!state || !state.isManual_)
+      die(9);
+    const { scope_: scope } = state;
+    usePatchesInScope(scope, patchListener);
+    return processResult(void 0, scope);
+  }
+  /**
+   * Pass true to automatically freeze all copies created by Immer.
+   *
+   * By default, auto-freezing is enabled.
+   */
+  setAutoFreeze(value) {
+    this.autoFreeze_ = value;
+  }
+  /**
+   * Pass true to enable strict shallow copy.
+   *
+   * By default, immer does not copy the object descriptors such as getter, setter and non-enumrable properties.
+   */
+  setUseStrictShallowCopy(value) {
+    this.useStrictShallowCopy_ = value;
+  }
+  applyPatches(base, patches) {
+    let i;
+    for (i = patches.length - 1; i >= 0; i--) {
+      const patch = patches[i];
+      if (patch.path.length === 0 && patch.op === "replace") {
+        base = patch.value;
+        break;
+      }
+    }
+    if (i > -1) {
+      patches = patches.slice(i + 1);
+    }
+    const applyPatchesImpl = getPlugin("Patches").applyPatches_;
+    if (isDraft(base)) {
+      return applyPatchesImpl(base, patches);
+    }
+    return this.produce(
+      base,
+      (draft) => applyPatchesImpl(draft, patches)
+    );
+  }
+};
+function createProxy(value, parent) {
+  const draft = isMap(value) ? getPlugin("MapSet").proxyMap_(value, parent) : isSet(value) ? getPlugin("MapSet").proxySet_(value, parent) : createProxyProxy(value, parent);
+  const scope = parent ? parent.scope_ : getCurrentScope();
+  scope.drafts_.push(draft);
+  return draft;
+}
+
+// src/core/current.ts
+function current(value) {
+  if (!isDraft(value))
+    die(10, value);
+  return currentImpl(value);
+}
+function currentImpl(value) {
+  if (!isDraftable(value) || isFrozen(value))
+    return value;
+  const state = value[DRAFT_STATE];
+  let copy;
+  if (state) {
+    if (!state.modified_)
+      return state.base_;
+    state.finalized_ = true;
+    copy = shallowCopy(value, state.scope_.immer_.useStrictShallowCopy_);
+  } else {
+    copy = shallowCopy(value, true);
+  }
+  each(copy, (key, childValue) => {
+    set(copy, key, currentImpl(childValue));
+  });
+  if (state) {
+    state.finalized_ = false;
+  }
+  return copy;
+}
+
+// src/plugins/patches.ts
+function enablePatches() {
+  const errorOffset = 16;
+  if (true) {
+    errors.push(
+      'Sets cannot have "replace" patches.',
+      function(op) {
+        return "Unsupported patch operation: " + op;
+      },
+      function(path) {
+        return "Cannot apply patch, path doesn't resolve: " + path;
+      },
+      "Patching reserved attributes like __proto__, prototype and constructor is not allowed"
+    );
+  }
+  const REPLACE = "replace";
+  const ADD = "add";
+  const REMOVE = "remove";
+  function generatePatches_(state, basePath, patches, inversePatches) {
+    switch (state.type_) {
+      case 0 /* Object */:
+      case 2 /* Map */:
+        return generatePatchesFromAssigned(
+          state,
+          basePath,
+          patches,
+          inversePatches
+        );
+      case 1 /* Array */:
+        return generateArrayPatches(state, basePath, patches, inversePatches);
+      case 3 /* Set */:
+        return generateSetPatches(
+          state,
+          basePath,
+          patches,
+          inversePatches
+        );
+    }
+  }
+  function generateArrayPatches(state, basePath, patches, inversePatches) {
+    let { base_, assigned_ } = state;
+    let copy_ = state.copy_;
+    if (copy_.length < base_.length) {
+      ;
+      [base_, copy_] = [copy_, base_];
+      [patches, inversePatches] = [inversePatches, patches];
+    }
+    for (let i = 0; i < base_.length; i++) {
+      if (assigned_[i] && copy_[i] !== base_[i]) {
+        const path = basePath.concat([i]);
+        patches.push({
+          op: REPLACE,
+          path,
+          // Need to maybe clone it, as it can in fact be the original value
+          // due to the base/copy inversion at the start of this function
+          value: clonePatchValueIfNeeded(copy_[i])
+        });
+        inversePatches.push({
+          op: REPLACE,
+          path,
+          value: clonePatchValueIfNeeded(base_[i])
+        });
+      }
+    }
+    for (let i = base_.length; i < copy_.length; i++) {
+      const path = basePath.concat([i]);
+      patches.push({
+        op: ADD,
+        path,
+        // Need to maybe clone it, as it can in fact be the original value
+        // due to the base/copy inversion at the start of this function
+        value: clonePatchValueIfNeeded(copy_[i])
+      });
+    }
+    for (let i = copy_.length - 1; base_.length <= i; --i) {
+      const path = basePath.concat([i]);
+      inversePatches.push({
+        op: REMOVE,
+        path
+      });
+    }
+  }
+  function generatePatchesFromAssigned(state, basePath, patches, inversePatches) {
+    const { base_, copy_ } = state;
+    each(state.assigned_, (key, assignedValue) => {
+      const origValue = get(base_, key);
+      const value = get(copy_, key);
+      const op = !assignedValue ? REMOVE : has(base_, key) ? REPLACE : ADD;
+      if (origValue === value && op === REPLACE)
+        return;
+      const path = basePath.concat(key);
+      patches.push(op === REMOVE ? { op, path } : { op, path, value });
+      inversePatches.push(
+        op === ADD ? { op: REMOVE, path } : op === REMOVE ? { op: ADD, path, value: clonePatchValueIfNeeded(origValue) } : { op: REPLACE, path, value: clonePatchValueIfNeeded(origValue) }
+      );
+    });
+  }
+  function generateSetPatches(state, basePath, patches, inversePatches) {
+    let { base_, copy_ } = state;
+    let i = 0;
+    base_.forEach((value) => {
+      if (!copy_.has(value)) {
+        const path = basePath.concat([i]);
+        patches.push({
+          op: REMOVE,
+          path,
+          value
+        });
+        inversePatches.unshift({
+          op: ADD,
+          path,
+          value
+        });
+      }
+      i++;
+    });
+    i = 0;
+    copy_.forEach((value) => {
+      if (!base_.has(value)) {
+        const path = basePath.concat([i]);
+        patches.push({
+          op: ADD,
+          path,
+          value
+        });
+        inversePatches.unshift({
+          op: REMOVE,
+          path,
+          value
+        });
+      }
+      i++;
+    });
+  }
+  function generateReplacementPatches_(baseValue, replacement, patches, inversePatches) {
+    patches.push({
+      op: REPLACE,
+      path: [],
+      value: replacement === NOTHING ? void 0 : replacement
+    });
+    inversePatches.push({
+      op: REPLACE,
+      path: [],
+      value: baseValue
+    });
+  }
+  function applyPatches_(draft, patches) {
+    patches.forEach((patch) => {
+      const { path, op } = patch;
+      let base = draft;
+      for (let i = 0; i < path.length - 1; i++) {
+        const parentType = getArchtype(base);
+        let p = path[i];
+        if (typeof p !== "string" && typeof p !== "number") {
+          p = "" + p;
+        }
+        if ((parentType === 0 /* Object */ || parentType === 1 /* Array */) && (p === "__proto__" || p === "constructor"))
+          die(errorOffset + 3);
+        if (typeof base === "function" && p === "prototype")
+          die(errorOffset + 3);
+        base = get(base, p);
+        if (typeof base !== "object")
+          die(errorOffset + 2, path.join("/"));
+      }
+      const type = getArchtype(base);
+      const value = deepClonePatchValue(patch.value);
+      const key = path[path.length - 1];
+      switch (op) {
+        case REPLACE:
+          switch (type) {
+            case 2 /* Map */:
+              return base.set(key, value);
+            case 3 /* Set */:
+              die(errorOffset);
+            default:
+              return base[key] = value;
+          }
+        case ADD:
+          switch (type) {
+            case 1 /* Array */:
+              return key === "-" ? base.push(value) : base.splice(key, 0, value);
+            case 2 /* Map */:
+              return base.set(key, value);
+            case 3 /* Set */:
+              return base.add(value);
+            default:
+              return base[key] = value;
+          }
+        case REMOVE:
+          switch (type) {
+            case 1 /* Array */:
+              return base.splice(key, 1);
+            case 2 /* Map */:
+              return base.delete(key);
+            case 3 /* Set */:
+              return base.delete(patch.value);
+            default:
+              return delete base[key];
+          }
+        default:
+          die(errorOffset + 1, op);
+      }
+    });
+    return draft;
+  }
+  function deepClonePatchValue(obj) {
+    if (!isDraftable(obj))
+      return obj;
+    if (Array.isArray(obj))
+      return obj.map(deepClonePatchValue);
+    if (isMap(obj))
+      return new Map(
+        Array.from(obj.entries()).map(([k, v]) => [k, deepClonePatchValue(v)])
+      );
+    if (isSet(obj))
+      return new Set(Array.from(obj).map(deepClonePatchValue));
+    const cloned = Object.create(getPrototypeOf(obj));
+    for (const key in obj)
+      cloned[key] = deepClonePatchValue(obj[key]);
+    if (has(obj, DRAFTABLE))
+      cloned[DRAFTABLE] = obj[DRAFTABLE];
+    return cloned;
+  }
+  function clonePatchValueIfNeeded(obj) {
+    if (isDraft(obj)) {
+      return deepClonePatchValue(obj);
+    } else
+      return obj;
+  }
+  loadPlugin("Patches", {
+    applyPatches_,
+    generatePatches_,
+    generateReplacementPatches_
+  });
+}
+
+// src/plugins/mapset.ts
+function enableMapSet() {
+  class DraftMap extends Map {
+    constructor(target, parent) {
+      super();
+      this[DRAFT_STATE] = {
+        type_: 2 /* Map */,
+        parent_: parent,
+        scope_: parent ? parent.scope_ : getCurrentScope(),
+        modified_: false,
+        finalized_: false,
+        copy_: void 0,
+        assigned_: void 0,
+        base_: target,
+        draft_: this,
+        isManual_: false,
+        revoked_: false
+      };
+    }
+    get size() {
+      return latest(this[DRAFT_STATE]).size;
+    }
+    has(key) {
+      return latest(this[DRAFT_STATE]).has(key);
+    }
+    set(key, value) {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      if (!latest(state).has(key) || latest(state).get(key) !== value) {
+        prepareMapCopy(state);
+        markChanged(state);
+        state.assigned_.set(key, true);
+        state.copy_.set(key, value);
+        state.assigned_.set(key, true);
+      }
+      return this;
+    }
+    delete(key) {
+      if (!this.has(key)) {
+        return false;
+      }
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      prepareMapCopy(state);
+      markChanged(state);
+      if (state.base_.has(key)) {
+        state.assigned_.set(key, false);
+      } else {
+        state.assigned_.delete(key);
+      }
+      state.copy_.delete(key);
+      return true;
+    }
+    clear() {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      if (latest(state).size) {
+        prepareMapCopy(state);
+        markChanged(state);
+        state.assigned_ = /* @__PURE__ */ new Map();
+        each(state.base_, (key) => {
+          state.assigned_.set(key, false);
+        });
+        state.copy_.clear();
+      }
+    }
+    forEach(cb, thisArg) {
+      const state = this[DRAFT_STATE];
+      latest(state).forEach((_value, key, _map) => {
+        cb.call(thisArg, this.get(key), key, this);
+      });
+    }
+    get(key) {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      const value = latest(state).get(key);
+      if (state.finalized_ || !isDraftable(value)) {
+        return value;
+      }
+      if (value !== state.base_.get(key)) {
+        return value;
+      }
+      const draft = createProxy(value, state);
+      prepareMapCopy(state);
+      state.copy_.set(key, draft);
+      return draft;
+    }
+    keys() {
+      return latest(this[DRAFT_STATE]).keys();
+    }
+    values() {
+      const iterator = this.keys();
+      return {
+        [Symbol.iterator]: () => this.values(),
+        next: () => {
+          const r = iterator.next();
+          if (r.done)
+            return r;
+          const value = this.get(r.value);
+          return {
+            done: false,
+            value
+          };
+        }
+      };
+    }
+    entries() {
+      const iterator = this.keys();
+      return {
+        [Symbol.iterator]: () => this.entries(),
+        next: () => {
+          const r = iterator.next();
+          if (r.done)
+            return r;
+          const value = this.get(r.value);
+          return {
+            done: false,
+            value: [r.value, value]
+          };
+        }
+      };
+    }
+    [(DRAFT_STATE, Symbol.iterator)]() {
+      return this.entries();
+    }
+  }
+  function proxyMap_(target, parent) {
+    return new DraftMap(target, parent);
+  }
+  function prepareMapCopy(state) {
+    if (!state.copy_) {
+      state.assigned_ = /* @__PURE__ */ new Map();
+      state.copy_ = new Map(state.base_);
+    }
+  }
+  class DraftSet extends Set {
+    constructor(target, parent) {
+      super();
+      this[DRAFT_STATE] = {
+        type_: 3 /* Set */,
+        parent_: parent,
+        scope_: parent ? parent.scope_ : getCurrentScope(),
+        modified_: false,
+        finalized_: false,
+        copy_: void 0,
+        base_: target,
+        draft_: this,
+        drafts_: /* @__PURE__ */ new Map(),
+        revoked_: false,
+        isManual_: false
+      };
+    }
+    get size() {
+      return latest(this[DRAFT_STATE]).size;
+    }
+    has(value) {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      if (!state.copy_) {
+        return state.base_.has(value);
+      }
+      if (state.copy_.has(value))
+        return true;
+      if (state.drafts_.has(value) && state.copy_.has(state.drafts_.get(value)))
+        return true;
+      return false;
+    }
+    add(value) {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      if (!this.has(value)) {
+        prepareSetCopy(state);
+        markChanged(state);
+        state.copy_.add(value);
+      }
+      return this;
+    }
+    delete(value) {
+      if (!this.has(value)) {
+        return false;
+      }
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      prepareSetCopy(state);
+      markChanged(state);
+      return state.copy_.delete(value) || (state.drafts_.has(value) ? state.copy_.delete(state.drafts_.get(value)) : (
+        /* istanbul ignore next */
+        false
+      ));
+    }
+    clear() {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      if (latest(state).size) {
+        prepareSetCopy(state);
+        markChanged(state);
+        state.copy_.clear();
+      }
+    }
+    values() {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      prepareSetCopy(state);
+      return state.copy_.values();
+    }
+    entries() {
+      const state = this[DRAFT_STATE];
+      assertUnrevoked(state);
+      prepareSetCopy(state);
+      return state.copy_.entries();
+    }
+    keys() {
+      return this.values();
+    }
+    [(DRAFT_STATE, Symbol.iterator)]() {
+      return this.values();
+    }
+    forEach(cb, thisArg) {
+      const iterator = this.values();
+      let result = iterator.next();
+      while (!result.done) {
+        cb.call(thisArg, result.value, result.value, this);
+        result = iterator.next();
+      }
+    }
+  }
+  function proxySet_(target, parent) {
+    return new DraftSet(target, parent);
+  }
+  function prepareSetCopy(state) {
+    if (!state.copy_) {
+      state.copy_ = /* @__PURE__ */ new Set();
+      state.base_.forEach((value) => {
+        if (isDraftable(value)) {
+          const draft = createProxy(value, state);
+          state.drafts_.set(value, draft);
+          state.copy_.add(draft);
+        } else {
+          state.copy_.add(value);
+        }
+      });
+    }
+  }
+  function assertUnrevoked(state) {
+    if (state.revoked_)
+      die(3, JSON.stringify(latest(state)));
+  }
+  loadPlugin("MapSet", { proxyMap_, proxySet_ });
+}
+
+// src/immer.ts
+var immer = new Immer2();
+var produce = immer.produce;
+var produceWithPatches = immer.produceWithPatches.bind(
+  immer
+);
+var setAutoFreeze = immer.setAutoFreeze.bind(immer);
+var setUseStrictShallowCopy = immer.setUseStrictShallowCopy.bind(immer);
+var applyPatches = immer.applyPatches.bind(immer);
+var createDraft = immer.createDraft.bind(immer);
+var finishDraft = immer.finishDraft.bind(immer);
+function castDraft(value) {
+  return value;
+}
+function castImmutable(value) {
+  return value;
+}
+
+//# sourceMappingURL=immer.mjs.map
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"blocks/product-spot/view": 0,
+/******/ 			"blocks/product-spot/style-view": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunk"] = globalThis["webpackChunk"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/product-spot/style-view"], () => (__webpack_require__("./src/blocks/product-spot/view.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=view.js.map
