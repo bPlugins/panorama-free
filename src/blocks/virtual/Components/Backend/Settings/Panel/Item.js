@@ -12,6 +12,7 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
   const items = attributes[arrKey][index];
   const hotspots = items.hotSpots;
   const [isHotspotModalOpen, setIsHotspotModalOpen] = useState(false);
+  const [isProFeatureModalOpen, setIsProFeatureModalOpen] = useState(false);
 
   const updateHotspots = (val, ...props) => {
     setAttributes({ scenes: updateData(scenes, val, index, 'hotSpots', ...props) });
@@ -184,10 +185,19 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
               label={__("Type :", "panorama")}
               labelPosition="left"
               value={val?.type}
-              onChange={(value) => updateHotspots(value, i, 'type')}
+              onChange={(value) => {
+                if ((value === 'video' || value === 'image') && !premiumProps?.isPremium) {
+                  setIsProFeatureModalOpen(true);
+                  return;
+                }
+                updateHotspots(value, i, 'type');
+              }}
               options={[
                 { value: "scene", label: "Scene" },
                 { value: "info", label: "Info" },
+                { value: "link", label: "Link" },
+                { value: "video", label: "Video" },
+                { value: "image", label: "Image" },
               ]}
             />
 
@@ -197,6 +207,74 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
               value={val?.sceneId}
               onChange={(value) => updateHotspots(value, i, 'sceneId')}
             />}
+
+            {val?.type === 'link' && (
+              <>
+                <TextControl
+                  className="mt10"
+                  label={__("Link URL", "panorama")}
+                  value={val?.linkUrl || ''}
+                  onChange={(value) => updateHotspots(value, i, 'linkUrl')}
+                />
+                <SelectControl
+                  className="mt10"
+                  label={__("Target :", "panorama")}
+                  labelPosition="left"
+                  value={val?.linkTarget || '_blank'}
+                  onChange={(value) => updateHotspots(value, i, 'linkTarget')}
+                  options={[
+                    { value: "_blank", label: "New Tab" },
+                    { value: "_self", label: "Same Tab" },
+                  ]}
+                />
+              </>
+            )}
+
+            {val?.type === 'video' && (
+              <>
+                <SelectControl
+                  className="mt10"
+                  label={__("Video Source :", "panorama")}
+                  labelPosition="left"
+                  value={val?.videoSource || 'youtube'}
+                  onChange={(value) => {
+                    updateHotspots(value, i, 'videoSource');
+                    updateHotspots('', i, 'videoUrl');
+                  }}
+                  options={[
+                    { value: "youtube", label: "YouTube" },
+                    { value: "vimeo", label: "Vimeo" },
+                    { value: "self-hosted", label: "Self Hosted" },
+                  ]}
+                />
+                {(val?.videoSource || 'youtube') === 'self-hosted' ? (
+                  <InlineMediaUpload
+                    className="mt10"
+                    label={__("Select Video", "panorama")}
+                    placeholder={__("Enter or upload video URL", "panorama")}
+                    value={val?.videoUrl || ''}
+                    onChange={(value) => updateHotspots(value, i, 'videoUrl')}
+                  />
+                ) : (
+                  <TextControl
+                    className="mt10"
+                    label={__("Video URL / ID", "panorama")}
+                    value={val?.videoUrl || ''}
+                    onChange={(value) => updateHotspots(value, i, 'videoUrl')}
+                  />
+                )}
+              </>
+            )}
+
+            {val?.type === 'image' && (
+              <InlineMediaUpload
+                className="mt10"
+                label={__("Select Image", "panorama")}
+                placeholder={__("Enter or upload image URL", "panorama")}
+                value={val?.imageUrl || ''}
+                onChange={(value) => updateHotspots(value, i, 'imageUrl')}
+              />
+            )}
 
           </PanelRepeater>
         )}
@@ -220,6 +298,15 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
           setFn={setIsHotspotModalOpen}
           link={siteLocation}
       />
+      )}
+
+      {isProFeatureModalOpen && (
+        <CustomModal
+          title="Premium Feature"
+          des="Video and Image hotspots are premium features. Please upgrade to premium to use them."
+          setFn={setIsProFeatureModalOpen}
+          link={siteLocation}
+        />
       )}
 
     </>

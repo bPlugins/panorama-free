@@ -32,17 +32,23 @@ const useGutenbergDragFix = (wrapperRef, panoRef, isBackend = false, isSelected 
     const targets = [];
     try {
       if (window) targets.push({ win: window, doc: window.document });
-    } catch (e) { }
+    } catch (e) {
+      void e;
+    }
     try {
       if (window.parent && window.parent !== window) {
         targets.push({ win: window.parent, doc: window.parent.document });
       }
-    } catch (e) { }
+    } catch (e) {
+      void e;
+    }
     try {
       if (window.top && window.top !== window && window.top !== window.parent) {
         targets.push({ win: window.top, doc: window.top.document });
       }
-    } catch (e) { }
+    } catch (e) {
+      void e;
+    }
 
     const handleRelease = (e) => {
       if (e && e.__forwarded) return;

@@ -8,7 +8,7 @@ import { updateData } from "../../../../../../../../bpl-tools/utils/functions";
 import defaultImage from './../../../../../../default_panorama_image.png';
 import CustomModal from "../../../Common/CustomModal";
 
-const General = ({ attributes, setAttributes, setCurrentScene, siteLocation }) => {
+const General = ({ attributes, setAttributes, premiumProps, setCurrentScene, siteLocation }) => {
   const { scenes = [], options = {} } = attributes;
   const [isSceneModalOpen, setIsSceneModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -33,7 +33,7 @@ const General = ({ attributes, setAttributes, setCurrentScene, siteLocation }) =
     <>
       <PanelBody className="bPlPanelBody" title={__("Tours", "panorama")}>
         <CustomItemsPanel
-          {...{ attributes, setAttributes, activeIndex, setActiveIndex, siteLocation }}
+          {...{ attributes, setAttributes, premiumProps, activeIndex, setActiveIndex, siteLocation }}
           arrKey="scenes"
           newItem={{
             "tour_id": getNextSceneId(),

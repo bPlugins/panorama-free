@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { AlignmentToolbar, BlockControls, InspectorControls } from "@wordpress/block-editor";
 import { TabPanel } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
@@ -7,11 +8,16 @@ import General from "./General/General";
 import Style from "./Style/Style";
 import { AdvertiseCard } from "../../../../../../../bpl-tools/ProControls";
 
-const Settings = ({ attributes, setAttributes, device, setCurrentScene, siteLocation }) => {
+const Settings = ({ attributes, setAttributes, device, isPremium, setCurrentScene, siteLocation }) => {
 	const { scenes = [], layout } = attributes;
 	const { alignSl } = layout;
 
-	const props = { attributes, setAttributes, device, setCurrentScene, siteLocation };
+	const [isProModalOpen, setIsProModalOpen] = useState(false);
+	const premiumProps = { isPremium, setIsProModalOpen };
+
+	console.log(isProModalOpen)
+
+	const props = { attributes, setAttributes, device, premiumProps, setCurrentScene, siteLocation };
 
 	return (
 		<>

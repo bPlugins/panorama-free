@@ -172,15 +172,17 @@ if ( !class_exists( 'PSBPlugin' ) ) {
                 wp_send_json_error( array( 'message' => __( 'Blocks data is not valid JSON', 'panorama' ) ) );
             }
 
-            foreach ( $blocks as &$block ) {
-                if ( isset( $block['attrs'] ) && is_array( $block['attrs'] ) ) {
-                    foreach ( $block['attrs'] as $key => $value ) {
-                        if ( is_string( $value ) ) {
-                            $block['attrs'][ $key ] = sanitize_text_field( $value );
+            if ( is_array( $blocks ) ) {
+                foreach ( $blocks as $key => $value ) {
+                    if ( is_string( $value ) ) {
+                        $blocks[$key] = sanitize_text_field( $value );
+                    } elseif ( is_array( $value ) ) {
+                        foreach ( $value as $sub_key => $sub_value) {
+                            if ( is_string( $sub_value ) ) {
+                                $value[$sub_key] = sanitize_text_field( $sub_value );
+                            }
                         }
-                        if ( in_array( $key, array( 'content', 'description', 'html' ), true ) ) {
-                            $block['attrs'][ $key ] = wp_kses_post( $value );
-                        }
+                        $blocks[$key] = $value;
                     }
                 }
             }
@@ -193,7 +195,7 @@ if ( !class_exists( 'PSBPlugin' ) ) {
                 $savedPos = update_post_meta( $post_id, '_product_spot_position', $position );
             }
 
-            if ( $saved || $savedPos ) {
+            if ( $saved || $savedPos || get_post_meta( $post_id, '_product_spot_blocks', true ) === $blocks_json ) {
                 wp_send_json_success( array(
                     'message'    => __( 'Saved successfully!', 'panorama' ),
                     'attributes' => $blocks,
@@ -217,6 +219,7 @@ if ( !class_exists( 'PSBPlugin' ) ) {
 		function psb_block_editor_display($post) {
 			$saved_blocks = get_post_meta($post->ID, '_product_spot_blocks', true);
 			$spotPosition = get_post_meta($post->ID, '_product_spot_position', true);
+			wp_nonce_field( 'psb_save_meta_' . $post->ID, 'psb_meta_nonce' );
 
 			?>
 			<div 

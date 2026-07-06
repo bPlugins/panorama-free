@@ -1,11 +1,36 @@
 import { produce } from "immer";
 
-export const createModifiedHotspots = (scenes, currentScene, spot, isBackend, index, setPopupData, setAttributes, isLabel) => ({
+export const updateData = (attr, value, ...props) => {
+    if (props.length === 0) {
+        return value;
+    }
+    const [currentProp, ...remainingProps] = props;
+    if (remainingProps.length === 0) {
+        return produce(attr, draft => {
+            draft[currentProp] = value;
+        });
+    }
+    return produce(attr, draft => {
+        if (!Object.prototype.hasOwnProperty.call(draft, currentProp)) {
+            draft[currentProp] = {};
+        }
+        draft[currentProp] = updateData(draft[currentProp], value, ...remainingProps);
+    });
+};
+
+export const createModifiedHotspots = (scenes, currentScene, spot, isBackend, index, setPopupData, setAttributes, isLabel, setActivePopupHotspot) => ({
     ...spot,
+    cssClass: ['link', 'video', 'image'].includes(spot.type) ? `pnlm-hotspot pnlm-${spot.type}` : undefined,
     createTooltipFunc: (hotSpotDiv) => {
+        if (['link', 'video', 'image'].includes(spot.type)) {
+            const innerIcon = document.createElement('div');
+            innerIcon.className = 'hotspot-inner-icon';
+            hotSpotDiv.appendChild(innerIcon);
+        }
+
         const tooltip = document.createElement('div');
         tooltip.className = 'hotspot-title-tooltip';
-        tooltip.innerHTML = spot.text || (spot.type === 'scene' ? 'Scene' : 'Info');
+        tooltip.innerHTML = spot.text || (spot.type === 'scene' ? 'Scene' : spot.type === 'link' ? 'Link' : spot.type === 'video' ? 'Video' : spot.type === 'image' ? 'Image' : 'Info');
         hotSpotDiv.appendChild(tooltip);
 
         if (!isLabel) {
@@ -21,9 +46,24 @@ export const createModifiedHotspots = (scenes, currentScene, spot, isBackend, in
 
         isBackend && editAndDeleteTooltipFunc(scenes, currentScene, hotSpotDiv, spot, index, setPopupData, setAttributes);
     },
-    clickHandlerFunc: () => {
+    clickHandlerFunc: (event) => {
+        if (event && event.target && (event.target.closest('.edit-btn') || event.target.closest('.delete-btn') || event.target.closest('.action-buttons'))) {
+            return;
+        }
         if (spot.type === 'scene' && spot.lookAt) {
             window?.viewer.lookAt(spot.lookAt.pitch, spot.lookAt.yaw);
+        } else if (spot.type === 'link') {
+            if (spot.linkUrl) {
+                if (spot.linkTarget === '_self') {
+                    window.location.href = spot.linkUrl;
+                } else {
+                    window.open(spot.linkUrl, spot.linkTarget || '_blank');
+                }
+            }
+        } else if (spot.type === 'video' || spot.type === 'image') {
+            if (setActivePopupHotspot) {
+                setActivePopupHotspot(spot);
+            }
         } else {
             window?.viewer.lookAt(spot.pitch, spot.yaw);
         }
@@ -82,6 +122,11 @@ export const saveHotspot = (popupData, scenes, currentScene, setAttributes, setP
         sceneId: popupData.sceneId,
         text: popupData.text,
         type: popupData.type,
+        linkUrl: popupData.linkUrl,
+        linkTarget: popupData.linkTarget || '_blank',
+        videoSource: popupData.videoSource,
+        videoUrl: popupData.videoUrl,
+        imageUrl: popupData.imageUrl,
         ...(popupData.type === 'scene' && popupData.targetHotspot && {
             lookAt: {
                 pitch: popupData.targetHotspot.pitch,
@@ -205,7 +250,6 @@ export const addTempHotspot = (currentScene, viewer, hotspot, isDraggingRef, set
     }
 };
 
-
 export const editAndDeleteTooltipFunc = (scenes, currentScene, hotSpotDiv, spot, index, setPopupData, setAttributes) => {
     const wrapper = document.createElement('div');
     wrapper.className = 'hotspot-tooltip';
@@ -225,6 +269,12 @@ export const editAndDeleteTooltipFunc = (scenes, currentScene, hotSpotDiv, spot,
     actionButtons.appendChild(deleteBtn);
     wrapper.appendChild(actionButtons);
 
+    const blockPropagation = (e) => e.stopPropagation();
+    editBtn.addEventListener('mousedown', blockPropagation);
+    editBtn.addEventListener('mouseup', blockPropagation);
+    deleteBtn.addEventListener('mousedown', blockPropagation);
+    deleteBtn.addEventListener('mouseup', blockPropagation);
+
     editBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         setPopupData({
@@ -232,7 +282,13 @@ export const editAndDeleteTooltipFunc = (scenes, currentScene, hotSpotDiv, spot,
             yaw: spot.yaw,
             text: spot.text,
             type: spot.type,
-            targetHotspot: spot.lookAt,
+            sceneId: spot.sceneId,
+            targetHotspot: spot.lookAt || (spot.targetPitch !== undefined ? { pitch: spot.targetPitch, yaw: spot.targetYaw } : undefined),
+            linkUrl: spot.linkUrl,
+            linkTarget: spot.linkTarget,
+            videoSource: spot.videoSource,
+            videoUrl: spot.videoUrl,
+            imageUrl: spot.imageUrl,
             index
         });
     });

@@ -3,7 +3,7 @@ Contributors: bplugins, abuhayat, freemius, shamim10, farazi1
 Tags: panorama, 360 degree, 3d, virtual tour, krpano, 
 Requires at least: 6.5
 Tested up to: 7.0
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -34,8 +34,8 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 
 - **WooCommerce Integration (Basic)**: Embed 360° Images and Product Hotspots directly into WooCommerce product pages.
 - **Gutenberg Blocks Support**: Includes 8 dedicated blocks (Image 360°, Image 3D, Video, Video 360°, Google Street View, Gallery, Virtual Tour, and Product Spot).
-- **360° Virtual Tour (Basic)**: Create interactive tours with up to 2 scenes and 3 hotspots per tour.
-- **Product Spot (Basic)**: Highlight product details with interactive hotspots (up to 3 spots).
+- **360° Virtual Tour**: Connect up to 2 scenes with Info, Scene, and Link hotspots.
+- **Product Spot**: Highlight product details with interactive hotspots (up to 3 spots).
 - **Google Street View (Basic)**: Embed Google Street View panoramas easily by entering the Panorama ID.
 - **Media Uploads**: Upload and display panoramic images and videos from the WordPress media library.
 - **Auto-Rotation**: Enable auto-rotate and customize rotation speed in degrees per second.
@@ -47,7 +47,7 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 = Pro Features =
 
 - **WooCommerce Video Integration**: Add 360° and standard panoramic videos directly to WooCommerce product galleries.
-- **Unlimited Scenes & Hotspots**: Build massive 360° Virtual Tours and Product Hotspot displays with zero limits.
+- **360° Virtual Tour**: Connect unlimited scenes with Info, Scene, Link, Image, and Video hotspots.
 - **Initial View Settings**: Set precise starting angles (Pitch, Yaw, and Field of View / Zoom) for panoramas.
 - **Advanced Navigation & Interaction**: Configure fullscreen modes, draggable panoramas, mouse scroll-to-zoom toggles, and virtual compass guides.
 - **Auto-Rotation Inactivity Delay**: Automatically pause and resume rotation when a user interacts with the viewer.
@@ -169,6 +169,11 @@ e.g.
 8. Gallery
 
 == Changelog ==
+
+= 1.7.4 - 06 Jul, 2026 =
+* **New:** Added Link, Image, and Video hotspot support inside 360 Virtual Tours with aligned setup popups and media uploader type restrictions.
+* **Improved:** Upgraded WooCommerce Product editor metabox fields (Panorama Settings) with meaningful help descriptions and modern copy-badge clipboard layouts.
+* **Improved:** Optimized Product Spot layouts (Simple, Tippy, Sidepanel) with enhanced Sidepanel ratios and reliable AJAX saving.
 
 = 1.7.3 - 29 Jun, 2026 =
 * **Fix:** Scoped admin styles to the plugin's own screens, preventing scroll and layout conflicts on other WordPress admin pages.

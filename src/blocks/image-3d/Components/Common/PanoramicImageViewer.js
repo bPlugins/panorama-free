@@ -3,7 +3,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useGutenbergDragFix from "../../../../hooks/useGutenbergDragFix";
 
-const PanoramicImageViewer = ({ attributes, setAttributes, isButton = true, device = "desktop", isMotionSupported, isBackend = false, isSelected = false }) => {
+const PanoramicImageViewer = ({ attributes, setAttributes, isButton = true, device = "desktop", isBackend = false, isSelected = false }) => {
   const { imageUrl, options = {} } = attributes;
   const { autoRotate, autoRotateSpeed, autoRotateInactivityDelay, hideDefaultCtrl, initialView, initialPosition, isDeviceMotion } = options;
 

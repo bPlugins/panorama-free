@@ -138,3 +138,16 @@
 .bppiv-hide-field {
   display: none !important;
 }
+
+/* Fix radio button layout in CSF metaboxes */
+.csf-field-radio li {
+  margin-bottom: 8px !important;
+}
+.csf-field-radio label {
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1.4 !important;
+}
+.csf-field-radio input[type="radio"] {
+  margin: 0 8px 0 0 !important;
+}

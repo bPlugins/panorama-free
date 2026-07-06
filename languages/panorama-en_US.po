@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Panorama - 360 degree Virtual Tour, Panoramic Image viewer and More 1.7.3\n"
+"Project-Id-Version: Panorama - 360 degree Virtual Tour, Panoramic Image viewer and More 1.7.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/panorama\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-24T09:35:24+00:00\n"
+"POT-Creation-Date: 2026-07-06T07:21:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: panorama\n"
@@ -242,12 +242,12 @@ msgstr ""
 msgid "Display custom title and author info on the panorama viewer."
 msgstr ""
 
-#: inc/Woocommerce/ProductView.php:96
+#: inc/Woocommerce/ProductView.php:115
 msgid "Awaiting product image"
 msgstr ""
 
 #: product-spot.php:21
-#: product-spot.php:211
+#: product-spot.php:213
 msgid "Product Spot"
 msgstr ""
 
@@ -283,11 +283,11 @@ msgstr ""
 msgid "Blocks data is not valid JSON"
 msgstr ""
 
-#: product-spot.php:198
+#: product-spot.php:200
 msgid "Saved successfully!"
 msgstr ""
 
-#: product-spot.php:204
+#: product-spot.php:206
 msgid "Failed to save"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgstr ""
 #: src/blocks/tour/Components/Backend/Settings/Settings.js:60
 #: src/blocks/video-360/Components/Backend/Settings/Settings.js:60
 #: src/blocks/video/Components/Backend/Settings/Settings.js:59
-#: src/blocks/virtual/Components/Backend/Settings/Settings.js:51
+#: src/blocks/virtual/Components/Backend/Settings/Settings.js:57
 msgid "Panorama in left"
 msgstr ""
 
@@ -364,7 +364,7 @@ msgstr ""
 #: src/blocks/tour/Components/Backend/Settings/Settings.js:65
 #: src/blocks/video-360/Components/Backend/Settings/Settings.js:65
 #: src/blocks/video/Components/Backend/Settings/Settings.js:64
-#: src/blocks/virtual/Components/Backend/Settings/Settings.js:56
+#: src/blocks/virtual/Components/Backend/Settings/Settings.js:62
 msgid "Panorama in center"
 msgstr ""
 
@@ -375,7 +375,7 @@ msgstr ""
 #: src/blocks/tour/Components/Backend/Settings/Settings.js:70
 #: src/blocks/video-360/Components/Backend/Settings/Settings.js:70
 #: src/blocks/video/Components/Backend/Settings/Settings.js:69
-#: src/blocks/virtual/Components/Backend/Settings/Settings.js:61
+#: src/blocks/virtual/Components/Backend/Settings/Settings.js:67
 msgid "Panorama in right"
 msgstr ""
 
@@ -457,8 +457,10 @@ msgstr ""
 
 #: src/blocks/image-3d/Components/Backend/Settings/General/General.js:21
 #: src/blocks/image-360/Components/Backend/Settings/General/General.js:21
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:138
 #: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:139
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:140
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:273
+#: src/blocks/virtual/Components/Common/ImageHotspotInput.js:33
 msgid "Enter or upload image URL"
 msgstr ""
 
@@ -613,7 +615,7 @@ msgid "Radius & Padding are available in the Pro version."
 msgstr ""
 
 #: src/blocks/product-spot/Components/Backend/Settings/Style/Style.js:110
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:93
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:94
 msgid "Title"
 msgstr ""
 
@@ -671,6 +673,8 @@ msgstr ""
 
 #: src/blocks/video-360/Components/Backend/Settings/General/General.js:24
 #: src/blocks/video/Components/Backend/Settings/General/General.js:23
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:254
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:54
 msgid "Enter or upload video URL"
 msgstr ""
 
@@ -753,50 +757,210 @@ msgstr ""
 msgid "Compass, Mouse Zoom, Disable Keyboard Control & Double Click Zoom are available in the Pro version."
 msgstr ""
 
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:77
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:78
 msgid "Scene ID"
 msgstr ""
 
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:84
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:85
 msgid "Show Title & Author"
 msgstr ""
 
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:99
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:100
 msgid "Author"
 msgstr ""
 
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:109
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:110
 msgid "Hfov : "
 msgstr ""
 
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:119
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:158
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:120
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:159
 msgid "Pitch : "
 msgstr ""
 
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:129
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:168
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:130
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:169
 msgid "Yaw : "
 msgstr ""
 
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:177
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:178
 msgid "Text"
 msgstr ""
 
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:184
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:185
 msgid "Type :"
 msgstr ""
 
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:196
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:206
 msgid "Target ID"
+msgstr ""
+
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:215
+msgid "Link URL"
+msgstr ""
+
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:221
+msgid "Target :"
+msgstr ""
+
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:237
+msgid "Video Source :"
+msgstr ""
+
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:253
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:53
+msgid "Select Video"
+msgstr ""
+
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:261
+msgid "Video URL / ID"
+msgstr ""
+
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:272
+#: src/blocks/virtual/Components/Common/ImageHotspotInput.js:32
+msgid "Select Image"
 msgstr ""
 
 #: src/blocks/virtual/Components/Backend/Settings/Style/Style.js:22
 msgid "Tour Viewer Style"
 msgstr ""
 
+#: src/blocks/virtual/Components/Common/ImageHotspotInput.js:8
+msgid "Setup Image Hotspot"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/ImageHotspotInput.js:11
+#: src/blocks/virtual/Components/Common/LinkHotspotInput.js:10
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:13
+msgid "Label:"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/ImageHotspotInput.js:16
+#: src/blocks/virtual/Components/Common/LinkHotspotInput.js:15
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:18
+msgid "Input text label..."
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/ImageHotspotInput.js:21
+#: src/blocks/virtual/Components/Common/LinkHotspotInput.js:20
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:23
+msgid "Enter a label"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/ImageHotspotInput.js:26
+msgid "Image:"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/ImageHotspotInput.js:36
+msgid "Select or upload an image to display in the hotspot"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/LinkHotspotInput.js:7
+msgid "Setup Link Hotspot"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/LinkHotspotInput.js:24
+msgid "URL:"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/LinkHotspotInput.js:29
+msgid "https://example.com"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/LinkHotspotInput.js:34
+msgid "Enter the redirection link"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/LinkHotspotInput.js:38
+msgid "Target:"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/LinkHotspotInput.js:47
+msgid "New Tab (_blank)"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/LinkHotspotInput.js:48
+msgid "Same Tab (_self)"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/LinkHotspotInput.js:50
+msgid "Choose how to open the link"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:19
+msgid "Info"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:26
+msgid "Scene"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:33
+msgid "Link"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:40
+msgid "Video"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:47
+msgid "Image"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:54
+msgid "Set Default View"
+msgstr ""
+
 #: src/blocks/virtual/Components/Common/UploadImage.js:9
 msgid "Paste or type a 360° panorama image URL"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:10
+msgid "Setup Video Hotspot"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:28
+msgid "Source:"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:37
+msgid "YouTube"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:38
+msgid "Vimeo"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:39
+msgid "Self Hosted"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:41
+msgid "Select the video source type"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:46
+msgid "Video:"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:61
+msgid "YouTube Video URL or ID..."
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:61
+msgid "Vimeo Video URL or ID..."
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:68
+msgid "Enter YouTube URL or Video ID (e.g. dF7N5h6t9zY)"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:69
+msgid "Enter Vimeo URL or Video ID (e.g. 76979871)"
+msgstr ""
+
+#: src/blocks/virtual/Components/Common/VideoHotspotInput.js:70
+msgid "Upload video or enter URL"
 msgstr ""
 
 #: src/bplugins-admin/Components/Settings.js:21

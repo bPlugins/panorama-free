@@ -146,10 +146,7 @@
     "wp-api"
   ],
   "editorStyle": "file:../index.css",
-  "style": [
-    "file:./style-view.css",
-    "file:./view.css"
-  ],
+  "style": "file:./view.css",
   "render": "file:./render.php",
   "viewScript": "file:./view.js"
 }

@@ -22,7 +22,7 @@ const Edit = (props) => {
 
   return (
     <>
-      <Settings {...{ attributes, setAttributes, device, setCurrentScene, siteLocation }} />
+      <Settings {...{ attributes, setAttributes, device, isPremium, setCurrentScene, siteLocation }} />
 
       {CTPType === "virtual_tour" && <ClipBoard {...{ shortcode, embedCode, title: 'Virtual Tour' }} />}
 

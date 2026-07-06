@@ -11,7 +11,7 @@ class ProductView{
 
     public function register(){
         // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-        add_action('woocommerce_loaded', [$this, 'woocommerce_loaded']);
+        add_action('wp', [$this, 'woocommerce_loaded']);
         // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
         add_action('bp3d_product_model_before', [$this, 'model']);
         // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
@@ -29,6 +29,20 @@ class ProductView{
         remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
         // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
         add_action('woocommerce_before_single_product_summary',[$this, 'bp3d_product_models'], 25);
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
+    }
+
+    public function enqueue_assets(){
+        $type = $this->meta['type'] ?? 'image';
+        if(isset($this->meta['video360']) && $this->meta['video360'] === '1' && $type == 'video'){
+            wp_enqueue_script('bppiv-panolens');
+        }else if($type == 'image') {
+            wp_enqueue_script('bppiv-pannellum-js');
+            wp_enqueue_style('bppiv-pannellum-css');
+        }
+
+        wp_enqueue_script('bppiv-product');
+        wp_enqueue_style('bppiv-product');
     }
 
     public function bp3d_product_models(){
@@ -57,10 +71,15 @@ class ProductView{
             'woocommerce-product-gallery--columns-' . absint( $columns ),
             'images',
         ) );
+
+        // Remove 'images' class from inner gallery to prevent nested double-shrinking
+        if (($key = array_search('images', $wrapper_classes)) !== false) {
+            unset($wrapper_classes[$key]);
+        }
         
         ?>
         
-        <div class="product-panorama-wrap">
+        <div class="product-panorama-wrap images">
             <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>">
                 <!-- Custom hook for 3d-viewer -->
                 <?php  
@@ -116,10 +135,30 @@ class ProductView{
     }
 
     public function model(){
-        
-        if($this->meta['video360'] === '1' && $this->meta['type'] == 'video'){
+        $meta = $this->meta;
+        if(!is_array($meta)){
+            $meta = [];
+        }
+
+        // Set default parameters to prevent JavaScript type crashes
+        if(!isset($meta['type'])){
+            $meta['type'] = 'image';
+        }
+        if(!isset($meta['initialView'])){
+            $meta['initialView'] = [
+                'top' => 0,
+                'right' => 0,
+                'bottom' => 100
+            ];
+        }
+        if(!isset($meta['showControls'])){
+            $meta['showControls'] = '1';
+        }
+
+        $type = $meta['type'];
+        if(isset($meta['video360']) && $meta['video360'] === '1' && $type == 'video'){
             wp_enqueue_script('bppiv-panolens');
-        }else if($this->meta['type'] == 'image') {
+        }else if($type == 'image') {
             wp_enqueue_script('bppiv-pannellum-js');
             wp_enqueue_style('bppiv-pannellum-css');
         }
@@ -128,26 +167,26 @@ class ProductView{
         wp_enqueue_style('bppiv-product');
 
         $attributes = '';
-        if($this->meta['video_autoplay']){
+        if(isset($meta['video_autoplay']) && $meta['video_autoplay']){
             $attributes .= ' autoplay';
         }
 
-        if($this->meta['video_mute']){
+        if(isset($meta['video_mute']) && $meta['video_mute']){
             $attributes .= ' muted';
         }
 
-        if($this->meta['video_loop']){
+        if(isset($meta['video_loop']) && $meta['video_loop']){
             $attributes .= ' loop';
         }
 
-        if($this->meta['video_show_controls']){
+        if(isset($meta['video_show_controls']) && $meta['video_show_controls']){
             $attributes .= ' controls';
         }
 
        ?>
-       <div id="bppiv_product_panorama" data-settings="<?php echo esc_attr(wp_json_encode($this->meta)) ?>">
-            <?php if($this->meta['type'] === 'video' && $this->meta['video360'] === '0') { ?>
-                <video style="max-width: 100%;" <?php echo esc_attr($attributes);  ?> src="<?php echo esc_url($this->meta['video_src']) ?>"></video>
+       <div id="bppiv_product_panorama" data-settings="<?php echo esc_attr(wp_json_encode($meta)) ?>">
+            <?php if($type === 'video' && isset($meta['video360']) && $meta['video360'] === '0') { ?>
+                <video style="max-width: 100%;" <?php echo esc_attr($attributes);  ?> src="<?php echo esc_url($meta['video_src']) ?>"></video>
             <?php } ?>
         </div>
 

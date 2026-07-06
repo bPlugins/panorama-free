@@ -163,6 +163,15 @@ export const welcomeInfo = (adminUrl) => ({
 	},
 	changelogs: [
 		{
+			type: 'new',
+			version: '1.7.4 - 06 Jul, 2026',
+			list: [
+				'New: Added Link, Image, and Video hotspot support inside 360 Virtual Tours with aligned setup popups and media uploader type restrictions.',
+				'Improved: Upgraded WooCommerce Product editor metabox fields (Panorama Settings) with meaningful help descriptions and modern copy-badge clipboard layouts.',
+				'Improved: Optimized Product Spot layouts (Simple, Tippy, Sidepanel) with enhanced Sidepanel ratios and reliable AJAX saving.'
+			]
+		},
+		{
 			type: 'fix',
 			version: '1.7.3 - 29 Jun, 2026',
 			list: [
@@ -186,11 +195,11 @@ export const welcomeInfo = (adminUrl) => ({
 			]
 		},
 	],
-	changelogsLimit: 3,
+	changelogsLimit: 2,
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
 		'Seamlessly display panoramic photos, videos, and multi-scene tours.',
-		'Connect multiple 360° scenes using customizable hotspots, links, and tooltips.',
+		'Connect unlimited 360° scenes using customizable hotspots (links, images, videos, etc.) and tooltips.',
 		'Embed any public Google Street View location directly into your pages.',
 		'Organize mixed collections of photos and videos in beautiful responsive layouts.',
 		'Customize columns, grids, spacing, and item display limits with ease.',

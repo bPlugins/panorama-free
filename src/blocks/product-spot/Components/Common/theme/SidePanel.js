@@ -33,8 +33,13 @@ const SidePanel = ({ attributes, setAttributes, isBackend = true, Hotspot, isPre
     if (imageRef.current) {
       const handleLoad = () => {
         if (infoBoxRef.current && imageAndHotspotRef.current) {
-          const height = imageAndHotspotRef.current.clientHeight;
-          infoBoxRef.current.style.maxHeight = `${height}px`;
+          const isWooProductPage = document.querySelector('.psb-product-spot-on-woo') !== null;
+          if (window.innerWidth > 674 && !isWooProductPage) {
+            const height = imageAndHotspotRef.current.clientHeight;
+            infoBoxRef.current.style.maxHeight = `${height}px`;
+          } else {
+            infoBoxRef.current.style.maxHeight = 'none';
+          }
         }
       };
   

@@ -1,12 +1,20 @@
 /* CSS for Woocommerce */
-.product-panorama-wrap {
+.product-panorama-wrap.images {
   display: flex;
   flex-direction: column;
-  float: left;
-  width: 50%;
 }
-.product-panorama-wrap .images {
+.product-panorama-wrap.images .woocommerce-product-gallery {
   width: 100% !important;
+  float: none !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+#bppiv_product_panorama {
+  width: 100%;
+  min-height: 350px;
+  background-color: #f7f7f7;
+  position: relative;
+  margin-bottom: 15px;
 }
 .bp_model_parent .progress {
   width: 100%;
