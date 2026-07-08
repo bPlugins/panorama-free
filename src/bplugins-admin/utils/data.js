@@ -1,4 +1,4 @@
-import { gutenbergTabIcon, shortcodeTabIcon } from "./icons";
+import { gutenbergTabIcon, shortcodeTabIcon, elementorTabIcon } from "./icons";
 
 const slug = 'panorama';
 
@@ -156,6 +156,29 @@ export const welcomeInfo = (adminUrl) => ({
 						num: 3,
 						title: 'Copy & Paste Shortcode',
 						body: 'Copy the generated shortcode (e.g. <code>[panorama id="123"]</code>) from the viewer editing screen or the viewer list, and paste it into any page, post, or widget.'
+					}
+				]
+			},
+			{
+				key: 'elementor',
+				label: 'Elementor',
+				icon: elementorTabIcon,
+				steps: [
+					{
+						num: 1,
+						title: 'Create a New Panorama',
+						body: 'Go to <strong>Panorama -> Add New</strong>. Enter a title, upload your 360° image or video, configure settings, and click <strong>Publish</strong> to generate a shortcode.',
+						link: { url: `${adminUrl}post-new.php?post_type=bppiv-image-viewer`, label: 'Add New' }
+					},
+					{
+						num: 2,
+						title: 'Open Elementor Editor',
+						body: 'Open the Elementor editor on any page or post. Search for the <strong>Shortcode</strong> widget and drag it to your desired layout section.'
+					},
+					{
+						num: 3,
+						title: 'Embed Shortcode',
+						body: 'Paste the generated shortcode (e.g. <code>[panorama id="123"]</code>) into the Shortcode widget content settings, and then update/publish the page.'
 					}
 				]
 			}

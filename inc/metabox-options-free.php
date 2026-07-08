@@ -108,7 +108,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
           // --- CONTENT SOURCE ---
           array(
             'id'           => 'bppiv_image_src',
-            'type'         => 'media',
+            'type'         => 'upload',
             'library'      => 'image',
             'title'        => 'Image Source',
             'desc'         => 'Upload your 360° panoramic image here.',
