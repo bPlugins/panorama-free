@@ -187,7 +187,7 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogs: [
 		{
 			type: 'new',
-			version: '1.7.4 - 06 Jul, 2026',
+			version: '1.7.4 - 09 Jul, 2026',
 			list: [
 				'New: Added Link, Image, and Video hotspot support inside 360 Virtual Tours with aligned setup popups and media uploader type restrictions.',
 				'Improved: Upgraded WooCommerce Product editor metabox fields (Panorama Settings) with meaningful help descriptions and modern copy-badge clipboard layouts.',

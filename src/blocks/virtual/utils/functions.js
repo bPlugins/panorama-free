@@ -229,6 +229,18 @@ export const addTempHotspot = (currentScene, viewer, hotspot, isDraggingRef, set
                         const coords = viewer.mouseEventToCoords(e);
                         if (coords) {
                             setTempHotspot({ pitch: coords[0], yaw: coords[1] });
+                            if (setPopupData) {
+                                setPopupData((prev) => {
+                                    if (prev) {
+                                        return {
+                                            ...prev,
+                                            pitch: coords[0],
+                                            yaw: coords[1]
+                                        };
+                                    }
+                                    return prev;
+                                });
+                            }
                         }
                     }
                     isDraggingRef.current = false;
@@ -326,7 +338,7 @@ export const handleMouseDownEvent = (event, popupDataRef, isDraggingHotspotRef, 
     };
 };
 
-export const handleMouseUpEvent = (event, viewer, clickStartCoords, popupDataRef, isDraggingHotspotRef, setTempHotspot) => {
+export const handleMouseUpEvent = (event, viewer, clickStartCoords, popupDataRef, isDraggingHotspotRef, setTempHotspot, setPopupData) => {
     if (!clickStartCoords.current || popupDataRef?.current || isDraggingHotspotRef?.current) {
         return;
     }
@@ -343,6 +355,13 @@ export const handleMouseUpEvent = (event, viewer, clickStartCoords, popupDataRef
                 pitch: coords[0],
                 yaw: coords[1],
             });
+            if (setPopupData) {
+                setPopupData({
+                    pitch: coords[0],
+                    yaw: coords[1],
+                    text: "",
+                });
+            }
         }
     }
 

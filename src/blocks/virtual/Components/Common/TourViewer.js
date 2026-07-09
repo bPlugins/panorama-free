@@ -110,7 +110,7 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
         };
 
         const onMouseUp = (event) => {
-            handleMouseUpEvent(event, viewer, clickStartCoords, popupDataRef, isDraggingHotspotRef, setTempHotspot);
+            handleMouseUpEvent(event, viewer, clickStartCoords, popupDataRef, isDraggingHotspotRef, setTempHotspot, setPopupData);
         };
 
         if (targetEl) {
