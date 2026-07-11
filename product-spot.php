@@ -162,7 +162,8 @@ if ( !class_exists( 'PSBPlugin' ) ) {
             if ( ! current_user_can( 'edit_post', $post_id ) ) return;
 
             if ( isset( $_POST['product_spot_blocks'] ) ) {
-				$blocks_json = wp_unslash( $_POST['product_spot_blocks'] );
+				$blocks_json = wp_unslash( $_POST['product_spot_blocks'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- JSON decoded and each value sanitized below.
+
 				$blocks = json_decode($blocks_json, true);
 				if (is_array($blocks)) {
 					$blocks = $this->psb_sanitize_blocks_meta_recursive($blocks);
