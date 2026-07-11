@@ -65,9 +65,10 @@ const Edit = (props) => {
 
 
 export default withSelect((select) => {
-  const { getDeviceType } = select("core/editor") || { getDeviceType: () => { return 'desktop'; } };
-  const currentPostId = select('core/editor').getCurrentPostId();
-  const CPTType = select('core/editor').getCurrentPostType?.();
+  const coreEditor = select("core/editor");
+  const { getDeviceType } = coreEditor || { getDeviceType: () => { return 'desktop'; } };
+  const currentPostId = coreEditor ? coreEditor.getCurrentPostId() : null;
+  const CPTType = coreEditor && coreEditor.getCurrentPostType ? coreEditor.getCurrentPostType() : null;
   const siteUrl = select('core').getSite()?.url;
   return {
     device: getDeviceType()?.toLowerCase() || 'desktop',

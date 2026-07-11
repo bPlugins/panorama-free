@@ -130,6 +130,27 @@ if ( !class_exists( 'PSBPlugin' ) ) {
 			wp_add_inline_style( 'psb-inline-style', $inline_styles );
 		}
 
+		function psb_sanitize_blocks_meta_recursive( $value, $key = '' ) {
+			if ( is_array( $value ) ) {
+				foreach ( $value as $sub_key => $sub_value ) {
+					$value[ $sub_key ] = $this->psb_sanitize_blocks_meta_recursive( $sub_value, $sub_key );
+				}
+				return $value;
+			}
+
+			if ( is_string( $value ) ) {
+				if ( $key === 'globalIcon' || $key === 'icon' ) {
+					return $value; // Preserve custom SVG icons with their original casing (e.g. viewBox, linearGradient)
+				} elseif ( $key === 'description' ) {
+					return wp_kses_post( $value );
+				} else {
+					return sanitize_text_field( $value );
+				}
+			}
+
+			return $value;
+		}
+
 		function save_product_spot_meta( $post_id, $post ) {
             if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 
@@ -141,7 +162,13 @@ if ( !class_exists( 'PSBPlugin' ) ) {
             if ( ! current_user_can( 'edit_post', $post_id ) ) return;
 
             if ( isset( $_POST['product_spot_blocks'] ) ) {
-                update_post_meta( $post_id, '_product_spot_blocks', wp_kses_post( wp_unslash( $_POST['product_spot_blocks'] ) ) );
+				$blocks_json = wp_unslash( $_POST['product_spot_blocks'] );
+				$blocks = json_decode($blocks_json, true);
+				if (is_array($blocks)) {
+					$blocks = $this->psb_sanitize_blocks_meta_recursive($blocks);
+					$blocks_json = wp_json_encode($blocks);
+				}
+                update_post_meta( $post_id, '_product_spot_blocks', $blocks_json );
             }
 
             if ( isset( $_POST['position'] ) ) {
@@ -172,20 +199,7 @@ if ( !class_exists( 'PSBPlugin' ) ) {
                 wp_send_json_error( array( 'message' => __( 'Blocks data is not valid JSON', 'panorama' ) ) );
             }
 
-            if ( is_array( $blocks ) ) {
-                foreach ( $blocks as $key => $value ) {
-                    if ( is_string( $value ) ) {
-                        $blocks[$key] = sanitize_text_field( $value );
-                    } elseif ( is_array( $value ) ) {
-                        foreach ( $value as $sub_key => $sub_value) {
-                            if ( is_string( $sub_value ) ) {
-                                $value[$sub_key] = sanitize_text_field( $sub_value );
-                            }
-                        }
-                        $blocks[$key] = $value;
-                    }
-                }
-            }
+            $blocks = $this->psb_sanitize_blocks_meta_recursive($blocks);
 
             $blocks_json = wp_json_encode( $blocks );
             $saved       = update_post_meta( $post_id, '_product_spot_blocks', $blocks_json );

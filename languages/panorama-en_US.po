@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-09T07:35:06+00:00\n"
+"POT-Creation-Date: 2026-07-11T06:10:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: panorama\n"
@@ -247,7 +247,7 @@ msgid "Awaiting product image"
 msgstr ""
 
 #: product-spot.php:21
-#: product-spot.php:213
+#: product-spot.php:227
 msgid "Product Spot"
 msgstr ""
 
@@ -271,23 +271,23 @@ msgstr ""
 msgid "Product Spot Block Updated"
 msgstr ""
 
-#: product-spot.php:161
+#: product-spot.php:188
 msgid "Invalid post ID or blocks data"
 msgstr ""
 
-#: product-spot.php:166
+#: product-spot.php:193
 msgid "You do not have permission to edit this post."
 msgstr ""
 
-#: product-spot.php:172
+#: product-spot.php:199
 msgid "Blocks data is not valid JSON"
 msgstr ""
 
-#: product-spot.php:200
+#: product-spot.php:214
 msgid "Saved successfully!"
 msgstr ""
 
-#: product-spot.php:206
+#: product-spot.php:220
 msgid "Failed to save"
 msgstr ""
 

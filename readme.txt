@@ -170,7 +170,7 @@ e.g.
 
 == Changelog ==
 
-= 1.7.4 - 09 Jul, 2026 =
+= 1.7.4 - 11 July, 2026 =
 * **New:** Added Link, Image, and Video hotspot support inside 360 Virtual Tours with aligned setup popups and media uploader type restrictions.
 * **Improved:** Upgraded WooCommerce Product editor metabox fields (Panorama Settings) with meaningful help descriptions and modern copy-badge clipboard layouts.
 * **Improved:** Optimized Product Spot layouts (Simple, Tippy, Sidepanel) with enhanced Sidepanel ratios and reliable AJAX saving.

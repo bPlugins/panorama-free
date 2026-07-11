@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		const isOnTop = productSpotOnWooEl.classList.contains('psb-top-image');
 		const isOnBottom = productSpotOnWooEl.classList.contains('psb-bottom-image');
 		const isReplaced = productSpotOnWooEl.classList.contains('psb-replace-image');
-		
+
 		const innerSpotEl = productSpotOnWooEl.querySelector('.wp-block-psb-product-spot');
-		
+
 		if (innerSpotEl?.classList.contains('alignwide')) {
 			innerSpotEl.classList.remove('alignwide');
 		}
@@ -43,12 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
 			document.querySelector('.woocommerce-product-gallery'),
 			document.querySelector('.product-gallery')
 		];
-	
+
+
 		containers.forEach(container => {
 			if (!container) return;
-	
+
 			if (isReplaced) {
+				const panoramaEl = container.querySelector('#bppiv_product_panorama');
 				container.innerHTML = '';
+				if (panoramaEl) {
+					container.append(panoramaEl);
+				}
 				container.append(productSpotOnWooEl);
 			} else {
 				if (isOnTop) container.prepend(productSpotOnWooEl);
