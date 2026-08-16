@@ -18,6 +18,7 @@ Everything you need to build an immersive 360° experience on your site:
 - **360° Image Viewer:** Embed stunning equirectangular panoramic photos seamlessly.
 - **360° Video Viewer:** Play immersive 360-degree panoramic videos with full player navigation.
 - **Google Street View Integration:** Easily embed interactive Google Street View locations by simply entering a Panorama ID.
+- **360° Virtual Tour (Free):** Connect up to 6 scenes together with up to 6 interactive hotspots per scene (Info, Scene, Link).
 - **Auto Rotate Controls:** Keep the viewing experience active with smooth auto-rotation and customizable speeds.
 - **Responsive & Mobile Ready:** Flawless rendering on iPhones, iPads, Android devices, and all major desktop web browsers.
 - **Universal Shortcode API:** Embed viewers anywhere on your site using standard `[panorama id="123"]` shortcodes.
@@ -26,7 +27,7 @@ Everything you need to build an immersive 360° experience on your site:
 
 ### 👑 Premium Power (Pro)
 Unlock advanced features for premium real estate tours, vehicle showcases, and interactive 3D portfolios:
-- **360° Virtual Tour Player:** Join multiple equirectangular scenes together with custom hotspots and target navigation to build fully custom, clickable virtual tours.
+- **360° Virtual Tour Pro:** Join unlimited scenes together with rich interactive hotspots (Info, Scene, Link, Image, Video) and target navigation to build fully custom, clickable virtual tours without any scene or hotspot limits.
 - **Product Spot / WooCommerce 3D Viewer:** Enhance WooCommerce single product pages with interactive 3D displays and choose top, bottom, or image-replace positions.
 - **Panorama Gallery:** Build columns and grids of multiple panoramas with beautiful responsive layouts and Load More buttons.
 - **Interactive Compass Overlay:** Keep users oriented in 360° spaces by enabling a native directional compass.

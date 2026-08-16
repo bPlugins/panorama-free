@@ -20,7 +20,9 @@ class Blocks {
 		register_block_type( BPPIV_PATH . 'build/blocks/google-street' );
 		register_block_type( BPPIV_PATH . 'build/blocks/gallery' );
 		register_block_type( BPPIV_PATH . 'build/blocks/tour' );
-		register_block_type( BPPIV_PATH . 'build/blocks/gutenberg-block' );
+		if ( ! class_exists( 'WP_Block_Type_Registry' ) || ! \WP_Block_Type_Registry::get_instance()->is_registered( 'bpgb/panorama' ) ) {
+			register_block_type( BPPIV_PATH . 'build/blocks/gutenberg-block' );
+		}
 		register_block_type( BPPIV_PATH . 'build/blocks/virtual' );
 		register_block_type( BPPIV_PATH . 'build/blocks/product-spot' );
 	}

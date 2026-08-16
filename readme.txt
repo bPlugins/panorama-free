@@ -1,4 +1,4 @@
-=== Panorama - 360 degree Virtual Tour, Panoramic Image viewer and More ===
+=== Panorama – turn photos into immersive virtual tours ===
 Contributors: bplugins, abuhayat, freemius, shamim10, farazi1
 Tags: panorama, 360 degree, 3d, virtual tour, krpano, 
 Requires at least: 6.5
@@ -22,7 +22,7 @@ You can embed any panoramic photos, or videos in Posts, Pages, Widget areas and 
 
 This WordPress plugin enables seamless display of 360° images, 3D images, videos, and panoramic galleries. With dedicated Gutenberg blocks, shortcodes, and WooCommerce integration, you can display immersive media on any page, post, widget area, or product page.
 
-The Free version comes with fully functional blocks for all media types, including 360° virtual tours (up to 2 scenes and 3 hotspots), interactive product hotspots (up to 3 spots), basic Google Street View embedding, and WooCommerce integration for 360° images and product spots.
+The Free version comes with fully functional blocks for all media types, including 360° virtual tours (up to 6 scenes and 6 hotspots per scene), interactive product hotspots (up to 3 spots), basic Google Street View embedding, and WooCommerce integration for 360° images and product spots.
 
 Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspots, full WooCommerce video integration, advanced viewer customization (starting pitch, yaw, and zoom/FOV), inactivity delay auto-rotation, custom navigation controls, galleries with load-more pagination, title/author overlays, and virtual compass guides.
  
@@ -34,7 +34,7 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 
 - **WooCommerce Integration (Basic)**: Embed 360° Images and Product Hotspots directly into WooCommerce product pages.
 - **Gutenberg Blocks Support**: Includes 8 dedicated blocks (Image 360°, Image 3D, Video, Video 360°, Google Street View, Gallery, Virtual Tour, and Product Spot).
-- **360° Virtual Tour**: Connect up to 2 scenes with Info, Scene, and Link hotspots.
+- **360° Virtual Tour (Free)**: Connect up to 6 scenes with up to 6 hotspots per scene (Info, Scene, and Link hotspots).
 - **Product Spot**: Highlight product details with interactive hotspots (up to 3 spots).
 - **Google Street View (Basic)**: Embed Google Street View panoramas easily by entering the Panorama ID.
 - **Media Uploads**: Upload and display panoramic images and videos from the WordPress media library.
@@ -47,7 +47,7 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 = Pro Features =
 
 - **WooCommerce Video Integration**: Add 360° and standard panoramic videos directly to WooCommerce product galleries.
-- **360° Virtual Tour**: Connect unlimited scenes with Info, Scene, Link, Image, and Video hotspots.
+- **360° Virtual Tour Pro**: Connect unlimited scenes and unlimited hotspots with Info, Scene, Link, Image, and Video hotspots.
 - **Initial View Settings**: Set precise starting angles (Pitch, Yaw, and Field of View / Zoom) for panoramas.
 - **Advanced Navigation & Interaction**: Configure fullscreen modes, draggable panoramas, mouse scroll-to-zoom toggles, and virtual compass guides.
 - **Auto-Rotation Inactivity Delay**: Automatically pause and resume rotation when a user interacts with the viewer.

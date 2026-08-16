@@ -34,7 +34,7 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
   };
 
   const addNewHotspot = () => {
-    if ( !premiumProps?.isPremium && hotspots?.length >= 3) {
+    if ( !premiumProps?.isPremium && hotspots?.length >= 6) {
       setIsHotspotModalOpen(true);
       return;
     }
@@ -294,7 +294,7 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
       {isHotspotModalOpen && (
         <CustomModal
           title="Maximum Hotspots Limit"
-          des="You can only add up to 3 hotspots in the free version. Please upgrade to premium for unlimited hotspots."
+          des="You can only add up to 6 hotspots in the free version. Please upgrade to premium for unlimited hotspots."
           setFn={setIsHotspotModalOpen}
           link={siteLocation}
       />

@@ -24,7 +24,7 @@ const CustomItemsPanel = (properties) => {
   const items = attributes[arrKey];
 
   const addNewItem = () => {
-    if ( !premiumProps?.isPremium && items?.length >= 2 ) {
+    if ( !premiumProps?.isPremium && items?.length >= 6 ) {
       setIsSceneModalOpen(true);
       return;
     }

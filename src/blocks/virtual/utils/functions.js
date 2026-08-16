@@ -111,7 +111,7 @@ export const saveHotspot = (popupData, scenes, currentScene, setAttributes, setP
 
     const currentSceneHotspots = currentScene.hotSpots || [];
 
-    if (!isPremium && currentSceneHotspots.length >= 3) {
+    if (!isPremium && currentSceneHotspots.length >= 6) {
         setIsHotspotModalViewerOpen(true);
         return;
     }

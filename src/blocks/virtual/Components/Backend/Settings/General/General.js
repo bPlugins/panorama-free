@@ -173,7 +173,7 @@ const General = ({ attributes, setAttributes, premiumProps, setCurrentScene, sit
       {isSceneModalOpen && (
         <CustomModal
           title="Maximum Scenes Limit"
-          des="You can only add up to 2 scenes in the free version. Please upgrade to premium for unlimited scenes."
+          des="You can only add up to 6 scenes in the free version. Please upgrade to premium for unlimited scenes."
           setFn={setIsSceneModalOpen}
           link={siteLocation}
         />

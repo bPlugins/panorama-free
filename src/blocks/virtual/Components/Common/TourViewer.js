@@ -179,7 +179,7 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
             {isBackend && isHotspotModalViewerOpen &&
                 <CustomModal
                     title="Maximum Hotspots Limit"
-                    des="You can only add up to 3 hotspots in the free version. Please upgrade to premium for unlimited hotspots."
+                    des="You can only add up to 6 hotspots in the free version. Please upgrade to premium for unlimited hotspots."
                     setFn={setIsHotspotModalViewerOpen}
                     link={siteLocation}
                 />
