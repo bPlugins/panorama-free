@@ -21,7 +21,7 @@ const Edit = (props) => {
         {!isSelected && <div className="bPlBlockBeforeSelect"></div>}
 
         <div className="bBlocksTourViewer">
-          <TourViewer {...{ attributes, setAttributes }} device={device} />
+          <TourViewer {...{ attributes, setAttributes }} device={device} isButton={true} isBackend={true} isSelected={isSelected} />
         </div>
       </div>
     </>

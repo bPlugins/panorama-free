@@ -3,7 +3,7 @@ import { __ } from "@wordpress/i18n";
 import { useEffect, useState } from "react";
 import CustomItemsPanel from "../../../CustomItemsPanel/CustomItemsPanel";
 import Item from "../Panel/Item";
-import { Notice } from "../../../../../../../../bpl-tools/Components";
+import { Notice, Badge } from "../../../../../../../../bpl-tools/Components";
 import { updateData } from "../../../../../../../../bpl-tools/utils/functions";
 import defaultImage from './../../../../../../default_panorama_image.png';
 import CustomModal from "../../../Common/CustomModal";
@@ -12,7 +12,7 @@ const General = ({ attributes, setAttributes, premiumProps, setCurrentScene, sit
   const { scenes = [], options = {} } = attributes;
   const [isSceneModalOpen, setIsSceneModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const { isLabel, tabSl, isShowSceneHotspot, showSceneListAlign, isRotate, autoRotateSpeed, autoRotateInactivityDelay, hideDefaultCtrl, draggable } = options || {};
+  const { isLabel, tabSl, isShowSceneHotspot, showSceneListAlign, isRotate, autoRotateSpeed, autoRotateInactivityDelay, hideDefaultCtrl, draggable, orientation = false } = options || {};
 
   useEffect(() => {
     setTimeout(() => {
@@ -161,6 +161,26 @@ const General = ({ attributes, setAttributes, premiumProps, setCurrentScene, sit
           onChange={(v) =>
             setAttributes({
               options: updateData(options, v, "draggable"),
+            })
+          }
+        />
+
+        <ToggleControl
+          className="mt10"
+          checked={Boolean(orientation)}
+          label={
+            <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+              {__("Device Orientation (Gyroscope)", "panorama")}
+              <Badge label={__("New", "panorama")} />
+            </span>
+          }
+          help={__(
+            "Allow mobile and tablet visitors to look around by tilting and rotating their physical device.",
+            "panorama"
+          )}
+          onChange={(v) =>
+            setAttributes({
+              options: updateData(options, v, "orientation"),
             })
           }
         />

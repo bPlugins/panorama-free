@@ -70,8 +70,8 @@ export const createModifiedHotspots = (scenes, currentScene, spot, isBackend, in
     },
 });
 
-export const initializePannellumViewer = (panoRef, modifiedScenes, options = {}) => {
-    const { hideDefaultCtrl, isRotate, autoRotateSpeed, autoRotateInactivityDelay, compass, mouseZoom, draggable, disableKeyboardCtrl, doubleClickZoom } = options;
+export const initializePannellumViewer = (panoRef, modifiedScenes, options = {}, isBackend = false) => {
+    const { hideDefaultCtrl, isRotate, autoRotateSpeed, autoRotateInactivityDelay, compass, orientation = false, mouseZoom, draggable, disableKeyboardCtrl, doubleClickZoom } = options;
 
     const viewer = window.pannellum.viewer(panoRef.current, {
         autoLoad: true,
@@ -80,6 +80,7 @@ export const initializePannellumViewer = (panoRef, modifiedScenes, options = {})
         autoRotate: isRotate ? autoRotateSpeed : 0,
         autoRotateInactivityDelay,
         compass,
+        orientationOnByDefault: !isBackend && Boolean(orientation),
         mouseZoom,
         draggable,
         disableKeyboardCtrl,

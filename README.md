@@ -5,7 +5,7 @@
 [![WordPress Support](https://img.shields.io/badge/WordPress-6.3+-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/plugins/panorama/)
 [![PHP Support](https://img.shields.io/badge/PHP-7.1+-777bb4.svg?style=flat-square&logo=php)](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/readme.txt)
 [![GPLv2 License](https://img.shields.io/badge/License-GPLv2-green.svg?style=flat-square)](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/readme.txt)
-[![Stable Version](https://img.shields.io/badge/Version-1.7.4-blue.svg?style=flat-square)](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/readme.txt)
+[![Stable Version](https://img.shields.io/badge/Version-1.7.5-blue.svg?style=flat-square)](readme.txt)
 
 **Panorama** is a lightweight, high-performance, and fully responsive 360-degree virtual tour and panoramic media viewer plugin for WordPress. It lets you embed 360° photos, videos, and Google Street View locations into your posts, pages, widget areas, or templates using shortcodes or modern Gutenberg blocks—no coding required!
 
@@ -18,7 +18,9 @@ Everything you need to build an immersive 360° experience on your site:
 - **360° Image Viewer:** Embed stunning equirectangular panoramic photos seamlessly.
 - **360° Video Viewer:** Play immersive 360-degree panoramic videos with full player navigation.
 - **Google Street View Integration:** Easily embed interactive Google Street View locations by simply entering a Panorama ID.
-- **360° Virtual Tour (Free):** Connect up to 6 scenes together with up to 6 interactive hotspots per scene (Info, Scene, Link).
+- **Multi-Scene Virtual Tours (Free):** Connect up to 6 scenes together (expanded from 2) with up to 6 interactive hotspots per scene (Info, Scene, Link) and smooth transitions.
+- **Device Orientation (Gyroscope):** Enable mobile and tablet visitors to explore 360° panoramas and virtual tours naturally by tilting and moving their physical device.
+- **Initial View & FOV / Zoom Control (Free):** Easily customize and lock the starting camera angle (Pitch, Yaw, HFOV or X, Y, Z coordinates) with a single click using the "Set as Initial View" button in block editor or admin metabox.
 - **Auto Rotate Controls:** Keep the viewing experience active with smooth auto-rotation and customizable speeds.
 - **Responsive & Mobile Ready:** Flawless rendering on iPhones, iPads, Android devices, and all major desktop web browsers.
 - **Universal Shortcode API:** Embed viewers anywhere on your site using standard `[panorama id="123"]` shortcodes.

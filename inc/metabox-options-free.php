@@ -30,6 +30,10 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
       return ' <span style="background:#146ef5;color:#fff;padding:0px 5px;border-radius:4px;font-size:10px;font-weight:bold;margin-left:5px;vertical-align:middle;display:inline-block;line-height:1.4;">' . $text . '</span>';
     }
 
+    private function get_new_badge($text = 'NEW') {
+      return ' <span style="background:#ff7a0020;color:#ff7a00;border:1px solid #ff7a0040;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:bold;margin-left:6px;vertical-align:middle;display:inline-block;line-height:1.2;">' . $text . '</span>';
+    }
+
     // private function get_upcoming_badge() {
     //   return ' <span style="background:#00d2ff;color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:bold;margin-left:5px;vertical-align:middle;display:inline-block;line-height:1.4;">UPCOMING</span>';
     // }
@@ -101,8 +105,23 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
           array(
             'id'           => 'bppiv_content',
             'type'         => 'content',
-            'title'        => ' ',
-            'content'         => __('We have a new 360° Virtual Tour Viewer. <a href="edit.php?post_type=virtual_tour">click here</a> to create', 'panorama'),
+            'content'      => '
+              <div style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); border: 1px solid #cce3f9; border-left: 4px solid #146ef5; border-radius: 8px; padding: 20px 24px; margin: 15px 0 25px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                  <span style="font-size: 20px;">🌟</span>
+                  <strong style="font-size: 16px; color: #0d3d84; font-weight: 700;">' . esc_html__( 'Experience Our Modern 360° Virtual Tour Builder', 'panorama' ) . '</strong>
+                  <span style="background: #146ef5; color: #fff; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 4px; text-transform: uppercase;">' . esc_html__( 'New & Recommended', 'panorama' ) . '</span>
+                </div>
+                <p style="font-size: 13px; line-height: 1.6; color: #334e68; margin: 0 0 16px 0;">
+                  ' . esc_html__( 'Create stunning, high-performance virtual tours with modern scene index lists, responsive hamburger menus, custom audio/video hotspots, and get up to 6 scenes completely FREE.', 'panorama' ) . '
+                </p>
+                <div>
+                  <a href="' . esc_url( admin_url( 'post-new.php?post_type=virtual_tour' ) ) . '" style="display: inline-flex; align-items: center; gap: 6px; background: #146ef5; color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 6px; font-size: 13px; font-weight: 600; box-shadow: 0 2px 4px rgba(20, 110, 245, 0.25);">
+                    ' . esc_html__( 'Create Modern Virtual Tour (Free)', 'panorama' ) . ' &rarr;
+                  </a>
+                </div>
+              </div>
+            ',
             'dependency'   => array( 'bppiv_type', '==', 'tour360' ),
           ),
           // --- CONTENT SOURCE ---
@@ -245,6 +264,61 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'default'  => false,
             'class'    => 'bppiv-ctrl-image',
           ),
+          array(
+            'id'       => 'orientation_360',
+            'type'     => 'switcher',
+            'title'    => '<span style="white-space:nowrap;">Device Orientation (Gyroscope) ' . $this->get_new_badge() . '</span>',
+            'desc'     => 'Allow mobile and tablet visitors to look around by tilting and rotating their physical device.',
+            'default'  => false,
+            'class'    => 'bppiv-ctrl-image360',
+          ),
+          array(
+            'id'       => 'initial_view',
+            'type'     => 'switcher',
+            'title'    => 'Initial View',
+            'subtitle' => 'Choose Custom Angle of View for Initial Viewing ',
+            'desc'     => 'Enable or Disable Initial View. Default "OFF"',
+            'text_on'  => 'Yes',
+            'text_off' => 'No',
+            'default'  => false,
+            'class'    => 'bppiv-ctrl-image',
+          ),
+          array(
+            'id'       => 'initial_view_property',
+            'type'     => 'spacing',
+            'title'    => 'Initial Values',
+            'subtitle' => 'Set The Custom values for Initial View. Default Initial Values are ("Pitch=0 Yaw=0 HFOV=120")',
+            'desc'     => 'Set Your Desire Values. (Pitch= Vertical Angle, Yaw= Horizontal Angle, HFOV= Zoom Level)',
+            'default'  => array(
+              'top'    => 0,
+              'right'  => 0,
+              'bottom' => 120,
+            ),
+            'left'     => false,
+            'show_units' => false,
+            'top_icon'    => 'pitch',
+            'right_icon'  => 'yaw',
+            'bottom_icon' => 'hfov',
+            'class'    => 'bppiv-ctrl-image-360-val',
+          ),
+          array(
+            'id'       => 'initial_view_image_property',
+            'type'     => 'spacing',
+            'title'    => 'Initial Values',
+            'subtitle' => 'Set The Custom values for Initial View. Default Initial Values are ("X=-61.42 Y=-8.95 Z=120")',
+            'desc'     => 'Set Your Desire Values. (X= Horizontal Position, Y= Vertical Position, Z= Zoom Level/Position)',
+            'default'  => array(
+              'top'    => -61.42,
+              'right'  => -8.95,
+              'bottom' => 120,
+            ),
+            'left'     => false,
+            'show_units' => false,
+            'top_icon'    => 'x',
+            'right_icon'  => 'y',
+            'bottom_icon' => 'z',
+            'class'    => 'bppiv-ctrl-image-3d-val',
+          ),
           // --- Video only fields ---
           array(
             'id'       => 'bppiv_auto_play',
@@ -278,6 +352,35 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'default'  => true,
             'class'    => 'bppiv-ctrl-video-only',
           ),
+          array(
+            'id'       => 'initial_view_video',
+            'type'     => 'switcher',
+            'title'    => 'Initial View',
+            'subtitle' => 'Choose Custom Angle of View for Initial Viewing ',
+            'desc'     => 'Enable or Disable Initial View. Default "OFF"',
+            'text_on'  => 'Yes',
+            'text_off' => 'No',
+            'default'  => false,
+            'class'    => 'bppiv-ctrl-video',
+          ),
+          array(
+            'id'       => 'initial_view_video_property',
+            'type'     => 'spacing',
+            'title'    => 'Initial Values',
+            'subtitle' => 'Set The Custom values for Initial View. Default Initial Values are ("X=0 Y=0 Z=120")',
+            'desc'     => 'Set Your Desire Values. (X= Horizontal Position, Y= Vertical Position, Z= Zoom Level/Position)',
+            'default'  => array(
+              'top'    => 0,
+              'right'  => 0,
+              'bottom' => 120,
+            ),
+            'left'     => false,
+            'show_units' => false,
+            'top_icon'    => 'x',
+            'right_icon'  => 'y',
+            'bottom_icon' => 'z',
+            'class'    => 'bppiv-ctrl-video-val',
+          ),
           // --- Video2 only free fields ---
           array(
             'id'       => 'bppiv_video_autoplay',
@@ -308,7 +411,6 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
            array(
              'type'    => 'content',
              'content' => $this->pro_feature_html( array(
-               'Custom Start Position' => 'Choose exactly where viewers begin exploring your panorama.',
                'Smart Auto-Rotation'   => 'Fine-tune the delay before rotation resumes after user interaction.',
              ) ),
              'class'   => 'bppiv-pro-image3d',
@@ -317,7 +419,6 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
            array(
              'type'    => 'content',
              'content' => $this->pro_feature_html( array(
-               'Custom Start Position' => 'Choose exactly where viewers begin exploring your panorama.',
                'Smart Auto-Rotation'   => 'Fine-tune the delay before rotation resumes after user interaction.',
                'Custom Control Bar'    => 'Replace the default controls with a fully customizable control bar.',
                'Instant Auto Load'     => 'Load the panorama automatically without requiring a click to start.',
@@ -334,7 +435,6 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
            array(
              'type'    => 'content',
              'content' => $this->pro_feature_html( array(
-               'Custom Start Angle'       => 'Define exactly where your video begins playing.',
                'Fullscreen Toggle'        => 'Let viewers enjoy an immersive fullscreen video experience.',
                'Playback Settings Panel'  => 'Give users control over quality, speed, and playback options.',
                'Seek Bar & Play/Pause'    => 'Navigate through the video timeline with a sleek progress bar.',
@@ -345,7 +445,6 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
            array(
              'type'    => 'content',
              'content' => $this->pro_feature_html( array(
-               'Custom Start Angle'    => 'Define exactly where your 360° video begins playing.',
                'Progress Bar'          => 'Show or hide the video seek/progress bar.',
                'Fullscreen Toggle'     => 'Allow viewers to enter immersive fullscreen mode.',
                'Remaining Time'        => 'Display the remaining playback time on the player.',
@@ -360,35 +459,60 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
              'function' => function() {
                ?>
                <script type="text/javascript">
-                 jQuery(document).ready(function($) {
-                   function syncControlsTab() {
-                     var type = $('input[name="_bppivimages_[bppiv_type]"]:checked').val();
-                     if(!type) return;
-                     // Hide all groups first
-                     $('.bppiv-ctrl-image, .bppiv-ctrl-video, .bppiv-ctrl-video-only, .bppiv-ctrl-video2').hide();
-                     $('.bppiv-pro-image3d, .bppiv-pro-image360, .bppiv-pro-video, .bppiv-pro-video2').hide();
+                  jQuery(document).ready(function($) {
+                    function isSwitcherOn(name) {
+                      var $input = $('input[name="_bppivimages_[' + name + ']"]');
+                      if (!$input.length) return false;
+                      return $input.val() == '1' || $input.closest('.csf--switcher').hasClass('csf--active');
+                    }
 
-                     if (type === 'image') {
-                       $('.bppiv-ctrl-image').show();
-                       $('.bppiv-pro-image3d').show();
-                     } else if (type === 'image360' || type === 'tour360' || type === 'gstreet') {
-                       $('.bppiv-ctrl-image').show();
-                       $('.bppiv-pro-image360').show();
-                     } else if (type === 'video') {
-                       $('.bppiv-ctrl-video').show();
-                       $('.bppiv-ctrl-video-only').show();
-                       $('.bppiv-pro-video').show();
-                     } else if (type === 'video2') {
-                       $('.bppiv-ctrl-video').show();
-                       $('.bppiv-ctrl-video2').show();
-                       $('.bppiv-pro-video2').show();
-                     }
-                   }
-                   $(document).on('change', 'input[name="_bppivimages_[bppiv_type]"]', syncControlsTab);
-                   setTimeout(syncControlsTab, 300);
-                   setTimeout(syncControlsTab, 1000);
-                 });
-               </script>
+                    function syncControlsTab() {
+                      var type = $('input[name="_bppivimages_[bppiv_type]"]:checked').val();
+                      if(!type) return;
+                      // Hide all groups first
+                      $('.bppiv-ctrl-image, .bppiv-ctrl-image360, .bppiv-ctrl-image-3d-val, .bppiv-ctrl-image-360-val, .bppiv-ctrl-video, .bppiv-ctrl-video-only, .bppiv-ctrl-video2, .bppiv-ctrl-video-val').hide();
+                      $('.bppiv-pro-image3d, .bppiv-pro-image360, .bppiv-pro-video, .bppiv-pro-video2').hide();
+
+                      var isInitialViewOn = isSwitcherOn('initial_view');
+                      var isVideoInitialViewOn = isSwitcherOn('initial_view_video');
+
+                      if (type === 'image') {
+                        $('.bppiv-ctrl-image').show();
+                        if (isInitialViewOn) { $('.bppiv-ctrl-image-3d-val').show(); }
+                        $('.bppiv-pro-image3d').show();
+                      } else if (type === 'image360') {
+                        $('.bppiv-ctrl-image').show();
+                        if (isInitialViewOn) { $('.bppiv-ctrl-image-360-val').show(); }
+                        $('.bppiv-ctrl-image360').show();
+                        $('.bppiv-pro-image360').show();
+                      } else if (type === 'tour360') {
+                        $('.bppiv-ctrl-image').show();
+                        if (isInitialViewOn) { $('.bppiv-ctrl-image-360-val').show(); }
+                        $('.bppiv-pro-image360').show();
+                      } else if (type === 'gstreet') {
+                        $('.bppiv-ctrl-image').show();
+                        if (isInitialViewOn) { $('.bppiv-ctrl-image-3d-val').show(); }
+                        $('.bppiv-pro-image360').show();
+                      } else if (type === 'video') {
+                        $('.bppiv-ctrl-video').show();
+                        $('.bppiv-ctrl-video-only').show();
+                        if (isVideoInitialViewOn) { $('.bppiv-ctrl-video-val').show(); }
+                        $('.bppiv-pro-video').show();
+                      } else if (type === 'video2') {
+                        $('.bppiv-ctrl-video').show();
+                        $('.bppiv-ctrl-video2').show();
+                        if (isVideoInitialViewOn) { $('.bppiv-ctrl-video-val').show(); }
+                        $('.bppiv-pro-video2').show();
+                      }
+                    }
+                    $(document).on('change', 'input[name="_bppivimages_[bppiv_type]"], input[name="_bppivimages_[initial_view]"], input[name="_bppivimages_[initial_view_video]"]', syncControlsTab);
+                    $(document).on('click', '.csf-field-switcher .csf--switcher', function() {
+                      setTimeout(syncControlsTab, 20);
+                    });
+                    setTimeout(syncControlsTab, 300);
+                    setTimeout(syncControlsTab, 1000);
+                  });
+                </script>
                <?php
              }
            ),
@@ -527,7 +651,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
     }
 
     public function exclude_fields_before_save( $data ) {
-      $exclude = array( 'bppiv_pan_gallery', 'bppiv_gallery_limit', 'bppiv_pano_id', 'auto_rotate_inactivity_delay', 'is_motion_button', 'initial_view', 'custom_control' );
+      $exclude = array( 'bppiv_pan_gallery', 'bppiv_gallery_limit', 'bppiv_pano_id', 'auto_rotate_inactivity_delay', 'is_motion_button', 'custom_control' );
       foreach ( $exclude as $id ) { if(isset($data[$id])) { unset( $data[ $id ] ); } }
       return $data;
     }

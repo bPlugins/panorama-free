@@ -42,6 +42,7 @@
         "autoLoad": true,
         "draggable": true,
         "compass": false,
+        "orientation": false,
         "titleAuthor": true,
         "title": "360° Image",
         "author": "bPlugins",

@@ -1,11 +1,12 @@
-import { PanelBody, TextControl } from "@wordpress/components";
+import { PanelBody, TextControl, ToggleControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { updateData } from "../../../../../../../../bpl-tools/utils/functions";
 import { useState } from "@wordpress/element";
 import { Notice } from '../../../../../../../../bpl-tools/Components';
 
 const General = ({ attributes, setAttributes }) => {
-  const { panoId } = attributes;
+  const { panoId, options = {} } = attributes;
+  const { initialView = false } = options;
   const [showHelp, setShowHelp] = useState(false);
 
   return (<>
@@ -35,8 +36,25 @@ const General = ({ attributes, setAttributes }) => {
         }
       />
 
+      {panoId && (
+        <ToggleControl
+          className="mt15"
+          checked={initialView}
+          label={__("Set As Initial View Button", "panorama")}
+          help={__(
+            "Shows a button on the viewer that lets you save the current camera angle as the initial view.",
+            "panorama"
+          )}
+          onChange={(v) =>
+            setAttributes({
+              options: updateData(options, v, "initialView"),
+            })
+          }
+        />
+      )}
+
       <Notice status='premium' isIcon={true}>
-        {__('Set Initial View, Hide Default Control, Auto Rotate, Auto Rotate Speed & Inactivity Delay are available in the Pro version.', 'panorama')}
+        {__('Hide Default Control, Auto Rotate, Auto Rotate Speed & Inactivity Delay are available in the Pro version.', 'panorama')}
       </Notice>
 
     </PanelBody>

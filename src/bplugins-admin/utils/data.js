@@ -186,6 +186,15 @@ export const welcomeInfo = (adminUrl) => ({
 	},
 	changelogs: [
 		{
+			type: 'update',
+			version: '1.7.5 - 18 Aug, 2026',
+			list: [
+				'Update: Increased Multi-Scene Virtual Tours free scene limit from 2 to 6 scenes (with up to 6 interactive hotspots per scene).',
+				'New: Added "Device Orientation (Gyroscope)" toggle control to Image 360° and Virtual Tour blocks and Admin Settings metabox.',
+				'Unlocked: Made "Set as Initial View" button and custom FOV / Zoom starting angle controls completely FREE across all Gutenberg blocks and Admin Settings metaboxes.'
+			]
+		},
+		{
 			type: 'new',
 			version: '1.7.4 - 11 July, 2026',
 			list: [

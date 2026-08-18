@@ -82,7 +82,7 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
             };
         });
 
-        const viewer = initializePannellumViewer(panoRef, modifiedScenes, options);
+        const viewer = initializePannellumViewer(panoRef, modifiedScenes, options, isBackend);
         window.viewer = viewer;
 
         {

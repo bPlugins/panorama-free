@@ -10,6 +10,7 @@ const General = ({ attributes, setAttributes }) => {
     loop,
     muted,
     controlBar,
+    initialView = false,
   } = options;
 
   return (
@@ -26,6 +27,21 @@ const General = ({ attributes, setAttributes }) => {
         onChange={(v) => {
           setAttributes({ videoUrl: updateData(videoUrl, v) });
         }}
+      />
+
+      <ToggleControl
+        className="mt15"
+        checked={initialView}
+        label={__("Set As Initial View Button", "panorama")}
+        help={__(
+          "Shows a button on the viewer that lets you save the current camera angle as the initial view.",
+          "panorama"
+        )}
+        onChange={(v) =>
+          setAttributes({
+            options: updateData(options, v, "initialView"),
+          })
+        }
       />
 
       <ToggleControl
@@ -74,7 +90,7 @@ const General = ({ attributes, setAttributes }) => {
       />
 
       <Notice status='premium' isIcon={true}>
-        {__('Set Initial View, Setting Control, Range & Play/Pause Control & Full-Screen Control are available in the Pro version.', 'panorama')}
+        {__('Setting Control, Range & Play/Pause Control & Full-Screen Control are available in the Pro version.', 'panorama')}
       </Notice>
     </PanelBody>
   );

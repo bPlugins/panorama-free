@@ -24,6 +24,7 @@ $bppiv_block = call_user_func( function() use ( $get_value, $bppiv_meta, $bppiv_
                 "autoLoad" => $get_value('bppiv_auto_load', true, true),
                 "draggable" => $get_value('draggable_360', true, true),
                 "compass" => $get_value('compass_360', true),
+                "orientation" => $get_value('orientation_360', true),
                 "titleAuthor" => $get_value('title_author', true, true),
                 "title" => $bppiv_meta['title_360'] ?? '' ,
                 "author" => $bppiv_meta['author_360'] ?? '',

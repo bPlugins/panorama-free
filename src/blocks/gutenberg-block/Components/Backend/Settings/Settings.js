@@ -28,6 +28,7 @@ const Settings = ({ attributes, setAttributes, siteUrl }) => {
     panoType,
     panoImage,
     panoVideo,
+    initialView,
     autoRotate,
     rotateSpeed,
     hideControl,
@@ -85,10 +86,18 @@ const Settings = ({ attributes, setAttributes, siteUrl }) => {
                 onChange={(val) => setAttributes({ height: val })}
                 units={[pxUnit(), perUnit()]}
               />
+
+              <ToggleControl
+                className="mt20"
+                label={__("Set As Initial View Button", "panorama")}
+                checked={initialView}
+                onChange={(val) => setAttributes({ initialView: val })}
+              />
+
               {"video" === panoType && (
                 <>
                   <ToggleControl
-                    className="mt20"
+                    className="mt10"
                     label="Auto Play"
                     checked={autoPlay}
                     onChange={(val) => setAttributes({ autoPlay: val })}
@@ -146,11 +155,11 @@ const Settings = ({ attributes, setAttributes, siteUrl }) => {
           <Notice status='premium' isIcon={true}>
             {"video" === panoType
               ? __(
-                "Set Initial View, Setting Control, Range & Play/Pause Control, and Fullscreen Control are available in the Pro version.",
+                "Setting Control, Range & Play/Pause Control, and Fullscreen Control are available in the Pro version.",
                 "panorama"
               )
               : __(
-                "Set Initial View, Device Motion Button & Inactivity Delay are available in the Pro version.",
+                "Device Motion Button & Inactivity Delay are available in the Pro version.",
                 "panorama"
               )}
           </Notice>

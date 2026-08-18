@@ -3,7 +3,7 @@ Contributors: bplugins, abuhayat, freemius, shamim10, farazi1
 Tags: panorama, 360 degree, 3d, virtual tour, krpano, 
 Requires at least: 6.5
 Tested up to: 7.0
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -22,9 +22,9 @@ You can embed any panoramic photos, or videos in Posts, Pages, Widget areas and 
 
 This WordPress plugin enables seamless display of 360° images, 3D images, videos, and panoramic galleries. With dedicated Gutenberg blocks, shortcodes, and WooCommerce integration, you can display immersive media on any page, post, widget area, or product page.
 
-The Free version comes with fully functional blocks for all media types, including 360° virtual tours (up to 6 scenes and 6 hotspots per scene), interactive product hotspots (up to 3 spots), basic Google Street View embedding, and WooCommerce integration for 360° images and product spots.
+The Free version comes with fully functional blocks for all media types, including 360° virtual tours (up to 6 scenes and 6 hotspots per scene), interactive product hotspots (up to 3 spots), basic Google Street View embedding, Device Orientation (Gyroscope) navigation, custom Initial View & FOV/Zoom controls, and WooCommerce integration for 360° images and product spots.
 
-Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspots, full WooCommerce video integration, advanced viewer customization (starting pitch, yaw, and zoom/FOV), inactivity delay auto-rotation, custom navigation controls, galleries with load-more pagination, title/author overlays, and virtual compass guides.
+Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspots, full WooCommerce video integration, advanced viewer customization (inactivity delay auto-rotation, custom navigation controls), galleries with load-more pagination, title/author overlays, and virtual compass guides.
  
  
 **[See Live Demos](https://bplugins.com/products/panorama/#demos)** 
@@ -32,9 +32,11 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 
 = Free Features = 
 
+- **Multi-Scene Virtual Tours (Free)**: Connect up to 6 scenes (expanded from 2) with up to 6 hotspots per scene (Info, Scene, and Link hotspots) and smooth transitions.
+- **Device Orientation (Gyroscope)**: Enable mobile and tablet visitors to explore 360° panoramas and virtual tours naturally by tilting and moving their physical device.
+- **Initial View & FOV / Zoom Control (Free)**: Easily customize and lock the starting camera angle (Pitch, Yaw, HFOV or X, Y, Z coordinates) with a single click using the "Set as Initial View" button in block editor or admin metabox.
 - **WooCommerce Integration (Basic)**: Embed 360° Images and Product Hotspots directly into WooCommerce product pages.
 - **Gutenberg Blocks Support**: Includes 8 dedicated blocks (Image 360°, Image 3D, Video, Video 360°, Google Street View, Gallery, Virtual Tour, and Product Spot).
-- **360° Virtual Tour (Free)**: Connect up to 6 scenes with up to 6 hotspots per scene (Info, Scene, and Link hotspots).
 - **Product Spot**: Highlight product details with interactive hotspots (up to 3 spots).
 - **Google Street View (Basic)**: Embed Google Street View panoramas easily by entering the Panorama ID.
 - **Media Uploads**: Upload and display panoramic images and videos from the WordPress media library.
@@ -48,7 +50,6 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 
 - **WooCommerce Video Integration**: Add 360° and standard panoramic videos directly to WooCommerce product galleries.
 - **360° Virtual Tour Pro**: Connect unlimited scenes and unlimited hotspots with Info, Scene, Link, Image, and Video hotspots.
-- **Initial View Settings**: Set precise starting angles (Pitch, Yaw, and Field of View / Zoom) for panoramas.
 - **Advanced Navigation & Interaction**: Configure fullscreen modes, draggable panoramas, mouse scroll-to-zoom toggles, and virtual compass guides.
 - **Auto-Rotation Inactivity Delay**: Automatically pause and resume rotation when a user interacts with the viewer.
 - **Premium Video Playback**: Picture-in-Picture mode, playback speed controls, and advanced video controls.
@@ -169,6 +170,11 @@ e.g.
 8. Gallery
 
 == Changelog ==
+
+= 1.7.5 - 18 Aug, 2026 =
+* **Update:** Increased Multi-Scene Virtual Tours free scene limit from 2 to 6 scenes (with up to 6 interactive hotspots per scene).
+* **New:** Added "Device Orientation (Gyroscope)" toggle control to Image 360° and Virtual Tour blocks and Admin Settings metabox.
+* **Unlocked:** Made "Set as Initial View" button and custom FOV / Zoom starting angle controls completely FREE across all Gutenberg blocks and Admin Settings metaboxes.
 
 = 1.7.4 - 11 July, 2026 =
 * **New:** Added Link, Image, and Video hotspot support inside 360 Virtual Tours with aligned setup popups and media uploader type restrictions.

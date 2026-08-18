@@ -20,6 +20,7 @@
         control_show_hide,
         draggable_360,
         compass_360,
+        orientation_360,
         title_author,
         title_360,
         author_360,
@@ -58,6 +59,7 @@
         const isDraggable = Boolean(parseInt(draggable_360));
         const titleAuthor = title_author ?? 0;
         const compass360 = Boolean(parseInt(compass_360));
+        const orientation360 = Boolean(parseInt(orientation_360));
         const initialView =
           (Boolean(parseInt(initial_view)) && {
             pitch: parseFloat(viewProperty.top),
@@ -85,7 +87,7 @@
           showControls: isHideControl,
           compass: compass360,
           //northOffset: -160.5,
-          orientationOnByDefault: true,
+          orientationOnByDefault: orientation360,
           ...titleAuthorOptions,
           ...initialView,
         });

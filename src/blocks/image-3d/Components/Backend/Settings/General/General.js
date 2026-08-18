@@ -9,6 +9,7 @@ const General = ({ attributes, setAttributes }) => {
     autoRotate,
     autoRotateSpeed,
     hideDefaultCtrl,
+    initialView = false,
   } = options;
 
   return (
@@ -64,8 +65,23 @@ const General = ({ attributes, setAttributes }) => {
         }
       />
 
+      <ToggleControl
+        className="mt10"
+        checked={initialView}
+        label={__("Set As Initial View Button", "panorama")}
+        help={__(
+          "Shows a button on the viewer that lets you save the current camera angle as the initial view.",
+          "panorama"
+        )}
+        onChange={(v) =>
+          setAttributes({
+            options: updateData(options, v, "initialView"),
+          })
+        }
+      />
+
       <Notice status='premium' isIcon={true}>
-        {__('Set Initial View, Auto Rotate Inactivity Delay & Device Motion Button (with Colors, Hover Colors) are available in the Pro version.', 'panorama')}
+        {__('Auto Rotate Inactivity Delay & Device Motion Button (with Colors, Hover Colors) are available in the Pro version.', 'panorama')}
       </Notice>
     </PanelBody>
   );

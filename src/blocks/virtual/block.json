@@ -48,6 +48,7 @@
 				"autoLoad": true,
 				"draggable": true,
 				"compass": false,
+				"orientation": false,
 				"mouseZoom": true,
 				"disableKeyboardCtrl": false,
 				"doubleClickZoom": true
