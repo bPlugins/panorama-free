@@ -70,10 +70,15 @@ export const createModifiedHotspots = (scenes, currentScene, spot, isBackend, in
     },
 });
 
-export const initializePannellumViewer = (panoRef, modifiedScenes, options = {}, isBackend = false) => {
+export const initializePannellumViewer = (panoRef, modifiedScenes, options = {}, isBackend = false, firstSceneId = null) => {
     const { hideDefaultCtrl, isRotate, autoRotateSpeed, autoRotateInactivityDelay, compass, orientation = false, mouseZoom, draggable, disableKeyboardCtrl, doubleClickZoom } = options;
 
+    const firstScene = firstSceneId || Object.keys(modifiedScenes)[0] || "";
+
     const viewer = window.pannellum.viewer(panoRef.current, {
+        default: {
+            firstScene,
+        },
         autoLoad: true,
         showFullscreenCtrl: !hideDefaultCtrl,
         showZoomCtrl: !hideDefaultCtrl,
@@ -162,9 +167,18 @@ export const saveHotspot = (popupData, scenes, currentScene, setAttributes, setP
 };
 
 export const addTempHotspot = (currentScene, viewer, hotspot, isDraggingRef, setIsDraggingHotspot, setPopupData, setTempHotspot) => {
-    const { panorama } = currentScene || {};
+    const isCubemap = currentScene?.panoramaFormat === 'cubemap';
+    const isAllFacesUploaded = Boolean(
+        currentScene?.cubeMap?.front &&
+        currentScene?.cubeMap?.right &&
+        currentScene?.cubeMap?.back &&
+        currentScene?.cubeMap?.left &&
+        currentScene?.cubeMap?.up &&
+        currentScene?.cubeMap?.down
+    );
+    const hasImage = Boolean(currentScene?.panorama || (isCubemap && isAllFacesUploaded));
 
-    if (panorama && viewer) {
+    if (hasImage && viewer) {
         try {
             viewer.removeHotSpot("temp-hotspot");
         } catch (e) {

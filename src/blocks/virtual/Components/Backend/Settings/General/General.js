@@ -3,7 +3,7 @@ import { __ } from "@wordpress/i18n";
 import { useEffect, useState } from "react";
 import CustomItemsPanel from "../../../CustomItemsPanel/CustomItemsPanel";
 import Item from "../Panel/Item";
-import { Notice, Badge } from "../../../../../../../../bpl-tools/Components";
+import { Notice } from "../../../../../../../../bpl-tools/Components";
 import { updateData } from "../../../../../../../../bpl-tools/utils/functions";
 import defaultImage from './../../../../../../default_panorama_image.png';
 import CustomModal from "../../../Common/CustomModal";
@@ -171,7 +171,21 @@ const General = ({ attributes, setAttributes, premiumProps, setCurrentScene, sit
           label={
             <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
               {__("Device Orientation (Gyroscope)", "panorama")}
-              <Badge label={__("New", "panorama")} />
+              <span style={{
+                background: "#146ef5",
+                color: "#ffffff",
+                fontSize: "9px",
+                fontWeight: "700",
+                padding: "2px 6px",
+                borderRadius: "4px",
+                textTransform: "uppercase",
+                lineHeight: "1.2",
+                display: "inline-block",
+                verticalAlign: "middle",
+                letterSpacing: "0.5px"
+              }}>
+                {__("NEW", "panorama")}
+              </span>
             </span>
           }
           help={__(

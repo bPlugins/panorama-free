@@ -18,6 +18,21 @@
       "type": "string",
       "default": ""
     },
+    "panoramaFormat": {
+      "type": "string",
+      "default": "equirectangular"
+    },
+    "cubeMap": {
+      "type": "object",
+      "default": {
+        "front": "",
+        "right": "",
+        "back": "",
+        "left": "",
+        "up": "",
+        "down": ""
+      }
+    },
     "previewImgUrl": {
       "type": "string",
       "default": ""

@@ -1,10 +1,11 @@
-import { PanelBody, RangeControl, ToggleControl } from "@wordpress/components";
+import { PanelBody, RangeControl, ToggleControl, SelectControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { updateData } from "../../../../../../../../bpl-tools/utils/functions";
-import { InlineMediaUpload, Notice, Badge } from "../../../../../../../../bpl-tools/Components";
+import { InlineMediaUpload, Notice } from "../../../../../../../../bpl-tools/Components";
+import CubeMapUpload from "../../../../../../components/CubeMapUpload/CubeMapUpload";
 
 const General = ({ attributes, setAttributes }) => {
-  const { imageUrl, options = {} } = attributes || {};
+  const { imageUrl, panoramaFormat = "equirectangular", cubeMap = {}, options = {} } = attributes || {};
   const {
     hideDefaultCtrl,
     isRotate,
@@ -18,14 +19,56 @@ const General = ({ attributes, setAttributes }) => {
       className="bPlPanelBody"
       title={__("View Adjustment Controls", "panorama")}
     >
-      <InlineMediaUpload
-        label={__("Image URL", "panorama")}
-        placeholder={__("Enter or upload image URL", "panorama")}
-        value={imageUrl}
-        onChange={(v) => {
-          setAttributes({ imageUrl: updateData(imageUrl, v) });
-        }}
-      />
+      <div style={{ marginBottom: "14px" }}>
+        <SelectControl
+          label={
+            <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+              {__("Panorama Format", "panorama")}
+              <span style={{
+                background: "#146ef5",
+                color: "#ffffff",
+                fontSize: "9px",
+                fontWeight: "700",
+                padding: "2px 6px",
+                borderRadius: "4px",
+                textTransform: "uppercase",
+                lineHeight: "1.2",
+                display: "inline-block",
+                verticalAlign: "middle",
+                letterSpacing: "0.5px"
+              }}>
+                {__("NEW", "panorama")}
+              </span>
+            </span>
+          }
+          value={panoramaFormat || "equirectangular"}
+          options={[
+            { label: __("Equirectangular (Default)", "panorama"), value: "equirectangular" },
+            { label: __("Cubemap (6 Cube Faces)", "panorama"), value: "cubemap" },
+          ]}
+          help={__(
+            "Choose 'Equirectangular' for standard 360° panoramic images or 'Cubemap' (NEW) to upload 6 cube face images (Front, Right, Back, Left, Top, Bottom).",
+            "panorama"
+          )}
+          onChange={(val) => setAttributes({ panoramaFormat: val })}
+        />
+      </div>
+
+      {panoramaFormat === "cubemap" ? (
+        <CubeMapUpload
+          value={cubeMap}
+          onChange={(v) => setAttributes({ cubeMap: v })}
+        />
+      ) : (
+        <InlineMediaUpload
+          label={__("Image URL", "panorama")}
+          placeholder={__("Enter or upload image URL", "panorama")}
+          value={imageUrl}
+          onChange={(v) => {
+            setAttributes({ imageUrl: updateData(imageUrl, v) });
+          }}
+        />
+      )}
 
       <ToggleControl
         className="mt15"
@@ -87,7 +130,21 @@ const General = ({ attributes, setAttributes }) => {
         label={
           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
             {__("Device Orientation (Gyroscope)", "panorama")}
-            <Badge label={__("New", "panorama")} />
+            <span style={{
+              background: "#146ef5",
+              color: "#ffffff",
+              fontSize: "9px",
+              fontWeight: "700",
+              padding: "2px 6px",
+              borderRadius: "4px",
+              textTransform: "uppercase",
+              lineHeight: "1.2",
+              display: "inline-block",
+              verticalAlign: "middle",
+              letterSpacing: "0.5px"
+            }}>
+              {__("NEW", "panorama")}
+            </span>
           </span>
         }
         help={__(

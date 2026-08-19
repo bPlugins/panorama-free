@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { __ } from '@wordpress/i18n';
 import { addTempHotspot, createModifiedHotspots, handleMouseDownEvent, handleMouseUpEvent, initializePannellumViewer, saveHotspot } from '../../utils/functions';
 import PopupWrapper from './PopupWrapper';
 import defaultImage from './../../../../default_panorama_image.png'
@@ -27,6 +28,20 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
     const [isProFeatureModalOpen, setIsProFeatureModalOpen] = useState(false);
     const [activePopupHotspot, setActivePopupHotspot] = useState(null);
 
+    const activeScene = scenes.find((s) => s.tour_id === currentScene?.tour_id) || currentScene || scenes[0];
+    const isCurrentSceneCubemap = activeScene?.panoramaFormat === 'cubemap';
+    const isCurrentSceneAllFacesUploaded = Boolean(
+        activeScene?.cubeMap?.front &&
+        activeScene?.cubeMap?.right &&
+        activeScene?.cubeMap?.back &&
+        activeScene?.cubeMap?.left &&
+        activeScene?.cubeMap?.up &&
+        activeScene?.cubeMap?.down
+    );
+    const uploadedFacesCount = isCurrentSceneCubemap
+        ? ['front', 'right', 'back', 'left', 'up', 'down'].filter(k => Boolean(activeScene?.cubeMap?.[k])).length
+        : 0;
+
     const scenesStr = JSON.stringify(scenes);
     const optionsStr = JSON.stringify(options);
 
@@ -40,6 +55,19 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
     useEffect(() => {
         isDraggingHotspotRef.current = isDraggingHotspot;
     }, [isDraggingHotspot]);
+
+    useEffect(() => {
+        const latestScene = scenes.find((s) => s.tour_id === currentScene?.tour_id) || scenes[0];
+        if (latestScene && latestScene !== currentScene) {
+            setCurrentScene(latestScene);
+        }
+    }, [scenesStr]);
+
+    useEffect(() => {
+        if (!currentScene) {
+            setCurrentScene(scenes[0]);
+        }
+    }, [currentScene]);
 
     useEffect(() => {
         if (currentScene && viewerRef.current) {
@@ -63,6 +91,11 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
             currentYaw = prevViewer.getYaw();
             currentHfov = prevViewer.getHfov();
             prevViewer.destroy();
+            panoRef.current.viewerInstance = null;
+        }
+
+        if (isBackend && isCurrentSceneCubemap && !isCurrentSceneAllFacesUploaded) {
+            return;
         }
 
         const modifiedScenes = {};
@@ -73,16 +106,47 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
                 delete sceneWithTitleAuthor.title;
                 delete sceneWithTitleAuthor.author;
             }
+
+            const isCubemap = scene.panoramaFormat === 'cubemap';
+            const isAllFacesUploaded = Boolean(
+                scene.cubeMap?.front &&
+                scene.cubeMap?.right &&
+                scene.cubeMap?.back &&
+                scene.cubeMap?.left &&
+                scene.cubeMap?.up &&
+                scene.cubeMap?.down
+            );
+
+            let scenePanoramaConfig = {};
+            if (isCubemap && isAllFacesUploaded) {
+                scenePanoramaConfig = {
+                    type: "cubemap",
+                    cubeMap: [
+                        scene.cubeMap.front,
+                        scene.cubeMap.right,
+                        scene.cubeMap.back,
+                        scene.cubeMap.left,
+                        scene.cubeMap.up,
+                        scene.cubeMap.down
+                    ]
+                };
+            } else {
+                scenePanoramaConfig = {
+                    type: "equirectangular",
+                    panorama: scene.panorama || defaultImage
+                };
+            }
+
             modifiedScenes[scene.tour_id] = {
                 ...sceneWithTitleAuthor,
-                panorama: scene.panorama || defaultImage,
+                ...scenePanoramaConfig,
                 hotSpots: scene.hotSpots.map((spot, index) =>
                     createModifiedHotspots(scenes, scene, spot, isBackend, index, setPopupData, setAttributes, options?.isLabel, setActivePopupHotspot)
                 )
             };
         });
 
-        const viewer = initializePannellumViewer(panoRef, modifiedScenes, options, isBackend);
+        const viewer = initializePannellumViewer(panoRef, modifiedScenes, options, isBackend, currentScene?.tour_id);
         window.viewer = viewer;
 
         {
@@ -125,7 +189,7 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
             }
             if (viewer) viewer.destroy();
         };
-    }, [scenesStr, loaded, optionsStr]);
+    }, [scenesStr, loaded, optionsStr, currentScene]);
 
     useGutenbergDragFix(tourWrapperRef, panoRef, isBackend, isSelected);
 
@@ -139,19 +203,75 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
         saveHotspot(popupData, scenes, currentScene, setAttributes, setPopupData, setTempHotspot, isPremium, setIsHotspotModalViewerOpen);
     }
 
+    const renderSceneViewer = () => {
+        if (isBackend && isCurrentSceneCubemap && !isCurrentSceneAllFacesUploaded) {
+            return (
+                <div style={{
+                    border: "2px dashed #3b82f6",
+                    borderRadius: "8px",
+                    padding: "40px 24px",
+                    textAlign: "center",
+                    background: "#f0f7ff",
+                    color: "#1e3a8a",
+                    margin: "20px auto",
+                    maxWidth: "580px",
+                    boxSizing: "border-box"
+                }}>
+                    <div style={{ fontSize: "32px", marginBottom: "8px" }}>📦</div>
+                    <p style={{ margin: "0 0 6px 0", fontWeight: "700", fontSize: "16px", color: "#1e40af" }}>
+                        {__("Cubemap (6 Cube Faces) Mode", "panorama")}
+                    </p>
+                    <p style={{ margin: "0 0 16px 0", fontSize: "13px", color: "#3b82f6" }}>
+                        {uploadedFacesCount > 0
+                            ? __(`Uploaded ${uploadedFacesCount} of 6 cube faces. Please upload all 6 faces in the right sidebar settings.`, "panorama")
+                            : __("Please upload all 6 square cube faces (Front, Right, Back, Left, Up, Down) in the right sidebar settings.", "panorama")}
+                    </p>
+                    <div style={{ display: "inline-flex", flexWrap: "wrap", justifyContent: "center", gap: "6px", fontSize: "11px", fontWeight: "600" }}>
+                        {[
+                            { name: "Front (f)", key: "front" },
+                            { name: "Right (r)", key: "right" },
+                            { name: "Back (b)", key: "back" },
+                            { name: "Left (l)", key: "left" },
+                            { name: "Up (u)", key: "up" },
+                            { name: "Down (d)", key: "down" },
+                        ].map(({ name, key }) => {
+                            const isDone = Boolean(activeScene?.cubeMap?.[key]);
+                            return (
+                                <span key={key} style={{
+                                    padding: "5px 12px",
+                                    borderRadius: "4px",
+                                    background: isDone ? "#10b981" : "#ffffff",
+                                    color: isDone ? "#ffffff" : "#64748b",
+                                    border: isDone ? "1px solid #059669" : "1px solid #cbd5e1",
+                                    boxShadow: "0 1px 2px rgba(0,0,0,0.05)"
+                                }}>
+                                    {isDone ? `✓ ${name}` : name}
+                                </span>
+                            );
+                        })}
+                    </div>
+                </div>
+            );
+        }
+
+        return (
+            <>
+                {isBackend && !activeScene?.panorama && activeScene?.panoramaFormat !== 'cubemap' && <UploadImage {...{ currentScene: activeScene, scenes, setAttributes, selectBlock, clientId }} />}
+
+                <div ref={panoRef} />
+
+                {(activeScene?.panorama || (isCurrentSceneCubemap && isCurrentSceneAllFacesUploaded)) && popupData && isBackend && <PopupWrapper {...{ scenes, setAttributes, currentScene: activeScene, hotspotData, popupData, setPopupData, isDropdownOpen, setIsDropdownOpen, setTempHotspot, handleSaveHotspot, isPremium, setIsProFeatureModalOpen }} />}
+            </>
+        );
+    };
+
     return (
         <div ref={tourWrapperRef} className="bpgb-virtual-tour-wrapper" style={{ width: '100%', height: '100%', position: 'relative' }}>
             {tabSl === "index" ? <>
                 <div className='tourBody'>
                     <div className='tourViewerWrapper'>
                         <div className='tourViewer'>
-
-                            {isBackend && !currentScene?.panorama && <UploadImage {...{ currentScene, scenes, setAttributes, selectBlock, clientId }} />}
-
-                            <div ref={panoRef} />
-
-                            {currentScene?.panorama && popupData && isBackend && <PopupWrapper {...{ scenes, setAttributes, currentScene, hotspotData, popupData, setPopupData, isDropdownOpen, setIsDropdownOpen, setTempHotspot, handleSaveHotspot, isPremium, setIsProFeatureModalOpen }} />}
-
+                            {renderSceneViewer()}
                         </div>
                     </div>
                     {isShowSceneHotspot && <HotspotList {...{ scenes, viewerRef, tabSl, currentScene }} />}
@@ -160,17 +280,9 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
                 :
                 <div className='tourViewerWrapper'>
                     <div className='tourViewer'>
-
-                        {isBackend && !currentScene?.panorama && <UploadImage {...{ currentScene, scenes, setAttributes, selectBlock, clientId }} />}
-
-                        <div ref={panoRef} />
-
-                        {currentScene?.panorama && popupData && isBackend && <PopupWrapper {...{ scenes, setAttributes, currentScene, hotspotData, popupData, setPopupData, isDropdownOpen, setIsDropdownOpen, setTempHotspot, handleSaveHotspot, isPremium, setIsProFeatureModalOpen }} />}
-
+                        {renderSceneViewer()}
                         {isShowSceneHotspot && <div className='hambergerMenu' onClick={() => setIsHamMenuOpen(!isHamMenuOpen)}>{hambergerMenu}</div>}
-
                         {(isShowSceneHotspot && isHamMenuOpen) && <HotspotList {...{ scenes, viewerRef, setIsHamMenuOpen, currentScene }} />}
-
                     </div>
                 </div>
 

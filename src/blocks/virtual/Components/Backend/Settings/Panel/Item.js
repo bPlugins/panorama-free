@@ -6,6 +6,7 @@ import { InlineMediaUpload } from "../../../../../../../../bpl-tools/Components"
 import { PanelRepeater } from "./PanelRepeater/PanelRepeater";
 import { updateData } from "../../../../../../../../bpl-tools/utils/functions";
 import CustomModal from "../../../Common/CustomModal";
+import CubeMapUpload from "../../../../../../components/CubeMapUpload/CubeMapUpload";
 
 const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiveIndex = false, siteLocation }) => {
   const { scenes } = attributes;
@@ -28,13 +29,14 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
 
   const handleCopy = (idx) => {
     const newItems = produce(scenes, (draft) => {
-      draft[index].hotSpots.push(draft[index].hotSpots[idx]);
+      const copyItem = JSON.parse(JSON.stringify(draft[index].hotSpots[idx]));
+      draft[index].hotSpots.splice(idx + 1, 0, copyItem);
     });
     setAttributes({ scenes: newItems });
   };
 
   const addNewHotspot = () => {
-    if ( !premiumProps?.isPremium && hotspots?.length >= 6) {
+    if (!premiumProps?.isPremium && hotspots?.length >= 6) {
       setIsHotspotModalOpen(true);
       return;
     }
@@ -134,13 +136,55 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
         onChange={(v) => updateTour("yaw", parseFloat(v))}
       />
 
-      <InlineMediaUpload
-        className="mt15"
-        label={__("Enter or upload image URL", "panorama")}
-        placeholder={__("Enter or upload image URL", "panorama")}
-        value={items.panorama}
-        onChange={(v) => updateTour("panorama", v)}
-      />
+      <div style={{ marginTop: "16px", marginBottom: "14px" }}>
+        <SelectControl
+          label={
+            <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+              {__("Scene Format", "panorama")}
+              <span style={{
+                background: "#146ef5",
+                color: "#ffffff",
+                fontSize: "9px",
+                fontWeight: "700",
+                padding: "2px 6px",
+                borderRadius: "4px",
+                textTransform: "uppercase",
+                lineHeight: "1.2",
+                display: "inline-block",
+                verticalAlign: "middle",
+                letterSpacing: "0.5px"
+              }}>
+                {__("NEW", "panorama")}
+              </span>
+            </span>
+          }
+          value={items.panoramaFormat || "equirectangular"}
+          options={[
+            { label: __("Equirectangular (Default)", "panorama"), value: "equirectangular" },
+            { label: __("Cubemap (6 Cube Faces)", "panorama"), value: "cubemap" },
+          ]}
+          help={__(
+            "Choose 'Equirectangular' for standard 360° panoramic images or 'Cubemap' (NEW) to upload 6 cube face images.",
+            "panorama"
+          )}
+          onChange={(val) => updateTour("panoramaFormat", val)}
+        />
+      </div>
+
+      {items.panoramaFormat === "cubemap" ? (
+        <CubeMapUpload
+          value={items.cubeMap || {}}
+          onChange={(val) => updateTour("cubeMap", val)}
+        />
+      ) : (
+        <InlineMediaUpload
+          className="mt15"
+          label={__("Enter or upload image URL", "panorama")}
+          placeholder={__("Enter or upload image URL", "panorama")}
+          value={items.panorama}
+          onChange={(v) => updateTour("panorama", v)}
+        />
+      )}
 
       <div style={{ marginTop: '10px' }}>
         <label>HotSpots</label>
@@ -297,7 +341,7 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
           des="You can only add up to 6 hotspots in the free version. Please upgrade to premium for unlimited hotspots."
           setFn={setIsHotspotModalOpen}
           link={siteLocation}
-      />
+        />
       )}
 
       {isProFeatureModalOpen && (
@@ -314,3 +358,4 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
 };
 
 export default Item;
+               

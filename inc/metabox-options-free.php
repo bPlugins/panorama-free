@@ -31,7 +31,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
     }
 
     private function get_new_badge($text = 'NEW') {
-      return ' <span style="background:#ff7a0020;color:#ff7a00;border:1px solid #ff7a0040;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:bold;margin-left:6px;vertical-align:middle;display:inline-block;line-height:1.2;">' . $text . '</span>';
+      return ' <span style="background:#146ef5;color:#fff;padding:2px 6px;border-radius:4px;font-size:9px;font-weight:700;margin-left:5px;vertical-align:middle;display:inline-block;line-height:1.2;text-transform:uppercase;letter-spacing:0.5px;">' . $text . '</span>';
     }
 
     // private function get_upcoming_badge() {
@@ -134,12 +134,73 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'dependency'   => array( 'bppiv_type', '==', 'image' ),
           ),
           array(
+            'id'           => 'panorama_format_360',
+            'type'         => 'button_set',
+            'title'        => __('Panorama Format', 'panorama') . ' <span style="background:#146ef5;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;line-height:1.2;display:inline-block;vertical-align:middle;letter-spacing:0.5px;margin-left:5px;">NEW</span>',
+            'desc'         => __('Choose Equirectangular for standard 360° panoramic images or Cubemap (NEW) to upload 6 cube face images.', 'panorama'),
+            'options'      => array(
+              'equirectangular' => __('Equirectangular (Default)', 'panorama'),
+              'cubemap'         => __('Cubemap (6 Faces)', 'panorama'),
+            ),
+            'default'      => 'equirectangular',
+            'dependency'   => array( 'bppiv_type', '==', 'image360' ),
+          ),
+          array(
             'id'           => 'image_src_360',
             'type'         => 'upload',
             'library'      => 'image',
-            'title'        => 'Image Source.',
-            'desc'         => 'Upload your 360° panoramic image here.',
-            'dependency'   => array( 'bppiv_type', '==', 'image360' ),
+            'button_title' => __('Upload Image', 'panorama'),
+            'title'        => __('360° Image Source.', 'panorama'),
+            'desc'         => __('To create an image panorama, Panoramic image is Recommended. You can also use external Panoramic Image link here.', 'panorama'),
+            'dependency'   => array( 'bppiv_type|panorama_format_360', '==|!=', 'image360|cubemap' ),
+          ),
+          array(
+            'id'           => 'cubemap_front_360',
+            'type'         => 'upload',
+            'library'      => 'image',
+            'button_title' => __('Upload Front Image', 'panorama'),
+            'title'        => __('Front Face (f)', 'panorama'),
+            'dependency'   => array( 'bppiv_type|panorama_format_360', '==|==', 'image360|cubemap' ),
+          ),
+          array(
+            'id'           => 'cubemap_right_360',
+            'type'         => 'upload',
+            'library'      => 'image',
+            'button_title' => __('Upload Right Image', 'panorama'),
+            'title'        => __('Right Face (r)', 'panorama'),
+            'dependency'   => array( 'bppiv_type|panorama_format_360', '==|==', 'image360|cubemap' ),
+          ),
+          array(
+            'id'           => 'cubemap_back_360',
+            'type'         => 'upload',
+            'library'      => 'image',
+            'button_title' => __('Upload Back Image', 'panorama'),
+            'title'        => __('Back Face (b)', 'panorama'),
+            'dependency'   => array( 'bppiv_type|panorama_format_360', '==|==', 'image360|cubemap' ),
+          ),
+          array(
+            'id'           => 'cubemap_left_360',
+            'type'         => 'upload',
+            'library'      => 'image',
+            'button_title' => __('Upload Left Image', 'panorama'),
+            'title'        => __('Left Face (l)', 'panorama'),
+            'dependency'   => array( 'bppiv_type|panorama_format_360', '==|==', 'image360|cubemap' ),
+          ),
+          array(
+            'id'           => 'cubemap_up_360',
+            'type'         => 'upload',
+            'library'      => 'image',
+            'button_title' => __('Upload Top Image', 'panorama'),
+            'title'        => __('Top / Up Face (u)', 'panorama'),
+            'dependency'   => array( 'bppiv_type|panorama_format_360', '==|==', 'image360|cubemap' ),
+          ),
+          array(
+            'id'           => 'cubemap_down_360',
+            'type'         => 'upload',
+            'library'      => 'image',
+            'button_title' => __('Upload Bottom Image', 'panorama'),
+            'title'        => __('Bottom / Down Face (d)', 'panorama'),
+            'dependency'   => array( 'bppiv_type|panorama_format_360', '==|==', 'image360|cubemap' ),
           ),
           array(
             'id'           => 'bppiv_video_src',

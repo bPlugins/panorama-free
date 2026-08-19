@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import useGutenbergDragFix from "../../../../hooks/useGutenbergDragFix";
 
 const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = false, isSelected = false }) => {
-  const { imageUrl, previewImgUrl = "", loadButtonText = "Click to Load Panorama", options, customControl } = attributes || {};
+  const { imageUrl, panoramaFormat = "equirectangular", cubeMap = {}, previewImgUrl = "", loadButtonText = "Click to Load Panorama", options, customControl } = attributes || {};
 
   const {
     autoLoad,
@@ -40,9 +40,24 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
     const { pannellum } = window || {};
 
     if (pannellum && panoramaRef.current) {
-      viewerInstance.current = pannellum.viewer(panoramaRef.current, {
-        type: "equirectangular",
-        panorama: imageUrl,
+      const isCubemap = panoramaFormat === "cubemap";
+      const isAllFacesUploaded = Boolean(
+        cubeMap?.front &&
+        cubeMap?.right &&
+        cubeMap?.back &&
+        cubeMap?.left &&
+        cubeMap?.up &&
+        cubeMap?.down
+      );
+
+      if (isCubemap && !isAllFacesUploaded) {
+        return;
+      }
+      if (!isCubemap && !imageUrl) {
+        return;
+      }
+
+      const config = {
         preview: previewImgUrl,
         autoLoad,
         showZoomCtrl: !hideDefaultCtrl,
@@ -63,7 +78,24 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
         strings: {
           bylineLabel: author ? isByline ? `by ${author}` : author : "",
         }
-      });
+      };
+
+      if (isCubemap && isAllFacesUploaded) {
+        config.type = "cubemap";
+        config.cubeMap = [
+          cubeMap.front,
+          cubeMap.right,
+          cubeMap.back,
+          cubeMap.left,
+          cubeMap.up,
+          cubeMap.down
+        ];
+      } else {
+        config.type = "equirectangular";
+        config.panorama = imageUrl;
+      }
+
+      viewerInstance.current = pannellum.viewer(panoramaRef.current, config);
 
       if (!autoLoad) {
         setTimeout(() => {
@@ -143,6 +175,8 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
     }
   }, [
     imageUrl,
+    panoramaFormat,
+    JSON.stringify(cubeMap),
     previewImgUrl,
     loadButtonText,
     autoLoad,
@@ -194,7 +228,7 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
       <ToastContainer />
 
       <div
-        key={`${autoLoad}-${title}-${author}-${isByline}-${titleAuthor}-${loadButtonText}-${hideDefaultCtrl}-${compass}-${doubleClickZoom}`}
+        key={`${panoramaFormat}-${JSON.stringify(cubeMap)}-${autoLoad}-${title}-${author}-${isByline}-${titleAuthor}-${loadButtonText}-${hideDefaultCtrl}-${compass}-${doubleClickZoom}`}
         ref={panoramaRef}
         className="panoramaImgViewer"
       >

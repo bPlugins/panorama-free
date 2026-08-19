@@ -8,6 +8,15 @@ $bppiv_block = call_user_func( function() use ( $get_value, $bppiv_meta, $bppiv_
         "blockName" => "panorama/image-360",
         "attrs" => [
             "imageUrl" => $bppiv_meta['image_src_360'] ?? '',
+              "panoramaFormat" => $bppiv_meta['panorama_format_360'] ?? 'equirectangular',
+            "cubeMap" => [
+                "front" => $bppiv_meta['cubemap_front_360'] ?? '',
+                "right" => $bppiv_meta['cubemap_right_360'] ?? '',
+                "back" => $bppiv_meta['cubemap_back_360'] ?? '',
+                "left" => $bppiv_meta['cubemap_left_360'] ?? '',
+                "up" => $bppiv_meta['cubemap_up_360'] ?? '',
+                "down" => $bppiv_meta['cubemap_down_360'] ?? '',
+            ],
             "previewImgUrl" => $bppiv_meta['previewImgUrl'] ?? '',
             "loadButtonText" => $bppiv_meta['loadButtonText'] ?? 'Click to Load Panorama',
             "options" => [

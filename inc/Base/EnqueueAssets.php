@@ -26,7 +26,7 @@ class EnqueueAssets{
         
         
         //Pannellum
-        wp_register_script( 'bppiv-pannellum-js', BPPIV_PLUGIN_DIR . 'public/assets/js/library/pannellum.js', [], BPPIV_VERSION, true);
+        wp_register_script( 'bppiv-pannellum-js', BPPIV_PLUGIN_DIR . 'public/assets/js/library/pannellum.js', [], file_exists(BPPIV_PATH . 'public/assets/js/library/pannellum.js') ? filemtime(BPPIV_PATH . 'public/assets/js/library/pannellum.js') : BPPIV_VERSION, true);
         wp_register_script( 'bppiv-init', BPPIV_PLUGIN_DIR . 'build/scripts.js', array( 'jquery', 'bppiv-three', 'bppiv-panolens' ), BPPIV_VERSION, true );
 
         wp_register_script( 'bppiv-product', BPPIV_PLUGIN_DIR . 'public/assets/js/product.js', array(), BPPIV_VERSION, true );

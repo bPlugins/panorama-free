@@ -26,6 +26,13 @@
         author_360,
         initial_view,
         initial_view_property: viewProperty,
+        panorama_format_360,
+        cubemap_front_360,
+        cubemap_right_360,
+        cubemap_back_360,
+        cubemap_left_360,
+        cubemap_up_360,
+        cubemap_down_360,
         // custom_control,
       } = settings;
 
@@ -76,21 +83,46 @@
         // container id
         const panoId = $(item).attr("id");
 
+        const isCubemap = panorama_format_360 === "cubemap";
+        const isAllFacesUploaded = Boolean(
+          cubemap_front_360 &&
+          cubemap_right_360 &&
+          cubemap_back_360 &&
+          cubemap_left_360 &&
+          cubemap_up_360 &&
+          cubemap_down_360
+        );
+
         const titleAuthorOptions = titleAuthor === "1" ? { title: title_360, author: author_360 } : {};
-        pannellum.viewer(panoId, {
-          type: "equirectangular",
-          panorama: image360,
-          preview: image360,
+
+        const viewerConfig = {
           autoLoad,
           autoRotate: rotateSpeed,
           draggable: isDraggable,
           showControls: isHideControl,
           compass: compass360,
-          //northOffset: -160.5,
           orientationOnByDefault: orientation360,
           ...titleAuthorOptions,
           ...initialView,
-        });
+        };
+
+        if (isCubemap && isAllFacesUploaded) {
+          viewerConfig.type = "cubemap";
+          viewerConfig.cubeMap = [
+            cubemap_front_360,
+            cubemap_right_360,
+            cubemap_back_360,
+            cubemap_left_360,
+            cubemap_up_360,
+            cubemap_down_360,
+          ];
+        } else {
+          viewerConfig.type = "equirectangular";
+          viewerConfig.panorama = image360;
+          viewerConfig.preview = image360;
+        }
+
+        pannellum.viewer(panoId, viewerConfig);
       } else {
         const imageSource = bppiv_image_src ? bppiv_image_src.url : [];
         const isAutoRotate = Boolean(parseInt(bppiv_auto_rotate));
