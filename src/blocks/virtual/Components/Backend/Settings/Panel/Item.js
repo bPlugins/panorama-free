@@ -1,4 +1,4 @@
-import { TextControl, __experimentalNumberControl as NumberControl, Button, SelectControl, ToggleControl } from "@wordpress/components";
+import { TextControl, __experimentalNumberControl as NumberControl, Button, SelectControl, ToggleControl, RangeControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { produce } from "immer";
 import { useState } from "react";
@@ -162,14 +162,56 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
           options={[
             { label: __("Equirectangular (Default)", "panorama"), value: "equirectangular" },
             { label: __("Cubemap (6 Cube Faces)", "panorama"), value: "cubemap" },
+            { label: __("Cylindrical (Smartphone Pano)", "panorama"), value: "cylindrical" },
           ]}
           help={__(
-            "Choose 'Equirectangular' for standard 360° panoramic images or 'Cubemap' (NEW) to upload 6 cube face images.",
+            "Choose 'Equirectangular' for standard 360° panoramic images, 'Cubemap' to upload 6 cube face images, or 'Cylindrical' for smartphone panoramas.",
             "panorama"
           )}
           onChange={(val) => updateTour("panoramaFormat", val)}
         />
       </div>
+
+      {items.panoramaFormat === "cylindrical" && (
+        <>
+          <RangeControl
+            className="mt15"
+            label={__("Horizontal Angle of View (HAOV)", "panorama")}
+            value={items.haov ?? 360}
+            min={60}
+            max={360}
+            step={1}
+            allowReset
+            resetFallbackValue={360}
+            help={__("Degree of horizontal coverage (default 360°).", "panorama")}
+            onChange={(v) => updateTour("haov", v)}
+          />
+          <RangeControl
+            className="mt20"
+            label={__("Vertical Angle of View (VAOV)", "panorama")}
+            value={items.vaov ?? 180}
+            min={20}
+            max={180}
+            step={1}
+            allowReset
+            resetFallbackValue={180}
+            help={__("Degree of vertical coverage (default 180°).", "panorama")}
+            onChange={(v) => updateTour("vaov", v)}
+          />
+          <RangeControl
+            className="mt20 mb15"
+            label={__("Vertical Offset (vOffset)", "panorama")}
+            value={items.vOffset ?? 0}
+            min={-30}
+            max={30}
+            step={1}
+            allowReset
+            resetFallbackValue={0}
+            help={__("Vertical offset in degrees (default 0°).", "panorama")}
+            onChange={(v) => updateTour("vOffset", v)}
+          />
+        </>
+      )}
 
       {items.panoramaFormat === "cubemap" ? (
         <CubeMapUpload

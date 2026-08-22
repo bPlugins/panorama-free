@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import useGutenbergDragFix from "../../../../hooks/useGutenbergDragFix";
 
 const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = false, isSelected = false }) => {
-  const { imageUrl, panoramaFormat = "equirectangular", cubeMap = {}, previewImgUrl = "", loadButtonText = "Click to Load Panorama", options, customControl } = attributes || {};
+  const { imageUrl, panoramaFormat = "equirectangular", haov = 360, vaov = 180, vOffset = 0, cubeMap = {}, previewImgUrl = "", loadButtonText = "Click to Load Panorama", options, customControl } = attributes || {};
 
   const {
     autoLoad,
@@ -90,6 +90,23 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
           cubeMap.up,
           cubeMap.down
         ];
+      } else if (panoramaFormat === "cylindrical") {
+        const currentHaov = parseFloat(haov);
+        const currentVaov = parseFloat(vaov);
+        const currentVOffset = parseFloat(vOffset);
+        config.type = "equirectangular";
+        config.panorama = imageUrl;
+        config.haov = currentHaov;
+        config.vaov = currentVaov;
+        config.vOffset = currentVOffset;
+        if (currentVaov < 180) {
+          config.maxPitch = currentVaov / 2;
+          config.minPitch = -currentVaov / 2;
+        }
+        if (currentHaov < 360) {
+          config.maxYaw = currentHaov / 2;
+          config.minYaw = -currentHaov / 2;
+        }
       } else {
         config.type = "equirectangular";
         config.panorama = imageUrl;
@@ -176,6 +193,9 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
   }, [
     imageUrl,
     panoramaFormat,
+    haov,
+    vaov,
+    vOffset,
     JSON.stringify(cubeMap),
     previewImgUrl,
     loadButtonText,

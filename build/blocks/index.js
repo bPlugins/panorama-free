@@ -77268,6 +77268,9 @@ const General = ({
   const {
     imageUrl,
     panoramaFormat = "equirectangular",
+    haov = 360,
+    vaov = 180,
+    vOffset = 0,
     cubeMap = {},
     options = {}
   } = attributes || {};
@@ -77316,18 +77319,63 @@ const General = ({
         }, {
           label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Cubemap (6 Cube Faces)", "panorama"),
           value: "cubemap"
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Cylindrical (Smartphone Pano)", "panorama"),
+          value: "cylindrical"
         }],
-        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Choose 'Equirectangular' for standard 360° panoramic images or 'Cubemap' (NEW) to upload 6 cube face images (Front, Right, Back, Left, Top, Bottom).", "panorama"),
+        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Choose 'Equirectangular' for standard 360° panoramic images, 'Cubemap' to upload 6 cube face images, or 'Cylindrical' for smartphone panoramas.", "panorama"),
         onChange: val => setAttributes({
           panoramaFormat: val
         })
       })
+    }), panoramaFormat === "cylindrical" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RangeControl, {
+        className: "mt15",
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal Angle of View (HAOV)", "panorama"),
+        value: haov,
+        min: 60,
+        max: 360,
+        step: 1,
+        allowReset: true,
+        resetFallbackValue: 360,
+        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Degree of horizontal coverage (default 360°).", "panorama"),
+        onChange: v => setAttributes({
+          haov: v
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RangeControl, {
+        className: "mt20",
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Angle of View (VAOV)", "panorama"),
+        value: vaov,
+        min: 20,
+        max: 180,
+        step: 1,
+        allowReset: true,
+        resetFallbackValue: 180,
+        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Degree of vertical coverage (default 180°).", "panorama"),
+        onChange: v => setAttributes({
+          vaov: v
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RangeControl, {
+        className: "mt20 mb15",
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Offset (vOffset)", "panorama"),
+        value: vOffset,
+        min: -30,
+        max: 30,
+        step: 1,
+        allowReset: true,
+        resetFallbackValue: 0,
+        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical offset in degrees (default 0°).", "panorama"),
+        onChange: v => setAttributes({
+          vOffset: v
+        })
+      })]
     }), panoramaFormat === "cubemap" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_CubeMapUpload_CubeMapUpload__WEBPACK_IMPORTED_MODULE_4__["default"], {
       value: cubeMap,
       onChange: v => setAttributes({
         cubeMap: v
       })
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_bpl_tools_Components__WEBPACK_IMPORTED_MODULE_3__.InlineMediaUpload, {
+      className: "mt15",
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Image URL", "panorama"),
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Enter or upload image URL", "panorama"),
       value: imageUrl,
@@ -77621,6 +77669,9 @@ const ImageViewer = ({
   const {
     imageUrl,
     panoramaFormat = "equirectangular",
+    haov = 360,
+    vaov = 180,
+    vOffset = 0,
     cubeMap = {},
     previewImgUrl = "",
     loadButtonText = "Click to Load Panorama",
@@ -77694,6 +77745,23 @@ const ImageViewer = ({
       if (isCubemap && isAllFacesUploaded) {
         config.type = "cubemap";
         config.cubeMap = [cubeMap.front, cubeMap.right, cubeMap.back, cubeMap.left, cubeMap.up, cubeMap.down];
+      } else if (panoramaFormat === "cylindrical") {
+        const currentHaov = parseFloat(haov);
+        const currentVaov = parseFloat(vaov);
+        const currentVOffset = parseFloat(vOffset);
+        config.type = "equirectangular";
+        config.panorama = imageUrl;
+        config.haov = currentHaov;
+        config.vaov = currentVaov;
+        config.vOffset = currentVOffset;
+        if (currentVaov < 180) {
+          config.maxPitch = currentVaov / 2;
+          config.minPitch = -currentVaov / 2;
+        }
+        if (currentHaov < 360) {
+          config.maxYaw = currentHaov / 2;
+          config.minYaw = -currentHaov / 2;
+        }
       } else {
         config.type = "equirectangular";
         config.panorama = imageUrl;
@@ -77784,7 +77852,7 @@ const ImageViewer = ({
         });
       };
     }
-  }, [imageUrl, panoramaFormat, JSON.stringify(cubeMap), previewImgUrl, loadButtonText, autoLoad, hideDefaultCtrl, draggable, mouseZoom, initialView, initialViewPosition, disableKeyboardCtrl, doubleClickZoom, isRotate, autoRotateSpeed, compass, orientation, autoRotateInactivityDelay, titleAuthor, title, author, customControl, isByline]);
+  }, [imageUrl, panoramaFormat, haov, vaov, vOffset, JSON.stringify(cubeMap), previewImgUrl, loadButtonText, autoLoad, hideDefaultCtrl, draggable, mouseZoom, initialView, initialViewPosition, disableKeyboardCtrl, doubleClickZoom, isRotate, autoRotateSpeed, compass, orientation, autoRotateInactivityDelay, titleAuthor, title, author, customControl, isByline]);
   const handleSetInitialView = () => {
     try {
       if (viewerInstance.current) {
@@ -83594,6 +83662,7 @@ const Item = ({
   setActiveIndex = false,
   siteLocation
 }) => {
+  var _items$haov, _items$vaov, _items$vOffset;
   const {
     scenes
   } = attributes;
@@ -83743,10 +83812,48 @@ const Item = ({
         }, {
           label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Cubemap (6 Cube Faces)", "panorama"),
           value: "cubemap"
+        }, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Cylindrical (Smartphone Pano)", "panorama"),
+          value: "cylindrical"
         }],
-        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Choose 'Equirectangular' for standard 360° panoramic images or 'Cubemap' (NEW) to upload 6 cube face images.", "panorama"),
+        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Choose 'Equirectangular' for standard 360° panoramic images, 'Cubemap' to upload 6 cube face images, or 'Cylindrical' for smartphone panoramas.", "panorama"),
         onChange: val => updateTour("panoramaFormat", val)
       })
+    }), items.panoramaFormat === "cylindrical" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RangeControl, {
+        className: "mt15",
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal Angle of View (HAOV)", "panorama"),
+        value: (_items$haov = items.haov) !== null && _items$haov !== void 0 ? _items$haov : 360,
+        min: 60,
+        max: 360,
+        step: 1,
+        allowReset: true,
+        resetFallbackValue: 360,
+        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Degree of horizontal coverage (default 360°).", "panorama"),
+        onChange: v => updateTour("haov", v)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RangeControl, {
+        className: "mt20",
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Angle of View (VAOV)", "panorama"),
+        value: (_items$vaov = items.vaov) !== null && _items$vaov !== void 0 ? _items$vaov : 180,
+        min: 20,
+        max: 180,
+        step: 1,
+        allowReset: true,
+        resetFallbackValue: 180,
+        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Degree of vertical coverage (default 180°).", "panorama"),
+        onChange: v => updateTour("vaov", v)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.RangeControl, {
+        className: "mt20 mb15",
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical Offset (vOffset)", "panorama"),
+        value: (_items$vOffset = items.vOffset) !== null && _items$vOffset !== void 0 ? _items$vOffset : 0,
+        min: -30,
+        max: 30,
+        step: 1,
+        allowReset: true,
+        resetFallbackValue: 0,
+        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical offset in degrees (default 0°).", "panorama"),
+        onChange: v => updateTour("vOffset", v)
+      })]
     }), items.panoramaFormat === "cubemap" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_CubeMapUpload_CubeMapUpload__WEBPACK_IMPORTED_MODULE_7__["default"], {
       value: items.cubeMap || {},
       onChange: val => updateTour("cubeMap", val)
@@ -97678,7 +97785,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"panorama/image-360","title":"Image 360°","category":"widgets","version":"1.7.2","description":"Interactive 360° Viewer for Panoramic Images.","keywords":["panoramic image viewer","panorama","360° image viewer","image 360°"],"textdomain":"panorama","attributes":{"imageUrl":{"type":"string","default":""},"panoramaFormat":{"type":"string","default":"equirectangular"},"cubeMap":{"type":"object","default":{"front":"","right":"","back":"","left":"","up":"","down":""}},"previewImgUrl":{"type":"string","default":""},"loadButtonText":{"type":"string","default":"Click to Load Panorama"},"options":{"type":"object","default":{"isRotate":true,"autoRotateSpeed":1,"autoRotateInactivityDelay":3000,"hideDefaultCtrl":false,"initialView":false,"initialViewPosition":{"pitch":0,"yaw":0,"hfov":120},"autoLoad":true,"draggable":true,"compass":false,"orientation":false,"titleAuthor":true,"title":"360° Image","author":"bPlugins","mouseZoom":true,"disableKeyboardCtrl":false,"doubleClickZoom":true,"isByline":true}},"customControl":{"type":"boolean","default":false},"layout":{"type":"object","default":{"alignSl":{"desktop":"center","tablet":"center","mobile":"center"},"width":{"desktop":"100%","tablet":"100%","mobile":"100%"},"height":{"desktop":"320px","tablet":"300px","mobile":"270px"}}}},"supports":{"align":["wide","full"],"html":false},"example":{"attributes":{}},"editorScript":["file:../index.js","bppiv-pannellum-js","wp-api"],"editorStyle":["file:../index.css","file:../style-index.css","file:./style-view.css"],"style":["file:./style-view.css","file:./view.css","bppiv-pannellum-css"],"render":"file:./render.php","viewScript":["file:./view.js","bppiv-pannellum-js"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"panorama/image-360","title":"Image 360°","category":"widgets","version":"1.7.2","description":"Interactive 360° Viewer for Panoramic Images.","keywords":["panoramic image viewer","panorama","360° image viewer","image 360°"],"textdomain":"panorama","attributes":{"imageUrl":{"type":"string","default":""},"panoramaFormat":{"type":"string","default":"equirectangular"},"haov":{"type":"number","default":360},"vaov":{"type":"number","default":180},"vOffset":{"type":"number","default":0},"cubeMap":{"type":"object","default":{"front":"","right":"","back":"","left":"","up":"","down":""}},"previewImgUrl":{"type":"string","default":""},"loadButtonText":{"type":"string","default":"Click to Load Panorama"},"options":{"type":"object","default":{"isRotate":true,"autoRotateSpeed":1,"autoRotateInactivityDelay":3000,"hideDefaultCtrl":false,"initialView":false,"initialViewPosition":{"pitch":0,"yaw":0,"hfov":120},"autoLoad":true,"draggable":true,"compass":false,"orientation":false,"titleAuthor":true,"title":"360° Image","author":"bPlugins","mouseZoom":true,"disableKeyboardCtrl":false,"doubleClickZoom":true,"isByline":true}},"customControl":{"type":"boolean","default":false},"layout":{"type":"object","default":{"alignSl":{"desktop":"center","tablet":"center","mobile":"center"},"width":{"desktop":"100%","tablet":"100%","mobile":"100%"},"height":{"desktop":"320px","tablet":"300px","mobile":"270px"}}}},"supports":{"align":["wide","full"],"html":false},"example":{"attributes":{}},"editorScript":["file:../index.js","bppiv-pannellum-js","wp-api"],"editorStyle":["file:../index.css","file:../style-index.css","file:./style-view.css"],"style":["file:./style-view.css","file:./view.css","bppiv-pannellum-css"],"render":"file:./render.php","viewScript":["file:./view.js","bppiv-pannellum-js"]}');
 
 /***/ }),
 

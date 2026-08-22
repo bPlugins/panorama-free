@@ -22,6 +22,18 @@
       "type": "string",
       "default": "equirectangular"
     },
+    "haov": {
+      "type": "number",
+      "default": 360
+    },
+    "vaov": {
+      "type": "number",
+      "default": 180
+    },
+    "vOffset": {
+      "type": "number",
+      "default": 0
+    },
     "cubeMap": {
       "type": "object",
       "default": {

@@ -27,6 +27,9 @@
         initial_view,
         initial_view_property: viewProperty,
         panorama_format_360,
+        haov_360,
+        vaov_360,
+        voffset_360,
         cubemap_front_360,
         cubemap_right_360,
         cubemap_back_360,
@@ -116,6 +119,24 @@
             cubemap_up_360,
             cubemap_down_360,
           ];
+        } else if (panorama_format_360 === "cylindrical") {
+          const currentHaov = parseFloat(haov_360 ?? 360);
+          const currentVaov = parseFloat(vaov_360 ?? 180);
+          const currentVOffset = parseFloat(voffset_360 ?? 0);
+          viewerConfig.type = "equirectangular";
+          viewerConfig.panorama = image360;
+          viewerConfig.preview = image360;
+          viewerConfig.haov = currentHaov;
+          viewerConfig.vaov = currentVaov;
+          viewerConfig.vOffset = currentVOffset;
+          if (currentVaov < 180) {
+            viewerConfig.maxPitch = currentVaov / 2;
+            viewerConfig.minPitch = -currentVaov / 2;
+          }
+          if (currentHaov < 360) {
+            viewerConfig.maxYaw = currentHaov / 2;
+            viewerConfig.minYaw = -currentHaov / 2;
+          }
         } else {
           viewerConfig.type = "equirectangular";
           viewerConfig.panorama = image360;

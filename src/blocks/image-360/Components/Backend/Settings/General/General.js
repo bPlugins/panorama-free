@@ -5,7 +5,7 @@ import { InlineMediaUpload, Notice } from "../../../../../../../../bpl-tools/Com
 import CubeMapUpload from "../../../../../../components/CubeMapUpload/CubeMapUpload";
 
 const General = ({ attributes, setAttributes }) => {
-  const { imageUrl, panoramaFormat = "equirectangular", cubeMap = {}, options = {} } = attributes || {};
+  const { imageUrl, panoramaFormat = "equirectangular", haov = 360, vaov = 180, vOffset = 0, cubeMap = {}, options = {} } = attributes || {};
   const {
     hideDefaultCtrl,
     isRotate,
@@ -45,14 +45,56 @@ const General = ({ attributes, setAttributes }) => {
           options={[
             { label: __("Equirectangular (Default)", "panorama"), value: "equirectangular" },
             { label: __("Cubemap (6 Cube Faces)", "panorama"), value: "cubemap" },
+            { label: __("Cylindrical (Smartphone Pano)", "panorama"), value: "cylindrical" },
           ]}
           help={__(
-            "Choose 'Equirectangular' for standard 360° panoramic images or 'Cubemap' (NEW) to upload 6 cube face images (Front, Right, Back, Left, Top, Bottom).",
+            "Choose 'Equirectangular' for standard 360° panoramic images, 'Cubemap' to upload 6 cube face images, or 'Cylindrical' for smartphone panoramas.",
             "panorama"
           )}
           onChange={(val) => setAttributes({ panoramaFormat: val })}
         />
       </div>
+
+      {panoramaFormat === "cylindrical" && (
+        <>
+          <RangeControl
+            className="mt15"
+            label={__("Horizontal Angle of View (HAOV)", "panorama")}
+            value={haov}
+            min={60}
+            max={360}
+            step={1}
+            allowReset
+            resetFallbackValue={360}
+            help={__("Degree of horizontal coverage (default 360°).", "panorama")}
+            onChange={(v) => setAttributes({ haov: v })}
+          />
+          <RangeControl
+            className="mt20"
+            label={__("Vertical Angle of View (VAOV)", "panorama")}
+            value={vaov}
+            min={20}
+            max={180}
+            step={1}
+            allowReset
+            resetFallbackValue={180}
+            help={__("Degree of vertical coverage (default 180°).", "panorama")}
+            onChange={(v) => setAttributes({ vaov: v })}
+          />
+          <RangeControl
+            className="mt20 mb15"
+            label={__("Vertical Offset (vOffset)", "panorama")}
+            value={vOffset}
+            min={-30}
+            max={30}
+            step={1}
+            allowReset
+            resetFallbackValue={0}
+            help={__("Vertical offset in degrees (default 0°).", "panorama")}
+            onChange={(v) => setAttributes({ vOffset: v })}
+          />
+        </>
+      )}
 
       {panoramaFormat === "cubemap" ? (
         <CubeMapUpload
@@ -61,6 +103,7 @@ const General = ({ attributes, setAttributes }) => {
         />
       ) : (
         <InlineMediaUpload
+          className="mt15"
           label={__("Image URL", "panorama")}
           placeholder={__("Enter or upload image URL", "panorama")}
           value={imageUrl}
