@@ -18,115 +18,104 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/index.mjs");
 /* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
 /* harmony import */ var _hooks_useGutenbergDragFix__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../hooks/useGutenbergDragFix */ "./src/hooks/useGutenbergDragFix.js");
-var _jsxFileName = "C:\\Users\\Shamim bPlugins\\Local Sites\\pro-plugins-dev\\app\\public\\wp-content\\plugins\\panorama\\src\\blocks\\image-360\\Components\\Common\\ImageViewer.js",
-  _this = undefined;
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
 
-var ImageViewer = function ImageViewer(_ref) {
-  var attributes = _ref.attributes,
-    setAttributes = _ref.setAttributes,
-    _ref$isButton = _ref.isButton,
-    isButton = _ref$isButton === void 0 ? true : _ref$isButton,
-    _ref$isBackend = _ref.isBackend,
-    isBackend = _ref$isBackend === void 0 ? false : _ref$isBackend,
-    _ref$isSelected = _ref.isSelected,
-    isSelected = _ref$isSelected === void 0 ? false : _ref$isSelected;
-  var _ref2 = attributes || {},
-    imageUrl = _ref2.imageUrl,
-    _ref2$panoramaFormat = _ref2.panoramaFormat,
-    panoramaFormat = _ref2$panoramaFormat === void 0 ? "equirectangular" : _ref2$panoramaFormat,
-    _ref2$haov = _ref2.haov,
-    haov = _ref2$haov === void 0 ? 360 : _ref2$haov,
-    _ref2$vaov = _ref2.vaov,
-    vaov = _ref2$vaov === void 0 ? 180 : _ref2$vaov,
-    _ref2$vOffset = _ref2.vOffset,
-    vOffset = _ref2$vOffset === void 0 ? 0 : _ref2$vOffset,
-    _ref2$cubeMap = _ref2.cubeMap,
-    cubeMap = _ref2$cubeMap === void 0 ? {} : _ref2$cubeMap,
-    _ref2$previewImgUrl = _ref2.previewImgUrl,
-    previewImgUrl = _ref2$previewImgUrl === void 0 ? "" : _ref2$previewImgUrl,
-    _ref2$loadButtonText = _ref2.loadButtonText,
-    loadButtonText = _ref2$loadButtonText === void 0 ? "Click to Load Panorama" : _ref2$loadButtonText,
-    options = _ref2.options,
-    customControl = _ref2.customControl;
-  var _ref3 = options || {},
-    autoLoad = _ref3.autoLoad,
-    hideDefaultCtrl = _ref3.hideDefaultCtrl,
-    initialViewPosition = _ref3.initialViewPosition,
-    draggable = _ref3.draggable,
-    mouseZoom = _ref3.mouseZoom,
-    initialView = _ref3.initialView,
-    disableKeyboardCtrl = _ref3.disableKeyboardCtrl,
-    doubleClickZoom = _ref3.doubleClickZoom,
-    isRotate = _ref3.isRotate,
-    autoRotateSpeed = _ref3.autoRotateSpeed,
-    compass = _ref3.compass,
-    _ref3$orientation = _ref3.orientation,
-    orientation = _ref3$orientation === void 0 ? false : _ref3$orientation,
-    autoRotateInactivityDelay = _ref3.autoRotateInactivityDelay,
-    titleAuthor = _ref3.titleAuthor,
-    title = _ref3.title,
-    author = _ref3.author,
-    isByline = _ref3.isByline;
-  var _ref4 = initialViewPosition || {},
-    pitch = _ref4.pitch,
-    yaw = _ref4.yaw,
-    hfov = _ref4.hfov;
-  var panoramaRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var viewerInstance = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var buttonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var controlsRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+const ImageViewer = ({
+  attributes,
+  setAttributes,
+  isButton = true,
+  isBackend = false,
+  isSelected = false
+}) => {
+  const {
+    imageUrl,
+    panoramaFormat = "equirectangular",
+    haov = 360,
+    vaov = 180,
+    vOffset = 0,
+    cubeMap = {},
+    previewImgUrl = "",
+    loadButtonText = "Click to Load Panorama",
+    options,
+    customControl
+  } = attributes || {};
+  const {
+    autoLoad,
+    hideDefaultCtrl,
+    initialViewPosition,
+    draggable,
+    mouseZoom,
+    initialView,
+    disableKeyboardCtrl,
+    doubleClickZoom,
+    isRotate,
+    autoRotateSpeed,
+    compass,
+    orientation = false,
+    autoRotateInactivityDelay,
+    titleAuthor,
+    title,
+    author,
+    isByline
+  } = options || {};
+  const {
+    pitch,
+    yaw,
+    hfov
+  } = initialViewPosition || {};
+  const panoramaRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const viewerInstance = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const buttonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const controlsRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,_hooks_useGutenbergDragFix__WEBPACK_IMPORTED_MODULE_4__["default"])(panoramaRef, panoramaRef, isBackend, isSelected);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var _ref5 = window || {},
-      pannellum = _ref5.pannellum;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const {
+      pannellum
+    } = window || {};
     if (pannellum && panoramaRef.current) {
-      var isCubemap = panoramaFormat === "cubemap";
-      var isAllFacesUploaded = Boolean((cubeMap === null || cubeMap === void 0 ? void 0 : cubeMap.front) && (cubeMap === null || cubeMap === void 0 ? void 0 : cubeMap.right) && (cubeMap === null || cubeMap === void 0 ? void 0 : cubeMap.back) && (cubeMap === null || cubeMap === void 0 ? void 0 : cubeMap.left) && (cubeMap === null || cubeMap === void 0 ? void 0 : cubeMap.up) && (cubeMap === null || cubeMap === void 0 ? void 0 : cubeMap.down));
+      const isCubemap = panoramaFormat === "cubemap";
+      const isAllFacesUploaded = Boolean(cubeMap?.front && cubeMap?.right && cubeMap?.back && cubeMap?.left && cubeMap?.up && cubeMap?.down);
       if (isCubemap && !isAllFacesUploaded) {
         return;
       }
       if (!isCubemap && !imageUrl) {
         return;
       }
-      var config = {
+      const config = {
         preview: previewImgUrl,
-        autoLoad: autoLoad,
+        autoLoad,
         showZoomCtrl: !hideDefaultCtrl,
-        draggable: draggable,
-        mouseZoom: mouseZoom,
+        draggable,
+        mouseZoom,
         showFullscreenCtrl: !hideDefaultCtrl,
-        pitch: pitch,
-        yaw: yaw,
-        hfov: hfov,
-        disableKeyboardCtrl: disableKeyboardCtrl,
-        doubleClickZoom: doubleClickZoom,
+        pitch,
+        yaw,
+        hfov,
+        disableKeyboardCtrl,
+        doubleClickZoom,
         autoRotate: isRotate ? autoRotateSpeed : 0,
-        compass: compass,
+        compass,
         orientationOnByDefault: !isBackend && Boolean(orientation),
-        autoRotateInactivityDelay: autoRotateInactivityDelay,
+        autoRotateInactivityDelay,
         title: titleAuthor ? title : "",
         author: titleAuthor && author ? author : "",
         strings: {
-          bylineLabel: author ? isByline ? "by ".concat(author) : author : ""
+          bylineLabel: author ? isByline ? `by ${author}` : author : ""
         }
       };
       if (isCubemap && isAllFacesUploaded) {
         config.type = "cubemap";
         config.cubeMap = [cubeMap.front, cubeMap.right, cubeMap.back, cubeMap.left, cubeMap.up, cubeMap.down];
       } else if (panoramaFormat === "cylindrical") {
-        var currentHaov = parseFloat(haov || 360);
-        var currentVaov = parseFloat(vaov || 180);
-        var currentVOffset = parseFloat(vOffset || 0);
+        const currentHaov = parseFloat(haov);
+        const currentVaov = parseFloat(vaov);
+        const currentVOffset = parseFloat(vOffset);
         config.type = "equirectangular";
         config.panorama = imageUrl;
         config.haov = currentHaov;
@@ -146,52 +135,103 @@ var ImageViewer = function ImageViewer(_ref) {
       }
       viewerInstance.current = pannellum.viewer(panoramaRef.current, config);
       if (!autoLoad) {
-        setTimeout(function () {
-          var _panoramaRef$current;
-          var loadBtn = (_panoramaRef$current = panoramaRef.current) === null || _panoramaRef$current === void 0 ? void 0 : _panoramaRef$current.querySelector(".pnlm-load-button p");
+        setTimeout(() => {
+          const loadBtn = panoramaRef.current?.querySelector(".pnlm-load-button p");
           if (loadBtn) loadBtn.innerHTML = loadButtonText.replace(/\n/g, "<br>");
         }, 120);
       }
       if (!titleAuthor || !title && !author) {
-        var infoBox = document.querySelector(".pnlm-panorama-info");
+        const infoBox = document.querySelector(".pnlm-panorama-info");
         if (infoBox) infoBox.remove();
       }
       if (buttonRef.current && panoramaRef.current) {
         panoramaRef.current.appendChild(buttonRef.current);
       }
-      if (!controlsRef.current) {
-        return;
-      }
+
+      // Add custom control event listeners if controlsRef exists
+      const controlListeners = [];
       if (controlsRef.current) {
-        controlsRef.current.querySelector(".pan-up").addEventListener("click", function () {
-          viewerInstance.current.setPitch(viewerInstance.current.getPitch() + 10);
-        });
-        controlsRef.current.querySelector(".pan-down").addEventListener("click", function () {
-          viewerInstance.current.setPitch(viewerInstance.current.getPitch() - 10);
-        }), controlsRef.current.querySelector(".pan-left").addEventListener("click", function () {
-          viewerInstance.current.setYaw(viewerInstance.current.getYaw() + 10);
-        }), controlsRef.current.querySelector(".pan-right").addEventListener("click", function () {
-          viewerInstance.current.setYaw(viewerInstance.current.getYaw() - 10);
-        });
+        const panUp = controlsRef.current.querySelector(".pan-up");
+        const panDown = controlsRef.current.querySelector(".pan-down");
+        const panLeft = controlsRef.current.querySelector(".pan-left");
+        const panRight = controlsRef.current.querySelector(".pan-right");
+        const onPanUp = () => {
+          if (viewerInstance.current) {
+            viewerInstance.current.setPitch(viewerInstance.current.getPitch() + 10);
+          }
+        };
+        const onPanDown = () => {
+          if (viewerInstance.current) {
+            viewerInstance.current.setPitch(viewerInstance.current.getPitch() - 10);
+          }
+        };
+        const onPanLeft = () => {
+          if (viewerInstance.current) {
+            viewerInstance.current.setYaw(viewerInstance.current.getYaw() - 10);
+          }
+        };
+        const onPanRight = () => {
+          if (viewerInstance.current) {
+            viewerInstance.current.setYaw(viewerInstance.current.getYaw() + 10);
+          }
+        };
+        if (panUp) {
+          panUp.addEventListener("click", onPanUp);
+          controlListeners.push({
+            el: panUp,
+            handler: onPanUp
+          });
+        }
+        if (panDown) {
+          panDown.addEventListener("click", onPanDown);
+          controlListeners.push({
+            el: panDown,
+            handler: onPanDown
+          });
+        }
+        if (panLeft) {
+          panLeft.addEventListener("click", onPanLeft);
+          controlListeners.push({
+            el: panLeft,
+            handler: onPanLeft
+          });
+        }
+        if (panRight) {
+          panRight.addEventListener("click", onPanRight);
+          controlListeners.push({
+            el: panRight,
+            handler: onPanRight
+          });
+        }
       }
-      return function () {
+      return () => {
+        // Destroy Pannellum viewer
         if (viewerInstance.current) {
           viewerInstance.current.destroy();
         }
+
+        // Clean up control listeners
+        controlListeners.forEach(({
+          el,
+          handler
+        }) => {
+          el.removeEventListener("click", handler);
+        });
       };
     }
   }, [imageUrl, panoramaFormat, haov, vaov, vOffset, JSON.stringify(cubeMap), previewImgUrl, loadButtonText, autoLoad, hideDefaultCtrl, draggable, mouseZoom, initialView, initialViewPosition, disableKeyboardCtrl, doubleClickZoom, isRotate, autoRotateSpeed, compass, orientation, autoRotateInactivityDelay, titleAuthor, title, author, customControl, isByline]);
-  var handleSetInitialView = function handleSetInitialView() {
+  const handleSetInitialView = () => {
     try {
       if (viewerInstance.current) {
         setAttributes({
-          options: _objectSpread(_objectSpread({}, options), {}, {
+          options: {
+            ...options,
             initialViewPosition: {
               pitch: viewerInstance.current.getPitch(),
               yaw: viewerInstance.current.getYaw(),
               hfov: viewerInstance.current.getHfov()
             }
-          })
+          }
         });
         react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.success("Initial view set successfully", {
           position: "bottom-center"
@@ -208,75 +248,34 @@ var ImageViewer = function ImageViewer(_ref) {
       });
     }
   };
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_2__.ToastContainer, {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 230,
-      columnNumber: 7
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    key: "".concat(panoramaFormat, "-").concat(JSON.stringify(cubeMap), "-").concat(autoLoad, "-").concat(title, "-").concat(author, "-").concat(isByline, "-").concat(titleAuthor, "-").concat(loadButtonText, "-").concat(hideDefaultCtrl, "-").concat(compass, "-").concat(doubleClickZoom),
-    ref: panoramaRef,
-    className: "panoramaImgViewer",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 232,
-      columnNumber: 7
-    }
-  }, isButton && initialView && /*#__PURE__*/React.createElement("button", {
-    ref: buttonRef,
-    onClick: handleSetInitialView,
-    className: "setInitialViewButton",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 238,
-      columnNumber: 11
-    }
-  }, "Set as Initial View"), customControl && /*#__PURE__*/React.createElement("div", {
-    id: "controls",
-    ref: controlsRef,
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 247,
-      columnNumber: 11
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "ctrl pan-left",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 248,
-      columnNumber: 13
-    }
-  }, _utils_icons__WEBPACK_IMPORTED_MODULE_1__.panoUp), /*#__PURE__*/React.createElement("div", {
-    className: "ctrl pan-right",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 249,
-      columnNumber: 13
-    }
-  }, _utils_icons__WEBPACK_IMPORTED_MODULE_1__.panoDown), /*#__PURE__*/React.createElement("div", {
-    className: "ctrl pan-up",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 250,
-      columnNumber: 13
-    }
-  }, _utils_icons__WEBPACK_IMPORTED_MODULE_1__.panoLeft), /*#__PURE__*/React.createElement("div", {
-    className: "ctrl pan-down",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 251,
-      columnNumber: 13
-    }
-  }, _utils_icons__WEBPACK_IMPORTED_MODULE_1__.panoRight))));
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_toastify__WEBPACK_IMPORTED_MODULE_2__.ToastContainer, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      ref: panoramaRef,
+      className: "panoramaImgViewer",
+      children: [isButton && initialView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+        ref: buttonRef,
+        onClick: handleSetInitialView,
+        className: "setInitialViewButton",
+        children: "Set as Initial View"
+      }), customControl && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        id: "controls",
+        ref: controlsRef,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "ctrl pan-left",
+          children: _utils_icons__WEBPACK_IMPORTED_MODULE_1__.panoUp
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "ctrl pan-right",
+          children: _utils_icons__WEBPACK_IMPORTED_MODULE_1__.panoDown
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "ctrl pan-up",
+          children: _utils_icons__WEBPACK_IMPORTED_MODULE_1__.panoLeft
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "ctrl pan-down",
+          children: _utils_icons__WEBPACK_IMPORTED_MODULE_1__.panoRight
+        })]
+      })]
+    }, `${panoramaFormat}-${JSON.stringify(cubeMap)}-${autoLoad}-${title}-${author}-${isByline}-${titleAuthor}-${loadButtonText}-${hideDefaultCtrl}-${compass}-${doubleClickZoom}`)]
+  });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageViewer);
 
@@ -292,41 +291,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var _jsxFileName = "C:\\Users\\Shamim bPlugins\\Local Sites\\pro-plugins-dev\\app\\public\\wp-content\\plugins\\panorama\\src\\blocks\\image-360\\Components\\Common\\Style.js",
-  _this = undefined;
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-var Style = function Style(_ref) {
-  var attributes = _ref.attributes,
-    id = _ref.id,
-    _ref$device = _ref.device,
-    device = _ref$device === void 0 ? "desktop" : _ref$device;
-  var _ref2 = attributes.layout || {},
-    alignSl = _ref2.alignSl,
-    width = _ref2.width,
-    height = _ref2.height;
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const Style = ({
+  attributes,
+  id,
+  device = "desktop"
+}) => {
+  let {
+    alignSl,
+    width,
+    height
+  } = attributes.layout || {};
   if (window.location !== window.parent.location) {
-    height = _objectSpread(_objectSpread({}, height), {}, {
+    height = {
+      ...height,
       desktop: window.innerHeight + 'px',
       tablet: window.innerHeight + 'px'
-    });
+    };
   }
-  var mainSl = "#".concat(id);
-  var blockSl = "".concat(mainSl, " .bBlocksImageViewer");
-  var imageSl = "".concat(blockSl, " .panoramaImgViewer");
-  return /*#__PURE__*/React.createElement("style", {
+  const mainSl = `#${id}`;
+  const blockSl = `${mainSl} .bBlocksImageViewer`;
+  const imageSl = `${blockSl} .panoramaImgViewer`;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("style", {
     dangerouslySetInnerHTML: {
-      __html: "\n\n\t\t".concat(blockSl, "{\n\t\t\talign-items: ").concat(alignSl[device], ";\n\t\t}\n\n\t\t").concat(imageSl, "{\n\t\t\twidth: ").concat(width[device], ";\n\t\t\theight: ").concat(height[device], ";\n\t\t}\n\n\t\t@media only screen and (min-width:641px) and (max-width: 1024px){\n\t\t\t").concat(blockSl, "{\n\t\t\t\talign-items: ").concat(alignSl.tablet, ";\n\t\t\t}\n\n\t\t\t").concat(imageSl, "{\n\t\t\t\twidth: ").concat(width.tablet, ";\n\t\t\t\theight: ").concat(height.tablet, ";\n\t\t\t}\n\t\t}\n\n\t\t@media only screen and (max-width:640px){\n\t\t\t").concat(blockSl, "{\n\t\t\t\talign-items: ").concat(alignSl.mobile, ";\n\t\t\t}\n\n\t\t\t").concat(imageSl, "{\n\t\t\t\twidth: ").concat(width.mobile, ";\n\t\t\t\theight: ").concat(height.mobile, ";\n\t\t\t}\n\t\t}\n\t")
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19,
-      columnNumber: 5
+      __html: `
+
+		${blockSl}{
+			align-items: ${alignSl[device]};
+		}
+
+		${imageSl}{
+			width: ${width[device]};
+			height: ${height[device]};
+		}
+
+		@media only screen and (min-width:641px) and (max-width: 1024px){
+			${blockSl}{
+				align-items: ${alignSl.tablet};
+			}
+
+			${imageSl}{
+				width: ${width.tablet};
+				height: ${height.tablet};
+			}
+		}
+
+		@media only screen and (max-width:640px){
+			${blockSl}{
+				align-items: ${alignSl.mobile};
+			}
+
+			${imageSl}{
+				width: ${width.mobile};
+				height: ${height.mobile};
+			}
+		}
+	`
     }
   });
 };
@@ -349,51 +371,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   panoUp: () => (/* binding */ panoUp),
 /* harmony export */   verticalLineIcon: () => (/* binding */ verticalLineIcon)
 /* harmony export */ });
-var _jsxFileName = "C:\\Users\\Shamim bPlugins\\Local Sites\\pro-plugins-dev\\app\\public\\wp-content\\plugins\\panorama\\src\\blocks\\image-360\\utils\\icons.js";
-var verticalLineIcon = /*#__PURE__*/React.createElement("svg", {
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const verticalLineIcon = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: 24,
   height: 24,
   viewBox: "0 0 14.707 14.707",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 2,
-    columnNumber: 3
-  }
-}, /*#__PURE__*/React.createElement("rect", {
-  x: "6.275",
-  y: "0",
-  width: "2.158",
-  height: "14.707",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 8,
-    columnNumber: 5
-  }
-}));
-var horizontalLineIcon = /*#__PURE__*/React.createElement("svg", {
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("rect", {
+    x: "6.275",
+    y: "0",
+    width: "2.158",
+    height: "14.707"
+  })
+});
+const horizontalLineIcon = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: 24,
   height: 24,
   viewBox: "0 0 357 357",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 13,
-    columnNumber: 3
-  }
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M357,204H0v-51h357V204z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 19,
-    columnNumber: 5
-  }
-}));
-var panoUp = /*#__PURE__*/React.createElement("svg", {
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+    d: "M357,204H0v-51h357V204z"
+  })
+});
+const panoUp = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
   stroke: "currentColor",
   fill: "currentColor",
   strokeWidth: "0",
@@ -401,22 +403,11 @@ var panoUp = /*#__PURE__*/React.createElement("svg", {
   height: "1em",
   width: "1em",
   xmlns: "http://www.w3.org/2000/svg",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 24,
-    columnNumber: 3
-  }
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M348.3 216.4c-5 5.1-13.3 5.1-18.4.1L269 155.8v231.3c0 7.1-5.8 12.9-13 12.9s-13-5.8-13-12.9V155.8l-60.9 60.8c-5.1 5-13.3 4.9-18.4-.1-5-5.1-5-13.2.1-18.3l83-82.4c1.2-1.1 2.5-2 4.1-2.7 1.6-.7 3.3-1 5-1 3.4 0 6.6 1.3 9.1 3.7l83 82.4c5.2 4.9 5.3 13.1.3 18.2z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 33,
-    columnNumber: 5
-  }
-}));
-var panoDown = /*#__PURE__*/React.createElement("svg", {
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+    d: "M348.3 216.4c-5 5.1-13.3 5.1-18.4.1L269 155.8v231.3c0 7.1-5.8 12.9-13 12.9s-13-5.8-13-12.9V155.8l-60.9 60.8c-5.1 5-13.3 4.9-18.4-.1-5-5.1-5-13.2.1-18.3l83-82.4c1.2-1.1 2.5-2 4.1-2.7 1.6-.7 3.3-1 5-1 3.4 0 6.6 1.3 9.1 3.7l83 82.4c5.2 4.9 5.3 13.1.3 18.2z"
+  })
+});
+const panoDown = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
   stroke: "currentColor",
   fill: "currentColor",
   strokeWidth: "0",
@@ -424,22 +415,11 @@ var panoDown = /*#__PURE__*/React.createElement("svg", {
   height: "1em",
   width: "1em",
   xmlns: "http://www.w3.org/2000/svg",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 37,
-    columnNumber: 3
-  }
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M348.3 295.6c-5-5.1-13.3-5.1-18.4-.1L269 356.2V124.9c0-7.1-5.8-12.9-13-12.9s-13 5.8-13 12.9v231.3l-60.9-60.8c-5.1-5-13.3-4.9-18.4.1-5 5.1-5 13.2.1 18.3l83 82.4c1.2 1.1 2.5 2 4.1 2.7 1.6.7 3.3 1 5 1 3.4 0 6.6-1.3 9.1-3.7l83-82.4c5.2-4.9 5.3-13.1.3-18.2z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 46,
-    columnNumber: 5
-  }
-}));
-var panoLeft = /*#__PURE__*/React.createElement("svg", {
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+    d: "M348.3 295.6c-5-5.1-13.3-5.1-18.4-.1L269 356.2V124.9c0-7.1-5.8-12.9-13-12.9s-13 5.8-13 12.9v231.3l-60.9-60.8c-5.1-5-13.3-4.9-18.4.1-5 5.1-5 13.2.1 18.3l83 82.4c1.2 1.1 2.5 2 4.1 2.7 1.6.7 3.3 1 5 1 3.4 0 6.6-1.3 9.1-3.7l83-82.4c5.2-4.9 5.3-13.1.3-18.2z"
+  })
+});
+const panoLeft = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
   stroke: "currentColor",
   fill: "currentColor",
   strokeWidth: "0",
@@ -447,22 +427,11 @@ var panoLeft = /*#__PURE__*/React.createElement("svg", {
   height: "1em",
   width: "1em",
   xmlns: "http://www.w3.org/2000/svg",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 50,
-    columnNumber: 3
-  }
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M216.4 163.7c5.1 5 5.1 13.3.1 18.4L155.8 243h231.3c7.1 0 12.9 5.8 12.9 13s-5.8 13-12.9 13H155.8l60.8 60.9c5 5.1 4.9 13.3-.1 18.4-5.1 5-13.2 5-18.3-.1l-82.4-83c-1.1-1.2-2-2.5-2.7-4.1-.7-1.6-1-3.3-1-5 0-3.4 1.3-6.6 3.7-9.1l82.4-83c4.9-5.2 13.1-5.3 18.2-.3z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 59,
-    columnNumber: 5
-  }
-}));
-var panoRight = /*#__PURE__*/React.createElement("svg", {
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+    d: "M216.4 163.7c5.1 5 5.1 13.3.1 18.4L155.8 243h231.3c7.1 0 12.9 5.8 12.9 13s-5.8 13-12.9 13H155.8l60.8 60.9c5 5.1 4.9 13.3-.1 18.4-5.1 5-13.2 5-18.3-.1l-82.4-83c-1.1-1.2-2-2.5-2.7-4.1-.7-1.6-1-3.3-1-5 0-3.4 1.3-6.6 3.7-9.1l82.4-83c4.9-5.2 13.1-5.3 18.2-.3z"
+  })
+});
+const panoRight = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
   stroke: "currentColor",
   fill: "currentColor",
   strokeWidth: "0",
@@ -470,21 +439,10 @@ var panoRight = /*#__PURE__*/React.createElement("svg", {
   height: "1em",
   width: "1em",
   xmlns: "http://www.w3.org/2000/svg",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 63,
-    columnNumber: 3
-  }
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z",
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 72,
-    columnNumber: 5
-  }
-}));
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+    d: "M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+  })
+});
 
 /***/ }),
 
@@ -501,26 +459,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-var useGutenbergDragFix = function useGutenbergDragFix(wrapperRef, panoRef) {
-  var isBackend = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-  var isSelected = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (!isBackend || !(wrapperRef !== null && wrapperRef !== void 0 && wrapperRef.current)) return;
-    var container = wrapperRef.current;
-    var blockGutenbergDrag = function blockGutenbergDrag(e) {
-      return e.stopPropagation();
-    };
-    var blockDragStart = function blockDragStart(e) {
-      return e.preventDefault();
-    };
-    var isDragging = false;
-    var handleMouseDown = function handleMouseDown(e) {
-      var _panoRef$current;
-      if (e.button === 0 && panoRef !== null && panoRef !== void 0 && (_panoRef$current = panoRef.current) !== null && _panoRef$current !== void 0 && _panoRef$current.contains(e.target)) {
+const useGutenbergDragFix = (wrapperRef, panoRef, isBackend = false, isSelected = false) => {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!isBackend || !wrapperRef?.current) return;
+    const container = wrapperRef.current;
+    const blockGutenbergDrag = e => e.stopPropagation();
+    const blockDragStart = e => e.preventDefault();
+    let isDragging = false;
+    const handleMouseDown = e => {
+      if (e.button === 0 && panoRef?.current?.contains(e.target)) {
         isDragging = true;
       }
     };
-    var handleMouseUp = function handleMouseUp(e) {
+    const handleMouseUp = e => {
       if (e.button === 0) {
         isDragging = false;
       }
@@ -534,7 +485,7 @@ var useGutenbergDragFix = function useGutenbergDragFix(wrapperRef, panoRef) {
     container.addEventListener("dragstart", blockDragStart);
 
     // Capture-phase event forwarding to resolve iframe drag-lock
-    var targets = [];
+    const targets = [];
     try {
       if (window) targets.push({
         win: window,
@@ -563,28 +514,28 @@ var useGutenbergDragFix = function useGutenbergDragFix(wrapperRef, panoRef) {
     } catch (e) {
       void e;
     }
-    var handleRelease = function handleRelease(e) {
+    const handleRelease = e => {
       if (e && e.__forwarded) return;
-      var currentPanoEl = panoRef === null || panoRef === void 0 ? void 0 : panoRef.current;
-      var dragFixEl = currentPanoEl === null || currentPanoEl === void 0 ? void 0 : currentPanoEl.querySelector(".pnlm-dragfix");
-      var canvasEl = currentPanoEl === null || currentPanoEl === void 0 ? void 0 : currentPanoEl.querySelector("canvas");
-      var targetEl = dragFixEl || canvasEl || currentPanoEl;
+      const currentPanoEl = panoRef?.current;
+      const dragFixEl = currentPanoEl?.querySelector(".pnlm-dragfix");
+      const canvasEl = currentPanoEl?.querySelector("canvas");
+      const targetEl = dragFixEl || canvasEl || currentPanoEl;
       if (!targetEl) return;
 
       // Dispatch synthetic mouseup
-      var mouseUpEvent;
+      let mouseUpEvent;
       if (typeof MouseEvent === "function") {
         mouseUpEvent = new MouseEvent("mouseup", {
           bubbles: true,
           cancelable: true,
           view: window,
-          detail: e === null || e === void 0 ? void 0 : e.detail,
-          screenX: e === null || e === void 0 ? void 0 : e.screenX,
-          screenY: e === null || e === void 0 ? void 0 : e.screenY,
-          clientX: e === null || e === void 0 ? void 0 : e.clientX,
-          clientY: e === null || e === void 0 ? void 0 : e.clientY,
-          button: (e === null || e === void 0 ? void 0 : e.button) || 0,
-          buttons: (e === null || e === void 0 ? void 0 : e.buttons) || 0
+          detail: e?.detail,
+          screenX: e?.screenX,
+          screenY: e?.screenY,
+          clientX: e?.clientX,
+          clientY: e?.clientY,
+          button: e?.button || 0,
+          buttons: e?.buttons || 0
         });
       } else {
         mouseUpEvent = document.createEvent("MouseEvent");
@@ -594,7 +545,7 @@ var useGutenbergDragFix = function useGutenbergDragFix(wrapperRef, panoRef) {
       targetEl.dispatchEvent(mouseUpEvent);
 
       // Dispatch synthetic touchend
-      var touchEndEvent;
+      let touchEndEvent;
       if (typeof TouchEvent === "function") {
         touchEndEvent = new TouchEvent("touchend", {
           bubbles: true,
@@ -608,19 +559,20 @@ var useGutenbergDragFix = function useGutenbergDragFix(wrapperRef, panoRef) {
       touchEndEvent.__forwarded = true;
       targetEl.dispatchEvent(touchEndEvent);
     };
-    var handleGlobalRelease = function handleGlobalRelease(e) {
+    const handleGlobalRelease = e => {
       if (e && e.__forwarded) return;
       isDragging = false;
       handleRelease(e);
     };
-    var handleMouseMove = function handleMouseMove(e) {
+    const handleMouseMove = e => {
       if (isDragging && (e.buttons & 1) === 0) {
         isDragging = false;
         handleRelease(e);
       }
     };
-    targets.forEach(function (_ref) {
-      var doc = _ref.doc;
+    targets.forEach(({
+      doc
+    }) => {
       doc.addEventListener("mouseup", handleGlobalRelease, {
         capture: true
       });
@@ -637,14 +589,14 @@ var useGutenbergDragFix = function useGutenbergDragFix(wrapperRef, panoRef) {
     document.addEventListener("mouseenter", handleMouseMove, {
       capture: true
     });
-    var handleBlur = function handleBlur(e) {
+    const handleBlur = e => {
       isDragging = false;
       handleRelease(e);
     };
     window.addEventListener("blur", handleBlur, {
       capture: true
     });
-    return function () {
+    return () => {
       if (container) {
         if (isSelected) {
           container.removeEventListener("mousedown", blockGutenbergDrag);
@@ -654,8 +606,9 @@ var useGutenbergDragFix = function useGutenbergDragFix(wrapperRef, panoRef) {
         container.removeEventListener("mousedown", handleMouseDown);
         container.removeEventListener("dragstart", blockDragStart);
       }
-      targets.forEach(function (_ref2) {
-        var doc = _ref2.doc;
+      targets.forEach(({
+        doc
+      }) => {
         doc.removeEventListener("mouseup", handleGlobalRelease, {
           capture: true
         });
@@ -676,7 +629,7 @@ var useGutenbergDragFix = function useGutenbergDragFix(wrapperRef, panoRef) {
         capture: true
       });
     };
-  }, [isBackend, isSelected, wrapperRef === null || wrapperRef === void 0 ? void 0 : wrapperRef.current, panoRef === null || panoRef === void 0 ? void 0 : panoRef.current]);
+  }, [isBackend, isSelected, wrapperRef?.current, panoRef?.current]);
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useGutenbergDragFix);
 
@@ -755,6 +708,16 @@ module.exports = window["React"];
 /***/ ((module) => {
 
 module.exports = window["ReactDOM"];
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!**********************************!*\
+  !*** external "ReactJSXRuntime" ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = window["ReactJSXRuntime"];
 
 /***/ }),
 
@@ -879,44 +842,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Common_ImageViewer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/Common/ImageViewer */ "./src/blocks/image-360/Components/Common/ImageViewer.js");
 /* harmony import */ var _Components_Common_Style__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/Common/Style */ "./src/blocks/image-360/Components/Common/Style.js");
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/image-360/style.scss");
-var _jsxFileName = "C:\\Users\\Shamim bPlugins\\Local Sites\\pro-plugins-dev\\app\\public\\wp-content\\plugins\\panorama\\src\\blocks\\image-360\\view.js",
-  _this = undefined;
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  var PanoramicImageViewerEls = document.querySelectorAll(".wp-block-panorama-image-360");
-  PanoramicImageViewerEls.forEach(function (PanoramicImageViewerEl) {
-    var attributes = JSON.parse(PanoramicImageViewerEl.dataset.attributes);
-    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_0__.createRoot)(PanoramicImageViewerEl).render(/*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_Components_Common_Style__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      attributes: attributes,
-      id: PanoramicImageViewerEl.id,
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 13,
-        columnNumber: 9
-      }
-    }), /*#__PURE__*/React.createElement("div", {
-      className: "bBlocksImageViewer",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 15,
-        columnNumber: 9
-      }
-    }, /*#__PURE__*/React.createElement(_Components_Common_ImageViewer__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      attributes: attributes,
-      isButton: false,
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 16,
-        columnNumber: 11
-      }
-    }))));
-    PanoramicImageViewerEl === null || PanoramicImageViewerEl === void 0 || PanoramicImageViewerEl.removeAttribute("data-attributes");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const PanoramicImageViewerEls = document.querySelectorAll(".wp-block-panorama-image-360");
+  PanoramicImageViewerEls.forEach(PanoramicImageViewerEl => {
+    const attributes = JSON.parse(PanoramicImageViewerEl.dataset.attributes);
+    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_0__.createRoot)(PanoramicImageViewerEl).render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Common_Style__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        attributes: attributes,
+        id: PanoramicImageViewerEl.id
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "bBlocksImageViewer",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Common_ImageViewer__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          attributes: attributes,
+          isButton: false
+        })
+      })]
+    }));
+    PanoramicImageViewerEl?.removeAttribute("data-attributes");
   });
 });
 })();

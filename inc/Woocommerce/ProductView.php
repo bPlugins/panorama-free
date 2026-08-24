@@ -13,6 +13,8 @@ class ProductView{
         // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
         add_action('wp', [$this, 'woocommerce_loaded']);
         // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+        add_filter('woocommerce_product_tabs', [$this, 'add_panorama_product_tab']);
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
         add_action('bp3d_product_model_before', [$this, 'model']);
         // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
         add_action('bp3d_product_model_after', [$this, 'model']);
@@ -20,8 +22,17 @@ class ProductView{
 
     public function woocommerce_loaded(){
         $this->meta = get_post_meta(get_the_ID(), '_bppiv_product_', true);
+        if ( ! is_array( $this->meta ) ) {
+            return;
+        }
         $viewer_position = $this->meta['viewer_position'] ?? 'none';
         if($viewer_position === 'none'){
+            return;
+        }
+
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
+
+        if ( $viewer_position === 'tab' ) {
             return;
         }
         
@@ -29,7 +40,27 @@ class ProductView{
         remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
         // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
         add_action('woocommerce_before_single_product_summary',[$this, 'bp3d_product_models'], 25);
-        add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
+    }
+
+    public function add_panorama_product_tab( $tabs ) {
+        $product_id = get_the_ID();
+        if ( ! $product_id ) {
+            return $tabs;
+        }
+        $meta = get_post_meta( $product_id, '_bppiv_product_', true );
+        if ( is_array( $meta ) && isset( $meta['viewer_position'] ) && $meta['viewer_position'] === 'tab' ) {
+            $tabs['bppiv_panorama_tab'] = array(
+                'title'    => __( '360° View', 'panorama' ),
+                'priority' => 25,
+                'callback' => [$this, 'render_tab_panorama_content'],
+            );
+        }
+        return $tabs;
+    }
+
+    public function render_tab_panorama_content() {
+        $this->meta = get_post_meta( get_the_ID(), '_bppiv_product_', true );
+        $this->model();
     }
 
     public function enqueue_assets(){

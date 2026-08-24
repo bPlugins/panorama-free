@@ -46,51 +46,8 @@ function bppiv_image_viewer( $atts ) {
 add_shortcode( 'panorama', 'bppiv_image_viewer' );
 
 
-// Shortcode for Product Spot Panorama viewer.
+// Shortcode for Product Spot Panorama viewer (Pro Feature).
 function bppiv_panorama_product_viewer_callback( $attrs ) {
-
-    ob_start();
-
-    $meta = get_post_meta( get_the_ID(), '_bppiv_product_', true );
-    if ( ! is_array( $meta ) ) {
-        return '';
-    }
-
-    $video360 = isset( $meta['video360'] ) ? $meta['video360'] : '0';
-    $type     = isset( $meta['type'] )     ? sanitize_key( $meta['type'] ) : '';
-
-    if ( '1' === $video360 && 'video' === $type ) {
-        wp_enqueue_script( 'bppiv-panolens' );
-    } elseif ( 'image' === $type ) {
-        wp_enqueue_script( 'bppiv-pannellum-js' );
-        wp_enqueue_style( 'bppiv-pannellum-css' );
-    }
-
-    wp_enqueue_script( 'bppiv-product' );
-    wp_enqueue_style( 'bppiv-product' );
-
-    $attributes = '';
-    if ( ! empty( $meta['video_autoplay'] ) ) {
-        $attributes .= ' autoplay';
-    }
-    if ( ! empty( $meta['video_mute'] ) ) {
-        $attributes .= ' muted';
-    }
-    if ( ! empty( $meta['video_loop'] ) ) {
-        $attributes .= ' loop';
-    }
-    if ( ! empty( $meta['video_show_controls'] ) ) {
-        $attributes .= ' controls';
-    }
-
-    $video_src = isset( $meta['video_src'] ) ? esc_url( $meta['video_src'] ) : '';
-    ?>
-    <div id="bppiv_product_panorama" data-settings="<?php echo esc_attr( wp_json_encode( $meta ) ); ?>">
-        <?php if ( 'video' === $type && '0' === $video360 ) : ?>
-            <video style="max-width: 100%;" <?php echo esc_attr( $attributes ); ?> src="<?php echo esc_url( $video_src ); ?>"></video>
-        <?php endif; ?>
-    </div>
-    <?php
-    return ob_get_clean();
+    return '<div class="bppiv-pro-shortcode-notice" style="padding: 12px 16px; background: #fff8f6; border-left: 4px solid #cf222e; border-radius: 4px; font-size: 13px; color: #cf222e;">' . esc_html__( 'Product shortcode is a Pro feature. Please upgrade to Panorama Viewer Pro to use this shortcode.', 'panorama' ) . '</div>';
 }
 add_shortcode( 'panorama_product_viewer', 'bppiv_panorama_product_viewer_callback' );
