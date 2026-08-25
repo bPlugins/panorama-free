@@ -44,7 +44,7 @@ class EnqueueAssets{
         $current = function_exists('get_current_screen') ? get_current_screen() : null;
         $post_type = $current && isset($current->post_type) ? $current->post_type : '';
         $screen_id = $current && isset($current->id) ? $current->id : '';
-        $is_bppiv_screen = ($post_type === 'bppiv-image-viewer') || ($screen_id === 'bppiv-image-viewer_page_bppiv-support');
+        $is_bppiv_screen = ($post_type === 'bppiv-image-viewer') || ($post_type === 'product') || ($screen_id === 'bppiv-image-viewer_page_bppiv-support');
 
         if ( $is_bppiv_screen ) {
             wp_register_style( 'bppiv-custom-style', BPPIV_PLUGIN_DIR . 'public/assets/css/admin-style.css',[], BPPIV_VERSION );

@@ -127,15 +127,16 @@ class ProductMeta{
                 'id'         => 'viewer_position',
                 'type'       => 'radio',
                 'title'      => esc_html__('Viewer Position', 'panorama'),
-                'subtitle'   => esc_html__('Choose where to display the 3D viewer on the single product page', 'panorama'),
+                'subtitle'   => esc_html__('Choose where to display the 360° viewer on the single product page', 'panorama'),
                 'options'    => array(
                   'none'    => esc_html__('None', 'panorama'),
                   'top'     => esc_html__('Top of the product image', 'panorama'),
                   'bottom'  => esc_html__('Bottom of the product image', 'panorama'),
-                  'replace' => esc_html__('Replace Product Image with 3D', 'panorama'),
+                  'replace' => esc_html__('Replace Product Image with 360° View', 'panorama'),
                   'tab'     => esc_html__('360° View Tab (Product Details Tab)', 'panorama'),
                 ),
-                'default'    => 'none'
+                'default'    => 'none',
+                'class'      => 'bppiv-viewer-position-field'
               ),
               array(
                 'id'       => 'autoRotate',

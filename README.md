@@ -114,7 +114,7 @@ Developers and administrators can specify the rendering position of the panorama
 - `none`: Disable rendering and fall back to standard WooCommerce galleries.
 - `top`: Mounts the viewer directly **above** the main product gallery.
 - `bottom`: Mounts the viewer directly **below** the main product gallery.
-- `replace`: Hides the standard product thumbnails and displays the interactive 3D viewer in place of the primary image.
+- `replace`: Hides the standard product thumbnails and displays the interactive 360° viewer in place of the primary image.
 
 *Code Reference:* Managed dynamically within [ProductMeta.php](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/inc/Woocommerce/ProductMeta.php) and rendered through [ProductView.php](file:///c:/Users/Shamim%20bPlugins/Local%20Sites/free-plugins-dev/app/public/wp-content/plugins/panorama/inc/Woocommerce/ProductView.php).
 

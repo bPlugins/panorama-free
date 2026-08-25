@@ -958,7 +958,7 @@
 .csf-field-checkbox ul,
 .csf-field-radio ul {
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 6px;
   list-style-type: none;
   overflow-y: auto;
   max-height: 305px;
@@ -966,6 +966,8 @@
 .csf-field-checkbox ul li,
 .csf-field-radio ul li {
   margin-bottom: 6px;
+  display: flex;
+  align-items: center;
 }
 .csf-field-checkbox ul ul,
 .csf-field-radio ul ul {
@@ -981,7 +983,8 @@
 }
 .csf-field-checkbox input,
 .csf-field-radio input {
-  margin: 0 1px;
+  margin: 1px 8px 1px 4px !important;
+  flex-shrink: 0;
 }
 .csf-field-checkbox .csf--inline-list li,
 .csf-field-radio .csf--inline-list li {

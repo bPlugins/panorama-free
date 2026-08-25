@@ -70035,7 +70035,7 @@ const SaveCancelButtons = ({
     children: [popupData.type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
       onClick: onSave,
       className: "saveBtn",
-      children: popupData.type === 'scene' ? 'Save Scene' : popupData.type === 'info' ? 'Save Info' : popupData.type === 'link' ? 'Save Link' : popupData.type === 'video' ? 'Save Video' : popupData.type === 'image' ? 'Save Image' : 'Save Default View'
+      children: popupData.type === 'scene' ? 'Save Scene' : popupData.type === 'info' ? 'Save Info' : popupData.type === 'link' ? 'Save Link' : popupData.type === 'video' ? 'Save Video' : popupData.type === 'image' ? 'Save Image' : popupData.type === 'product' ? 'Save Product' : popupData.type === 'default-view' ? 'Save Default View' : 'Save'
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
       className: "closeBtn",
       onClick: onCancel,
@@ -70856,6 +70856,15 @@ const TypeSelectionButtons = ({
         children: " \uD83D\uDDBC\uFE0F "
       }), " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Image', 'panorama'), " ", !isPremium && '🔒']
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("button", {
+      onClick: () => handleProClick('product'),
+      className: "sceneBtn",
+      style: {
+        background: popupData.type === 'product' ? '#1e90ff' : '#2a4e6f'
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        children: " \uD83D\uDED2 "
+      }), " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('WooCommerce Product', 'panorama'), " ", !isPremium && '🔒']
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("button", {
       onClick: () => setPopupData({
         ...popupData,
         type: 'default-view'
@@ -71396,9 +71405,6 @@ const editAndDeleteTooltipFunc = (scenes, currentScene, hotSpotDiv, spot, index,
   });
   deleteBtn.addEventListener('click', e => {
     e.stopPropagation();
-    if (hotSpotDiv && hotSpotDiv.parentNode) {
-      hotSpotDiv.parentNode.removeChild(hotSpotDiv);
-    }
     const updatedScenes = (0,immer__WEBPACK_IMPORTED_MODULE_0__.produce)(scenes, draft => {
       draft.map(scene => {
         if (scene?.tour_id === currentScene?.tour_id) {

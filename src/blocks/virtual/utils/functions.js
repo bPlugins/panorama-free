@@ -323,10 +323,6 @@ export const editAndDeleteTooltipFunc = (scenes, currentScene, hotSpotDiv, spot,
     deleteBtn.addEventListener('click', (e) => {
         e.stopPropagation();
 
-        if (hotSpotDiv && hotSpotDiv.parentNode) {
-            hotSpotDiv.parentNode.removeChild(hotSpotDiv);
-        }
-
         const updatedScenes = produce(scenes, (draft) => {
             draft.map((scene) => {
                 if (scene?.tour_id === currentScene?.tour_id) {

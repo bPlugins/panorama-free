@@ -47,6 +47,13 @@ const TypeSelectionButtons = ({ popupData, setPopupData, isPremium, setIsProFeat
                 <span> 🖼️ </span> {__('Image', 'panorama')} {!isPremium && '🔒'}
             </button>
             <button
+                onClick={() => handleProClick('product')}
+                className='sceneBtn'
+                style={{ background: popupData.type === 'product' ? '#1e90ff' : '#2a4e6f' }}
+            >
+                <span> 🛒 </span> {__('WooCommerce Product', 'panorama')} {!isPremium && '🔒'}
+            </button>
+            <button
                 onClick={() => setPopupData({ ...popupData, type: 'default-view' })}
                 className='sceneBtn'
                 style={{ background: popupData.type === 'default-view' ? '#1e90ff' : '#2a4e6f', width: '100%', flex: 'none' }}
