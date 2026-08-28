@@ -186,60 +186,41 @@ export const welcomeInfo = (adminUrl) => ({
 	},
 	changelogs: [
 		{
-			type: 'update',
-			version: '1.7.5 - 18 Aug, 2026',
+			type: 'new',
+			version: '1.7.5 - 28 Aug, 2026',
 			list: [
-				'Update: Increased Multi-Scene Virtual Tours free scene limit from 2 to 6 scenes (with up to 6 interactive hotspots per scene).',
-				'New: Added "Device Orientation (Gyroscope)" toggle control to Image 360° and Virtual Tour blocks and Admin Settings metabox.',
-				'Unlocked: Made "Set as Initial View" button and custom FOV / Zoom starting angle controls completely FREE across all Gutenberg blocks and Admin Settings metaboxes.'
+				'<strong>New:</strong> 360° Interaction Analytics Dashboard with impression logs, hotspot click stats, dwell duration, and sales conversions [Pro].',
+				'<strong>New:</strong> Interactive WooCommerce Product Hotspots with native product selection, price badges, and instant Add to Cart [Pro].',
+				'<strong>New:</strong> Added Cubemap (6-Face Box Projection) & Cylindrical (Smartphone Panoramas) projection formats.',
+				'<strong>New:</strong> Expanded Free Virtual Tour limit to 6 scenes per tour (previously 2 scenes).',
+				'<strong>New:</strong> Moved Gyroscope / Device Motion Tilt navigation control to the Free tier.',
+				'<strong>New:</strong> Moved Set Default / Initial View (FOV, Pitch & Yaw orientation) to the Free tier.',
+				'<strong>Improved:</strong> Enhanced hotspot selection toolbar and block editor interface.'
 			]
 		},
 		{
 			type: 'new',
 			version: '1.7.4 - 11 July, 2026',
 			list: [
-				'New: Added Link, Image, and Video hotspot support inside 360 Virtual Tours with aligned setup popups and media uploader type restrictions.',
-				'Improved: Upgraded WooCommerce Product editor metabox fields (Panorama Settings) with meaningful help descriptions and modern copy-badge clipboard layouts.',
-				'Improved: Optimized Product Spot layouts (Simple, Tippy, Sidepanel) with enhanced Sidepanel ratios and reliable AJAX saving.'
+				'<strong>New:</strong> Added Link, Image, and Video hotspot support inside 360 Virtual Tours with aligned setup popups and media uploader type restrictions.',
+				'<strong>Improved:</strong> Upgraded WooCommerce Product editor metabox fields (Panorama Settings) with meaningful help descriptions and modern copy-badge clipboard layouts.',
+				'<strong>Improved:</strong> Optimized Product Spot layouts (Simple, Tippy, Sidepanel) with enhanced Sidepanel ratios and reliable AJAX saving.'
 			]
-		},
-		{
-			type: 'fix',
-			version: '1.7.3 - 29 Jun, 2026',
-			list: [
-				'Fix: Scoped admin styles to the plugin\'s own screens, preventing scroll and layout conflicts on other WordPress admin pages.',
-				'Fix: Resolved Device Motion (sensor) mode conflict in the 360° image viewers and added gyroscope/accelerometer permissions to embed iframes so sensor mode works in Chrome.',
-				'Improve: Improved functionality of picture-in-picture (PiP) mode in the 360° video viewer.'
-			]
-		},
-		{
-			type: 'update',
-			version: '1.7.2 - 14 Jun, 2026',
-			list: [
-				'Update: Redesigned and modernized the admin dashboard welcome screen with dynamic builder integration tabs (Gutenberg, Shortcode) and status checks.'
-			]
-		},
-		{
-			type: 'new',
-			version: '1.7.1 - 04 Jun, 2026',
-			list: [
-				'Enhancement: Kept the Panorama Type selection field visible globally across all tabs with tab state persistence.'
-			]
-		},
+		}
 	],
 	changelogsLimit: 2,
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
-		'Seamlessly display panoramic photos, videos, and multi-scene tours.',
-		'Connect unlimited 360° scenes using customizable hotspots (links, images, videos, etc.) and tooltips.',
-		'Embed any public Google Street View location directly into your pages.',
-		'Organize mixed collections of photos and videos in beautiful responsive layouts.',
-		'Customize columns, grids, spacing, and item display limits with ease.',
-		'Keep visitors engaged with automated panning that pauses on user interaction.',
-		'Set the perfect initial angle, pitch, and zoom level for every panorama.',
-		'Includes fullscreen toggle, picture-in-picture, and video speed control.',
-		'Add, remove, or customize zoom, drag, orientation, and virtual compass settings.',
-		'Display customizable title and credit overlays on your viewer interface.'
+		'360° Interaction Analytics Dashboard with impression logs, click stats, and conversion metrics.',
+		'Interactive WooCommerce Product Hotspots with price badges and instant Add to Cart.',
+		'WooCommerce Single Product 360° Video & custom gallery placement options.',
+		'Unlimited Multi-Scene Virtual Tours with rich Image, Video, and Product hotspots.',
+		'Preview Cover Image with custom load button for faster page loading speed.',
+		'Auto-Rotate Inactivity Delay resume and customizable panning speeds.',
+		'Responsive Panorama Gallery & Grid layouts with Load More pagination.',
+		'Interactive Compass Overlay, Kiosk Exhibition Lock, and custom player buttons.',
+		'360° Video Picture-in-Picture mode and playback speed controls (0.5x to 2x).',
+		'External CDN & Direct URL support for remote image and video hosting.'
 	]
 })
 

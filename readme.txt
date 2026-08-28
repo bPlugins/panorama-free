@@ -1,8 +1,8 @@
-=== Panorama – turn photos into immersive virtual tours ===
+=== Panorama – Turn Photos into Immersive Virtual Tours ===
 Contributors: bplugins, abuhayat, freemius, shamim10, farazi1
 Tags: panorama, 360 degree, 3d, virtual tour, krpano, 
 Requires at least: 6.5
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 1.7.5
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
@@ -32,30 +32,34 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 
 = Free Features = 
 
-- **Multi-Scene Virtual Tours (Free)**: Connect up to 6 scenes (expanded from 2) with up to 6 hotspots per scene (Info, Scene, and Link hotspots) and smooth transitions.
+- **Multi-Scene Virtual Tours (Free)**: Connect up to 6 scenes per tour with up to 6 hotspots per scene (Info, Scene, and Link hotspots) and smooth transitions.
+- **Cubemap / 6-Cube Face Format**: Upload 6 individual cube face images (Front, Back, Left, Right, Up, Down) for high-performance 360° scenes and WooCommerce product panoramas.
+- **Cylindrical Smartphone Panoramas**: Full support for partial panoramas with custom HAOV, VAOV, and vOffset controls on virtual tours and WooCommerce product pages.
+- **WooCommerce Product Panorama Embed**: Display 360° images on your single product page (top, bottom, replace main image, or a dedicated "360° View" tab) with auto-rotate — no coding required.
+- **Interactive Product Spot**: Highlight physical product details with interactive hotspot markers (up to 3 spots).
 - **Device Orientation (Gyroscope)**: Enable mobile and tablet visitors to explore 360° panoramas and virtual tours naturally by tilting and moving their physical device.
-- **Initial View & FOV / Zoom Control (Free)**: Easily customize and lock the starting camera angle (Pitch, Yaw, HFOV or X, Y, Z coordinates) with a single click using the "Set as Initial View" button in block editor or admin metabox.
-- **WooCommerce Integration (Basic)**: Embed 360° Images and Product Hotspots directly into WooCommerce product pages.
-- **Gutenberg Blocks Support**: Includes 8 dedicated blocks (Image 360°, Image 3D, Video, Video 360°, Google Street View, Gallery, Virtual Tour, and Product Spot).
-- **Product Spot**: Highlight product details with interactive hotspots (up to 3 spots).
-- **Google Street View (Basic)**: Embed Google Street View panoramas easily by entering the Panorama ID.
-- **Media Uploads**: Upload and display panoramic images and videos from the WordPress media library.
-- **Auto-Rotation**: Enable auto-rotate and customize rotation speed in degrees per second.
-- **Shortcode API & Embed URLs**: Generate shortcodes to place viewers anywhere, and use public URLs to share content.
-- **Elementor & Page Builder Compatible**: Works seamlessly with Elementor and other builders using shortcodes.
-- **Lightweight & Fast**: Optimized performance to ensure fast loading times without bloat.
- 
+- **Initial View & FOV / Zoom Control**: Customize and lock the starting camera angle (Pitch, Yaw, HFOV) with a single click using the "Set as Initial View" button.
+- **360° Image & Video Viewers**: Embed panoramic photos and 360-degree videos with full player navigation.
+- **Google Street View Integration**: Easily embed interactive Google Street View locations by simply entering a Panorama ID.
+- **Auto Rotate Controls**: Keep the viewing experience active with smooth auto-rotation and customizable speeds.
+- **8 Dedicated Gutenberg Blocks**: Specialized blocks for Image 360°, Image 3D, Video, Video 360°, Google Street View, Gallery, Virtual Tour, and Product Spot.
+- **Developer Shortcode API & Embed URLs**: Universal shortcodes `[panorama id="123"]`, `[virtual-tour id="456"]`, `[panorama_product_viewer]`, `[product_spot id="789"]`, and shareable iframe embed URLs.
+- **Seamless Elementor Integration**: Easily embed any 360° photo, video, or virtual tour into Elementor pages using generated shortcodes (e.g. `[panorama id="123"]`) via Elementor's native Shortcode Widget — no complex configuration needed.
 
 = Pro Features =
 
-- **WooCommerce Video Integration**: Add 360° and standard panoramic videos directly to WooCommerce product galleries.
-- **360° Virtual Tour Pro**: Connect unlimited scenes and unlimited hotspots with Info, Scene, Link, Image, and Video hotspots.
-- **Advanced Navigation & Interaction**: Configure fullscreen modes, draggable panoramas, mouse scroll-to-zoom toggles, and virtual compass guides.
-- **Auto-Rotation Inactivity Delay**: Automatically pause and resume rotation when a user interacts with the viewer.
-- **Premium Video Playback**: Picture-in-Picture mode, playback speed controls, and advanced video controls.
-- **Title & Author Info**: Add customizable context overlays displaying title and author credits.
-- **Rich Galleries**: Custom grid layouts, spacing, item limits, sorting, and "Load More" button customization.
-- **Advanced Google Street View**: Premium interactive settings and customized auto-rotation controls.
+- **360° Interaction Analytics Dashboard**: Track impressions, hotspot click counts, active view duration, and WooCommerce sales conversions with responsive charts and live activity stream.
+- **Interactive WooCommerce Product Hotspots**: Connect 360° hotspots directly to WooCommerce products, display live price badges, and enable instant Add to Cart buttons.
+- **WooCommerce Product Video & Advanced Controls**: Add 360° product videos, custom initial view angle, playback controls, and title/author overlays to your product panorama.
+- **Virtual Tour Pro (Unlimited)**: Connect unlimited scenes and unlimited hotspots per scene without any restrictions.
+- **Rich Image & Video Hotspots**: Display interactive Image popups and Video modal popups directly inside virtual tour scenes.
+- **Preview Cover Image & Custom Load Button**: Display a lightweight preview cover image with a customizable load button (e.g., "Click to Explore 360°") to maximize page loading speed.
+- **Inactivity Delay Auto-Rotate Resume**: Automatically pause rotation when a user drags, and resume auto-rotation after a customizable inactivity delay.
+- **Panorama Gallery**: Build responsive column and grid layouts of multiple panoramas with Load More pagination.
+- **Interactive Compass Overlay**: Keep users oriented in 360° spaces by enabling a native directional compass guide.
+- **Custom Player & Navigation Controls**: Add custom UI buttons for Pan Up, Down, Left, Right, Zoom, Fullscreen, and Video Playback Speed (0.5x, 1x, 1.5x, 2x) with Picture-in-Picture mode.
+- **Kiosk & Exhibition Interaction Lock**: Option to disable keyboard navigation and double-click zoom for museum and showroom displays.
+- **External Media CDN / URL Support**: Use direct third-party CDN or external URLs for images and videos.
 
 
 ### Who Should Use Panorama Viewer Plugin?
@@ -171,10 +175,14 @@ e.g.
 
 == Changelog ==
 
-= 1.7.5 - 18 Aug, 2026 =
-* **Update:** Increased Multi-Scene Virtual Tours free scene limit from 2 to 6 scenes (with up to 6 interactive hotspots per scene).
-* **New:** Added "Device Orientation (Gyroscope)" toggle control to Image 360° and Virtual Tour blocks and Admin Settings metabox.
-* **Unlocked:** Made "Set as Initial View" button and custom FOV / Zoom starting angle controls completely FREE across all Gutenberg blocks and Admin Settings metaboxes.
+= 1.7.5 - 28 Aug, 2026 =
+* **New:** 360° Interaction Analytics Dashboard with impression logs, hotspot click stats, dwell duration, and sales conversions [Pro].
+* **New:** Interactive WooCommerce Product Hotspots with native product selection, price badges, and instant Add to Cart [Pro].
+* **New:** Added Cubemap (6-Face Box Projection) & Cylindrical (Smartphone Panoramas) projection formats.
+* **New:** Expanded Free Virtual Tour limit to 6 scenes per tour (previously 2 scenes).
+* **New:** Moved Gyroscope / Device Motion Tilt navigation control to the Free tier.
+* **New:** Moved Set Default / Initial View (FOV, Pitch & Yaw orientation) to the Free tier.
+* **Improved:** Enhanced hotspot selection toolbar and block editor interface.
 
 = 1.7.4 - 11 July, 2026 =
 * **New:** Added Link, Image, and Video hotspot support inside 360 Virtual Tours with aligned setup popups and media uploader type restrictions.

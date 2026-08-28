@@ -300,7 +300,7 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
             {isBackend && isProFeatureModalOpen &&
                 <CustomModal
                     title="Premium Feature"
-                    des="Video and Image hotspots are premium features. Please upgrade to premium to use them."
+                    des="Video, Image, and WooCommerce Product hotspots are premium features. Please upgrade to premium to use them."
                     setFn={setIsProFeatureModalOpen}
                     link={siteLocation}
                 />

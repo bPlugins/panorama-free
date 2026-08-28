@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: Panorama – turn photos into immersive virtual tours
+ * Plugin Name: Panorama – Turn Photos into Immersive Virtual Tours
  * Description: A lite Weight Plugin that helps you, Easily display panoramic 360 degree images / videos into WordPress Website in Post, Page, Widget Area using shortCode. 
  * Plugin URI:  https://bplugins.com/products/panorama
  * Version: 1.7.5

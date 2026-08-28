@@ -272,7 +272,7 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
               labelPosition="left"
               value={val?.type}
               onChange={(value) => {
-                if ((value === 'video' || value === 'image') && !premiumProps?.isPremium) {
+                if ((value === 'video' || value === 'image' || value === 'product') && !premiumProps?.isPremium) {
                   setIsProFeatureModalOpen(true);
                   return;
                 }
@@ -284,6 +284,7 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
                 { value: "link", label: "Link" },
                 { value: "video", label: "Video" },
                 { value: "image", label: "Image" },
+                { value: "product", label: "WooCommerce Product" },
               ]}
             />
 
@@ -389,7 +390,7 @@ const Item = ({ attributes, setAttributes, premiumProps, arrKey, index, setActiv
       {isProFeatureModalOpen && (
         <CustomModal
           title="Premium Feature"
-          des="Video and Image hotspots are premium features. Please upgrade to premium to use them."
+          des="Video, Image, and WooCommerce Product hotspots are premium features. Please upgrade to premium to use them."
           setFn={setIsProFeatureModalOpen}
           link={siteLocation}
         />
