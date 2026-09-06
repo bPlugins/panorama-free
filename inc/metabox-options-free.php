@@ -255,9 +255,10 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
           ),
           
           $this->pro_feature_list( array(
-            'Multi-item Gallery'      => 'Display multiple panoramic scenes or videos in a single unified grid.',
-            'Custom Layout & Columns' => 'Control gallery limits, grid columns, and column spacing layout.',
-            'AJAX Load More'          => 'Enable smooth asynchronous loading for items in your gallery.',
+            'Multi-item Gallery'               => 'Display multiple panoramic scenes or videos in a single unified grid.',
+            'Item Titles & Descriptions (NEW)' => 'Add customizable title and description cards under each gallery thumbnail.',
+            'Custom Layout & Columns'          => 'Control gallery limits, grid columns, and column spacing layout.',
+            'AJAX Load More'                   => 'Enable smooth asynchronous loading for items in your gallery.',
           ), array( 'bppiv_type', '==', 'gallery' ) ),
 
           $this->pro_feature_list( array(
@@ -288,6 +289,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
           array(
             'type'    => 'content',
             'content' => $this->pro_feature_html( array(
+              'Item Title & Description Styling (NEW)' => 'Full control over typography, font size, line-height, and font color for titles and descriptions.',
               'Load More Button Text'  => 'Customize the typography and custom text on the action button.',
               'Load More Text Color'   => 'Full control over text color settings matching your layout.',
               'Button Background'      => 'Apply custom button background colors to fit your brand.',

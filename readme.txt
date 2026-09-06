@@ -56,6 +56,7 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 - **Preview Cover Image & Custom Load Button**: Display a lightweight preview cover image with a customizable load button (e.g., "Click to Explore 360°") to maximize page loading speed.
 - **Inactivity Delay Auto-Rotate Resume**: Automatically pause rotation when a user drags, and resume auto-rotation after a customizable inactivity delay.
 - **Panorama Gallery**: Build responsive column and grid layouts of multiple panoramas with Load More pagination.
+- **Panorama Gallery Title, Description & Read More**: Display custom item titles and descriptions with typography controls, color customization, text truncation (Ellipsis), and custom-colored "Read More / Read Less" expand buttons.
 - **Interactive Compass Overlay**: Keep users oriented in 360° spaces by enabling a native directional compass guide.
 - **Custom Player & Navigation Controls**: Add custom UI buttons for Pan Up, Down, Left, Right, Zoom, Fullscreen, and Video Playback Speed (0.5x, 1x, 1.5x, 2x) with Picture-in-Picture mode.
 - **Kiosk & Exhibition Interaction Lock**: Option to disable keyboard navigation and double-click zoom for museum and showroom displays.
@@ -175,9 +176,7 @@ e.g.
 
 == Changelog ==
 
-= 1.7.5 - 28 Aug, 2026 =
-* **New:** 360° Interaction Analytics Dashboard with impression logs, hotspot click stats, dwell duration, and sales conversions [Pro].
-* **New:** Interactive WooCommerce Product Hotspots with native product selection, price badges, and instant Add to Cart [Pro].
+= 1.7.5 - 06 Sep, 2026 =
 * **New:** Added Cubemap (6-Face Box Projection) & Cylindrical (Smartphone Panoramas) projection formats.
 * **New:** Expanded Free Virtual Tour limit to 6 scenes per tour (previously 2 scenes).
 * **New:** Moved Gyroscope / Device Motion Tilt navigation control to the Free tier.

@@ -187,10 +187,8 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogs: [
 		{
 			type: 'new',
-			version: '1.7.5 - 28 Aug, 2026',
+			version: '1.7.5 - 06 Sep, 2026',
 			list: [
-				'<strong>New:</strong> 360° Interaction Analytics Dashboard with impression logs, hotspot click stats, dwell duration, and sales conversions [Pro].',
-				'<strong>New:</strong> Interactive WooCommerce Product Hotspots with native product selection, price badges, and instant Add to Cart [Pro].',
 				'<strong>New:</strong> Added Cubemap (6-Face Box Projection) & Cylindrical (Smartphone Panoramas) projection formats.',
 				'<strong>New:</strong> Expanded Free Virtual Tour limit to 6 scenes per tour (previously 2 scenes).',
 				'<strong>New:</strong> Moved Gyroscope / Device Motion Tilt navigation control to the Free tier.',
