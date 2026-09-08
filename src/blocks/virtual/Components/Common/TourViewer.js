@@ -28,6 +28,72 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
     const [isProFeatureModalOpen, setIsProFeatureModalOpen] = useState(false);
     const [activePopupHotspot, setActivePopupHotspot] = useState(null);
 
+    const trackAnalyticsEvent = (eventType, extraData = {}) => {
+        if (isBackend) return;
+        const analyticsData = window.bppivAnalyticsData;
+        if (!analyticsData || !analyticsData.enabled || !analyticsData.endpoint) return;
+
+        const formData = new FormData();
+        formData.append('event_type', eventType);
+        if (extraData.productId) formData.append('product_id', extraData.productId);
+        if (extraData.hotspotId) formData.append('hotspot_id', extraData.hotspotId);
+        if (extraData.hotspotLabel) formData.append('hotspot_label', extraData.hotspotLabel);
+        if (extraData.tourId) formData.append('tour_id', extraData.tourId || currentScene?.tour_id || '');
+        if (extraData.dwellTime) formData.append('dwell_time', extraData.dwellTime);
+
+        if (eventType === 'dwell_time' && navigator.sendBeacon) {
+            navigator.sendBeacon(analyticsData.endpoint, formData);
+        } else {
+            fetch(analyticsData.endpoint, { method: 'POST', body: formData, keepalive: true }).catch(() => { });
+        }
+    };
+
+    window.bppivTrackAnalytics = trackAnalyticsEvent;
+
+    useEffect(() => {
+        if (isBackend) return;
+
+        let productId = 0;
+        if (window.bppivProductData && window.bppivProductData.productId) {
+            productId = window.bppivProductData.productId;
+        } else if (document.body) {
+            const bodyClass = document.body.className;
+            const match = bodyClass.match(/postid-(\d+)|product-(\d+)/);
+            if (match) {
+                productId = parseInt(match[1] || match[2], 10);
+            }
+        }
+
+        trackAnalyticsEvent('impression', { productId });
+
+        const startTime = Date.now();
+        let dwellBeaconSent = false;
+
+        const sendDwellTime = () => {
+            if (dwellBeaconSent) return;
+            dwellBeaconSent = true;
+            const duration = Math.round((Date.now() - startTime) / 1000);
+            if (duration >= 1) {
+                trackAnalyticsEvent('dwell_time', { dwellTime: duration, productId });
+            }
+        };
+
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === 'hidden') {
+                sendDwellTime();
+            }
+        };
+
+        window.addEventListener('visibilitychange', handleVisibilityChange);
+        window.addEventListener('pagehide', sendDwellTime);
+
+        return () => {
+            sendDwellTime();
+            window.removeEventListener('visibilitychange', handleVisibilityChange);
+            window.removeEventListener('pagehide', sendDwellTime);
+        };
+    }, [isBackend]);
+
     const activeScene = scenes.find((s) => s.tour_id === currentScene?.tour_id) || currentScene || scenes[0];
     const isCurrentSceneCubemap = activeScene?.panoramaFormat === 'cubemap';
     const isCurrentSceneAllFacesUploaded = Boolean(

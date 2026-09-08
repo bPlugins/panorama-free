@@ -50,6 +50,15 @@ export const createModifiedHotspots = (scenes, currentScene, spot, isBackend, in
         if (event && event.target && (event.target.closest('.edit-btn') || event.target.closest('.delete-btn') || event.target.closest('.action-buttons'))) {
             return;
         }
+
+        if (window.bppivTrackAnalytics) {
+            window.bppivTrackAnalytics('hotspot_click', {
+                hotspotId: spot.sceneId || spot.text || spot.type,
+                hotspotLabel: spot.text || spot.type,
+                productId: spot.productId || 0
+            });
+        }
+
         if (spot.type === 'scene' && spot.lookAt) {
             window?.viewer.lookAt(spot.lookAt.pitch, spot.lookAt.yaw);
         } else if (spot.type === 'link') {

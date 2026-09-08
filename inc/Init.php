@@ -28,6 +28,7 @@
             Base\Blocks::class,
             Base\Admin::class,
             Base\Ajax::class,
+            Analytics\AnalyticsManager::class,
         ];
     }
  

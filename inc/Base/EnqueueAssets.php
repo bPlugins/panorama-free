@@ -11,6 +11,32 @@ class EnqueueAssets{
         add_action('enqueue_block_assets', [$this, 'bppiv_registerFrontEndAssets']);
         add_action('admin_enqueue_scripts', [$this, 'bppiv_registerBackendAssets']);
         add_action('admin_enqueue_scripts', [$this, 'bppiv_registerFrontEndAssets']);
+        add_action('admin_enqueue_scripts', [$this, 'printAnalyticsEditorData'], 1);
+        add_action('enqueue_block_editor_assets', [$this, 'printAnalyticsEditorData'], 1);
+        add_action('wp_head', [$this, 'printAnalyticsFrontendData'], 1);
+    }
+
+    public function printAnalyticsEditorData() {
+        $analytics_data = [
+            'endpoint'   => esc_url_raw(rest_url('bppiv/v1/track-analytics')),
+            'enabled'    => true,
+            'isWcActive' => class_exists('WooCommerce'),
+        ];
+        wp_register_script('bppiv-editor-analytics-data', '', [], BPPIV_VERSION, false);
+        wp_enqueue_script('bppiv-editor-analytics-data');
+        wp_add_inline_script('bppiv-editor-analytics-data', 'window.bppivAnalyticsData = ' . wp_json_encode($analytics_data) . '; window.bppivEditorData = ' . wp_json_encode($analytics_data) . ';', 'before');
+    }
+
+    public function printAnalyticsFrontendData() {
+        if (is_admin()) {
+            return;
+        }
+        $analytics_data = [
+            'endpoint'   => esc_url_raw(rest_url('bppiv/v1/track-analytics')),
+            'enabled'    => true,
+            'isWcActive' => class_exists('WooCommerce'),
+        ];
+        echo "<script id='bppiv-analytics-data-js'>window.bppivAnalyticsData = " . wp_json_encode($analytics_data) . ";</script>\n";
     }
 
     public function bppiv_registerFrontEndAssets(){
@@ -38,6 +64,15 @@ class EnqueueAssets{
         // style
         wp_register_style( 'bppiv-font-material', 'https://fonts.googleapis.com/icon?family=Material+Icons', [], BPPIV_VERSION );
         wp_register_style( 'bppiv-main-style', BPPIV_PLUGIN_DIR . 'public/assets/css/style.css', [], BPPIV_VERSION );
+
+        $analytics_data = [
+            'endpoint' => esc_url_raw(rest_url('bppiv/v1/track-analytics')),
+            'enabled'  => true,
+        ];
+        $handles = ['bppiv-init', 'bppiv-product', 'panorama-virtual-tour-view-script', 'panorama-image-360-view-script', 'panorama-tour-view-script'];
+        foreach ($handles as $h) {
+            wp_localize_script($h, 'bppivAnalyticsData', $analytics_data);
+        }
     }
     
      public function bppiv_registerBackendAssets($screen){

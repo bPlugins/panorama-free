@@ -1,6 +1,16 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const panoramas = document.querySelectorAll("#bppiv_product_panorama");
 
+  if (panoramas.length > 0 && window.bppivAnalyticsData && window.bppivAnalyticsData.enabled && window.bppivAnalyticsData.endpoint) {
+    const match = document.body ? document.body.className.match(/postid-(\d+)|product-(\d+)/) : null;
+    const productId = match ? parseInt(match[1] || match[2], 10) : 0;
+    if (productId) {
+      const formData = new FormData();
+      formData.append('event_type', 'impression');
+      formData.append('product_id', productId);
+      fetch(window.bppivAnalyticsData.endpoint, { method: 'POST', body: formData, keepalive: true }).catch(() => {});
+    }
+  }
 
   panoramas.forEach((container) => {
     // get elements

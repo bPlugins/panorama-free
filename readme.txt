@@ -3,7 +3,7 @@ Contributors: bplugins, abuhayat, freemius, shamim10, farazi1
 Tags: panorama, 360 degree, 3d, virtual tour, krpano, 
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.7.5
+Stable tag: 1.8.0
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -26,9 +26,8 @@ The Free version comes with fully functional blocks for all media types, includi
 
 Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspots, full WooCommerce video integration, advanced viewer customization (inactivity delay auto-rotation, custom navigation controls), galleries with load-more pagination, title/author overlays, and virtual compass guides.
  
- 
-**[See Live Demos](https://bplugins.com/products/panorama/#demos)** 
-**[Get Pro Version](https://bplugins.com/products/panorama/pricing)** 
+
+[**Panorama Viewer**](https://bplugins.com/products/panorama/) | [**Documentation**](https://bplugins.com/docs/panorama/) | [**Pricing**](https://bplugins.com/products/panorama/pricing) | [**Support**](https://bplugins.com/support/) | [**Demo**](https://bplugins.com/products/panorama/#demos)
 
 = Free Features = 
 
@@ -103,10 +102,10 @@ This plugin bundles the following third-party JavaScript/PHP libraries.
 * **Purpose:** Provides opt-in usage tracking and analytics to help improve the plugin.
 
 = bpl-tools =
-* Source / GitHub: https://github.com/bPlugins/bpl-tools
-* License: GPL-2.0-or-later – https://www.gnu.org/licenses/gpl-2.0.html
-* Purpose: Shared utility library providing admin dashboard components and common Gutenberg editor controls.
-* External Services: The library may connect to bPlugins, WordPress.org, and Freemius services for product data and checkout functionality. See full details: https://github.com/bPlugins/bpl-tools#external-requests--why-they-are-made
+* **Source / GitHub:** https://github.com/bPlugins/bpl-tools
+* **License:** GPL-2.0-or-later – https://www.gnu.org/licenses/gpl-2.0.html
+* **Purpose:** Shared utility library providing admin dashboard components and common Gutenberg editor controls.
+* **External Services:** The library may connect to bPlugins, WordPress.org, and Freemius services for product data and checkout functionality. See full details: https://github.com/bPlugins/bpl-tools#external-requests--why-they-are-made
 
 
 ### User Feedback
@@ -144,9 +143,9 @@ Please report security bugs found in the source code of the Panorama Viewer – 
 
 🔥 **[Html5 Video Player](https://wpvideoplayer.com/)** – Best video player plugin for WordPress.
 
-🔥 **[PDF Poster](http://pdfposter.com/)** – A fully-featured PDF Viewer Plugin for WordPresss.
+🔥 **[StreamCast](https://bplugins.com/products/streamcast-radio-player/)** – A fully-featured Radio Player Plugin for WordPresss.
 
-🔥 **[StreamCast](https://wordpress.org/plugins/streamcast)** – A fully-featured Radio Player Plugin for WordPresss.
+🔥 **[PDF Poster](http://pdfposter.com/)** – A fully-featured PDF Viewer Plugin for WordPresss.
 
 🔥 **[3D Viewer](https://3d-viewer.bplugins.com/)** – Display interactive 3D models on the webs.
 
@@ -176,12 +175,12 @@ e.g.
 
 == Changelog ==
 
-= 1.7.5 - 06 Sep, 2026 =
-* **New:** Added Cubemap (6-Face Box Projection) & Cylindrical (Smartphone Panoramas) projection formats.
+= 1.8.0 - 08 Sep, 2026 =
+* **New:** 360° Interaction Analytics Dashboard for monitoring viewer impressions, hotspot clicks, and view durations (7-Day Overview).
+* **New:** Added Cubemap (6-Face Box Projection) & Cylindrical (Smartphone Panoramas) 360 projection formats.
 * **New:** Expanded Free Virtual Tour limit to 6 scenes per tour (previously 2 scenes).
-* **New:** Moved Gyroscope / Device Motion Tilt navigation control to the Free tier.
-* **New:** Moved Set Default / Initial View (FOV, Pitch & Yaw orientation) to the Free tier.
-* **Improved:** Enhanced hotspot selection toolbar and block editor interface.
+* **New:** Unlocked Gyroscope / Device Motion Tilt navigation control in the Free tier.
+* **New:** Unlocked Set Default / Initial View (FOV, Pitch & Yaw orientation) in the Free tier.
 
 = 1.7.4 - 11 July, 2026 =
 * **New:** Added Link, Image, and Video hotspot support inside 360 Virtual Tours with aligned setup popups and media uploader type restrictions.

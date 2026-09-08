@@ -1,0 +1,886 @@
+/* Analytics Dashboard Professional External Stylesheet */
+
+.bppiv-analytics-wrap {
+    max-width: 1240px;
+    margin: 20px auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #1e293b;
+}
+
+/* Header Banner */
+.bppiv-header-banner {
+    background: #ffffff;
+    padding: 20px 24px;
+    border-radius: 0;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 4px solid #146ef5;
+}
+
+.bppiv-header-banner h1 {
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.bppiv-header-banner p {
+    color: #64748b;
+    margin: 0;
+    font-size: 13px;
+}
+
+/* Date Range Tab Bar Navigation */
+.bppiv-date-tabs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.bppiv-date-tabs-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bppiv-date-tabs-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    white-space: nowrap;
+    margin-right: 2px;
+}
+
+.bppiv-date-tabs {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.bppiv-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-decoration: none !important;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.bppiv-tab-btn:hover {
+    color: #146ef5;
+    border-color: #146ef5;
+    background: #f0f7ff;
+}
+
+.bppiv-tab-btn.bppiv-tab-active {
+    background: #146ef5 !important;
+    color: #ffffff !important;
+    border-color: #146ef5 !important;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(20, 110, 245, 0.25);
+}
+
+.bppiv-tab-btn.bppiv-tab-locked {
+    background: #f8fafc;
+    color: #64748b;
+    border-color: #e2e8f0;
+}
+
+.bppiv-tab-btn.bppiv-tab-locked:hover {
+    background: #eff6ff;
+    color: #146ef5;
+    border-color: #93c5fd;
+}
+
+.bppiv-lock-icon {
+    font-size: 11px;
+    opacity: 0.75;
+}
+
+/* Pro Feature Lock Modal */
+.bppiv-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(4px);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.bppiv-modal-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 0;
+    border-top: 4px solid #146ef5;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    padding: 28px;
+    position: relative;
+    animation: bppivModalFadeIn 0.25s ease-out;
+}
+
+@keyframes bppivModalFadeIn {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bppiv-modal-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #94a3b8;
+    cursor: pointer;
+    line-height: 1;
+}
+.bppiv-modal-close-btn:hover { color: #0f172a; }
+
+.bppiv-modal-lock-badge {
+    display: inline-block;
+    background: #eff6ff;
+    color: #146ef5;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 0;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    border: 1px solid #bfdbfe;
+}
+
+.bppiv-modal-header h2 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.bppiv-modal-header p {
+    margin: 0 0 16px 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.bppiv-modal-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 14px 16px;
+}
+
+.bppiv-modal-feature-list li {
+    font-size: 13px;
+    color: #334155;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    display: flex;
+    /* flex-start (not center): a longer label like "Real-time Stream & Export" wraps onto a
+       second line - centering then pulls the checkmark down to the middle of that wrapped
+       block instead of lining up with the first line, next to the shorter one-line rows. */
+    align-items: flex-start;
+    gap: 8px;
+}
+.bppiv-modal-feature-list li:last-child { margin-bottom: 0; }
+
+.bppiv-check {
+    /* Nudged down to align with the cap-height of the first line of text beside it, now that
+       align-items is flex-start rather than center. */
+    margin-top: 1px;
+    color: #10b981;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.bppiv-modal-footer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.bppiv-btn-upgrade-modal {
+    flex: 1;
+    text-align: center;
+    background: #146ef5;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 18px;
+    border-radius: 0;
+    text-decoration: none !important;
+    box-shadow: 0 4px 6px -1px rgba(20, 110, 245, 0.3);
+    transition: all 0.2s ease;
+}
+.bppiv-btn-upgrade-modal:hover { background: #0b5ed7; }
+
+.bppiv-btn-close-modal {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 10px 16px;
+    border-radius: 0;
+    cursor: pointer;
+}
+.bppiv-btn-close-modal:hover { background: #e2e8f0; }
+
+.bppiv-tab-pro-tag {
+    font-size: 9px;
+    font-weight: 800;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 1px 5px;
+    border-radius: 0;
+    letter-spacing: 0.3px;
+}
+
+/* Custom Date Picker Form */
+.bppiv-custom-date-form {
+    margin-top: 4px;
+}
+
+.bppiv-custom-date-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    background: #ffffff;
+    padding: 6px 12px;
+    border: 1px solid #cbd5e1;
+}
+
+.bppiv-custom-date-inputs input[type="date"] {
+    font-size: 12px;
+    padding: 4px 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 0;
+    outline: none;
+    color: #0f172a;
+}
+
+.bppiv-btn-apply-date {
+    background: #146ef5;
+    color: #ffffff;
+    border: none;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.bppiv-btn-apply-date:hover {
+    background: #0284c7;
+}
+
+/* 4 KPI Summary Cards Grid */
+.bppiv-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.bppiv-kpi-card {
+    background: #ffffff;
+    border-radius: 0;
+    padding: 18px 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.bppiv-kpi-card .bppiv-kpi-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+}
+
+.bppiv-kpi-card .bppiv-kpi-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bppiv-kpi-card .bppiv-kpi-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 4px 0 2px 0;
+}
+
+.bppiv-kpi-card .bppiv-kpi-meta {
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Charts Grid */
+.bppiv-charts-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.bppiv-card-box {
+    background: #ffffff;
+    border-radius: 0;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+    /* A grid item's default min-width is "auto" (its content's min-content size) - without this,
+       a wide trend-bars row refuses to clip/scroll inside the card and instead forces the whole
+       grid track (and the page) wider, pushing a horizontal scrollbar onto the entire dashboard. */
+    min-width: 0;
+}
+
+.bppiv-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.bppiv-card-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.bppiv-card-header .bppiv-sub-label {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Chart Container & Legends */
+.bppiv-chart-legend {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    flex-wrap: wrap;
+}
+
+.bppiv-chart-legend .bppiv-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.bppiv-chart-legend .bppiv-legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 0;
+}
+
+/* Per-day Trend Bars (used for every date range - see .bppiv-trend-bars below for the
+   fixed-width-per-day + horizontal-scroll behavior that replaces squeezing bars to fit) */
+/* Positioned INSIDE the bar-group's own box (near its top), not popped above it with
+   bottom:100% - a horizontally-scrolling ancestor (overflow-x: auto) forces overflow-y to
+   clip too per the CSS spec, so anything escaping above/below that ancestor's box - like a
+   tooltip that used to pop above the bars - was being silently clipped to nothing. */
+.bppiv-trend-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    /* Raised well above the bar-group's own box, but still within the wrap's top padding
+       buffer (see .bppiv-trend-bars-wrap) so it doesn't get clipped when scrolling. */
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    background: #0f172a;
+    color: #ffffff;
+    padding: 10px 14px;
+    font-size: 11px;
+    white-space: nowrap;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    border: 1px solid #334155;
+    text-align: left;
+}
+
+.bppiv-trend-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #0f172a transparent transparent transparent;
+}
+
+.bppiv-trend-tooltip-date {
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+    font-size: 11px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 4px;
+}
+
+.bppiv-trend-tooltip-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 3px;
+    color: #cbd5e1;
+}
+
+.bppiv-trend-tooltip-row strong {
+    color: #ffffff;
+    margin-left: 10px;
+}
+
+.bppiv-trend-tooltip-row-last {
+    border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    padding-top: 4px;
+    margin-top: 6px;
+}
+
+.bppiv-trend-tt-key {
+    display: inline-block;
+    width: 10px;
+    height: 3px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+/* Bars. Horizontal scroll is OPT-IN via the .bppiv-trend-scrollable modifier class (added in
+   PHP only once there are more than 7 days) - below that, `overflow-x` isn't set at all, so
+   there is no mechanism left that could possibly draw a scrollbar, however the width math
+   works out. At/above the threshold, bars stop shrinking (flex-shrink: 0) and the row overflows
+   the card on purpose, scrolling horizontally instead of every bar being crushed thinner.
+
+   The frame (background/border/height/padding) lives on the WRAP, not on the flex row itself -
+   the wrap's own box always stays exactly the card's width (it never resizes to match
+   overflowing children), so it paints correctly at every scroll position instead of only
+   across whatever was visible on the first screenful. */
+.bppiv-trend-bars-wrap {
+    width: 100%;
+    box-sizing: border-box;
+    height: 190px;
+    /* Extra top padding reserves headroom for the tooltip to rise into (see
+       .bppiv-trend-tooltip) without being clipped when the row is scrolling. */
+    padding: 32px 8px 4px 8px;
+    border-bottom: 1px solid #e2e8f0;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.bppiv-trend-bars-wrap.bppiv-trend-scrollable {
+    overflow-x: auto;
+}
+
+.bppiv-trend-bars {
+    display: flex;
+    align-items: flex-end;
+    /* flex-start (not center): centering overflowing flex content can leave its leading edge
+       permanently unreachable by scrolling in some browsers - always start at day 1. */
+    justify-content: flex-start;
+    height: 100%;
+    gap: 6px;
+}
+
+.bppiv-trend-bar-group {
+    /* Default (7 days or fewer, no scrolling): grow AND shrink freely so the row always renders
+       at exactly the card's width - there's no fixed basis to overflow past in the first place. */
+    flex: 1 1 0;
+    max-width: 160px;
+    /* A flex item's default min-width is "auto" (its content's min-content size) - without
+       this, a wide un-shrinkable value label like "121.8s" would refuse to shrink and quietly
+       force this column wider than intended. */
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
+    cursor: pointer;
+}
+
+.bppiv-trend-scrollable .bppiv-trend-bar-group {
+    /* Scrollable mode: never shrink below 76px, so the range overflows the row on purpose and
+       the wrap above scrolls, instead of every bar being crushed thinner to force a fit. */
+    flex: 1 0 76px;
+}
+
+.bppiv-trend-bar-cols {
+    display: flex;
+    gap: 3px;
+    align-items: flex-end;
+    justify-content: center;
+    width: 96%;
+    height: calc(100% - 24px);
+    min-width: 0;
+}
+
+.bppiv-trend-bar-col {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    min-width: 0;
+}
+
+.bppiv-trend-bar-val {
+    font-size: 8.5px;
+    font-weight: 800;
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+.bppiv-trend-bar-fill {
+    width: 100%;
+    border-radius: 2px 2px 0 0;
+    transition: filter 0.2s ease;
+}
+
+.bppiv-trend-bar-group:hover .bppiv-trend-bar-fill {
+    filter: brightness(1.12);
+}
+
+.bppiv-trend-bar-date {
+    font-size: 10px;
+    color: #64748b;
+    margin-top: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.bppiv-trend-bar-group:hover .bppiv-trend-tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-8px);
+}
+
+/* Top Hotspots List */
+.bppiv-hotspots-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bppiv-hotspot-item-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.bppiv-hotspot-item-meta .bppiv-hotspot-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 170px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.bppiv-hotspot-progress-bg {
+    width: 100%;
+    height: 6px;
+    background: #f1f5f9;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.bppiv-hotspot-progress-fill {
+    height: 100%;
+    border-radius: 0;
+}
+
+/* Performance Breakdown Table */
+.bppiv-table-scroll {
+    max-height: 260px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 0;
+}
+
+.bppiv-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+}
+
+.bppiv-table th {
+    padding: 10px 14px;
+    background: #f8fafc;
+    color: #64748b;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.bppiv-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Live Activity Stream */
+.bppiv-activity-stream {
+    max-height: 240px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 4px;
+}
+
+.bppiv-activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border-radius: 0;
+    border: 1px solid #f1f5f9;
+    font-size: 13px;
+}
+
+.bppiv-activity-badge {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 0;
+    text-transform: uppercase;
+}
+
+.bppiv-empty-state {
+    padding: 30px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 13px;
+    background: #f8fafc;
+    border-radius: 0;
+    border: 1px dashed #cbd5e1;
+}
+
+/* Mobile & Tablet Responsive Media Queries */
+@media screen and (max-width: 1024px) {
+    .bppiv-charts-grid,
+    .bppiv-bottom-free-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bppiv-analytics-wrap {
+        padding: 0 10px !important;
+    }
+
+    .bppiv-header-banner {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 14px !important;
+    }
+
+    .bppiv-kpi-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .bppiv-card-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .bppiv-kpi-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Free Mode Bottom 2-Column Grid Layout */
+.bppiv-bottom-free-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+/* Pro Teaser & Blur Overlay Styles */
+.bppiv-pro-blur-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.bppiv-pro-blurred {
+    filter: blur(1.8px);
+    opacity: 0.80;
+    pointer-events: none;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.bppiv-pro-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.30);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Modal Card Container (Open by Default) */
+.bppiv-pro-overlay-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-top: 4px solid #146ef5;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.14);
+    padding: 18px 24px;
+    border-radius: 0;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bppiv-pro-lock-badge {
+    background: #0f172a;
+    color: #f8fafc;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 0;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.bppiv-pro-overlay h4 {
+    font-size: 15px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 6px 0;
+}
+
+.bppiv-pro-overlay p {
+    font-size: 12px;
+    color: #475569;
+    max-width: 310px;
+    margin: 0 0 14px 0;
+    line-height: 1.4;
+}
+
+.bppiv-btn-upgrade {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #146ef5 0%, #6366f1 100%);
+    color: #ffffff !important;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 9px 18px;
+    border-radius: 0;
+    text-decoration: none !important;
+    box-shadow: 0 3px 8px rgba(20, 110, 245, 0.3);
+    transition: all 0.2s ease;
+}
+
+.bppiv-btn-upgrade:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(20, 110, 245, 0.4);
+    color: #ffffff !important;
+}
+
+.bppiv-pro-badge-tag {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 0;
+    border: 1px solid #cbd5e1;
+    display: inline-block;
+    margin-right: 2px;
+    transition: all 0.2s ease;
+}
+
+.bppiv-pro-badge-link {
+    color: #059669 !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.bppiv-pro-badge-link:hover {
+    color: #047857 !important;
+}
+
+.bppiv-pro-badge-link:hover .bppiv-pro-badge-tag {
+    background: #10b981;
+    color: #ffffff;
+    border-color: #059669;
+}
