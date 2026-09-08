@@ -70,8 +70,6 @@ JS
 	}
 
 	public function bppiv_load_metaboxes() {
-		if ( function_exists( 'panorama_fs' ) && panorama_fs()->is_free_plan() ) {
-			require_once BPPIV_PATH . 'inc/metabox-options-free.php';
-		}
+		require_once BPPIV_PATH . 'inc/metabox-options-free.php';
 	}
 }

@@ -126,14 +126,19 @@ class AnalyticsManager {
     }
 
     public function register_analytics_admin_menu() {
-        add_submenu_page(
+        $page_hook = add_submenu_page(
             'edit.php?post_type=bppiv-image-viewer',
-            __('Interaction Analytics', 'panorama'),
-            '<span style="white-space:nowrap;">' . __('Analytics', 'panorama') . ' <span style="background:#146ef5;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;text-transform:uppercase;line-height:1.2;display:inline-block;vertical-align:middle;margin-left:4px;">NEW</span></span>',
+            esc_html__('Interaction Analytics', 'panorama'),
+            '<span style="white-space:nowrap;">' . esc_html__('Analytics', 'panorama') . ' <span style="background:#146ef5;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;text-transform:uppercase;line-height:1.2;display:inline-block;vertical-align:middle;margin-left:4px;">NEW</span></span>',
             'manage_options',
             'bppiv-analytics',
             [$this, 'render_analytics_admin_page']
         );
+        add_action('admin_print_styles-' . $page_hook, [$this, 'enqueue_analytics_assets']);
+    }
+
+    public function enqueue_analytics_assets() {
+        wp_enqueue_style('bppiv-analytics-css', BPPIV_PLUGIN_DIR . 'inc/Analytics/assets/css/analytics.css', [], BPPIV_VERSION);
     }
 
     public function render_analytics_admin_page() {
@@ -161,7 +166,7 @@ class AnalyticsManager {
         $logs_table = $wpdb->prefix . 'bppiv_analytics_logs';
 
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-        $range = isset($_GET['range']) ? sanitize_key($_GET['range']) : ($is_premium ? '30days' : '7days');
+        $range = isset($_GET['range']) ? sanitize_key($_GET['range']) : '7days';
         $start_date = isset($_GET['start_date']) ? sanitize_text_field(wp_unslash($_GET['start_date'])) : '';
         $end_date = isset($_GET['end_date']) ? sanitize_text_field(wp_unslash($_GET['end_date'])) : '';
 

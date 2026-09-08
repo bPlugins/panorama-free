@@ -187,13 +187,13 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogs: [
 		{
 			type: 'new',
-			version: '1.8.0 - 08 Sep, 2026',
+			version: '1.8.0 - 09 Sep, 2026',
 			list: [
 				'<strong>New:</strong> 360° Interaction Analytics Dashboard for monitoring viewer impressions, hotspot clicks, and view durations (7-Day Overview).',
-				'<strong>New:</strong> Unlocked Gyroscope / Device Motion Tilt navigation control in the Free tier.',
-				'<strong>New:</strong> Unlocked Set Default / Initial View (FOV, Pitch & Yaw orientation) in the Free tier.',
+				'<strong>New:</strong> Added Cubemap (6-Face Box Projection) & Cylindrical (Smartphone Panoramas) 360 projection formats.',
 				'<strong>New:</strong> Expanded Free Virtual Tour limit to 6 scenes per tour (previously 2 scenes).',
-				'<strong>New:</strong> Added Cubemap (6-Face Box Projection) & Cylindrical (Smartphone Panoramas) 360 projection formats.'
+				'<strong>New:</strong> Unlocked Gyroscope / Device Motion Tilt navigation control in the Free tier.',
+				'<strong>New:</strong> Unlocked Set Default / Initial View (FOV, Pitch & Yaw orientation) in the Free tier.'
 			]
 		},
 		{

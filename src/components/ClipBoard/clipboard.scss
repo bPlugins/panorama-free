@@ -35,15 +35,13 @@ $primaryColor: #146EF5;
             justify-content: center;
 
             .shortcode_copy_btn {
-                flex: 1;
-                max-width: 248px;
-                display: flex;
+                display: inline-flex;
                 align-items: center;
-                justify-content: space-between;
+                gap: 10px;
                 background: #fff;
                 border: 1.5px solid #e2e8f0;
                 color: #4527a4;
-                padding: 10px 16px;
+                padding: 8px 14px;
                 border-radius: 8px;
                 cursor: pointer;
                 transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,11 +64,13 @@ $primaryColor: #146EF5;
                     font-size: 12px;
                     font-weight: 700;
                     color: #4527a4;
+                    gap: 6px;
 
                     svg {
-                        width: 18px;
-                        height: 18px;
-                        fill: currentColor;
+                        width: 16px;
+                        height: 16px;
+                        stroke: currentColor;
+                        fill: none;
                     }
                 }
 

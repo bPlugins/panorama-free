@@ -175,7 +175,7 @@ e.g.
 
 == Changelog ==
 
-= 1.8.0 - 08 Sep, 2026 =
+= 1.8.0 - 09 Sep, 2026 =
 * **New:** 360° Interaction Analytics Dashboard for monitoring viewer impressions, hotspot clicks, and view durations (7-Day Overview).
 * **New:** Added Cubemap (6-Face Box Projection) & Cylindrical (Smartphone Panoramas) 360 projection formats.
 * **New:** Expanded Free Virtual Tour limit to 6 scenes per tour (previously 2 scenes).

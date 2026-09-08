@@ -11,8 +11,10 @@ $bppiv_logs_table = $wpdb->prefix . 'bppiv_analytics_logs';
 $bppiv_summary_table = $wpdb->prefix . 'bppiv_analytics_summary';
 
 // Handle Date Range Filter (Enforce 7days for Free users)
+// Default to 7 Days for everyone (Free and Pro) - a fresh/low-traffic site's chart looks mostly
+// empty on a 30-day default, which reads as "broken" rather than "just started."
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-$bppiv_range = isset($_GET['range']) ? sanitize_key($_GET['range']) : ($bppiv_is_premium ? '30days' : '7days');
+$bppiv_range = isset($_GET['range']) ? sanitize_key($_GET['range']) : '7days';
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 $bppiv_start_date = isset($_GET['start_date']) ? sanitize_text_field(wp_unslash($_GET['start_date'])) : '';
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -83,20 +85,20 @@ $bppiv_product_stats = $wpdb->get_results("
 $bppiv_trend_max_days = 90; // cap so "All Time" / large custom ranges don't flood the bar chart
 if ($bppiv_range === '15days') {
     $bppiv_trend_days = 15;
-    $bppiv_trend_title = '15-Day Engagement Trend';
+    $bppiv_trend_title = '15-Days Engagement Trend';
 } elseif ($bppiv_range === '30days') {
     $bppiv_trend_days = 30;
-    $bppiv_trend_title = '30-Day Engagement Trend';
+    $bppiv_trend_title = '30-Days Engagement Trend';
 } elseif ($bppiv_range === 'all') {
     $bppiv_trend_days = $bppiv_trend_max_days;
-    $bppiv_trend_title = 'Last 90-Day Engagement Trend';
+    $bppiv_trend_title = 'Last 90-Days Engagement Trend';
 } elseif ($bppiv_range === 'custom' && !empty($bppiv_start_date) && !empty($bppiv_end_date)) {
     $bppiv_custom_days = (int) floor((strtotime($bppiv_end_date) - strtotime($bppiv_start_date)) / DAY_IN_SECONDS) + 1;
     $bppiv_trend_days = max(1, min($bppiv_custom_days, $bppiv_trend_max_days));
     $bppiv_trend_title = 'Engagement Trend (' . gmdate('M d', strtotime($bppiv_start_date)) . ' - ' . gmdate('M d', strtotime($bppiv_end_date)) . ')';
 } else {
     $bppiv_trend_days = 7;
-    $bppiv_trend_title = '7-Day Engagement Trend';
+    $bppiv_trend_title = '7-Days Engagement Trend';
 }
 
 // Anchor end date: custom range ends on the picked end_date, everything else ends "today".
@@ -145,6 +147,17 @@ if ($bppiv_is_premium) {
             'dwell'    => $bppiv_dwell
         ];
     }
+
+    // Fetch Recent Live Activity Stream Logs for Pro Mode
+    // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
+    $bppiv_recent_logs = $wpdb->get_results("
+        SELECT event_type, hotspot_label, product_id, created_at, dwell_time
+        FROM {$bppiv_logs_table}
+        {$bppiv_where_clause}
+        ORDER BY created_at DESC
+        LIMIT 10
+    ");
+    // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
 } else {
     // Free Mode: Full Rich Teaser Demo Data for blurred Pro cards
     $bppiv_max_views = 50;
@@ -257,6 +270,92 @@ $bppiv_c_cart   = '#10b981';
 $bppiv_c_dwell  = '#f59e0b';
 ?>
 
+<style id="bppiv-skeleton-critical-css">
+    /* Prevent Flash of Unstyled Content (FOUC) */
+    .bppiv-analytics-wrap {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out;
+    }
+    .bppiv-analytics-loaded {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Soft Blurred Wave Skeleton Loading Screen */
+    .bppiv-skeleton-screen {
+        max-width: 1240px;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .bppiv-skel-box {
+        background: linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 35%, #cbd5e1 50%, #e2e8f0 65%, #f1f5f9 100%);
+        background-size: 200% 100%;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+        animation: bppivWave 1.6s ease-in-out infinite;
+        filter: blur(0.5px);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    @keyframes bppivWave {
+        0% { background-position: 180% 0; }
+        100% { background-position: -180% 0; }
+    }
+    .bppiv-skel-grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+    .bppiv-skel-grid-2 {
+        display: grid;
+        grid-template-columns: 1.8fr 1.2fr;
+        gap: 16px;
+    }
+    @media screen and (max-width: 768px) {
+        .bppiv-skel-grid-4 { grid-template-columns: repeat(2, 1fr); }
+        .bppiv-skel-grid-2 { grid-template-columns: 1fr; }
+    }
+</style>
+
+<div id="bppiv-analytics-skeleton" class="bppiv-skeleton-screen">
+    <div class="bppiv-skel-box" style="height: 72px; border-top: 4px solid #146ef5;"></div>
+    <div class="bppiv-skel-grid-4">
+        <div class="bppiv-skel-box" style="height: 90px;"></div>
+        <div class="bppiv-skel-box" style="height: 90px;"></div>
+        <div class="bppiv-skel-box" style="height: 90px;"></div>
+        <div class="bppiv-skel-box" style="height: 90px;"></div>
+    </div>
+    <div class="bppiv-skel-grid-2">
+        <div class="bppiv-skel-box" style="height: 260px;"></div>
+        <div class="bppiv-skel-box" style="height: 260px;"></div>
+    </div>
+    <div class="bppiv-skel-box" style="height: 200px;"></div>
+</div>
+
+<script id="bppiv-skeleton-loader-js">
+    (function() {
+        function showAnalytics() {
+            var skel = document.getElementById('bppiv-analytics-skeleton');
+            var wrap = document.querySelector('.bppiv-analytics-wrap');
+            if (wrap) {
+                wrap.classList.add('bppiv-analytics-loaded');
+            }
+            if (skel) {
+                skel.style.display = 'none';
+            }
+        }
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(showAnalytics, 30);
+        } else {
+            document.addEventListener('DOMContentLoaded', showAnalytics);
+            window.addEventListener('load', showAnalytics);
+        }
+    })();
+</script>
+
 <div class="wrap bppiv-analytics-wrap">
     
     <!-- Top Header Banner -->
@@ -297,17 +396,6 @@ $bppiv_c_dwell  = '#f59e0b';
                 <?php else : ?>
                     <a href="#" class="bppiv-tab-btn bppiv-tab-locked" title="30 Days Analytics (PRO Feature)">
                         30 Days <span class="bppiv-lock-icon">🔒</span>
-                    </a>
-                <?php endif; ?>
-
-                <!-- All Time Tab -->
-                <?php if ($bppiv_is_premium) : ?>
-                    <a href="<?php echo esc_url(add_query_arg('range', 'all')); ?>" class="bppiv-tab-btn <?php echo $bppiv_range === 'all' ? 'bppiv-tab-active' : ''; ?>">
-                        All Time
-                    </a>
-                <?php else : ?>
-                    <a href="#" class="bppiv-tab-btn bppiv-tab-locked" title="All Time Analytics (PRO Feature)">
-                        All Time <span class="bppiv-lock-icon">🔒</span>
                     </a>
                 <?php endif; ?>
 
