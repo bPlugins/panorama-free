@@ -395,6 +395,61 @@
     font-weight: 500;
 }
 
+/* Info icon + tooltip explaining the trend chart's per-metric bar scaling */
+.bppiv-info-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: help;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+.bppiv-info-icon:hover,
+.bppiv-info-icon:focus {
+    background: #146ef5;
+    color: #ffffff;
+    outline: none;
+}
+
+.bppiv-info-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+    width: 240px;
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 10px 12px;
+    border: 1px solid #334155;
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-transform: none;
+    letter-spacing: normal;
+    white-space: normal;
+    z-index: 100;
+    pointer-events: none;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    transition: opacity 0.2s ease;
+}
+
+.bppiv-info-icon:hover .bppiv-info-tooltip,
+.bppiv-info-icon:focus .bppiv-info-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
 /* Chart Container & Legends */
 .bppiv-chart-legend {
     display: flex;

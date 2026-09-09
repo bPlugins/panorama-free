@@ -89,9 +89,6 @@ if ($bppiv_range === '15days') {
 } elseif ($bppiv_range === '30days') {
     $bppiv_trend_days = 30;
     $bppiv_trend_title = '30-Days Engagement Trend';
-} elseif ($bppiv_range === 'all') {
-    $bppiv_trend_days = $bppiv_trend_max_days;
-    $bppiv_trend_title = 'Last 90-Days Engagement Trend';
 } elseif ($bppiv_range === 'custom' && !empty($bppiv_start_date) && !empty($bppiv_end_date)) {
     $bppiv_custom_days = (int) floor((strtotime($bppiv_end_date) - strtotime($bppiv_start_date)) / DAY_IN_SECONDS) + 1;
     $bppiv_trend_days = max(1, min($bppiv_custom_days, $bppiv_trend_max_days));
@@ -418,11 +415,11 @@ $bppiv_c_dwell  = '#f59e0b';
                 );
                 ?>
                 <?php if ($bppiv_is_premium) : ?>
-                    <a href="<?php echo esc_url($bppiv_export_url); ?>" class="bppiv-tab-btn" style="background: #10b981; color: #fff; border-color: #10b981; margin-left: 10px;" title="<?php esc_attr_e('Export Analytics Data as CSV File', 'panorama'); ?>">
+                    <a href="<?php echo esc_url($bppiv_export_url); ?>" class="bppiv-tab-btn" style="background: #10b981; color: #fff; border-color: #10b981; margin-left: 10px;" title="<?php esc_attr_e('Export Analytics Data as CSV File', 'panorama-premium'); ?>">
                         📥 Export CSV
                     </a>
                 <?php else : ?>
-                    <a href="#" class="bppiv-tab-btn bppiv-tab-locked" style="background: #f8fafc; color: #64748b; margin-left: 10px;" title="<?php esc_attr_e('Export CSV (PRO Feature)', 'panorama'); ?>">
+                    <a href="#" class="bppiv-tab-btn bppiv-tab-locked" style="background: #f8fafc; color: #64748b; margin-left: 10px;" title="<?php esc_attr_e('Export CSV (PRO Feature)', 'panorama-premium'); ?>">
                         📥 Export CSV <span class="bppiv-lock-icon">🔒</span>
                     </a>
                 <?php endif; ?>
@@ -518,7 +515,12 @@ $bppiv_c_dwell  = '#f59e0b';
 
             <div class="bppiv-card-content <?php echo !$bppiv_is_premium ? 'bppiv-pro-blurred' : ''; ?>">
                 <div class="bppiv-card-header">
-                    <h3>📈 <?php echo esc_html($bppiv_trend_title); ?></h3>
+                    <h3>📈 <?php echo esc_html($bppiv_trend_title); ?>
+                        <span class="bppiv-info-icon" tabindex="0">
+                            ⓘ
+                            <span class="bppiv-info-tooltip">Each bar's height is scaled against that metric's own highest day in this range - not against the other metrics. Compare colors using the number printed above each bar, not bar height.</span>
+                        </span>
+                    </h3>
                     <div class="bppiv-chart-legend">
                         <span class="bppiv-legend-item" style="color: #146ef5;">
                             <span class="bppiv-legend-dot" style="background: #146ef5;"></span> Views
