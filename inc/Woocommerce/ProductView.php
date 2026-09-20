@@ -214,10 +214,23 @@ class ProductView{
             $attributes .= ' controls';
         }
 
+        $resolved_meta = $meta;
+        if ( ! empty( $resolved_meta['image_src'] ) ) {
+            $resolved_meta['image_src'] = bppiv_resolve_media_url( $resolved_meta['image_src'] );
+        }
+        if ( ! empty( $resolved_meta['video_src'] ) ) {
+            $resolved_meta['video_src'] = bppiv_resolve_media_url( $resolved_meta['video_src'] );
+        }
+        foreach ( array( 'cubemap_front_360', 'cubemap_right_360', 'cubemap_back_360', 'cubemap_left_360', 'cubemap_up_360', 'cubemap_down_360' ) as $bppiv_face_key ) {
+            if ( ! empty( $resolved_meta[ $bppiv_face_key ] ) ) {
+                $resolved_meta[ $bppiv_face_key ] = bppiv_resolve_media_url( $resolved_meta[ $bppiv_face_key ] );
+            }
+        }
+
        ?>
-       <div id="bppiv_product_panorama" data-settings="<?php echo esc_attr(wp_json_encode($meta)) ?>">
+       <div id="bppiv_product_panorama" data-settings="<?php echo esc_attr(wp_json_encode($resolved_meta)) ?>">
             <?php if($type === 'video' && isset($meta['video360']) && $meta['video360'] === '0') { ?>
-                <video style="max-width: 100%;" <?php echo esc_attr($attributes);  ?> src="<?php echo esc_url($meta['video_src']) ?>"></video>
+                <video style="max-width: 100%;" <?php echo esc_attr($attributes);  ?> src="<?php echo esc_url($resolved_meta['video_src'] ?? '') ?>"></video>
             <?php } ?>
         </div>
 

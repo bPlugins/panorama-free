@@ -186,6 +186,21 @@ export const welcomeInfo = (adminUrl) => ({
 	},
 	changelogs: [
 		{
+			type: 'Fixed',
+			version: '1.8.2 - 21 Sep, 2026',
+			list: [
+				'<strong>Fixed:</strong> Restricted the [panorama] shortcode from rendering unpublished, private, or password-protected panorama content to unauthorized users.',
+				'<strong>Fixed:</strong> Optimized JavaScript build output to comply with WordPress.org\'s automated code review requirements.'
+			]
+		},
+		{
+			type: 'update',
+			version: '1.8.1 - 20 Sep, 2026',
+			list: [
+				'<strong>Improved:</strong> Better compatibility with CDN and image-optimization plugins (Envira CDN, WP Rocket, Imagify, etc.) for panorama images and videos.'
+			]
+		},
+		{
 			type: 'new',
 			version: '1.8.0 - 09 Sep, 2026',
 			list: [

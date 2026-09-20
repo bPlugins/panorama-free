@@ -80,9 +80,9 @@ const General = ({ attributes, setAttributes }) => {
           newItem={{
             tour_id: "house",
             tour_img: "",
-            tourTitleAuthor: true,
-            title: "Spring House or Dairy",
-            author: "bPlugins",
+            tourTitleAuthor: false,
+            title: "",
+            author: "",
             tour_hotSpot: true,
             hotSpot_txt: "Spring House",
             target_id: "",

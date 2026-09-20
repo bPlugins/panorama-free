@@ -5,7 +5,7 @@
 [![WordPress Support](https://img.shields.io/badge/WordPress-6.3+-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/plugins/panorama/)
 [![PHP Support](https://img.shields.io/badge/PHP-7.1+-777bb4.svg?style=flat-square&logo=php)](readme.txt)
 [![GPLv2 License](https://img.shields.io/badge/License-GPLv2-green.svg?style=flat-square)](readme.txt)
-[![Stable Version](https://img.shields.io/badge/Version-1.8.0-blue.svg?style=flat-square)](readme.txt)
+[![Stable Version](https://img.shields.io/badge/Version-1.8.2-blue.svg?style=flat-square)](readme.txt)
 
 **Panorama** is a lightweight, high-performance, and fully responsive 360-degree virtual tour and panoramic media viewer plugin for WordPress. It lets you embed 360° photos, videos, and Google Street View locations into your posts, pages, widget areas, or templates using shortcodes or modern Gutenberg blocks—no coding required!
 
@@ -15,6 +15,7 @@
 
 ### 💎 Core Functionality (Free)
 Everything you need to build an immersive 360° experience on your site:
+- **360° Interaction Analytics Dashboard (7-Day Overview):** Monitor viewer impressions, hotspot click counts, and active view duration directly from your WordPress dashboard.
 - **Multi-Scene Virtual Tours (Free):** Connect up to 6 scenes per tour with up to 6 interactive hotspots per scene (Info, Scene, Link) and smooth transitions.
 - **Cubemap / 6-Cube Face Format:** Upload 6 individual cube face images (Front, Back, Left, Right, Up, Down) for high-performance 360° scenes and WooCommerce product panoramas.
 - **Cylindrical Smartphone Panoramas:** Full support for partial panoramas with custom HAOV, VAOV, and vOffset controls on virtual tours and WooCommerce product pages.
@@ -31,7 +32,7 @@ Everything you need to build an immersive 360° experience on your site:
 
 ### 👑 Premium Power (Pro)
 Unlock advanced features for premium real estate tours, vehicle showcases, and interactive 3D portfolios:
-- **360° Interaction Analytics Dashboard:** Track impressions, hotspot click counts, active view duration, and WooCommerce sales conversions with responsive charts and live activity stream.
+- **Advanced 360° Interaction Analytics Dashboard:** Track extended lifetime analytics data, WooCommerce sales conversions, custom date range filters, and live activity streams.
 - **Interactive WooCommerce Product Hotspots:** Connect 360° hotspots directly to WooCommerce products, display live price badges, and enable instant Add to Cart buttons.
 - **WooCommerce Product Video & Advanced Controls:** Add 360° product videos, custom initial view angle, playback controls, and title/author overlays to your product panorama.
 - **Virtual Tour Pro (Unlimited):** Connect unlimited scenes and unlimited hotspots per scene without any restrictions.

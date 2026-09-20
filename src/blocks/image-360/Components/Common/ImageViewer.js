@@ -76,7 +76,7 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
         title: titleAuthor ? title : "",
         author: titleAuthor && author ? author : "",
         strings: {
-          bylineLabel: author ? isByline ? `by ${author}` : author : "",
+          bylineLabel: (titleAuthor && author) ? (isByline ? `by ${author}` : author) : "",
         }
       };
 
@@ -123,8 +123,10 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
 
 
       if (!titleAuthor || (!title && !author)) {
-        const infoBox = document.querySelector(".pnlm-panorama-info");
-        if (infoBox) infoBox.remove();
+        setTimeout(() => {
+          const infoBox = panoramaRef.current?.querySelector(".pnlm-panorama-info");
+          if (infoBox) infoBox.remove();
+        }, 50);
       }
 
       if (buttonRef.current && panoramaRef.current) {

@@ -458,19 +458,19 @@ class registerPostType{
 
     // HIDE everything in PUBLISH metabox except Move to Trash & PUBLISH button
     function bppiv_hide_publishing_actions() {
-        $my_post_type = 'bppiv-image-viewer';
         global $post;
-        if ( ! $post || $post->post_type !== $my_post_type ) {
-            return;
+        if ( is_object($post) && in_array($post->post_type, array('bppiv-image-viewer', 'virtual_tour', 'product_spot'), true) ) {
+            echo '
+            <style type="text/css">
+                #misc-publishing-actions,
+                #minor-publishing-actions,
+                #edit-slug-box,
+                #sample-permalink {
+                    display:none !important;
+                }
+            </style>
+            ';
         }
-        echo '
-        <style type="text/css">
-            #misc-publishing-actions,
-            #minor-publishing-actions{
-                display:none;
-            }
-        </style>
-        ';
     }
 
     // Hide & Disabled View, Quick Edit and Preview Button

@@ -415,11 +415,11 @@ $bppiv_c_dwell  = '#f59e0b';
                 );
                 ?>
                 <?php if ($bppiv_is_premium) : ?>
-                    <a href="<?php echo esc_url($bppiv_export_url); ?>" class="bppiv-tab-btn" style="background: #10b981; color: #fff; border-color: #10b981; margin-left: 10px;" title="<?php esc_attr_e('Export Analytics Data as CSV File', 'panorama-premium'); ?>">
+                    <a href="<?php echo esc_url($bppiv_export_url); ?>" class="bppiv-tab-btn" style="background: #10b981; color: #fff; border-color: #10b981; margin-left: 10px;" title="<?php esc_attr_e('Export Analytics Data as CSV File', 'panorama'); ?>">
                         📥 Export CSV
                     </a>
                 <?php else : ?>
-                    <a href="#" class="bppiv-tab-btn bppiv-tab-locked" style="background: #f8fafc; color: #64748b; margin-left: 10px;" title="<?php esc_attr_e('Export CSV (PRO Feature)', 'panorama-premium'); ?>">
+                    <a href="#" class="bppiv-tab-btn bppiv-tab-locked" style="background: #f8fafc; color: #64748b; margin-left: 10px;" title="<?php esc_attr_e('Export CSV (PRO Feature)', 'panorama'); ?>">
                         📥 Export CSV <span class="bppiv-lock-icon">🔒</span>
                     </a>
                 <?php endif; ?>

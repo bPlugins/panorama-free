@@ -42,7 +42,7 @@ const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
         title: isTitleAuthor ? title : "",
         author: isTitleAuthor && author ? author : "",
         strings: {
-          bylineLabel: author ? isByline ? `by ${author}` : author : "",
+          bylineLabel: (isTitleAuthor && author) ? (isByline ? `by ${author}` : author) : "",
         }
       }
 
@@ -109,9 +109,11 @@ const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
       }, 120);
     }
 
-    if (!defaultData.tourTitleAuthor || (!defaultData.title && !defaultData.author)) {
-      const infoBox = document.querySelector(".pnlm-panorama-info");
-      if (infoBox) infoBox.remove();
+    if (!defaultData?.tourTitleAuthor || (!defaultData?.title && !defaultData?.author)) {
+      setTimeout(() => {
+        const infoBox = tourContainerRef.current?.querySelector(".pnlm-panorama-info");
+        if (infoBox) infoBox.remove();
+      }, 50);
     }
 
     if (buttonRef.current && tourContainerRef.current) {

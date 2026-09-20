@@ -1,5 +1,6 @@
 const defaultConfig = require("@wordpress/scripts/config/webpack.config");
 const ESLintPlugin = require('eslint-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 
 const plugins = defaultConfig.plugins.filter(p => {
@@ -24,5 +25,16 @@ module.exports = {
     ...plugins,
     new ESLintPlugin()
   ],
-  optimization: {}
+  optimization: {
+    ...defaultConfig.optimization,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            max_line_len: 1000,
+          },
+        },
+      }),
+    ],
+  },
 };

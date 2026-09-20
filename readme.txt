@@ -3,7 +3,7 @@ Contributors: bplugins, abuhayat, freemius, shamim10, farazi1
 Tags: panorama, 360 degree, 3d, virtual tour, krpano, 
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.8.0
+Stable tag: 1.8.2
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -16,21 +16,21 @@ Panorama Viewer displays panoramic images/videos easily on your WordPress site. 
 
 The plugin is very easy to use and anyone can use the plugin easily without any technical knowledge.
 
+[**Panorama Viewer**](https://bplugins.com/products/panorama/) | [**Documentation**](https://bplugins.com/docs/panorama/) | [**Pricing**](https://bplugins.com/products/panorama/pricing) | [**Support**](https://bplugins.com/support/) | [**Demo**](https://bplugins.com/products/panorama/#demos)
+
 https://youtu.be/yU92XDtcyWg
 
 You can embed any panoramic photos, or videos in Posts, Pages, Widget areas and WooCommerce product pages. It comes with everything you need to make the most of your panoramic pictures.
-
 This WordPress plugin enables seamless display of 360° images, 3D images, videos, and panoramic galleries. With dedicated Gutenberg blocks, shortcodes, and WooCommerce integration, you can display immersive media on any page, post, widget area, or product page.
 
-The Free version comes with fully functional blocks for all media types, including 360° virtual tours (up to 6 scenes and 6 hotspots per scene), interactive product hotspots (up to 3 spots), basic Google Street View embedding, Device Orientation (Gyroscope) navigation, custom Initial View & FOV/Zoom controls, and WooCommerce integration for 360° images and product spots.
+The Free version comes with fully functional blocks for all media types, including 360° virtual tours (up to 6 scenes and 6 hotspots per scene), interactive product hotspots (up to 3 spots), basic Google Street View embedding, Device Orientation (Gyroscope) navigation, custom Initial View & FOV/Zoom controls, WooCommerce integration for 360° images and product spots, and a 360° Interaction Analytics Dashboard (7-Day Overview).
 
-Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspots, full WooCommerce video integration, advanced viewer customization (inactivity delay auto-rotation, custom navigation controls), galleries with load-more pagination, title/author overlays, and virtual compass guides.
- 
+Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspots, full WooCommerce video integration, advanced viewer customization (inactivity delay auto-rotation, custom navigation controls), galleries with load-more pagination, title/author overlays, virtual compass guides, and advanced analytics tracking.
 
-[**Panorama Viewer**](https://bplugins.com/products/panorama/) | [**Documentation**](https://bplugins.com/docs/panorama/) | [**Pricing**](https://bplugins.com/products/panorama/pricing) | [**Support**](https://bplugins.com/support/) | [**Demo**](https://bplugins.com/products/panorama/#demos)
 
 = Free Features = 
 
+- **360° Interaction Analytics Dashboard (7-Day Overview)**: Monitor viewer impressions, hotspot click counts, and active view duration directly from your WordPress dashboard.
 - **Multi-Scene Virtual Tours (Free)**: Connect up to 6 scenes per tour with up to 6 hotspots per scene (Info, Scene, and Link hotspots) and smooth transitions.
 - **Cubemap / 6-Cube Face Format**: Upload 6 individual cube face images (Front, Back, Left, Right, Up, Down) for high-performance 360° scenes and WooCommerce product panoramas.
 - **Cylindrical Smartphone Panoramas**: Full support for partial panoramas with custom HAOV, VAOV, and vOffset controls on virtual tours and WooCommerce product pages.
@@ -47,7 +47,7 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 
 = Pro Features =
 
-- **360° Interaction Analytics Dashboard**: Track impressions, hotspot click counts, active view duration, and WooCommerce sales conversions with responsive charts and live activity stream.
+- **Advanced 360° Interaction Analytics Dashboard**: Track extended lifetime analytics data, WooCommerce sales conversions, custom date range filters, and live activity streams.
 - **Interactive WooCommerce Product Hotspots**: Connect 360° hotspots directly to WooCommerce products, display live price badges, and enable instant Add to Cart buttons.
 - **WooCommerce Product Video & Advanced Controls**: Add 360° product videos, custom initial view angle, playback controls, and title/author overlays to your product panorama.
 - **Virtual Tour Pro (Unlimited)**: Connect unlimited scenes and unlimited hotspots per scene without any restrictions.
@@ -174,6 +174,13 @@ e.g.
 8. Gallery
 
 == Changelog ==
+
+= 1.8.2 - 21 Sep, 2026 =
+* **Fixed:** Restricted the [panorama] shortcode from rendering unpublished, private, or password-protected panorama content to unauthorized users.
+* **Fixed:** Optimized JavaScript build output to comply with WordPress.org's automated code review requirements.
+
+= 1.8.1 - 20 Sep, 2026 =
+* **Improved:** Better compatibility with CDN and image-optimization plugins (Envira CDN, WP Rocket, Imagify, etc.) for panorama images and videos.
 
 = 1.8.0 - 09 Sep, 2026 =
 * **New:** 360° Interaction Analytics Dashboard for monitoring viewer impressions, hotspot clicks, and view durations (7-Day Overview).
