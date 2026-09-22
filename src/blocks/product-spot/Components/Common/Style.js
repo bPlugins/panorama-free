@@ -4,8 +4,8 @@ import { mobileBreakpoint, tabBreakpoint } from '../../../../../../bpl-tools/uti
 
 const Style = ({ attributes, id, device = "desktop" }) => {
 	const { alignment, styles } = attributes || {};
-	const { width, imgRadius, hotspot = {}, info={}, title = {}, desc = {}, btnGroup } = styles || {};
-	const { column, gap, index = {}, activeIndex={} } = btnGroup || {};
+	const { width, imgRadius, hotspot = {}, info = {}, title = {}, desc = {}, btnGroup } = styles || {};
+	const { column, gap, index = {}, activeIndex = {} } = btnGroup || {};
 
 	const mainSl = `#${id}`;
 	const productSpotWrapperSl = `${mainSl} .productSpotWrapper`;
@@ -21,22 +21,26 @@ const Style = ({ attributes, id, device = "desktop" }) => {
 	const iconSl = `${productSpotSl} .icon svg`;
 
 
+	const alignCSS = alignment === 'left' ? 'flex-start' : alignment === 'right' ? 'flex-end' : 'center';
+
 	return <style dangerouslySetInnerHTML={{
 		__html: `
 
-		${getTypoCSS('', title.typo )?.googleFontLink}
-		${getTypoCSS('', desc.typo )?.googleFontLink}
+		${getTypoCSS('', title.typo)?.googleFontLink}
+		${getTypoCSS('', desc.typo)?.googleFontLink}
 
-		${getTypoCSS(titleSl, title.typo )?.styles}
-		${getTypoCSS(descSl, desc.typo )?.styles}
+		${getTypoCSS(titleSl, title.typo)?.styles}
+		${getTypoCSS(descSl, desc.typo)?.styles}
 
 		
 		${productSpotWrapperSl} {
-			justify-content: ${alignment};
+			display: flex;
+			justify-content: ${alignCSS};
 		}
 
 		${productSpotSl} {
-			width: ${width[device]};
+			width: fit-content;
+			max-width: ${width[device] || '100%'};
 		}
 
 		${imageSl} {

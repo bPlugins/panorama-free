@@ -4,9 +4,9 @@
  * Plugin Name: Panorama – Turn Photos into Immersive Virtual Tours
  * Description: A lite Weight Plugin that helps you, Easily display panoramic 360 degree images / videos into WordPress Website in Post, Page, Widget Area using shortCode. 
  * Plugin URI:  https://bplugins.com/products/panorama
- * Version: 1.8.2
+ * Version: 1.8.3
  * Author: bPlugins
- * Author URI: http://abuhayatpolash.com
+ * Author URI: https://bplugins.com
  * License: GPLv2 or later
  * Text Domain: panorama
  * Domain Path: /languages
@@ -62,7 +62,7 @@ if ( function_exists( 'panorama_fs' ) ) {
     do_action( 'panorama_fs_loaded' );
 
     define( 'BPPIV_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
-    define( 'BPPIV_VERSION', ( isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ) ? time() : '1.8.2' );
+    define( 'BPPIV_VERSION', ( isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ) ? time() : '1.8.3' );
     defined( 'BPPIV_PATH' )     || define( 'BPPIV_PATH',     plugin_dir_path( __FILE__ ) );
     defined( 'BPPIV__FILE__' )  || define( 'BPPIV__FILE__',  __FILE__ );
     define( 'BPPIV_HAS_PRO', false );

@@ -3,7 +3,7 @@ Contributors: bplugins, abuhayat, freemius, shamim10, farazi1
 Tags: panorama, 360 degree, 3d, virtual tour, krpano, 
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -174,6 +174,9 @@ e.g.
 8. Gallery
 
 == Changelog ==
+
+= 1.8.3 - 21 Sep, 2026 =
+* **Fixed:** Reworked how the Product Spot block's icon-picker data is bundled so the build output complies with WordPress.org's automated JavaScript review limits.
 
 = 1.8.2 - 21 Sep, 2026 =
 * **Fixed:** Restricted the [panorama] shortcode from rendering unpublished, private, or password-protected panorama content to unauthorized users.

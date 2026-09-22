@@ -187,6 +187,13 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogs: [
 		{
 			type: 'Fixed',
+			version: '1.8.3 - 21 Sep, 2026',
+			list: [
+				'<strong>Fixed:</strong> Reworked how the Product Spot block\'s icon-picker data is bundled so the build output complies with WordPress.org\'s automated JavaScript review limits.'
+			]
+		},
+		{
+			type: 'Fixed',
 			version: '1.8.2 - 21 Sep, 2026',
 			list: [
 				'<strong>Fixed:</strong> Restricted the [panorama] shortcode from rendering unpublished, private, or password-protected panorama content to unauthorized users.',

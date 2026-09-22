@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 
 const useHotspotManager = (attributes = {}, setAttributes = () => { }) => {
     const { img = {}, themeSl, hotspots = [] } = attributes;
-    const [activeHotspot, setActiveHotspot] = useState(themeSl === "sidepanel" ? 1 : null); 
+    const [activeHotspot, setActiveHotspot] = useState(themeSl === "sidepanel" ? 1 : null);
     const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
 
     const containerRef = useRef(null);
@@ -23,7 +23,7 @@ const useHotspotManager = (attributes = {}, setAttributes = () => { }) => {
     useEffect(() => {
         const image = imageRef.current;
         if (!image) return;
-    
+
         const observer = new ResizeObserver(() => {
             const rect = image.getBoundingClientRect();
             setContainerSize({
@@ -31,14 +31,14 @@ const useHotspotManager = (attributes = {}, setAttributes = () => { }) => {
                 height: rect.height,
             });
         });
-    
+
         observer.observe(image);
-    
+
         return () => {
             observer.disconnect();
         };
     }, []);
-    
+
 
     const handleAddHotspot = (e) => {
         if (e.target.closest('.hotspot')) return;
@@ -81,14 +81,14 @@ const useHotspotManager = (attributes = {}, setAttributes = () => { }) => {
         setActiveHotspot(null);
     };
 
-    const addSpot = (e, isPremium = false, setIsSpotModalOpen = () => {}) => {
-        if (!isPremium && hotspots?.length >= 3){
+    const addSpot = (e, isPremium = false, setIsSpotModalOpen = () => { }) => {
+        if (!isPremium && hotspots?.length >= 3) {
             setIsSpotModalOpen(true);
-          return;
+            return;
         } else {
-          handleAddHotspot(e); 
+            handleAddHotspot(e);
         }
-      }
+    }
 
     return {
         containerRef,
