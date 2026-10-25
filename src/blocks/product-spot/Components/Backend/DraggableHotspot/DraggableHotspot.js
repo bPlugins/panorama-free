@@ -1,3 +1,4 @@
+import { sanitizeIcon } from '../../../../../utils/sanitize';
 import Draggable from "react-draggable";
 import { getSpotIcon } from "../../../utils/functions";
 
@@ -20,7 +21,7 @@ const DraggableHotspot = ({ attributes, hotspot, containerSize, boundsTarget = "
 
                 <span
                     className="icon"
-                    dangerouslySetInnerHTML={{ __html: getSpotIcon(iconMode, globalIcon, hotspot?.icon) }}
+                    dangerouslySetInnerHTML={{ __html: sanitizeIcon(getSpotIcon(iconMode, globalIcon, hotspot?.icon)) }}
                 />
 
                 <p className="deleteIcon"

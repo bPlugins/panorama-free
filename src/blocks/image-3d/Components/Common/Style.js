@@ -1,7 +1,9 @@
+import { sanitizeStyleAttributes } from '../../../../utils/sanitize';
 import { getColorsCSS,
 } from "../../../../../../bpl-tools/utils/getCSS";
 
-const Style = ({ attributes, id, device = "desktop" }) => {
+const Style = ({ attributes: rawAttributes, id, device = "desktop" }) => {
+  const attributes = sanitizeStyleAttributes(rawAttributes);
   let { alignSl, width, height, buttonColors, buttonHoverColors } = attributes.layout || {};
 
    if (window.location !== window.parent.location) {

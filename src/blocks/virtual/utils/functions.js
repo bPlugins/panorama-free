@@ -1,3 +1,4 @@
+import { guardPannellum, safeUrl, sanitizeHTML } from '../../../utils/sanitize';
 import { produce } from "immer";
 
 export const updateData = (attr, value, ...props) => {
@@ -30,7 +31,7 @@ export const createModifiedHotspots = (scenes, currentScene, spot, isBackend, in
 
         const tooltip = document.createElement('div');
         tooltip.className = 'hotspot-title-tooltip';
-        tooltip.innerHTML = spot.text || (spot.type === 'scene' ? 'Scene' : spot.type === 'link' ? 'Link' : spot.type === 'video' ? 'Video' : spot.type === 'image' ? 'Image' : 'Info');
+        tooltip.innerHTML = sanitizeHTML(spot.text) || (spot.type === 'scene' ? 'Scene' : spot.type === 'link' ? 'Link' : spot.type === 'video' ? 'Video' : spot.type === 'image' ? 'Image' : 'Info');
         hotSpotDiv.appendChild(tooltip);
 
         if (!isLabel) {
@@ -62,11 +63,11 @@ export const createModifiedHotspots = (scenes, currentScene, spot, isBackend, in
         if (spot.type === 'scene' && spot.lookAt) {
             window?.viewer.lookAt(spot.lookAt.pitch, spot.lookAt.yaw);
         } else if (spot.type === 'link') {
-            if (spot.linkUrl) {
+            if (safeUrl(spot.linkUrl)) {
                 if (spot.linkTarget === '_self') {
-                    window.location.href = spot.linkUrl;
+                    window.location.href = safeUrl(spot.linkUrl);
                 } else {
-                    window.open(spot.linkUrl, spot.linkTarget || '_blank');
+                    window.open(safeUrl(spot.linkUrl), spot.linkTarget || '_blank');
                 }
             }
         } else if (spot.type === 'video' || spot.type === 'image') {
@@ -84,7 +85,7 @@ export const initializePannellumViewer = (panoRef, modifiedScenes, options = {},
 
     const firstScene = firstSceneId || Object.keys(modifiedScenes)[0] || "";
 
-    const viewer = window.pannellum.viewer(panoRef.current, {
+    const viewer = guardPannellum().viewer(panoRef.current, {
         default: {
             firstScene,
         },

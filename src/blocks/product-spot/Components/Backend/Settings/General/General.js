@@ -1,3 +1,4 @@
+import { getSafeIconValue } from '../../../../../../utils/sanitize';
 import { __ } from "@wordpress/i18n";
 import { PanelBody, SelectControl } from "@wordpress/components";
 import { IconLibrary, Label, Notice } from "../../../../../../../../bpl-tools/Components";
@@ -65,7 +66,7 @@ const General = ({ attributes, setAttributes, isSpotModalOpen, setIsSpotModalOpe
               className="mt10"
               label={__("Select Icon:", "panorama")}
               labelPosition="left"
-              value={globalIcon}
+              value={getSafeIconValue(globalIcon)}
               onChange={(val) => setAttributes({ globalIcon: val })}
             />
           }

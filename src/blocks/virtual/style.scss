@@ -825,13 +825,6 @@ $primaryColor: #4527a4;
 
 .rich-hotspot-modal-overlay {
   box-sizing: border-box !important;
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box !important;
-  }
-
   position: absolute;
   top: 0;
   left: 0;
@@ -846,6 +839,12 @@ $primaryColor: #4527a4;
   align-items: center;
   padding: 20px;
   animation: fadeIn 0.25s ease-out;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box !important;
+  }
 
   .rich-hotspot-modal-content {
     background: rgba(20, 20, 28, 0.95);

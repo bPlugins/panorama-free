@@ -1,5 +1,7 @@
+import { sanitizeStyleAttributes } from '../../../../utils/sanitize';
 
-const Style = ({ attributes, id, device = "desktop" }) => {
+const Style = ({ attributes: rawAttributes, id, device = "desktop" }) => {
+  const attributes = sanitizeStyleAttributes(rawAttributes);
   const { width, alignSl} = attributes.layout;
 
   const mainSl = `#${id}`;

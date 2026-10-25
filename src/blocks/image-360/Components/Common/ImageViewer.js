@@ -1,3 +1,4 @@
+import { guardPannellum, sanitizeHTML } from '../../../../utils/sanitize';
 import { useEffect, useRef } from "react";
 import { panoDown, panoLeft, panoRight, panoUp } from "../../utils/icons";
 import { toast, ToastContainer } from "react-toastify";
@@ -112,12 +113,12 @@ const ImageViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
         config.panorama = imageUrl;
       }
 
-      viewerInstance.current = pannellum.viewer(panoramaRef.current, config);
+      viewerInstance.current = guardPannellum().viewer(panoramaRef.current, config);
 
       if (!autoLoad) {
         setTimeout(() => {
           const loadBtn = panoramaRef.current?.querySelector(".pnlm-load-button p");
-          if (loadBtn) loadBtn.innerHTML = loadButtonText.replace(/\n/g, "<br>");
+          if (loadBtn) loadBtn.innerHTML = sanitizeHTML(String(loadButtonText || "").replace(/\n/g, "<br>"));
         }, 120);
       }
 

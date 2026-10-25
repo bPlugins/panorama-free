@@ -1,3 +1,4 @@
+import { guardPannellum } from '../utils/sanitize';
 (function ($) {
   $(document).ready(function () {
     const panoContainer = document.querySelectorAll(".bppiv_panorama");
@@ -143,7 +144,7 @@
           viewerConfig.preview = image360;
         }
 
-        pannellum.viewer(panoId, viewerConfig);
+        guardPannellum().viewer(panoId, viewerConfig);
       } else {
         const imageSource = bppiv_image_src ? bppiv_image_src.url : [];
         const isAutoRotate = Boolean(parseInt(bppiv_auto_rotate));

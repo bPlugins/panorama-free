@@ -1,3 +1,4 @@
+import { sanitizeIcon } from '../../../../../utils/sanitize';
 import Draggable from 'react-draggable';
 import Tippy from '@tippyjs/react';
 import Title from '../../Backend/TtitleDesBack/Title';
@@ -46,7 +47,7 @@ const TippyDraggble = ({
                     <div>
                         <span
                             className="icon"                  
-                            dangerouslySetInnerHTML={{ __html: getSpotIcon(iconMode, globalIcon, hotspot?.icon) }}
+                            dangerouslySetInnerHTML={{ __html: sanitizeIcon(getSpotIcon(iconMode, globalIcon, hotspot?.icon)) }}
                         />
                         <span
                             className="deleteIcon"

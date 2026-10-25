@@ -186,6 +186,13 @@ export const welcomeInfo = (adminUrl) => ({
 	},
 	changelogs: [
 		{
+			type: 'Security',
+			version: '1.8.4 - 25 Oct, 2026',
+			list: [
+				'<strong>Security:</strong> Fixed a stored Cross-Site Scripting (XSS) issue in the Product Spot block (hotspot icons, titles and descriptions) and hardened attribute output and generated styles across all blocks.'
+			]
+		},
+		{
 			type: 'Fixed',
 			version: '1.8.3 - 21 Sep, 2026',
 			list: [

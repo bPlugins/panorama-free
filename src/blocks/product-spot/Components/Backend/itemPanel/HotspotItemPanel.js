@@ -1,3 +1,4 @@
+import { getSafeIconValue } from '../../../../../utils/sanitize';
 import { __ } from "@wordpress/i18n";
 import { produce } from "immer";
 import { RangeControl, TextControl } from "@wordpress/components";
@@ -27,7 +28,7 @@ const HotspotItemPanel = ({ attributes = {}, setAttributes, arrKey, index, setAc
           label={__("Icon:", "panorama")}
           labelPosition="left"
           className="mt10"
-          value={hotspots[index]?.icon}
+          value={getSafeIconValue(hotspots[index]?.icon)}
           onChange={(val) => updateHotspot("icon", val)}
         />
       }

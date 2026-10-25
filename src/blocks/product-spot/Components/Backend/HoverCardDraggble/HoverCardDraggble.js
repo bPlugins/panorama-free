@@ -1,3 +1,4 @@
+import { sanitizeIcon } from '../../../../../utils/sanitize';
 import Draggable from "react-draggable";
 import Title from "../TtitleDesBack/Title";
 import Description from "../TtitleDesBack/Description";
@@ -20,7 +21,7 @@ const HoverCardDraggble = ({ attributes, hotspot, containerSize, handleStop, act
                 onMouseEnter={() => setActiveHotspot(hotspot.id)}
                 onMouseLeave={() => setActiveHotspot(null)}
             >
-                <span className="icon" dangerouslySetInnerHTML={{ __html: globalIcon }} />
+                <span className="icon" dangerouslySetInnerHTML={{ __html: sanitizeIcon(globalIcon) }} />
 
                 <span
                     className="deleteIcon"

@@ -12,6 +12,6 @@ if ( ! empty( $bppiv_resolved_attributes['img']['url'] ) ) {
 <div
     <?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
     id='<?php echo esc_attr( $id ); ?>'
-    data-attributes='<?php echo esc_attr( wp_json_encode( $bppiv_resolved_attributes ) ); ?>'
+    data-attributes='<?php echo esc_attr( wp_json_encode( $bppiv_resolved_attributes, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT ) ); ?>'
 >
 </div>

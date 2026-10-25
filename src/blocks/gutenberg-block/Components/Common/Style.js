@@ -1,8 +1,10 @@
+import { sanitizeStyleAttributes } from '../../../../utils/sanitize';
 import {
 	getColorsCSS,
   } from "../../../../../../bpl-tools/utils/getCSS";
 
-const Style = ({ attributes, id }) => {
+const Style = ({ attributes: rawAttributes, id }) => {
+  const attributes = sanitizeStyleAttributes(rawAttributes);
   const { panoType, alignment, width, height,buttonColors,buttonHoverColors } = attributes || {};
 
   const blockSl = `#${id} .bBlocksViewer`;

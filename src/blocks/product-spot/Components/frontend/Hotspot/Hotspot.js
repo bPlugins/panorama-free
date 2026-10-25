@@ -1,3 +1,4 @@
+import { sanitizeIcon } from '../../../../../utils/sanitize';
 import { getSpotIcon } from "../../../utils/functions";
 
 const Hotspot = ({ activeHotspot, hotspot, setActiveHotspot, attributes }) => {
@@ -10,7 +11,7 @@ const Hotspot = ({ activeHotspot, hotspot, setActiveHotspot, attributes }) => {
         >
              <span
                 className="icon"
-                dangerouslySetInnerHTML={{ __html: getSpotIcon(iconMode, globalIcon, hotspot?.icon) }}
+                dangerouslySetInnerHTML={{ __html: sanitizeIcon(getSpotIcon(iconMode, globalIcon, hotspot?.icon)) }}
               />
         </div>
     )

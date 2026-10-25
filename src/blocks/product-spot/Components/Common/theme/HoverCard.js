@@ -1,3 +1,4 @@
+import { sanitizeIcon } from '../../../../../utils/sanitize';
 
 import ProductImg from "../ProductImg/ProductImg";
 import useHotspotManager from "../../../hooks/useHotspotManager";
@@ -35,7 +36,7 @@ const HoverCard = ({ attributes, setAttributes, isBackend = true, isPremium, set
       onMouseEnter={() => setActiveHotspot(hotspot.id)}
       onMouseLeave={() => setActiveHotspot(null)}
     >
-      <span className="icon" dangerouslySetInnerHTML={{ __html: globalIcon }} />
+      <span className="icon" dangerouslySetInnerHTML={{ __html: sanitizeIcon(globalIcon) }} />
 
       {activeHotspot === hotspot.id && <>
 

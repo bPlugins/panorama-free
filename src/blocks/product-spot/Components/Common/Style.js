@@ -1,8 +1,10 @@
+import { sanitizeStyleAttributes } from '../../../../utils/sanitize';
 import { getBorderBoxCSS, getColorsCSS, getTypoCSS } from '../../../../../../bpl-tools/utils/getCSS';
 import { mobileBreakpoint, tabBreakpoint } from '../../../../../../bpl-tools/utils/data';
 
 
-const Style = ({ attributes, id, device = "desktop" }) => {
+const Style = ({ attributes: rawAttributes, id, device = "desktop" }) => {
+  const attributes = sanitizeStyleAttributes(rawAttributes);
 	const { alignment, styles } = attributes || {};
 	const { width, imgRadius, hotspot = {}, info = {}, title = {}, desc = {}, btnGroup } = styles || {};
 	const { column, gap, index = {}, activeIndex = {} } = btnGroup || {};

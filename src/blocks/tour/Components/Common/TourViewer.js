@@ -1,3 +1,4 @@
+import { guardPannellum, sanitizeHTML } from '../../../../utils/sanitize';
 import React, { useEffect, useRef } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -80,7 +81,7 @@ const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
 
     if (!window.pannellum || !tourContainerRef.current) return;
 
-    viewerInstance.current = window.pannellum.viewer(tourContainerRef.current, {
+    viewerInstance.current = guardPannellum().viewer(tourContainerRef.current, {
       preview: previewImgUrl,
       autoLoad,
       showFullscreenCtrl: !hideDefaultCtrl,
@@ -105,7 +106,7 @@ const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
     if (!autoLoad) {
       setTimeout(() => {
         const loadBtn = tourContainerRef.current?.querySelector(".pnlm-load-button p");
-        if (loadBtn) loadBtn.innerHTML = loadButtonText.replace(/\n/g, "<br>");
+        if (loadBtn) loadBtn.innerHTML = sanitizeHTML(String(loadButtonText || "").replace(/\n/g, "<br>"));
       }, 120);
     }
 

@@ -24,7 +24,7 @@ class EnqueueAssets{
         ];
         wp_register_script('bppiv-editor-analytics-data', '', [], BPPIV_VERSION, false);
         wp_enqueue_script('bppiv-editor-analytics-data');
-        wp_add_inline_script('bppiv-editor-analytics-data', 'window.bppivAnalyticsData = ' . wp_json_encode($analytics_data) . '; window.bppivEditorData = ' . wp_json_encode($analytics_data) . ';', 'before');
+        wp_add_inline_script('bppiv-editor-analytics-data', 'window.bppivAnalyticsData = ' . wp_json_encode( $analytics_data, JSON_HEX_TAG | JSON_HEX_AMP ) . '; window.bppivEditorData = ' . wp_json_encode( $analytics_data, JSON_HEX_TAG | JSON_HEX_AMP ) . ';', 'before');
     }
 
     public function printAnalyticsFrontendData() {
@@ -36,7 +36,7 @@ class EnqueueAssets{
             'enabled'    => true,
             'isWcActive' => class_exists('WooCommerce'),
         ];
-        echo "<script id='bppiv-analytics-data-js'>window.bppivAnalyticsData = " . wp_json_encode($analytics_data) . ";</script>\n";
+        echo "<script id='bppiv-analytics-data-js'>window.bppivAnalyticsData = " . wp_json_encode( $analytics_data, JSON_HEX_TAG | JSON_HEX_AMP ) . ";</script>\n";
     }
 
     public function bppiv_registerFrontEndAssets(){

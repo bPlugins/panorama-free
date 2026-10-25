@@ -1,3 +1,4 @@
+import { sanitizeIcon } from '../../../../../utils/sanitize';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import useHotspotManager from '../../../hooks/useHotspotManager';
@@ -73,7 +74,7 @@ export function TippyHotspots({ attributes, setAttributes, isPremium, setIsSpotM
 
               <span
                 className="icon"
-                dangerouslySetInnerHTML={{ __html: getSpotIcon(iconMode, globalIcon, hotspot?.icon) }}
+                dangerouslySetInnerHTML={{ __html: sanitizeIcon(getSpotIcon(iconMode, globalIcon, hotspot?.icon)) }}
               />
 
             </Tippy>

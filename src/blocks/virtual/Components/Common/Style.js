@@ -1,4 +1,6 @@
-const Style = ({ attributes, id, device = "desktop" }) => {
+import { sanitizeStyleAttributes } from '../../../../utils/sanitize';
+const Style = ({ attributes: rawAttributes, id, device = "desktop" }) => {
+  const attributes = sanitizeStyleAttributes(rawAttributes);
 	const { showSceneListAlign, tabSl } = attributes.options;
 	const { alignSl, width, height } = attributes.layout;
 
