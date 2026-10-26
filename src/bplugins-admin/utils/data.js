@@ -187,7 +187,7 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogs: [
 		{
 			type: 'Security',
-			version: '1.8.4 - 25 Oct, 2026',
+			version: '1.8.4 - 26 Oct, 2026',
 			list: [
 				'<strong>Security:</strong> Fixed a stored Cross-Site Scripting (XSS) issue in the Product Spot block (hotspot icons, titles and descriptions) and hardened attribute output and generated styles across all blocks.'
 			]
@@ -213,29 +213,9 @@ export const welcomeInfo = (adminUrl) => ({
 			list: [
 				'<strong>Improved:</strong> Better compatibility with CDN and image-optimization plugins (Envira CDN, WP Rocket, Imagify, etc.) for panorama images and videos.'
 			]
-		},
-		{
-			type: 'new',
-			version: '1.8.0 - 09 Sep, 2026',
-			list: [
-				'<strong>New:</strong> 360° Interaction Analytics Dashboard for monitoring viewer impressions, hotspot clicks, and view durations (7-Day Overview).',
-				'<strong>New:</strong> Added Cubemap (6-Face Box Projection) & Cylindrical (Smartphone Panoramas) 360 projection formats.',
-				'<strong>New:</strong> Expanded Free Virtual Tour limit to 6 scenes per tour (previously 2 scenes).',
-				'<strong>New:</strong> Unlocked Gyroscope / Device Motion Tilt navigation control in the Free tier.',
-				'<strong>New:</strong> Unlocked Set Default / Initial View (FOV, Pitch & Yaw orientation) in the Free tier.'
-			]
-		},
-		{
-			type: 'new',
-			version: '1.7.4 - 11 July, 2026',
-			list: [
-				'<strong>New:</strong> Added Link, Image, and Video hotspot support inside 360 Virtual Tours with aligned setup popups and media uploader type restrictions.',
-				'<strong>Improved:</strong> Upgraded WooCommerce Product editor metabox fields (Panorama Settings) with meaningful help descriptions and modern copy-badge clipboard layouts.',
-				'<strong>Improved:</strong> Optimized Product Spot layouts (Simple, Tippy, Sidepanel) with enhanced Sidepanel ratios and reliable AJAX saving.'
-			]
 		}
 	],
-	changelogsLimit: 2,
+	changelogsLimit: 3,
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
 		'360° Interaction Analytics Dashboard with impression logs, click stats, and conversion metrics.',

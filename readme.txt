@@ -175,7 +175,7 @@ e.g.
 
 == Changelog ==
 
-= 1.8.4 - 25 Oct, 2026 =
+= 1.8.4 - 26 Oct, 2026 =
 * **Security:** Fixed a stored Cross-Site Scripting (XSS) issue in the Product Spot block (hotspot icons, titles and descriptions) and hardened attribute output and generated styles across all blocks.
 
 = 1.8.3 - 21 Sep, 2026 =
