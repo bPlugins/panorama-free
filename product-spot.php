@@ -165,11 +165,11 @@ if ( !class_exists( 'PSBPlugin' ) ) {
 				$blocks_json = wp_unslash( $_POST['product_spot_blocks'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- JSON decoded and each value sanitized below.
 
 				$blocks = json_decode($blocks_json, true);
+				// Only valid data is saved; invalid JSON keeps the previous value.
 				if (is_array($blocks)) {
 					$blocks = $this->psb_sanitize_blocks_meta_recursive($blocks);
-					$blocks_json = wp_json_encode($blocks);
+					update_post_meta( $post_id, '_product_spot_blocks', wp_json_encode($blocks) );
 				}
-                update_post_meta( $post_id, '_product_spot_blocks', $blocks_json );
             }
 
             if ( isset( $_POST['position'] ) ) {
@@ -284,10 +284,11 @@ if ( !class_exists( 'PSBPlugin' ) ) {
 		}
 	
 		function psb_product_spotshortcode($atts){
-			$post_id = $atts['id'];
-			$post = get_post( $post_id );
-	
-			if ( !$post ) {
+			$atts    = shortcode_atts( array( 'id' => 0 ), $atts, 'product_spot' );
+			$post_id = absint( $atts['id'] );
+			$post    = $post_id ? get_post( $post_id ) : null;
+
+			if ( ! $post || 'product_spot' !== $post->post_type ) {
 				return '';
 			}
 	
@@ -320,6 +321,9 @@ if ( !class_exists( 'PSBPlugin' ) ) {
 
 		function displayContent( $post ){
 			$blocks = parse_blocks( $post->post_content );
+			if ( empty( $blocks ) ) {
+				return '';
+			}
 			return render_block( $blocks[0] );
 		}
 	

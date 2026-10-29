@@ -184,7 +184,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'type'         => 'upload',
             'library'      => 'image',
             'button_title' => __('Upload Image', 'panorama'),
-            'title'        => __('360° Image Source.', 'panorama'),
+            'title'        => __('360° Image Source', 'panorama'),
             'desc'         => __('To create an image panorama, Panoramic image is Recommended. You can also use external Panoramic Image link here.', 'panorama'),
             'dependency'   => array( 'bppiv_type|panorama_format_360', '==|!=', 'image360|cubemap' ),
           ),
@@ -240,7 +240,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'           => 'bppiv_video_src',
             'type'         => 'media',
             'library'      => 'video',
-            'title'        => 'Video Source.',
+            'title'        => 'Video Source',
             'desc'         => 'Upload your 360° panoramic video here.',
             'dependency'   => array( 'bppiv_type', 'any', 'video,video2' ),
           ),
@@ -496,6 +496,14 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'class'    => 'bppiv-ctrl-video2',
           ),
           array(
+            'id'       => 'video_progress_ctrl',
+            'type'     => 'switcher',
+            'title'    => 'Progress Control',
+            'desc'     => 'Show or hide the video seek/progress bar.',
+            'default'  => true,
+            'class'    => 'bppiv-ctrl-video2',
+          ),
+          array(
             'id'       => 'video_volume_ctrl',
             'type'     => 'switcher',
             'title'    => 'Volume Control',
@@ -542,7 +550,6 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
            array(
              'type'    => 'content',
              'content' => $this->pro_feature_html( array(
-               'Progress Bar'          => 'Show or hide the video seek/progress bar.',
                'Fullscreen Toggle'     => 'Allow viewers to enter immersive fullscreen mode.',
                'Remaining Time'        => 'Display the remaining playback time on the player.',
                'Picture in Picture'    => 'Enable floating mini-player for multitasking.',
@@ -589,7 +596,8 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
                       } else if (type === 'gstreet') {
                         $('.bppiv-ctrl-image').show();
                         if (isInitialViewOn) { $('.bppiv-ctrl-image-3d-val').show(); }
-                        $('.bppiv-pro-image360').show();
+                        // Street View's only Pro option is the auto-rotation delay.
+                        $('.bppiv-pro-image3d').show();
                       } else if (type === 'video') {
                         $('.bppiv-ctrl-video').show();
                         $('.bppiv-ctrl-video-only').show();

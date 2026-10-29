@@ -1,0 +1,108 @@
+/* Panorama Viewer – Elementor editor panel styles.
+ * Colors come from Elementor's own UI variables, so the card follows the
+ * editor's light / dark theme automatically. */
+.bppiv-el-pro {
+	--bppiv-el-accent: #146ef5;
+	padding: 16px;
+	border: 1px solid var(--e-a-border-color, #e6e8ea);
+	border-radius: 8px;
+	background: var(--e-a-bg-default, #fff);
+	color: var(--e-a-color-txt, #515962);
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.bppiv-el-pro__head {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid var(--e-a-border-color, #e6e8ea);
+}
+
+.bppiv-el-pro__badge {
+	display: inline-flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: rgba(20, 110, 245, 0.12);
+	color: var(--bppiv-el-accent);
+	font-size: 15px;
+}
+
+.bppiv-el-pro__title {
+	margin: 0;
+	color: var(--e-a-color-txt-accent, #0c0d0e);
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.bppiv-el-pro__subtitle {
+	margin: 2px 0 0;
+	color: var(--e-a-color-txt-muted, #818a96);
+	font-size: 11px;
+}
+
+.bppiv-el-pro__list {
+	display: grid;
+	gap: 8px;
+	margin: 0 0 14px;
+	padding: 0;
+	list-style: none;
+}
+
+.bppiv-el-pro__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	margin: 0;
+}
+
+.bppiv-el-pro__item i {
+	flex: none;
+	margin-top: 2px;
+	color: var(--bppiv-el-accent);
+	font-size: 12px;
+}
+
+.bppiv-el-pro__btn,
+.bppiv-el-pro__btn:visited {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	width: 100%;
+	padding: 8px 12px;
+	border-radius: var(--e-a-border-radius, 4px);
+	background: var(--bppiv-el-accent);
+	box-sizing: border-box;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: opacity 0.2s;
+}
+
+.bppiv-el-pro__btn:hover,
+.bppiv-el-pro__btn:focus {
+	color: #fff;
+	opacity: 0.88;
+}
+
+.bppiv-el-pro__btn:focus-visible {
+	outline: 2px solid var(--bppiv-el-accent);
+	outline-offset: 2px;
+}
+
+.bppiv-el-pro .screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
+}

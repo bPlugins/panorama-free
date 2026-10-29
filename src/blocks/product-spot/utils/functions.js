@@ -14,9 +14,8 @@ export const sanitizePerUnitValue = (value) => {
 }
 
 export const getNextId = (hotspots) => {
-  const ids = hotspots.map((h) => h.id);
-  const maxId = Math.max(...ids);
-  return maxId + 1;
+  const ids = (hotspots || []).map((h) => Number(h?.id)).filter((id) => Number.isFinite(id));
+  return ids.length ? Math.max(...ids) + 1 : 1;
 };
 
 export const updateHotspotField = (hotspots, setAttributes, hotspotId, field, value) => {

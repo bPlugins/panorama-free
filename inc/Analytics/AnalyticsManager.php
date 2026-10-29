@@ -82,10 +82,10 @@ class AnalyticsManager {
 
         $event_type = sanitize_key($request->get_param('event_type'));
         $product_id = intval($request->get_param('product_id'));
-        $tour_id = sanitize_text_field($request->get_param('tour_id'));
-        $hotspot_id = sanitize_text_field($request->get_param('hotspot_id'));
-        $hotspot_label = sanitize_text_field($request->get_param('hotspot_label'));
-        $dwell_time = intval($request->get_param('dwell_time'));
+        $tour_id = mb_substr(sanitize_text_field($request->get_param('tour_id')), 0, 100);
+        $hotspot_id = mb_substr(sanitize_text_field($request->get_param('hotspot_id')), 0, 100);
+        $hotspot_label = mb_substr(sanitize_text_field($request->get_param('hotspot_label')), 0, 255);
+        $dwell_time = max(0, min(86400, intval($request->get_param('dwell_time'))));
 
         // 1. Whitelist Valid Event Types
         $valid_events = ['impression', 'hotspot_click', 'cart_click', 'dwell_time'];
@@ -223,18 +223,30 @@ class AnalyticsManager {
             $product = $log->product_id > 0 ? (get_the_title($log->product_id) ? get_the_title($log->product_id) : 'Product #' . $log->product_id) : 'N/A';
             $dwell = $log->dwell_time > 0 ? $log->dwell_time : 'N/A';
 
-            fputcsv($output, [
+            fputcsv($output, array_map([$this, 'csv_safe'], [
                 $log->id,
                 $event_name,
                 $label,
                 $product,
                 $dwell,
                 $log->created_at
-            ]);
+            ]));
         }
 
         fclose($output);
         // phpcs:enable WordPress.WP.AlternativeFunctions.file_system_operations_fopen, WordPress.WP.AlternativeFunctions.file_system_operations_fputs, WordPress.WP.AlternativeFunctions.file_system_operations_fclose
         exit;
+    }
+
+    /**
+     * Prevents CSV formula injection: a cell starting with = + - @ (or a tab /
+     * carriage return) would run as a formula in Excel or Sheets.
+     */
+    private function csv_safe($value) {
+        $value = (string) $value;
+        if ('' !== $value && in_array($value[0], ['=', '+', '-', '@', "\t", "\r"], true)) {
+            return "'" . $value;
+        }
+        return $value;
     }
 }

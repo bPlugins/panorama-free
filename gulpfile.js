@@ -18,6 +18,7 @@ function bundle() {
       "!.eslintrc.js",
       "!README.md",
       "!todo.txt",
+      "!i18n.js",
     ])
     .pipe(gulp.dest("bundled/panorama"));
 }

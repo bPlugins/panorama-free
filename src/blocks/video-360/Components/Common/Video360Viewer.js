@@ -108,7 +108,6 @@ const Video360Viewer = ({ attributes, setAttributes, isButton = true, isBackend 
     if (typeof player.vr === "function") {
       player.vr({
         projection: "AUTO",
-        debug: true,
         forceCardboard: false,
         antialias: false,
       });

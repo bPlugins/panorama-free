@@ -119,6 +119,10 @@ const useGutenbergDragFix = (wrapperRef, panoRef, isBackend = false, isSelected 
     document.addEventListener("mouseenter", handleMouseMove, { capture: true });
 
     const handleBlur = (e) => {
+      // Only react when the window itself loses focus. With capture, this listener
+      // also receives blur events of elements (e.g. a modal losing focus to the
+      // viewer on the first click), which must not end the click.
+      if (e && e.target !== window) return;
       isDragging = false;
       handleRelease(e);
     };

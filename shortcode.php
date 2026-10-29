@@ -38,10 +38,10 @@ function bppiv_image_viewer( $atts ) {
     $bppiv_height = '320px';
 
     if ( isset( $bppiv_meta['bppiv_image_width']['width'] ) ) {
-        $bppiv_width = $bppiv_meta['bppiv_image_width']['width'] . $bppiv_meta['bppiv_image_width']['unit'];
+        $bppiv_width = $bppiv_meta['bppiv_image_width']['width'] . ( isset( $bppiv_meta['bppiv_image_width']['unit'] ) ? $bppiv_meta['bppiv_image_width']['unit'] : '' );
     }
     if ( isset( $bppiv_meta['bppiv_image_height']['height'] ) ) {
-        $bppiv_height = $bppiv_meta['bppiv_image_height']['height'] . $bppiv_meta['bppiv_image_height']['unit'];
+        $bppiv_height = $bppiv_meta['bppiv_image_height']['height'] . ( isset( $bppiv_meta['bppiv_image_height']['unit'] ) ? $bppiv_meta['bppiv_image_height']['unit'] : '' );
     }
 
     $pan_type  = isset( $bppiv_meta['bppiv_type'] ) ? sanitize_key( $bppiv_meta['bppiv_type'] ) : '';

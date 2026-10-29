@@ -166,19 +166,19 @@ export const welcomeInfo = (adminUrl) => ({
 				steps: [
 					{
 						num: 1,
-						title: 'Create a New Panorama',
-						body: 'Go to <strong>Panorama -> Add New</strong>. Enter a title, upload your 360° image or video, configure settings, and click <strong>Publish</strong> to generate a shortcode.',
-						link: { url: `${adminUrl}post-new.php?post_type=bppiv-image-viewer`, label: 'Add New' }
+						title: 'Open Elementor Editor',
+						body: 'Open the Elementor editor on any page or post and find the <strong>Panorama Viewer</strong> category in the widgets panel (or search for "Panorama").'
 					},
 					{
 						num: 2,
-						title: 'Open Elementor Editor',
-						body: 'Open the Elementor editor on any page or post. Search for the <strong>Shortcode</strong> widget and drag it to your desired layout section.'
+						title: 'Add a Panorama Widget',
+						body: 'Drag a widget such as <strong>Image 360°</strong>, <strong>Video 360°</strong>, <strong>360° Virtual Tour</strong> or <strong>Product Spot</strong> into your layout and set it up right in Elementor. For virtual tours, click <strong>Edit Hotspots</strong> to place hotspots visually.'
 					},
 					{
 						num: 3,
-						title: 'Embed Shortcode',
-						body: 'Paste the generated shortcode (e.g. <code>[panorama id="123"]</code>) into the Shortcode widget content settings, and then update/publish the page.'
+						title: 'Reuse a Saved Panorama (Optional)',
+						body: 'Already created panoramas in the dashboard? Use the <strong>Saved Panorama</strong> widget to pick one, or paste its shortcode (e.g. <code>[panorama id="123"]</code>) into Elementor\'s Shortcode widget.',
+						link: { url: `${adminUrl}edit.php?post_type=bppiv-image-viewer`, label: 'All Panoramas' }
 					}
 				]
 			}

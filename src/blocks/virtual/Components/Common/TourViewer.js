@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { safeUrl } from '../../../../utils/sanitize';
 import { __ } from '@wordpress/i18n';
 import { addTempHotspot, createModifiedHotspots, handleMouseDownEvent, handleMouseUpEvent, initializePannellumViewer, saveHotspot } from '../../utils/functions';
 import PopupWrapper from './PopupWrapper';
@@ -383,10 +384,10 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
                             {activePopupHotspot.type === 'video' && (
                                 <div className="video-container-wrapper">
                                     {activePopupHotspot.videoSource === 'self-hosted' ? (
-                                        <video src={activePopupHotspot.videoUrl} controls autoPlay />
+                                        <video src={safeUrl(activePopupHotspot.videoUrl)} controls autoPlay />
                                     ) : (
                                         <iframe
-                                            src={getEmbedUrl(activePopupHotspot.videoSource, activePopupHotspot.videoUrl)}
+                                            src={safeUrl(getEmbedUrl(activePopupHotspot.videoSource, activePopupHotspot.videoUrl))}
                                             frameBorder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen
@@ -396,7 +397,7 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
                             )}
                             {activePopupHotspot.type === 'image' && (
                                 <div className="image-container-wrapper">
-                                    <img src={activePopupHotspot.imageUrl} alt={activePopupHotspot.text || 'Hotspot Preview'} />
+                                    <img src={safeUrl(activePopupHotspot.imageUrl)} alt={activePopupHotspot.text || 'Hotspot Preview'} />
                                 </div>
                             )}
                         </div>

@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const defaultConfig = require("@wordpress/scripts/config/webpack.config");
 const ESLintPlugin = require('eslint-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
@@ -10,7 +11,7 @@ const plugins = defaultConfig.plugins.filter(p => {
   return true;
 });
 
-module.exports = {
+const blocksConfig = {
   ...defaultConfig,
   entry: {
     ...defaultConfig.entry(),
@@ -55,3 +56,27 @@ module.exports = {
     ],
   },
 };
+
+// Elementor editor app (public/elementor/). Built separately from the blocks
+// because it swaps the bpl-tools media components (which need the block
+// editor) for versions that open wp.media directly, and because the block
+// build's clean step empties build/.
+const elementorConfig = {
+  ...defaultConfig,
+  entry: {
+    'elementor-editor': path.resolve(__dirname, 'src/elementor/editor.js'),
+  },
+  output: {
+    ...defaultConfig.output,
+    path: path.resolve(__dirname, 'public/elementor'),
+  },
+  plugins: [
+    ...defaultConfig.plugins.filter((plugin) => plugin && !['PhpFilePathsPlugin', 'CopyPlugin', 'RtlCssPlugin'].includes(plugin.constructor.name)),
+    new webpack.NormalModuleReplacementPlugin(
+      /bpl-tools[\\/]Components$/,
+      path.resolve(__dirname, 'src/elementor/shims/bpl-components.js')
+    ),
+  ],
+};
+
+module.exports = [blocksConfig, elementorConfig];

@@ -7,7 +7,7 @@ $bppiv_block = call_user_func( function() use ( $get_value, $bppiv_meta, $bppiv_
     return [
         "blockName" => "panorama/google-street",
         "attrs" => [
-            "panoId" => $get_value('bppiv_pano_id', false, "",),
+            "panoId" => $get_value('bppiv_pano_id', false, ""),
             "options" => [
                 "autoRotate" => $get_value('bppiv_auto_rotate', true, true),
                 "autoRotateSpeed" => $bppiv_meta['bppiv_speed'] ?? 1,

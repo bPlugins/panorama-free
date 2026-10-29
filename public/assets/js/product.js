@@ -122,6 +122,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         options.author = author;
       }
 
+      // Title and author are plain text: let Pannellum escape them.
+      options.escapeHTML = true;
       const pViewer = pannellum.viewer(container, options);
 
       const tabBtn = document.querySelector("#tab-title-bppiv_panorama_tab a, .bppiv_panorama_tab_tab a");

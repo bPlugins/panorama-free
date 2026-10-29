@@ -91,6 +91,10 @@ class ProductView{
         }
 
         global $product;
+
+        if ( ! $product instanceof \WC_Product ) {
+            return;
+        }
         
         // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
         $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );

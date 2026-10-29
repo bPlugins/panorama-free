@@ -1,16 +1,20 @@
 import { createRoot } from 'react-dom/client';
+import { trackRoot, unmountDetachedRoots } from '../../utils/viewerRoots';
 import './style.scss';
 import Style from './Components/Common/Style';
 import Theme from './Components/Common/theme';
 import Hotspot from './Components/frontend/Hotspot/Hotspot';
 
-document.addEventListener('DOMContentLoaded', () => {
-	const productSpotEls = document.querySelectorAll('.wp-block-psb-product-spot');
+// Also mounts on "bppiv:mount" (fired by the Elementor integration); already-mounted viewers are skipped.
+const mountViewers = () => {
+	unmountDetachedRoots();
+
+	const productSpotEls = document.querySelectorAll('.wp-block-psb-product-spot[data-attributes]');
 
 	productSpotEls.forEach(productSpotEl => {
 		const attributes = JSON.parse(productSpotEl.dataset.attributes);
 
-		createRoot(productSpotEl).render(<>
+		trackRoot(productSpotEl, createRoot(productSpotEl)).render(<>
 			<Style attributes={attributes} id={productSpotEl.id} />
 
 			<div className="productSpotWrapper">
@@ -23,9 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		productSpotEl?.removeAttribute('data-attributes');
 	});
+};
 
+document.addEventListener('bppiv:mount', mountViewers);
 
-	// WooCommerce Product Page 
+document.addEventListener('DOMContentLoaded', () => {
+	mountViewers();
+
+	// WooCommerce Product Page
 	const productSpotOnWooEl = document.querySelector('.psb-product-spot-on-woo');
 
 	if (productSpotOnWooEl) {

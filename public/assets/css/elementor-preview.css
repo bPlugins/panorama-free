@@ -1,0 +1,32 @@
+/* Panorama Viewer – Elementor editor preview only.
+ * Styles the viewers' "Set as Initial View" button (the block editor's
+ * styles for it are not loaded in Elementor). Placed top-right so it never
+ * sits under the viewers' own zoom / fullscreen controls. */
+.elementor-widget[class*="elementor-widget-bppiv-"] .elementor-widget-container {
+	position: relative;
+}
+
+.elementor-widget[class*="elementor-widget-bppiv-"] .setInitialViewButton,
+.elementor-widget[class*="elementor-widget-bppiv-"] .setInitialLookButton {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	bottom: auto;
+	left: auto;
+	z-index: 100;
+	margin: 0;
+	padding: 8px 14px;
+	border: 0;
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.75);
+	color: #fff;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.2;
+	cursor: pointer;
+}
+
+.elementor-widget[class*="elementor-widget-bppiv-"] .setInitialViewButton:hover,
+.elementor-widget[class*="elementor-widget-bppiv-"] .setInitialLookButton:hover {
+	background: rgba(0, 0, 0, 0.9);
+}

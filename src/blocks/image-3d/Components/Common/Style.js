@@ -1,12 +1,13 @@
 import { sanitizeStyleAttributes } from '../../../../utils/sanitize';
 import { getColorsCSS,
 } from "../../../../../../bpl-tools/utils/getCSS";
+import { isEmbedFrame } from '../../../../utils/embed';
 
 const Style = ({ attributes: rawAttributes, id, device = "desktop" }) => {
   const attributes = sanitizeStyleAttributes(rawAttributes);
   let { alignSl, width, height, buttonColors, buttonHoverColors } = attributes.layout || {};
 
-   if (window.location !== window.parent.location) {
+   if (isEmbedFrame()) {
     height = {
       ...height,
       desktop: window.innerHeight + 'px',

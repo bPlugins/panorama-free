@@ -43,7 +43,7 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 - **Auto Rotate Controls**: Keep the viewing experience active with smooth auto-rotation and customizable speeds.
 - **8 Dedicated Gutenberg Blocks**: Specialized blocks for Image 360°, Image 3D, Video, Video 360°, Google Street View, Gallery, Virtual Tour, and Product Spot.
 - **Developer Shortcode API & Embed URLs**: Universal shortcodes `[panorama id="123"]`, `[virtual-tour id="456"]`, `[panorama_product_viewer]`, `[product_spot id="789"]`, and shareable iframe embed URLs.
-- **Seamless Elementor Integration**: Easily embed any 360° photo, video, or virtual tour into Elementor pages using generated shortcodes (e.g. `[panorama id="123"]`) via Elementor's native Shortcode Widget — no complex configuration needed.
+- **Native Elementor Widgets**: Build 360° images, 360° videos, virtual tours (with a visual hotspot editor), product spots and Google Street View right inside Elementor with live preview — or reuse any saved panorama with the Saved Panorama widget.
 
 = Pro Features =
 

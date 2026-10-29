@@ -1,9 +1,10 @@
 import { sanitizeStyleAttributes } from '../../../../utils/sanitize';
+import { isEmbedFrame } from '../../../../utils/embed';
 const Style = ({ attributes: rawAttributes, id, device = "desktop" }) => {
   const attributes = sanitizeStyleAttributes(rawAttributes);
   let { alignSl, width, height } = attributes.layout || {};
 
-  if (window.location !== window.parent.location) {
+  if (isEmbedFrame()) {
     height = {
       ...height,
       desktop: window.innerHeight + 'px',

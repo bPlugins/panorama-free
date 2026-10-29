@@ -115,7 +115,7 @@ const GalleryViewer = ({ attributes, setAttributes, isButton = false }) => {
             key={index}
             className="photo"
             style={{ backgroundImage: `url(${item.img})` }}
-            onClick={() => openPanorama(item, (currentPage - 1) * galleryLimit + index)}
+            onClick={() => openPanorama(item, index)}
           >
             {item.isSetVideo && (
               <span className="item-badge">Video</span>

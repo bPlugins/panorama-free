@@ -67,9 +67,9 @@ if ( function_exists( 'panorama_fs' ) ) {
     defined( 'BPPIV__FILE__' )  || define( 'BPPIV__FILE__',  __FILE__ );
     define( 'BPPIV_HAS_PRO', false );
 
-    require_once 'vendor/csf/codestar-framework.php';
-    require_once 'admin/ads/submenu.php';
-    require_once 'product-spot.php';
+    require_once BPPIV_PATH . 'vendor/csf/codestar-framework.php';
+    require_once BPPIV_PATH . 'admin/ads/submenu.php';
+    require_once BPPIV_PATH . 'product-spot.php';
 
     require_once BPPIV_PATH . 'inc/helpers.php';
 
@@ -107,5 +107,5 @@ if ( function_exists( 'panorama_fs' ) ) {
         }
     }
 
-    require_once 'shortcode.php';
+    require_once BPPIV_PATH . 'shortcode.php';
 }

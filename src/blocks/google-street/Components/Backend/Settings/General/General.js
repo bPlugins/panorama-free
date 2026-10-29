@@ -1,4 +1,4 @@
-import { PanelBody, TextControl, ToggleControl } from "@wordpress/components";
+import { PanelBody, RangeControl, TextControl, ToggleControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { updateData } from "../../../../../../../../bpl-tools/utils/functions";
 import { useState } from "@wordpress/element";
@@ -6,7 +6,7 @@ import { Notice } from '../../../../../../../../bpl-tools/Components';
 
 const General = ({ attributes, setAttributes }) => {
   const { panoId, options = {} } = attributes;
-  const { initialView = false } = options;
+  const { initialView = false, hideDefaultCtrl = false, autoRotate = true, autoRotateSpeed = 1 } = options;
   const [showHelp, setShowHelp] = useState(false);
 
   return (<>
@@ -37,6 +37,7 @@ const General = ({ attributes, setAttributes }) => {
       />
 
       {panoId && (
+        <>
         <ToggleControl
           className="mt15"
           checked={initialView}
@@ -51,10 +52,50 @@ const General = ({ attributes, setAttributes }) => {
             })
           }
         />
+
+        <ToggleControl
+          className="mt15"
+          checked={hideDefaultCtrl}
+          label={__("Hide Default Control", "panorama")}
+          onChange={(v) =>
+            setAttributes({
+              options: updateData(options, v, "hideDefaultCtrl"),
+            })
+          }
+        />
+
+        <ToggleControl
+          className="mt10"
+          checked={autoRotate}
+          label={__("Auto Rotate", "panorama")}
+          onChange={(v) =>
+            setAttributes({
+              options: updateData(options, v, "autoRotate"),
+            })
+          }
+        />
+
+        {autoRotate && (
+          <RangeControl
+            className="mt20"
+            label={__("Auto Rotate Speed", "panorama")}
+            value={autoRotateSpeed}
+            allowReset
+            onChange={(v) =>
+              setAttributes({
+                options: updateData(options, v, "autoRotateSpeed"),
+              })
+            }
+            min={-100}
+            max={100}
+            step={0.1}
+          />
+        )}
+        </>
       )}
 
       <Notice status='premium' isIcon={true}>
-        {__('Hide Default Control, Auto Rotate, Auto Rotate Speed & Inactivity Delay are available in the Pro version.', 'panorama')}
+        {__('Auto Rotate Inactivity Delay is available in the Pro version.', 'panorama')}
       </Notice>
 
     </PanelBody>

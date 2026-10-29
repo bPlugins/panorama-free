@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const vr = player.vr({
       projection: "AUTO",
-      debug: true,
       forceCardboard: false,
       antialias: false,
     });
@@ -56,7 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const p = document.createElement("p");
       btn.addEventListener("click", function () {
         div.appendChild(p);
-        p.innerHTML = "" + JSON.stringify(vr.camera.position) + " <br /> this is only for admin. user can't see this";
+        p.textContent = JSON.stringify(vr.camera.position);
+        p.appendChild(document.createElement("br"));
+        p.appendChild(document.createTextNode(" this is only for admin. user can't see this"));
         div.appendChild(closeBtn);
       });
 

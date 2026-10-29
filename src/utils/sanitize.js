@@ -29,17 +29,29 @@ export const safeUrl = (url) => {
 
 // Pannellum writes title, author, the `strings` labels and hotspot `text` with innerHTML
 // (its escapeHTML option is off), so these are cleaned before a config reaches it.
+const escapeText = (value) => String(value).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+
 const sanitizePannellumNode = (node) => {
 	if (!node || typeof node !== 'object') return node;
 	const clean = { ...node };
-	['title', 'author'].forEach((key) => {
+	['title', 'previewTitle'].forEach((key) => {
 		if (typeof clean[key] === 'string') clean[key] = sanitizeHTML(clean[key]);
+	});
+	// Pannellum inserts the author into the byline label ("by %s"); joining two pieces of
+	// markup can recreate HTML, so the author is always inserted as plain text.
+	['author', 'previewAuthor'].forEach((key) => {
+		if (typeof clean[key] === 'string') clean[key] = escapeText(clean[key]);
 	});
 	if (clean.strings && typeof clean.strings === 'object') {
 		clean.strings = Object.fromEntries(Object.entries(clean.strings).map(([key, val]) => [key, typeof val === 'string' ? sanitizeHTML(val) : val]));
 	}
 	if (Array.isArray(clean.hotSpots)) {
-		clean.hotSpots = clean.hotSpots.map((spot) => (spot && typeof spot.text === 'string' ? { ...spot, text: sanitizeHTML(spot.text) } : spot));
+		clean.hotSpots = clean.hotSpots.map((spot) => {
+			if (!spot || typeof spot !== 'object') return spot;
+			// Pannellum copies hotspot.attributes onto the link element; the plugin never uses it.
+			const { attributes, ...rest } = spot; // eslint-disable-line no-unused-vars
+			return typeof rest.text === 'string' ? { ...rest, text: sanitizeHTML(rest.text) } : rest;
+		});
 	}
 	return clean;
 };

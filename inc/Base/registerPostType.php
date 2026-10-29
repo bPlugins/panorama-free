@@ -133,10 +133,11 @@ class registerPostType{
     }
 
     function bppiv_virtual_tour_shortcode($atts){
-        $post_id = $atts['id'];
-        $post = get_post( $post_id );
+        $atts    = shortcode_atts( array( 'id' => 0 ), $atts, 'virtual-tour' );
+        $post_id = absint( $atts['id'] );
+        $post    = $post_id ? get_post( $post_id ) : null;
 
-        if ( !$post ) {
+        if ( ! $post || 'virtual_tour' !== $post->post_type ) {
             return '';
         }
 

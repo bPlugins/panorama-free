@@ -1,13 +1,19 @@
 import { createRoot } from "react-dom/client";
+import { trackRoot, unmountDetachedRoots } from "../../utils/viewerRoots";
+import { getElementorSetAttributes } from "../../utils/elementorBridge";
 import PanoramicImageViewer from "./Components/Common/PanoramicImageViewer";
 import Style from "./Components/Common/Style";
 import "./style.scss";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const PanoramicImageViewerEls = document.querySelectorAll( ".wp-block-panorama-image-3d");
+// Also mounts on "bppiv:mount" (fired by the Elementor integration); already-mounted viewers are skipped.
+const mountViewers = () => {
+  unmountDetachedRoots();
+
+  const PanoramicImageViewerEls = document.querySelectorAll(".wp-block-panorama-image-3d[data-attributes]");
   
   PanoramicImageViewerEls.forEach((PanoramicImageViewerEl) => {
     const attributes = JSON.parse(PanoramicImageViewerEl.dataset.attributes);
+    const editorSetAttributes = getElementorSetAttributes(PanoramicImageViewerEl);
 
       // const device = window.innerWidth < 768 ? "mobile" : "desktop";
      // -------- Device detection --------
@@ -22,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
      // -------- Sensor support check --------
      const isMotionSupported = "DeviceOrientationEvent" in window;
     
-    createRoot(PanoramicImageViewerEl).render(
+    trackRoot(PanoramicImageViewerEl, createRoot(PanoramicImageViewerEl)).render(
       <>
         <Style attributes={attributes} id={PanoramicImageViewerEl.id} />
 
@@ -31,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             attributes={attributes}
             device={device}
             isMotionSupported={isMotionSupported}
-            isButton={false}
+            isButton={Boolean(editorSetAttributes)} setAttributes={editorSetAttributes || undefined}
           />
         </div>
       </>
@@ -39,4 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     PanoramicImageViewerEl?.removeAttribute("data-attributes");
   });
-});
+};
+
+document.addEventListener("DOMContentLoaded", mountViewers);
+document.addEventListener("bppiv:mount", mountViewers);

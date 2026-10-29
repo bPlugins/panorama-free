@@ -1,0 +1,49 @@
+// Panorama Viewer – Elementor hotspot editor modal.
+.bppiv-el-tour-modal {
+	.components-modal__content {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	&__help {
+		margin: 0;
+		color: #50575e;
+		font-size: 13px;
+	}
+
+	&__scenes {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	&__footer {
+		display: flex;
+		justify-content: flex-end;
+		gap: 8px;
+		margin-top: auto;
+		padding-top: 12px;
+		border-top: 1px solid #e0e0e0;
+	}
+
+	.bppiv-el-tour-editor {
+		position: relative;
+		width: 100%;
+	}
+}
+
+.bppiv-el-inline-media {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+
+	.components-base-control {
+		flex: 1;
+	}
+}
+
+.bppiv-el-media-label {
+	margin: 0 0 6px;
+	font-weight: 500;
+}

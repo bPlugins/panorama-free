@@ -1,24 +1,33 @@
 import { createRoot } from "react-dom/client";
+import { trackRoot, unmountDetachedRoots } from "../../utils/viewerRoots";
+import { getElementorSetAttributes } from "../../utils/elementorBridge";
 import Style from "./Components/Common/Style";
 import "./style.scss";
 import TourViewer from "./Components/Common/TourViewer";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const PanoramicImageViewerEls = document.querySelectorAll( ".wp-block-panorama-tour");
+// Also mounts on "bppiv:mount" (fired by the Elementor integration); already-mounted viewers are skipped.
+const mountViewers = () => {
+  unmountDetachedRoots();
+
+  const PanoramicImageViewerEls = document.querySelectorAll(".wp-block-panorama-tour[data-attributes]");
   
   PanoramicImageViewerEls.forEach((PanoramicImageViewerEl) => {
     const attributes = JSON.parse(PanoramicImageViewerEl.dataset.attributes);
+    const editorSetAttributes = getElementorSetAttributes(PanoramicImageViewerEl);
 
-    createRoot(PanoramicImageViewerEl).render(
+    trackRoot(PanoramicImageViewerEl, createRoot(PanoramicImageViewerEl)).render(
       <>
         <Style attributes={attributes} id={PanoramicImageViewerEl.id} />
 
         <div className="bBlocksTourViewer">
-            <TourViewer attributes={attributes} isButton={false} />
+            <TourViewer attributes={attributes} isButton={Boolean(editorSetAttributes)} setAttributes={editorSetAttributes || undefined} />
         </div>
       </>
     );
 
     PanoramicImageViewerEl?.removeAttribute("data-attributes");
   });
-});
+};
+
+document.addEventListener("DOMContentLoaded", mountViewers);
+document.addEventListener("bppiv:mount", mountViewers);
