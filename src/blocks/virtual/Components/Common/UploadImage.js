@@ -1,4 +1,4 @@
-import { MediaPlaceholder } from "../../../../../../bpl-tools/Components";
+import { MediaPlaceholder } from "../../../../../../bpl-tools/Components/MediaControl/MediaControl";
 import { __ } from "@wordpress/i18n";
 
 const UploadImage = ({ currentScene, scenes, setAttributes, selectBlock, clientId }) => {

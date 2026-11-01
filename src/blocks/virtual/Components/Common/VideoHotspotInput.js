@@ -1,6 +1,6 @@
 import React from 'react';
 import { __ } from '@wordpress/i18n';
-import { InlineMediaUpload } from "../../../../../../bpl-tools/Components";
+import { InlineMediaUpload } from "../../../../../../bpl-tools/Components/MediaControl/MediaControl";
 
 const VideoHotspotInput = ({ popupData, setPopupData }) => {
     const videoSource = popupData.videoSource || 'youtube';

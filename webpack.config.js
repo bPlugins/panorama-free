@@ -73,7 +73,7 @@ const elementorConfig = {
   plugins: [
     ...defaultConfig.plugins.filter((plugin) => plugin && !['PhpFilePathsPlugin', 'CopyPlugin', 'RtlCssPlugin'].includes(plugin.constructor.name)),
     new webpack.NormalModuleReplacementPlugin(
-      /bpl-tools[\\/]Components$/,
+      /bpl-tools[\\/]Components([\\/]MediaControl[\\/]MediaControl)?$/,
       path.resolve(__dirname, 'src/elementor/shims/bpl-components.js')
     ),
   ],
