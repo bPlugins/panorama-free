@@ -176,18 +176,17 @@ e.g.
 == Changelog ==
 
 = 1.9.0 - 01 Nov, 2026 =
-* **New:** Native Elementor widgets for every panorama type — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour (with a visual hotspot editor), Product Spot and Saved Panorama — with live preview in the Elementor editor.
-* **New:** "Set as Initial View" button in Elementor: rotate the preview and save the camera angle in one click, with a confirmation notice.
-* **New:** Hide Default Controls, Auto Rotate and Rotation Speed options for Google Street View in the block editor.
-* **New:** Progress Control option for Video in the panorama settings.
-* **Improved:** Analytics tracking is now protected against spam requests, and raw logs older than 90 days are cleaned up automatically to keep the database fast.
-* **Improved:** The gallery popup close button now stays inside the viewer and keeps its round shape with every theme.
-* **Improved:** Updated the Freemius SDK to 2.13.5.
-* **Fixed:** A fatal error in the Google Street View shortcode on PHP 7.1 and 7.2.
+* **New:** Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.
+* **Fixed:** Google Street View shortcode caused a fatal error on PHP 7.1 and 7.2.
+* **Fixed:** Hide Default Controls, Auto Rotate and Rotation Speed options were missing for Google Street View in the block editor.
+* **Fixed:** Progress bar option was missing for Video in the panorama settings.
 * **Fixed:** "Load More" in the gallery could open the wrong item.
-* **Fixed:** A new Product Spot hotspot could get an invalid ID after all hotspots were deleted.
-* **Fixed:** Removed a debug log that 360° videos printed in the browser console.
-* **Security:** Hardened viewer titles, author and hotspot text, media and link URLs, the embed auto-resize script, analytics input and the CSV export. The panorama Author field now always displays as plain text.
+* **Fixed:** Gallery popup close button went outside the viewer and looked stretched with some themes.
+* **Fixed:** A new Product Spot hotspot got an invalid ID after all hotspots were deleted.
+* **Fixed:** 360° videos printed debug messages in the browser console.
+* **Security:** Hardened viewer titles, author and hotspot text, media URLs, the embed auto-resize script, analytics tracking and the CSV export.
+* **Improved:** Analytics logs older than 90 days are now cleaned up automatically.
+* **Improved:** Updated the Freemius SDK to 2.13.5.
 
 = 1.8.4 - 26 Oct, 2026 =
 * **Security:** Fixed a stored Cross-Site Scripting (XSS) issue in the Product Spot block (hotspot icons, titles and descriptions) and hardened attribute output and generated styles across all blocks.
