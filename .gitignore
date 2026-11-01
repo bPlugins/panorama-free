@@ -3,3 +3,4 @@ zip
 bundled
 .codegpt
 build/**/*.map
+public/elementor/*.map

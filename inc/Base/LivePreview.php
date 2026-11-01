@@ -78,7 +78,10 @@ class LivePreview {
             'nonce'   => wp_create_nonce( 'bppiv_live_preview_' . $post->ID ),
             'postId'  => $post->ID,
             'metaKey' => $screens[ $screen->post_type ],
+            // Panorama settings: preview beside the fields. Product page: below (the main column is narrow there).
+            'layout'  => 'product' === $screen->post_type ? 'stack' : 'split',
             'i18n'    => array(
+                'title'   => __( 'Live Preview', 'panorama' ),
                 'loading' => __( 'Updating preview…', 'panorama' ),
                 'error'   => __( 'The preview could not be loaded. Click Refresh to try again.', 'panorama' ),
             ),

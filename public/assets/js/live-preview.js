@@ -22,15 +22,69 @@
 	var controller = null;
 	var resizeObserver = null;
 
-	// Keep the preview right below the settings box.
 	var settingsBox = document.getElementById( config.metaKey );
-	if ( settingsBox && settingsBox.parentNode && settingsBox.nextElementSibling !== postbox ) {
+	var settingsInside = settingsBox ? settingsBox.querySelector( '.inside' ) : null;
+	var screenOption = document.getElementById( 'bppiv-live-preview-hide' );
+	var split = null;
+
+	if ( 'split' === config.layout && settingsInside ) {
+		// Fields on the left, preview on the right (stacks when the box is narrow).
+		// The preview postbox stays in place (empty) so Screen Options and box order keep working.
+		split = document.createElement( 'div' );
+		split.className = 'bppiv-lp-split';
+		var grid = document.createElement( 'div' );
+		grid.className = 'bppiv-lp-split__grid';
+		var fields = document.createElement( 'div' );
+		fields.className = 'bppiv-lp-split__fields';
+		var aside = document.createElement( 'div' );
+		aside.className = 'bppiv-lp-split__preview';
+
+		while ( settingsInside.firstChild ) {
+			fields.appendChild( settingsInside.firstChild );
+		}
+
+		var title = document.createElement( 'span' );
+		title.className = 'bppiv-live-preview__title';
+		title.textContent = config.i18n.title;
+		box.querySelector( '.bppiv-live-preview__bar' ).insertBefore( title, status );
+
+		aside.appendChild( box );
+		grid.appendChild( fields );
+		grid.appendChild( aside );
+		split.appendChild( grid );
+		settingsInside.appendChild( split );
+		postbox.classList.add( 'bppiv-lp-moved' );
+	} else if ( settingsBox && settingsBox.parentNode && settingsBox.nextElementSibling !== postbox ) {
+		// Keep the preview right below the settings box.
 		settingsBox.parentNode.insertBefore( postbox, settingsBox.nextSibling );
 	}
 
+	var previewEnabled = function () {
+		return ! screenOption || screenOption.checked;
+	};
+
 	var isOpen = function () {
+		if ( split ) {
+			return previewEnabled() && ! settingsBox.classList.contains( 'closed' );
+		}
 		return ! postbox.classList.contains( 'closed' ) && ! postbox.classList.contains( 'hide-if-js' ) && postbox.offsetParent !== null;
 	};
+
+	if ( split ) {
+		// "Live Preview" in Screen Options turns the preview column on / off.
+		split.classList.toggle( 'is-preview-off', ! previewEnabled() );
+		if ( screenOption ) {
+			screenOption.addEventListener( 'change', function () {
+				split.classList.toggle( 'is-preview-off', ! previewEnabled() );
+				if ( previewEnabled() ) {
+					lastSent = null;
+					setTimeout( function () {
+						update( true );
+					}, 0 );
+				}
+			} );
+		}
+	}
 
 	var collect = function () {
 		var data = new FormData();
@@ -169,7 +223,8 @@
 
 	if ( window.jQuery ) {
 		window.jQuery( document ).on( 'postbox-toggled', function ( event, toggled ) {
-			if ( toggled === postbox || ( toggled && toggled.id === 'bppiv-live-preview' ) ) {
+			var id = toggled && toggled.id;
+			if ( 'bppiv-live-preview' === id || ( split && config.metaKey === id ) ) {
 				update( true );
 			}
 		} );

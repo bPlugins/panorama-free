@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-01T07:14:51+00:00\n"
+"POT-Creation-Date: 2026-11-01T18:14:38+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: panorama\n"
@@ -95,7 +95,18 @@ msgstr ""
 msgid "Data will be preserved on uninstall."
 msgstr ""
 
+#: inc/Base/EnqueueAssets.php:105
+#: src/components/ClipBoard/ClipBoard.js:64
+#: src/components/ClipBoard/ClipBoard.js:114
+msgid "Copied!"
+msgstr ""
+
+#: inc/Base/EnqueueAssets.php:106
+msgid "Press Ctrl+C to copy"
+msgstr ""
+
 #: inc/Base/LivePreview.php:45
+#: inc/Base/LivePreview.php:84
 msgid "Live Preview"
 msgstr ""
 
@@ -111,19 +122,19 @@ msgstr ""
 msgid "The preview updates as you change the settings. Click Update to save them."
 msgstr ""
 
-#: inc/Base/LivePreview.php:82
+#: inc/Base/LivePreview.php:85
 msgid "Updating preview…"
 msgstr ""
 
-#: inc/Base/LivePreview.php:83
+#: inc/Base/LivePreview.php:86
 msgid "The preview could not be loaded. Click Refresh to try again."
 msgstr ""
 
-#: inc/Base/LivePreview.php:104
+#: inc/Base/LivePreview.php:107
 msgid "Sorry, you are not allowed to preview this panorama."
 msgstr ""
 
-#: inc/Base/LivePreview.php:142
+#: inc/Base/LivePreview.php:145
 msgid "Choose a panorama type and add an image or video to see the preview."
 msgstr ""
 
@@ -164,17 +175,67 @@ msgstr ""
 msgid "Panorama Options."
 msgstr ""
 
-#: inc/Base/registerPostType.php:281
-msgid "Use this shortcode in your post or page, or click Embed to share it on other websites:"
+#: inc/Base/registerPostType.php:320
+msgid "Shortcode"
+msgstr ""
+
+#: inc/Base/registerPostType.php:325
+msgid "Copy"
+msgstr ""
+
+#: inc/Base/registerPostType.php:328
+msgid "Paste it into any post, page or widget."
+msgstr ""
+
+#: inc/Base/registerPostType.php:331
+#: src/components/ClipBoard/ClipBoard.js:73
+msgid "Embed"
+msgstr ""
+
+#: inc/Base/registerPostType.php:333
+msgid "Get Embed Code"
+msgstr ""
+
+#: inc/Base/registerPostType.php:335
+msgid "Show this panorama on other websites."
+msgstr ""
+
+#: inc/Base/registerPostType.php:341
+msgid "Close"
+msgstr ""
+
+#: inc/Base/registerPostType.php:342
+msgid "Embed Panorama"
+msgstr ""
+
+#: inc/Base/registerPostType.php:343
+msgid "Copy this code and paste it into an HTML or Custom HTML block on any website."
+msgstr ""
+
+#: inc/Base/registerPostType.php:349
+#: src/components/ClipBoard/ClipBoard.js:114
+msgid "Copy Embed Code"
+msgstr ""
+
+#: inc/Base/registerPostType.php:352
+msgid "<strong>Note:</strong> For Video 360°, the iframe and the height-resizer script work together. If the video looks misaligned on your page, wrap both inside a <code>&lt;div&gt;</code> container."
+msgstr ""
+
+#: inc/Base/registerPostType.php:354
+msgid "<strong>Note:</strong> If the panorama looks misaligned on your page, wrap the iframe inside a <code>&lt;div&gt;</code> container. This fixes alignment in some editors."
+msgstr ""
+
+#: inc/Base/registerPostType.php:356
+msgid "<strong>Note:</strong> If the embedded panorama does not show, go to <em>Settings → Permalinks</em> in your WordPress dashboard and click <em>Save Changes</em> to refresh the URLs."
 msgstr ""
 
 #. translators: %s: Rating URL.
-#: inc/Base/registerPostType.php:433
+#: inc/Base/registerPostType.php:368
 #, php-format
 msgid "If you like <strong> Panorama Viewer </strong> please leave us a <a href=\"%s\" target=\"_blank\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. Your Review is very important to us as it helps us to grow more. "
 msgstr ""
 
-#: inc/Base/registerPostType.php:455
+#: inc/Base/registerPostType.php:390
 msgid "Shortcode updated "
 msgstr ""
 
@@ -2177,15 +2238,6 @@ msgstr ""
 msgid "Click to copy shortcode"
 msgstr ""
 
-#: src/components/ClipBoard/ClipBoard.js:64
-#: src/components/ClipBoard/ClipBoard.js:114
-msgid "Copied!"
-msgstr ""
-
-#: src/components/ClipBoard/ClipBoard.js:73
-msgid "Embed"
-msgstr ""
-
 #: src/components/ClipBoard/ClipBoard.js:95
 #: src/components/ClipBoard/ClipBoard.js:100
 msgid "Note:"
@@ -2217,10 +2269,6 @@ msgstr ""
 
 #: src/components/ClipBoard/ClipBoard.js:105
 msgid " This refreshes the URLs and ensures the embed works properly."
-msgstr ""
-
-#: src/components/ClipBoard/ClipBoard.js:114
-msgid "Copy Embed Code"
 msgstr ""
 
 #: src/components/CubeMapUpload/CubeMapUpload.js:5

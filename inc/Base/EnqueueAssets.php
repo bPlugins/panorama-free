@@ -99,38 +99,12 @@ class EnqueueAssets{
             global $post;
             if ($screen === 'post.php' || $screen === 'post-new.php') {
                 if (isset($post) && $post->post_type === 'bppiv-image-viewer') {
-                    wp_add_inline_script('jquery-core', "
-                        function bppiv_copy_to_clipboard(text) {
-                            if (navigator.clipboard && window.isSecureContext) {
-                                return navigator.clipboard.writeText(text);
-                            } else {
-                                var textArea = document.createElement('textarea');
-                                textArea.value = text;
-                                textArea.style.position = 'fixed';
-                                textArea.style.left = '-9999px';
-                                textArea.style.top = '0';
-                                document.body.appendChild(textArea);
-                                textArea.focus();
-                                textArea.select();
-                                var successful = document.execCommand('copy');
-                                document.body.removeChild(textArea);
-                                return successful ? Promise.resolve() : Promise.reject();
-                            }
-                        }
-
-                        document.addEventListener('click', function(e){
-                            var el = e.target.closest('.shortcode_copy');
-                            if(!el) return;
-
-                            bppiv_copy_to_clipboard(el.dataset.code).then(function(){
-                                var original = el.innerHTML;
-                                el.innerHTML = 'Copied!';
-                                setTimeout(function(){
-                                    el.innerHTML = original;
-                                }, 1000);
-                            });
-                        });
-                    ");
+                    // Shortcode / embed code copy buttons and the embed dialog.
+                    wp_enqueue_script( 'bppiv-admin-share', BPPIV_PLUGIN_DIR . 'public/assets/js/admin-share.js', array(), BPPIV_VERSION, true );
+                    wp_localize_script( 'bppiv-admin-share', 'bppivShare', array(
+                        'copied' => __( 'Copied!', 'panorama' ),
+                        'failed' => __( 'Press Ctrl+C to copy', 'panorama' ),
+                    ) );
                 }
             }
         }
