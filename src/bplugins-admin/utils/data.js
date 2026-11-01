@@ -208,7 +208,7 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogsLimit: 2,
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
-		'Panorama Gallery & Tour 360° Elementor widgets, plus all Pro options in every Elementor widget (works with free Elementor).',
+		'Full Elementor support — unlock every panorama type and all Pro options in Elementor widgets.',
 		'360° Interaction Analytics Dashboard with impression logs, click stats, and conversion metrics.',
 		'Interactive WooCommerce Product Hotspots with price badges and instant Add to Cart.',
 		'WooCommerce Single Product 360° Video & custom gallery placement options.',
