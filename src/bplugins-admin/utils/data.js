@@ -186,6 +186,24 @@ export const welcomeInfo = (adminUrl) => ({
 	},
 	changelogs: [
 		{
+			type: 'new',
+			version: '1.9.0 - 01 Nov, 2026',
+			list: [
+				'<strong>New:</strong> Native Elementor widgets for every panorama type — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour (with a visual hotspot editor), Product Spot and Saved Panorama — with live preview in the Elementor editor.',
+				'<strong>New:</strong> "Set as Initial View" button in Elementor: rotate the preview and save the camera angle in one click, with a confirmation notice.',
+				'<strong>New:</strong> Hide Default Controls, Auto Rotate and Rotation Speed options for Google Street View in the block editor.',
+				'<strong>New:</strong> Progress Control option for Video in the panorama settings.',
+				'<strong>Improved:</strong> Analytics tracking is now protected against spam requests, and raw logs older than 90 days are cleaned up automatically to keep the database fast.',
+				'<strong>Improved:</strong> The gallery popup close button now stays inside the viewer and keeps its round shape with every theme.',
+				'<strong>Improved:</strong> Updated the Freemius SDK to 2.13.5.',
+				'<strong>Fixed:</strong> A fatal error in the Google Street View shortcode on PHP 7.1 and 7.2.',
+				'<strong>Fixed:</strong> "Load More" in the gallery could open the wrong item.',
+				'<strong>Fixed:</strong> A new Product Spot hotspot could get an invalid ID after all hotspots were deleted.',
+				'<strong>Fixed:</strong> Removed a debug log that 360° videos printed in the browser console.',
+				'<strong>Security:</strong> Hardened viewer titles, author and hotspot text, media and link URLs, the embed auto-resize script, analytics input and the CSV export. The panorama Author field now always displays as plain text.'
+			]
+		},
+		{
 			type: 'Security',
 			version: '1.8.4 - 26 Oct, 2026',
 			list: [

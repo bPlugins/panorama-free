@@ -1,4 +1,6 @@
 {
+  "name": "panorama",
+  "version": "1.9.0",
   "scripts": {
     "start": "wp-scripts start",
     "i18n-pot": "wp i18n make-pot . languages/panorama.pot --exclude=\"build,bin,node_modules,vendor,tests\" && node -e \"require('fs').copyFileSync('languages/panorama.pot', 'languages/panorama-en_US.po')\"",
