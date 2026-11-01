@@ -28,10 +28,11 @@ Everything you need to build an immersive 360° experience on your site:
 - **Auto Rotate & Camera Controls:** Keep viewers engaged with automated panning and customizable rotation speeds.
 - **8 Dedicated Gutenberg Blocks:** Specialized blocks for Image 360°, Image 3D, Video, Video 360°, Google Street View, Gallery, Virtual Tour, and Product Spot.
 - **Developer Shortcode API & Embed URLs:** Universal shortcodes `[panorama id="123"]`, `[virtual-tour id="456"]`, `[panorama_product_viewer]`, `[product_spot id="789"]`, and shareable iframe embed URLs.
-- **Native Elementor Widgets:** Build 360° images, 360° videos, virtual tours (with a visual hotspot editor), product spots and Google Street View right inside Elementor with live preview — or reuse any saved panorama with the Saved Panorama widget.
+- **Native Elementor Widgets:** Use every panorama type right inside Elementor with live preview — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour (with a visual hotspot editor), Product Spot and Saved Panorama.
 
 ### 👑 Premium Power (Pro)
 Unlock advanced features for premium real estate tours, vehicle showcases, and interactive 3D portfolios:
+- **Elementor Pro Widgets & Options:** Unlock the Panorama Gallery and Tour 360° widgets, plus every Pro option of each panorama type (unlimited scenes and hotspots, custom controls, compass, preview cover, custom hotspot icons and more) right inside Elementor.
 - **Advanced 360° Interaction Analytics Dashboard:** Track extended lifetime analytics data, WooCommerce sales conversions, custom date range filters, and live activity streams.
 - **Interactive WooCommerce Product Hotspots:** Connect 360° hotspots directly to WooCommerce products, display live price badges, and enable instant Add to Cart buttons.
 - **WooCommerce Product Video & Advanced Controls:** Add 360° product videos, custom initial view angle, playback controls, and title/author overlays to your product panorama.

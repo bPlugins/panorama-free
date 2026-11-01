@@ -43,10 +43,11 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 - **Auto Rotate Controls**: Keep the viewing experience active with smooth auto-rotation and customizable speeds.
 - **8 Dedicated Gutenberg Blocks**: Specialized blocks for Image 360°, Image 3D, Video, Video 360°, Google Street View, Gallery, Virtual Tour, and Product Spot.
 - **Developer Shortcode API & Embed URLs**: Universal shortcodes `[panorama id="123"]`, `[virtual-tour id="456"]`, `[panorama_product_viewer]`, `[product_spot id="789"]`, and shareable iframe embed URLs.
-- **Native Elementor Widgets**: Build 360° images, 360° videos, virtual tours (with a visual hotspot editor), product spots and Google Street View right inside Elementor with live preview — or reuse any saved panorama with the Saved Panorama widget.
+- **Native Elementor Widgets**: Use every panorama type right inside Elementor with live preview — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour (with a visual hotspot editor), Product Spot and Saved Panorama.
 
 = Pro Features =
 
+- **Elementor Pro Widgets & Options**: Unlock the Panorama Gallery and Tour 360° widgets, plus every Pro option of each panorama type (unlimited scenes and hotspots, custom controls, compass, preview cover, custom hotspot icons and more) right inside Elementor.
 - **Advanced 360° Interaction Analytics Dashboard**: Track extended lifetime analytics data, WooCommerce sales conversions, custom date range filters, and live activity streams.
 - **Interactive WooCommerce Product Hotspots**: Connect 360° hotspots directly to WooCommerce products, display live price badges, and enable instant Add to Cart buttons.
 - **WooCommerce Product Video & Advanced Controls**: Add 360° product videos, custom initial view angle, playback controls, and title/author overlays to your product panorama.
@@ -178,14 +179,9 @@ e.g.
 = 1.9.0 - 01 Nov, 2026 =
 * **New:** Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.
 * **Fixed:** Google Street View shortcode caused a fatal error on PHP 7.1 and 7.2.
-* **Fixed:** Hide Default Controls, Auto Rotate and Rotation Speed options were missing for Google Street View in the block editor.
-* **Fixed:** Progress bar option was missing for Video in the panorama settings.
-* **Fixed:** "Load More" in the gallery could open the wrong item.
-* **Fixed:** Gallery popup close button went outside the viewer and looked stretched with some themes.
-* **Fixed:** A new Product Spot hotspot got an invalid ID after all hotspots were deleted.
-* **Fixed:** 360° videos printed debug messages in the browser console.
-* **Security:** Hardened viewer titles, author and hotspot text, media URLs, the embed auto-resize script, analytics tracking and the CSV export.
-* **Improved:** Analytics logs older than 90 days are now cleaned up automatically.
+* **Fixed:** Gallery "Load More" could open the wrong item, and the popup close button went outside the viewer.
+* **Fixed:** Some Google Street View and Video options were missing in the block editor and panorama settings.
+* **Security:** Hardened viewer output, the embed script, analytics tracking and the CSV export.
 * **Improved:** Updated the Freemius SDK to 2.13.5.
 
 = 1.8.4 - 26 Oct, 2026 =

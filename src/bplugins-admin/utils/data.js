@@ -191,14 +191,9 @@ export const welcomeInfo = (adminUrl) => ({
 			list: [
 				'<strong>New:</strong> Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.',
 				'<strong>Fixed:</strong> Google Street View shortcode caused a fatal error on PHP 7.1 and 7.2.',
-				'<strong>Fixed:</strong> Hide Default Controls, Auto Rotate and Rotation Speed options were missing for Google Street View in the block editor.',
-				'<strong>Fixed:</strong> Progress bar option was missing for Video in the panorama settings.',
-				'<strong>Fixed:</strong> "Load More" in the gallery could open the wrong item.',
-				'<strong>Fixed:</strong> Gallery popup close button went outside the viewer and looked stretched with some themes.',
-				'<strong>Fixed:</strong> A new Product Spot hotspot got an invalid ID after all hotspots were deleted.',
-				'<strong>Fixed:</strong> 360° videos printed debug messages in the browser console.',
-				'<strong>Security:</strong> Hardened viewer titles, author and hotspot text, media URLs, the embed auto-resize script, analytics tracking and the CSV export.',
-				'<strong>Improved:</strong> Analytics logs older than 90 days are now cleaned up automatically.',
+				'<strong>Fixed:</strong> Gallery "Load More" could open the wrong item, and the popup close button went outside the viewer.',
+				'<strong>Fixed:</strong> Some Google Street View and Video options were missing in the block editor and panorama settings.',
+				'<strong>Security:</strong> Hardened viewer output, the embed script, analytics tracking and the CSV export.',
 				'<strong>Improved:</strong> Updated the Freemius SDK to 2.13.5.'
 			]
 		},
@@ -235,6 +230,7 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogsLimit: 3,
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
+		'Elementor Pro widgets: Panorama Gallery, Tour 360° and every Pro option for all panorama types.',
 		'360° Interaction Analytics Dashboard with impression logs, click stats, and conversion metrics.',
 		'Interactive WooCommerce Product Hotspots with price badges and instant Add to Cart.',
 		'WooCommerce Single Product 360° Video & custom gallery placement options.',
