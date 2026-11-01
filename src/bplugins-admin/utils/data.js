@@ -203,34 +203,12 @@ export const welcomeInfo = (adminUrl) => ({
 			list: [
 				'<strong>Security:</strong> Fixed a stored Cross-Site Scripting (XSS) issue in the Product Spot block (hotspot icons, titles and descriptions) and hardened attribute output and generated styles across all blocks.'
 			]
-		},
-		{
-			type: 'Fixed',
-			version: '1.8.3 - 21 Sep, 2026',
-			list: [
-				'<strong>Fixed:</strong> Reworked how the Product Spot block\'s icon-picker data is bundled so the build output complies with WordPress.org\'s automated JavaScript review limits.'
-			]
-		},
-		{
-			type: 'Fixed',
-			version: '1.8.2 - 21 Sep, 2026',
-			list: [
-				'<strong>Fixed:</strong> Restricted the [panorama] shortcode from rendering unpublished, private, or password-protected panorama content to unauthorized users.',
-				'<strong>Fixed:</strong> Optimized JavaScript build output to comply with WordPress.org\'s automated code review requirements.'
-			]
-		},
-		{
-			type: 'update',
-			version: '1.8.1 - 20 Sep, 2026',
-			list: [
-				'<strong>Improved:</strong> Better compatibility with CDN and image-optimization plugins (Envira CDN, WP Rocket, Imagify, etc.) for panorama images and videos.'
-			]
 		}
 	],
-	changelogsLimit: 3,
+	changelogsLimit: 2,
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
-		'Elementor Pro widgets: Panorama Gallery, Tour 360° and every Pro option for all panorama types.',
+		'Panorama Gallery & Tour 360° Elementor widgets, plus all Pro options in every Elementor widget (works with free Elementor).',
 		'360° Interaction Analytics Dashboard with impression logs, click stats, and conversion metrics.',
 		'Interactive WooCommerce Product Hotspots with price badges and instant Add to Cart.',
 		'WooCommerce Single Product 360° Video & custom gallery placement options.',
