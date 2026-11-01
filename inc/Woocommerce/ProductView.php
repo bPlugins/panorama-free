@@ -240,5 +240,18 @@ class ProductView{
 
        <?php
     }
+
+    /**
+     * Viewer markup for the settings live preview (settings are not saved).
+     *
+     * @param array $meta Product panorama settings.
+     * @return string
+     */
+    public function render_preview( $meta ) {
+        $this->meta = is_array( $meta ) ? $meta : array();
+        ob_start();
+        $this->model();
+        return (string) ob_get_clean();
+    }
 }
 

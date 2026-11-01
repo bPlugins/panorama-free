@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useGutenbergDragFix from "../../../../hooks/useGutenbergDragFix";
+import { isEmbedFrame } from '../../../../utils/embed';
 
 const isCrossOrigin = (url) => {
   if (!url) return false;
@@ -40,7 +41,7 @@ const Video360Viewer = ({ attributes, setAttributes, isButton = true, isBackend 
 
   // iframe detect
   useEffect(() => {
-    if (window.self !== window.top) {
+    if (isEmbedFrame()) {
       const setIframeHeight = () => {
         const el = document.querySelector(".panoramaVideo360Viewer");
         if (el) {

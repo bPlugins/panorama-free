@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-01T05:34:14+00:00\n"
+"POT-Creation-Date: 2026-11-01T07:14:51+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: panorama\n"
@@ -93,6 +93,38 @@ msgstr ""
 
 #: inc/Base/Ajax.php:36
 msgid "Data will be preserved on uninstall."
+msgstr ""
+
+#: inc/Base/LivePreview.php:45
+msgid "Live Preview"
+msgstr ""
+
+#: inc/Base/LivePreview.php:53
+msgid "Refresh"
+msgstr ""
+
+#: inc/Base/LivePreview.php:55
+msgid "Panorama live preview"
+msgstr ""
+
+#: inc/Base/LivePreview.php:56
+msgid "The preview updates as you change the settings. Click Update to save them."
+msgstr ""
+
+#: inc/Base/LivePreview.php:82
+msgid "Updating preview…"
+msgstr ""
+
+#: inc/Base/LivePreview.php:83
+msgid "The preview could not be loaded. Click Refresh to try again."
+msgstr ""
+
+#: inc/Base/LivePreview.php:104
+msgid "Sorry, you are not allowed to preview this panorama."
+msgstr ""
+
+#: inc/Base/LivePreview.php:142
+msgid "Choose a panorama type and add an image or video to see the preview."
 msgstr ""
 
 #: inc/Base/registerPostType.php:48
@@ -1312,7 +1344,7 @@ msgstr ""
 msgid "Failed to save"
 msgstr ""
 
-#: shortcode.php:69
+#: shortcode.php:86
 msgid "Product Panorama viewer is not available."
 msgstr ""
 

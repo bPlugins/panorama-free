@@ -25,6 +25,7 @@
             Base\registerPostType::class,
             Woocommerce\ProductView::class,
             Base\EnqueueAssets::class,
+            Base\LivePreview::class,
             Base\Blocks::class,
             Base\Admin::class,
             Base\Ajax::class,

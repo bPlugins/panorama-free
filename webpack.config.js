@@ -17,7 +17,6 @@ const blocksConfig = {
     ...defaultConfig.entry(),
     "scripts": "./src/view/scripts.js",
     "videojs-init": "./src/view/videojs-init.js",
-    "classic-editor-preview": "./src/admin/classic-editor-preview.js",
     "dashboardBlockEditor": "./src/woocommerce/dashboardBlockEditor.js",
     "admin-dashboard": "./src/bplugins-admin/dashboard.js",
     "admin-post": "./src/bplugins-admin/post.js",

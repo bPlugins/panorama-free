@@ -190,6 +190,7 @@ export const welcomeInfo = (adminUrl) => ({
 			version: '1.9.0 - 01 Nov, 2026',
 			list: [
 				'<strong>New:</strong> Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.',
+				'<strong>New:</strong> Live preview in the panorama settings and the WooCommerce product panorama settings.',
 				'<strong>Fixed:</strong> Google Street View shortcode caused a fatal error on PHP 7.1 and 7.2.',
 				'<strong>Fixed:</strong> Gallery "Load More" could open the wrong item, and the popup close button went outside the viewer.',
 				'<strong>Fixed:</strong> Some Google Street View and Video options were missing in the block editor and panorama settings.',

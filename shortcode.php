@@ -34,6 +34,24 @@ function bppiv_image_viewer( $atts ) {
         $bppiv_meta = array();
     }
 
+    return bppiv_render_panorama_meta( $bppiv_meta );
+}
+add_shortcode( 'panorama', 'bppiv_image_viewer' );
+
+/**
+ * Renders a panorama from its settings (the `_bppivimages_` meta array).
+ * Used by the [panorama] shortcode and the settings live preview.
+ *
+ * @param array $bppiv_meta Panorama settings.
+ * @return string Block markup, or '' when no type or media is set.
+ */
+function bppiv_render_panorama_meta( $bppiv_meta ) {
+    $bppiv_block = null;
+
+    if ( ! is_array( $bppiv_meta ) ) {
+        $bppiv_meta = array();
+    }
+
     $bppiv_width  = '100%';
     $bppiv_height = '320px';
 
@@ -61,7 +79,6 @@ function bppiv_image_viewer( $atts ) {
 
     return render_block( $bppiv_block );
 }
-add_shortcode( 'panorama', 'bppiv_image_viewer' );
 
 
 // Shortcode for Product Spot Panorama viewer.

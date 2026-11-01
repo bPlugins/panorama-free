@@ -91,8 +91,6 @@ class EnqueueAssets{
             
             wp_register_style( 'bppiv-readonly', BPPIV_PLUGIN_DIR . 'public/assets/css/readonly.css', [], BPPIV_VERSION );
             
-            // classic editor preview (only for our CPT)
-            wp_enqueue_script( 'classic-editor-preview', BPPIV_PLUGIN_DIR . 'build/classic-editor-preview.js', ['react', 'react-dom'], BPPIV_VERSION, true );
 
             // meta fields
             wp_register_script( 'bppiv-meta', BPPIV_PLUGIN_DIR . 'build/custom-codestar.js', ['jquery', 'wp-compose', 'lodash'], BPPIV_VERSION, true );

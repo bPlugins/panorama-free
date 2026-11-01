@@ -178,6 +178,7 @@ e.g.
 
 = 1.9.0 - 01 Nov, 2026 =
 * **New:** Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.
+* **New:** Live preview in the panorama settings and the WooCommerce product panorama settings.
 * **Fixed:** Google Street View shortcode caused a fatal error on PHP 7.1 and 7.2.
 * **Fixed:** Gallery "Load More" could open the wrong item, and the popup close button went outside the viewer.
 * **Fixed:** Some Google Street View and Video options were missing in the block editor and panorama settings.
