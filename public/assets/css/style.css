@@ -79,8 +79,9 @@
   width: 44px;
   height: 44px;
   position: absolute;
-  right: 12%;
-  top: 13%;
+  /* Inside the top-right corner of the viewer (79% x 80%, centered). */
+  right: calc(10.5% + 38px);
+  top: calc(10% + 38px);
   margin-top: -22px;
   margin-right: -22px;
   cursor: pointer;
@@ -101,10 +102,17 @@
   justify-content: center;
   height: 100%;
 
+  /* Fixed size so theme rules (max-width, box-sizing) cannot squash the circle. */
   svg {
+    box-sizing: border-box;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    max-width: none;
+    max-height: none;
     background-color: rgb(53, 18, 53);
     border-radius: 50%;
-    padding: 10px;
+    padding: 12px;
   }
 }
 

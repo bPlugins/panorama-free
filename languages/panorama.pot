@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Panorama – Turn Photos into Immersive Virtual Tours 1.8.4\n"
+"Project-Id-Version: Panorama – Turn Photos into Immersive Virtual Tours 1.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/panorama\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-28T09:47:12+00:00\n"
+"POT-Creation-Date: 2026-11-01T03:45:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: panorama\n"
@@ -47,19 +47,19 @@ msgstr ""
 msgid "No tour scenes found to display."
 msgstr ""
 
-#: inc/Analytics/AnalyticsManager.php:131
+#: inc/Analytics/AnalyticsManager.php:142
 msgid "Interaction Analytics"
 msgstr ""
 
-#: inc/Analytics/AnalyticsManager.php:132
+#: inc/Analytics/AnalyticsManager.php:143
 msgid "Analytics"
 msgstr ""
 
-#: inc/Analytics/AnalyticsManager.php:156
+#: inc/Analytics/AnalyticsManager.php:167
 msgid "Permission denied"
 msgstr ""
 
-#: inc/Analytics/AnalyticsManager.php:161
+#: inc/Analytics/AnalyticsManager.php:172
 msgid "Security check failed"
 msgstr ""
 
@@ -95,54 +95,54 @@ msgstr ""
 msgid "Data will be preserved on uninstall."
 msgstr ""
 
+#: inc/Base/registerPostType.php:48
 #: inc/Base/registerPostType.php:49
 #: inc/Base/registerPostType.php:50
-#: inc/Base/registerPostType.php:51
-#: inc/Elementor/Elementor.php:47
+#: inc/Elementor/Elementor.php:60
 msgid "Panorama Viewer"
 msgstr ""
 
+#: inc/Base/registerPostType.php:51
 #: inc/Base/registerPostType.php:52
-#: inc/Base/registerPostType.php:53
 #: product-spot.php:23
 msgid "Add New"
 msgstr ""
 
-#: inc/Base/registerPostType.php:54
+#: inc/Base/registerPostType.php:53
 msgid "New Panorama "
 msgstr ""
 
-#: inc/Base/registerPostType.php:55
+#: inc/Base/registerPostType.php:54
 msgid "Edit Panorama "
 msgstr ""
 
-#: inc/Base/registerPostType.php:56
+#: inc/Base/registerPostType.php:55
 msgid "View Panorama "
 msgstr ""
 
-#: inc/Base/registerPostType.php:57
+#: inc/Base/registerPostType.php:56
 msgid "All Panoramas"
 msgstr ""
 
-#: inc/Base/registerPostType.php:58
+#: inc/Base/registerPostType.php:57
 msgid "Sorry, we couldn't find the Panorama you are looking for."
 msgstr ""
 
-#: inc/Base/registerPostType.php:62
+#: inc/Base/registerPostType.php:61
 msgid "Panorama Options."
 msgstr ""
 
-#: inc/Base/registerPostType.php:282
+#: inc/Base/registerPostType.php:281
 msgid "Use this shortcode in your post or page, or click Embed to share it on other websites:"
 msgstr ""
 
 #. translators: %s: Rating URL.
-#: inc/Base/registerPostType.php:434
+#: inc/Base/registerPostType.php:433
 #, php-format
 msgid "If you like <strong> Panorama Viewer </strong> please leave us a <a href=\"%s\" target=\"_blank\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. Your Review is very important to us as it helps us to grow more. "
 msgstr ""
 
-#: inc/Base/registerPostType.php:456
+#: inc/Base/registerPostType.php:455
 msgid "Shortcode updated "
 msgstr ""
 
@@ -167,6 +167,7 @@ msgid "Layout"
 msgstr ""
 
 #: inc/Elementor/Widgets/Base.php:333
+#: inc/Elementor/Widgets/ProductSpot.php:301
 #: src/blocks/google-street/Components/Backend/Settings/Style/Style.js:25
 #: src/blocks/image-3d/Components/Backend/Settings/Style/Style.js:29
 #: src/blocks/image-360/Components/Backend/Settings/Style/Style.js:21
@@ -179,6 +180,7 @@ msgid "Width"
 msgstr ""
 
 #: inc/Elementor/Widgets/Base.php:349
+#: inc/Elementor/Widgets/ProductSpot.php:302
 #: src/blocks/google-street/Components/Backend/Settings/Style/Style.js:39
 #: src/blocks/image-3d/Components/Backend/Settings/Style/Style.js:42
 #: src/blocks/image-360/Components/Backend/Settings/Style/Style.js:35
@@ -214,16 +216,28 @@ msgstr ""
 msgid "Custom Initial View"
 msgstr ""
 
-#: inc/Elementor/Widgets/Base.php:456
+#: inc/Elementor/Widgets/Base.php:420
+msgid "Rotate the preview to the view you want and click \"Set as Initial View\", or type the values below."
+msgstr ""
+
+#: inc/Elementor/Widgets/Base.php:459
 msgid "Pro Features"
 msgstr ""
 
-#: inc/Elementor/Widgets/Base.php:469
-msgid "Get more with Panorama Pro"
+#: inc/Elementor/Widgets/Base.php:474
+msgid "Unlock with Panorama Pro"
 msgstr ""
 
-#: inc/Elementor/Widgets/Base.php:469
+#: inc/Elementor/Widgets/Base.php:475
+msgid "Get these extra features for this widget:"
+msgstr ""
+
+#: inc/Elementor/Widgets/Base.php:478
 msgid "Upgrade to Pro"
+msgstr ""
+
+#: inc/Elementor/Widgets/Base.php:479
+msgid "(opens in a new tab)"
 msgstr ""
 
 #: inc/Elementor/Widgets/Gallery.php:22
@@ -298,20 +312,42 @@ msgstr ""
 msgid "Open the location in Google Maps Street View, then copy the text after \"panoid=\" (or after \"!1s\") in the browser URL."
 msgstr ""
 
-#: inc/Elementor/Widgets/GoogleStreet.php:72
-msgid "Turn auto-rotate on / off"
+#: inc/Elementor/Widgets/GoogleStreet.php:64
+#: inc/Elementor/Widgets/Image3D.php:55
+#: inc/Elementor/Widgets/Image360.php:132
+#: inc/Elementor/Widgets/Video.php:55
+#: inc/Elementor/Widgets/Video360.php:55
+msgid "Viewer Settings"
 msgstr ""
 
-#: inc/Elementor/Widgets/GoogleStreet.php:73
-msgid "Auto-rotate speed"
+#: inc/Elementor/Widgets/GoogleStreet.php:70
+#: inc/Elementor/Widgets/Image3D.php:61
+#: inc/Elementor/Widgets/Image360.php:138
+#: inc/Elementor/Widgets/VirtualTour.php:189
+#: src/blocks/google-street/Components/Backend/Settings/General/General.js:70
+#: src/blocks/image-3d/Components/Backend/Settings/General/General.js:32
+#: src/blocks/image-360/Components/Backend/Settings/General/General.js:119
+#: src/blocks/tour/Components/Backend/Settings/General/General.js:100
+#: src/blocks/virtual/Components/Backend/Settings/General/General.js:104
+msgid "Auto Rotate"
 msgstr ""
 
-#: inc/Elementor/Widgets/GoogleStreet.php:74
+#: inc/Elementor/Widgets/GoogleStreet.php:79
+#: inc/Elementor/Widgets/Image3D.php:70
+#: inc/Elementor/Widgets/Image360.php:147
+#: inc/Elementor/Widgets/VirtualTour.php:199
+msgid "Rotate Speed"
+msgstr ""
+
+#: inc/Elementor/Widgets/GoogleStreet.php:92
+#: inc/Elementor/Widgets/Image3D.php:83
+#: inc/Elementor/Widgets/Image360.php:161
+#: inc/Elementor/Widgets/VirtualTour.php:225
+msgid "Hide Default Controls"
+msgstr ""
+
+#: inc/Elementor/Widgets/GoogleStreet.php:110
 msgid "Auto-rotate activation delay"
-msgstr ""
-
-#: inc/Elementor/Widgets/GoogleStreet.php:75
-msgid "Hide default controls"
 msgstr ""
 
 #: inc/Elementor/Widgets/Image3D.php:20
@@ -331,39 +367,10 @@ msgstr ""
 #: inc/Elementor/Widgets/Image360.php:65
 #: inc/Elementor/Widgets/ProductSpot.php:54
 #: inc/Elementor/Widgets/ProductSpot.php:57
-#: inc/Elementor/Widgets/ProductSpot.php:253
+#: inc/Elementor/Widgets/ProductSpot.php:269
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:47
 msgid "Image"
-msgstr ""
-
-#: inc/Elementor/Widgets/Image3D.php:55
-#: inc/Elementor/Widgets/Image360.php:132
-#: inc/Elementor/Widgets/Video.php:55
-#: inc/Elementor/Widgets/Video360.php:55
-msgid "Viewer Settings"
-msgstr ""
-
-#: inc/Elementor/Widgets/Image3D.php:61
-#: inc/Elementor/Widgets/Image360.php:138
-#: inc/Elementor/Widgets/VirtualTour.php:189
-#: src/blocks/image-3d/Components/Backend/Settings/General/General.js:32
-#: src/blocks/image-360/Components/Backend/Settings/General/General.js:119
-#: src/blocks/tour/Components/Backend/Settings/General/General.js:100
-#: src/blocks/virtual/Components/Backend/Settings/General/General.js:104
-msgid "Auto Rotate"
-msgstr ""
-
-#: inc/Elementor/Widgets/Image3D.php:70
-#: inc/Elementor/Widgets/Image360.php:147
-#: inc/Elementor/Widgets/VirtualTour.php:199
-msgid "Rotate Speed"
-msgstr ""
-
-#: inc/Elementor/Widgets/Image3D.php:83
-#: inc/Elementor/Widgets/Image360.php:161
-#: inc/Elementor/Widgets/VirtualTour.php:225
-msgid "Hide Default Controls"
 msgstr ""
 
 #: inc/Elementor/Widgets/Image3D.php:101
@@ -388,14 +395,17 @@ msgid "Select a 360° image to display the panorama."
 msgstr ""
 
 #: inc/Elementor/Widgets/Image360.php:39
+#: inc/Elementor/Widgets/VirtualTour.php:414
 msgid "Pitch"
 msgstr ""
 
 #: inc/Elementor/Widgets/Image360.php:40
+#: inc/Elementor/Widgets/VirtualTour.php:415
 msgid "Yaw"
 msgstr ""
 
 #: inc/Elementor/Widgets/Image360.php:41
+#: inc/Elementor/Widgets/VirtualTour.php:413
 msgid "Zoom (HFOV)"
 msgstr ""
 
@@ -471,7 +481,7 @@ msgid "Custom navigation controls"
 msgstr ""
 
 #: inc/Elementor/Widgets/Image360.php:194
-#: inc/Elementor/Widgets/VirtualTour.php:414
+#: inc/Elementor/Widgets/VirtualTour.php:444
 msgid "Compass"
 msgstr ""
 
@@ -480,7 +490,7 @@ msgid "Title & author overlay"
 msgstr ""
 
 #: inc/Elementor/Widgets/Image360.php:196
-#: inc/Elementor/Widgets/VirtualTour.php:415
+#: inc/Elementor/Widgets/VirtualTour.php:445
 msgid "Mouse wheel, keyboard & double-click zoom control"
 msgstr ""
 
@@ -551,130 +561,138 @@ msgstr ""
 msgid "Tippy"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:178
+#: inc/Elementor/Widgets/ProductSpot.php:163
+msgid "Hotspot Icon"
+msgstr ""
+
+#: inc/Elementor/Widgets/ProductSpot.php:171
+msgid "Leave empty to use the default plus icon."
+msgstr ""
+
+#: inc/Elementor/Widgets/ProductSpot.php:193
 #: inc/Elementor/Widgets/VirtualTour.php:268
 #: src/blocks/product-spot/Components/Backend/Settings/Style/Style.js:110
 #: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:96
 msgid "Title"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:180
+#: inc/Elementor/Widgets/ProductSpot.php:195
 msgid "Hotspot Title"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:188
+#: inc/Elementor/Widgets/ProductSpot.php:203
 #: src/blocks/product-spot/Components/Backend/Settings/Style/Style.js:125
 msgid "Description"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:190
+#: inc/Elementor/Widgets/ProductSpot.php:205
 msgid "Hotspot Description"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:197
+#: inc/Elementor/Widgets/ProductSpot.php:212
 msgid "Horizontal Position"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:208
+#: inc/Elementor/Widgets/ProductSpot.php:223
 msgid "Vertical Position"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:225
+#: inc/Elementor/Widgets/ProductSpot.php:240
 msgid "Unlimited hotspots"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:226
+#: inc/Elementor/Widgets/ProductSpot.php:241
 msgid "Custom icon for each hotspot"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:227
+#: inc/Elementor/Widgets/ProductSpot.php:242
 msgid "Show / hide hotspot title and description"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:228
+#: inc/Elementor/Widgets/ProductSpot.php:243
 msgid "Image border radius"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:229
+#: inc/Elementor/Widgets/ProductSpot.php:244
 msgid "Hotspot padding and border"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:230
+#: inc/Elementor/Widgets/ProductSpot.php:245
 msgid "Tooltip radius and padding"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:231
+#: inc/Elementor/Widgets/ProductSpot.php:246
 msgid "Title & description typography"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:232
+#: inc/Elementor/Widgets/ProductSpot.php:247
 msgid "Side panel button layout"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:261
+#: inc/Elementor/Widgets/ProductSpot.php:277
 msgid "Max Width"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:279
+#: inc/Elementor/Widgets/ProductSpot.php:295
 #: src/blocks/product-spot/Components/Backend/Settings/Style/Style.js:36
 msgid "Hotspot"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:287
-msgid "Size"
+#: inc/Elementor/Widgets/ProductSpot.php:303
+msgid "Icon Width"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:298
-msgid "Icon Size"
+#: inc/Elementor/Widgets/ProductSpot.php:304
+msgid "Icon Height"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:306
+#: inc/Elementor/Widgets/ProductSpot.php:323
 msgid "Icon Color"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:307
 #: inc/Elementor/Widgets/ProductSpot.php:324
-#: inc/Elementor/Widgets/ProductSpot.php:350
+#: inc/Elementor/Widgets/ProductSpot.php:341
+#: inc/Elementor/Widgets/ProductSpot.php:368
 msgid "Background Color"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:316
+#: inc/Elementor/Widgets/ProductSpot.php:333
 msgid "Tooltip"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:327
+#: inc/Elementor/Widgets/ProductSpot.php:345
 msgid "Leave empty to use the theme default."
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:331
+#: inc/Elementor/Widgets/ProductSpot.php:349
 msgid "Title Color"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:332
+#: inc/Elementor/Widgets/ProductSpot.php:350
 msgid "Description Color"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:343
+#: inc/Elementor/Widgets/ProductSpot.php:361
 msgid "Side Panel Buttons"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:349
+#: inc/Elementor/Widgets/ProductSpot.php:367
 msgid "Text Color"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:351
+#: inc/Elementor/Widgets/ProductSpot.php:369
 msgid "Hover Text Color"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:352
+#: inc/Elementor/Widgets/ProductSpot.php:370
 msgid "Hover Background Color"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:353
+#: inc/Elementor/Widgets/ProductSpot.php:371
 msgid "Active Text Color"
 msgstr ""
 
-#: inc/Elementor/Widgets/ProductSpot.php:354
+#: inc/Elementor/Widgets/ProductSpot.php:372
 msgid "Active Background Color"
 msgstr ""
 
@@ -806,7 +824,7 @@ msgid "Show / hide the settings button"
 msgstr ""
 
 #: inc/Elementor/Widgets/Video.php:109
-msgid "Show / hide the video progress control"
+msgid "Show / hide the progress bar & play/pause button"
 msgstr ""
 
 #: inc/Elementor/Widgets/Video360.php:20
@@ -876,7 +894,7 @@ msgstr ""
 
 #: inc/Elementor/Widgets/VirtualTour.php:108
 #: public/elementor/elementor-editor.js:1
-#: src/elementor/editor.js:157
+#: src/elementor/editor.js:154
 msgid "Edit Hotspots"
 msgstr ""
 
@@ -944,15 +962,23 @@ msgstr ""
 msgid "360° Image"
 msgstr ""
 
-#: inc/Elementor/Widgets/VirtualTour.php:411
+#: inc/Elementor/Widgets/VirtualTour.php:405
+msgid "Initial View"
+msgstr ""
+
+#: inc/Elementor/Widgets/VirtualTour.php:408
+msgid "Or use \"Set Default View\" in Edit Hotspots."
+msgstr ""
+
+#: inc/Elementor/Widgets/VirtualTour.php:441
 msgid "Unlimited scenes"
 msgstr ""
 
-#: inc/Elementor/Widgets/VirtualTour.php:412
+#: inc/Elementor/Widgets/VirtualTour.php:442
 msgid "Unlimited hotspots per scene"
 msgstr ""
 
-#: inc/Elementor/Widgets/VirtualTour.php:413
+#: inc/Elementor/Widgets/VirtualTour.php:443
 msgid "Video, image and WooCommerce product hotspots"
 msgstr ""
 
@@ -1037,7 +1063,7 @@ msgid "Upload Image"
 msgstr ""
 
 #: inc/metabox-options-free.php:187
-msgid "360° Image Source."
+msgid "360° Image Source"
 msgstr ""
 
 #: inc/metabox-options-free.php:188
@@ -1114,13 +1140,13 @@ msgstr ""
 msgid "Input here Google Street View Panorama Id. <a href=\"#\" class=\"pano-help-link\">How to find it?</a>"
 msgstr ""
 
-#: inc/metabox-options-free.php:700
-#: inc/metabox-options-free.php:726
+#: inc/metabox-options-free.php:708
+#: inc/metabox-options-free.php:734
 msgid "Unlock Pro Features"
 msgstr ""
 
-#: inc/metabox-options-free.php:716
-#: inc/metabox-options-free.php:742
+#: inc/metabox-options-free.php:724
+#: inc/metabox-options-free.php:750
 #: inc/Woocommerce/ProductMeta.php:189
 msgid "Upgrade to Pro Now"
 msgstr ""
@@ -1242,7 +1268,7 @@ msgstr ""
 msgid "360° View"
 msgstr ""
 
-#: inc/Woocommerce/ProductView.php:146
+#: inc/Woocommerce/ProductView.php:150
 msgid "Awaiting product image"
 msgstr ""
 
@@ -1514,34 +1540,34 @@ msgstr ""
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/image-360/Components/Backend/Edit.js:68
 #: src/blocks/virtual/Components/Backend/Edit.js:63
-#: src/blocks/virtual/Components/Common/TourViewer.js:288
+#: src/blocks/virtual/Components/Common/TourViewer.js:289
 msgid "Cubemap (6 Cube Faces) Mode"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/image-360/Components/Backend/Edit.js:73
 #: src/blocks/virtual/Components/Backend/Edit.js:68
-#: src/blocks/virtual/Components/Common/TourViewer.js:293
+#: src/blocks/virtual/Components/Common/TourViewer.js:294
 msgid "Please upload all 6 square cube faces (Front, Right, Back, Left, Up, Down) in the right sidebar settings."
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
-#: src/elementor/editor.js:164
+#: src/elementor/editor.js:161
 msgid "Click anywhere on the scene to add a hotspot or set the scene's default view. Click a hotspot to edit or delete it, or drag it to move it."
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
-#: src/elementor/editor.js:198
+#: src/elementor/editor.js:195
 msgid "Cancel"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
-#: src/elementor/editor.js:199
+#: src/elementor/editor.js:196
 msgid "Save Hotspots"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
-#: src/elementor/editor.js:225
+#: src/elementor/editor.js:222
 msgid "Add a 360° image to at least one scene first."
 msgstr ""
 
@@ -1591,7 +1617,7 @@ msgstr ""
 msgid "Enter Panorama ID"
 msgstr ""
 
-#: src/blocks/google-street/Components/Backend/Settings/General/General.js:43
+#: src/blocks/google-street/Components/Backend/Settings/General/General.js:44
 #: src/blocks/gutenberg-block/Components/Backend/Settings/Settings.js:92
 #: src/blocks/image-3d/Components/Backend/Settings/General/General.js:71
 #: src/blocks/image-360/Components/Backend/Settings/General/General.js:158
@@ -1601,7 +1627,7 @@ msgstr ""
 msgid "Set As Initial View Button"
 msgstr ""
 
-#: src/blocks/google-street/Components/Backend/Settings/General/General.js:44
+#: src/blocks/google-street/Components/Backend/Settings/General/General.js:45
 #: src/blocks/image-3d/Components/Backend/Settings/General/General.js:72
 #: src/blocks/image-360/Components/Backend/Settings/General/General.js:159
 #: src/blocks/tour/Components/Backend/Settings/General/General.js:141
@@ -1610,8 +1636,25 @@ msgstr ""
 msgid "Shows a button on the viewer that lets you save the current camera angle as the initial view."
 msgstr ""
 
-#: src/blocks/google-street/Components/Backend/Settings/General/General.js:57
-msgid "Hide Default Control, Auto Rotate, Auto Rotate Speed & Inactivity Delay are available in the Pro version."
+#: src/blocks/google-street/Components/Backend/Settings/General/General.js:59
+#: src/blocks/image-3d/Components/Backend/Settings/General/General.js:60
+#: src/blocks/image-360/Components/Backend/Settings/General/General.js:147
+#: src/blocks/tour/Components/Backend/Settings/General/General.js:129
+#: src/blocks/virtual/Components/Backend/Settings/General/General.js:149
+msgid "Hide Default Control"
+msgstr ""
+
+#: src/blocks/google-street/Components/Backend/Settings/General/General.js:81
+#: src/blocks/gutenberg-block/Components/Backend/Settings/Settings.js:140
+#: src/blocks/image-3d/Components/Backend/Settings/General/General.js:43
+#: src/blocks/image-360/Components/Backend/Settings/General/General.js:130
+#: src/blocks/tour/Components/Backend/Settings/General/General.js:111
+#: src/blocks/virtual/Components/Backend/Settings/General/General.js:115
+msgid "Auto Rotate Speed"
+msgstr ""
+
+#: src/blocks/google-street/Components/Backend/Settings/General/General.js:98
+msgid "Auto Rotate Inactivity Delay is available in the Pro version."
 msgstr ""
 
 #: src/blocks/google-street/Components/Backend/Settings/Settings.js:53
@@ -1677,14 +1720,6 @@ msgstr ""
 msgid "height:"
 msgstr ""
 
-#: src/blocks/gutenberg-block/Components/Backend/Settings/Settings.js:140
-#: src/blocks/image-3d/Components/Backend/Settings/General/General.js:43
-#: src/blocks/image-360/Components/Backend/Settings/General/General.js:130
-#: src/blocks/tour/Components/Backend/Settings/General/General.js:111
-#: src/blocks/virtual/Components/Backend/Settings/General/General.js:115
-msgid "Auto Rotate Speed"
-msgstr ""
-
 #: src/blocks/gutenberg-block/Components/Backend/Settings/Settings.js:157
 msgid "Setting Control, Range & Play/Pause Control, and Fullscreen Control are available in the Pro version."
 msgstr ""
@@ -1701,13 +1736,6 @@ msgstr ""
 #: src/blocks/image-3d/Components/Backend/Settings/General/General.js:21
 #: src/blocks/image-360/Components/Backend/Settings/General/General.js:107
 msgid "Image URL"
-msgstr ""
-
-#: src/blocks/image-3d/Components/Backend/Settings/General/General.js:60
-#: src/blocks/image-360/Components/Backend/Settings/General/General.js:147
-#: src/blocks/tour/Components/Backend/Settings/General/General.js:129
-#: src/blocks/virtual/Components/Backend/Settings/General/General.js:149
-msgid "Hide Default Control"
 msgstr ""
 
 #: src/blocks/image-3d/Components/Backend/Settings/General/General.js:84
@@ -2197,6 +2225,10 @@ msgstr ""
 
 #: src/components/CubeMapUpload/CubeMapUpload.js:61
 msgid "Upload 6 square images (1:1 aspect ratio, e.g. 1024×1024) of identical dimensions."
+msgstr ""
+
+#: src/utils/elementorBridge.js:61
+msgid "Initial view set successfully."
 msgstr ""
 
 #: src/blocks/gallery/block.json

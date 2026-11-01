@@ -456,6 +456,14 @@ class VirtualTour extends Base {
 	 * so hotspots keep pointing to the right scene when scenes are reordered.
 	 * Must match sceneId() in src/elementor/editor.js.
 	 */
+	/**
+	 * wp_kses_post() turns "&" into "&amp;"; the hotspot popup and list show this text as
+	 * plain text, so turn the safe entities back (the tooltip HTML is sanitized in the viewer).
+	 */
+	protected static function plain_entities( $text ) {
+		return str_replace( array( '&amp;', '&quot;', '&#039;' ), array( '&', '"', "'" ), $text );
+	}
+
 	protected static function scene_id( $item, $index ) {
 		$raw = isset( $item['_id'] ) ? preg_replace( '/[^A-Za-z0-9_-]/', '', (string) $item['_id'] ) : '';
 
@@ -513,7 +521,7 @@ class VirtualTour extends Base {
 			'pitch' => (float) $spot['pitch'],
 			'yaw'   => (float) $spot['yaw'],
 			'type'  => $type,
-			'text'  => is_string( $text ) ? wp_kses_post( $text ) : '',
+			'text'  => is_string( $text ) ? self::plain_entities( wp_kses_post( $text ) ) : '',
 		);
 
 		if ( 'scene' === $type ) {
@@ -557,7 +565,7 @@ class VirtualTour extends Base {
 
 		if ( 'product' === $type ) {
 			$clean['productId']    = isset( $spot['productId'] ) ? absint( $spot['productId'] ) : 0;
-			$clean['productTitle'] = isset( $spot['productTitle'] ) && is_string( $spot['productTitle'] ) ? wp_kses_post( $spot['productTitle'] ) : '';
+			$clean['productTitle'] = isset( $spot['productTitle'] ) && is_string( $spot['productTitle'] ) ? self::plain_entities( wp_kses_post( $spot['productTitle'] ) ) : '';
 			$clean['productPrice'] = isset( $spot['productPrice'] ) && is_string( $spot['productPrice'] ) ? wp_kses_post( $spot['productPrice'] ) : '';
 			$clean['productImage'] = isset( $spot['productImage'] ) && is_string( $spot['productImage'] ) ? esc_url_raw( $spot['productImage'] ) : '';
 			$clean['productUrl']   = isset( $spot['productUrl'] ) && is_string( $spot['productUrl'] ) ? esc_url_raw( $spot['productUrl'] ) : '';

@@ -19,6 +19,12 @@ class AnalyticsManager {
 
         // Register CSV Export Handler
         add_action('admin_post_bppiv_export_analytics_csv', [$this, 'export_analytics_csv']);
+
+        // Daily cleanup of old raw logs
+        add_action('bppiv_analytics_cleanup', [$this, 'purge_old_logs']);
+        if (!wp_next_scheduled('bppiv_analytics_cleanup')) {
+            wp_schedule_event(time() + HOUR_IN_SECONDS, 'daily', 'bppiv_analytics_cleanup');
+        }
     }
 
     public function create_db_tables_if_needed() {
@@ -93,10 +99,15 @@ class AnalyticsManager {
             return new \WP_REST_Response(['success' => false, 'message' => 'Invalid event type'], 400);
         }
 
+        if ($this->is_rate_limited()) {
+            return new \WP_REST_Response(['success' => false, 'message' => 'Too many requests'], 429);
+        }
+
         // 2. Validate Product ID if provided
         if ($product_id > 0 && function_exists('wc_get_product')) {
             $product = wc_get_product($product_id);
-            if (!$product) {
+            // Unpublished products are treated as unknown so their IDs aren't revealed.
+            if (!$product || 'publish' !== $product->get_status()) {
                 return new \WP_REST_Response(['success' => false, 'message' => 'Invalid product ID'], 400);
             }
         }
@@ -248,5 +259,49 @@ class AnalyticsManager {
             return "'" . $value;
         }
         return $value;
+    }
+
+    /**
+     * Limits tracking requests per visitor (IP + browser) so the public endpoint
+     * can't be flooded. A real visitor sends a few events per page, far below this.
+     */
+    protected function is_rate_limited() {
+        $limit = (int) apply_filters('bppiv_analytics_rate_limit', 300);
+        if ($limit <= 0) {
+            return false;
+        }
+
+        $ip = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : '';
+        $agent = isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_USER_AGENT'])) : '';
+        $window = (int) floor(time() / (10 * MINUTE_IN_SECONDS));
+        $key = 'bppiv_rl_' . md5($ip . '|' . $agent . '|' . $window);
+
+        $count = (int) get_transient($key);
+        if ($count >= $limit) {
+            return true;
+        }
+
+        set_transient($key, $count + 1, 10 * MINUTE_IN_SECONDS);
+        return false;
+    }
+
+    /**
+     * Deletes raw logs older than 90 days (the free dashboard shows the last 7 days).
+     */
+    public function purge_old_logs() {
+        global $wpdb;
+        $logs_table = $wpdb->prefix . 'bppiv_analytics_logs';
+        $days = max(1, (int) apply_filters('bppiv_analytics_log_retention_days', 90));
+        $cutoff = gmdate('Y-m-d H:i:s', strtotime('-' . $days . ' days'));
+
+        // Small batches so a large table is never locked for long.
+        // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
+        for ($i = 0; $i < 20; $i++) {
+            $deleted = $wpdb->query($wpdb->prepare("DELETE FROM {$logs_table} WHERE created_at < %s LIMIT 5000", $cutoff));
+            if (!$deleted) {
+                break;
+            }
+        }
+        // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
     }
 }

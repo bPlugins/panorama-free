@@ -10,7 +10,6 @@ class registerPostType{
     public function register(){
         add_action( 'init', [$this, 'init']);
         add_action( 'admin_menu', [$this, 'admin_menu']);
-        add_shortcode('panorama', [$this, 'bppiv_shortcode']);
         add_shortcode('virtual-tour', [$this, 'bppiv_virtual_tour_shortcode']);
         add_filter( 'manage_bppiv-image-viewer_posts_columns', [$this, 'bppiv_columns_head_only_panorama'], 10 );
         add_action( 'manage_bppiv-image-viewer_posts_custom_column', [$this, 'bppiv_columns_content_only_panorama'], 10, 2);

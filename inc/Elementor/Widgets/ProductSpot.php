@@ -255,6 +255,7 @@ class ProductSpot extends Base {
 			array(
 				'label'     => $label,
 				'type'      => Controls_Manager::COLOR,
+				'global'    => array( 'active' => false ),
 				'default'   => $default,
 				'condition' => $condition,
 			)
@@ -339,6 +340,7 @@ class ProductSpot extends Base {
 			array(
 				'label'       => esc_html__( 'Background Color', 'panorama' ),
 				'type'        => Controls_Manager::COLOR,
+				'global'      => array( 'active' => false ),
 				'default'     => '',
 				'description' => esc_html__( 'Leave empty to use the theme default.', 'panorama' ),
 			)
@@ -447,12 +449,27 @@ class ProductSpot extends Base {
 
 		try {
 			// Returns inline <svg> for icon libraries and uploaded SVGs.
-			$svg = \Elementor\Icons_Manager::try_get_icon_html( $icon, array( 'aria-hidden' => 'true' ) );
+			$svg = self::sanitize_svg( (string) \Elementor\Icons_Manager::try_get_icon_html( $icon, array( 'aria-hidden' => 'true' ) ) );
+
+			// Without Elementor's "Inline Font Icons" feature, library icons come back as <i> tags; ask for the SVG instead.
+			$data_manager = '\Elementor\Core\Page_Assets\Data_Managers\Font_Icon_Svg\Manager';
+			if ( '' === $svg && isset( $icon['library'] ) && 'svg' !== $icon['library'] && is_callable( array( $data_manager, 'get_font_family' ) ) ) {
+				$family = call_user_func( array( $data_manager, 'get_font_family' ), $icon['library'] );
+				if ( $family ) {
+					$icon['font_family'] = $family;
+					$data = call_user_func( array( $data_manager, 'get_font_icon_svg_data' ), $icon );
+					if ( is_array( $data ) && ! empty( $data['path'] ) && ! empty( $data['width'] ) && ! empty( $data['height'] ) ) {
+						$svg = self::sanitize_svg(
+							'<svg aria-hidden="true" viewBox="0 0 ' . absint( $data['width'] ) . ' ' . absint( $data['height'] ) . '" xmlns="http://www.w3.org/2000/svg"><path d="' . esc_attr( $data['path'] ) . '"></path></svg>'
+						);
+					}
+				}
+			}
 		} catch ( \Throwable $e ) {
 			return '';
 		}
 
-		return self::sanitize_svg( (string) $svg );
+		return $svg;
 	}
 
 	protected static function px( $settings, $key, $default ) {
