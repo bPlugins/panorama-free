@@ -6,6 +6,7 @@ function bundle() {
     .src([
       "**/*",
       "!node_modules/**",
+      "!**/*.map",
       "!src/**",
       "!zip/**",
       "!bundled/**",
