@@ -26,7 +26,8 @@ class ProductView{
             return;
         }
         $viewer_position = $this->meta['viewer_position'] ?? 'none';
-        if($viewer_position === 'none'){
+        // No image / video yet: keep the normal product images.
+        if($viewer_position === 'none' || ! self::has_media( $this->meta )){
             return;
         }
 
@@ -42,13 +43,37 @@ class ProductView{
         add_action('woocommerce_before_single_product_summary',[$this, 'bp3d_product_models'], 25);
     }
 
+    /**
+     * Whether the product panorama settings have the image or video to show.
+     *
+     * @param array $meta Product panorama settings.
+     * @return bool
+     */
+    public static function has_media( $meta ) {
+        if ( ! is_array( $meta ) ) {
+            return false;
+        }
+        $type = isset( $meta['type'] ) ? $meta['type'] : 'image';
+        $keys = 'video' === $type ? array( 'video_src' ) : array( 'image_src', 'cubemap_front_360' );
+        foreach ( $keys as $key ) {
+            $value = isset( $meta[ $key ] ) ? $meta[ $key ] : '';
+            if ( is_array( $value ) ) {
+                $value = isset( $value['url'] ) ? $value['url'] : '';
+            }
+            if ( '' !== trim( (string) $value ) ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function add_panorama_product_tab( $tabs ) {
         $product_id = get_the_ID();
         if ( ! $product_id ) {
             return $tabs;
         }
         $meta = get_post_meta( $product_id, '_bppiv_product_', true );
-        if ( is_array( $meta ) && isset( $meta['viewer_position'] ) && $meta['viewer_position'] === 'tab' ) {
+        if ( is_array( $meta ) && isset( $meta['viewer_position'] ) && $meta['viewer_position'] === 'tab' && self::has_media( $meta ) ) {
             $tabs['bppiv_panorama_tab'] = array(
                 'title'    => __( '360° View', 'panorama' ),
                 'priority' => 25,

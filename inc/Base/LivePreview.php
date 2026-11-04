@@ -31,6 +31,17 @@ class LivePreview {
         return $screens;
     }
 
+    /**
+     * Asset version that changes whenever the file changes, so browsers never keep an old copy.
+     *
+     * @param string $path Path relative to the plugin folder.
+     * @return string
+     */
+    public static function asset_version( $path ) {
+        $file = BPPIV_PATH . $path;
+        return BPPIV_VERSION . ( file_exists( $file ) ? '.' . filemtime( $file ) : '' );
+    }
+
     public function register() {
         add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
@@ -42,7 +53,9 @@ class LivePreview {
             return;
         }
 
-        add_meta_box( 'bppiv-live-preview', esc_html__( 'Live Preview', 'panorama' ), array( $this, 'meta_box' ), $post_type, 'normal', 'low' );
+        // Panorama settings: right column, under the Save box. Product page: below the settings.
+        $context = 'product' === $post_type ? 'normal' : 'side';
+        add_meta_box( 'bppiv-live-preview', esc_html__( 'Live Preview', 'panorama' ), array( $this, 'meta_box' ), $post_type, $context, 'low' );
     }
 
     public function meta_box() {
@@ -50,10 +63,10 @@ class LivePreview {
         <div class="bppiv-live-preview">
             <div class="bppiv-live-preview__bar">
                 <span class="bppiv-live-preview__status" aria-live="polite"></span>
-                <button type="button" class="button bppiv-live-preview__refresh"><?php esc_html_e( 'Refresh', 'panorama' ); ?></button>
+                <button type="button" class="button bppiv-live-preview__refresh"><span class="dashicons dashicons-update" aria-hidden="true"></span><?php esc_html_e( 'Refresh', 'panorama' ); ?></button>
             </div>
             <iframe class="bppiv-live-preview__frame" title="<?php esc_attr_e( 'Panorama live preview', 'panorama' ); ?>"></iframe>
-            <p class="description"><?php esc_html_e( 'The preview updates as you change the settings. Click Update to save them.', 'panorama' ); ?></p>
+            <p class="bppiv-live-preview__note"><span class="dashicons dashicons-info-outline" aria-hidden="true"></span><span><?php esc_html_e( 'The preview updates as you change the settings. Click Update to save them.', 'panorama' ); ?></span></p>
         </div>
         <?php
     }
@@ -70,16 +83,15 @@ class LivePreview {
             return;
         }
 
-        wp_enqueue_style( 'bppiv-live-preview', BPPIV_PLUGIN_DIR . 'public/assets/css/live-preview.css', array(), BPPIV_VERSION );
-        wp_enqueue_script( 'bppiv-live-preview', BPPIV_PLUGIN_DIR . 'public/assets/js/live-preview.js', array(), BPPIV_VERSION, true );
+        wp_enqueue_style( 'bppiv-live-preview', BPPIV_PLUGIN_DIR . 'public/assets/css/live-preview.css', array(), self::asset_version( 'public/assets/css/live-preview.css' ) );
+        wp_enqueue_script( 'bppiv-live-preview', BPPIV_PLUGIN_DIR . 'public/assets/js/live-preview.js', array(), self::asset_version( 'public/assets/js/live-preview.js' ), true );
 
         $config = array(
             'url'     => add_query_arg( self::QUERY_VAR, '1', home_url( '/', is_ssl() ? 'https' : 'http' ) ),
             'nonce'   => wp_create_nonce( 'bppiv_live_preview_' . $post->ID ),
             'postId'  => $post->ID,
             'metaKey' => $screens[ $screen->post_type ],
-            // Panorama settings: preview beside the fields. Product page: below (the main column is narrow there).
-            'layout'  => 'product' === $screen->post_type ? 'stack' : 'split',
+            'layout'  => 'product' === $screen->post_type ? 'stack' : 'side',
             'i18n'    => array(
                 'title'   => __( 'Live Preview', 'panorama' ),
                 'loading' => __( 'Updating preview…', 'panorama' ),
@@ -124,9 +136,13 @@ class LivePreview {
             $html = self::has_media( $meta ) ? bppiv_render_panorama_meta( $meta ) : '';
         }
 
+        // The admin bar is off here, but its "push the page down" style can already be queued.
+        wp_dequeue_style( 'admin-bar' );
+        remove_action( 'wp_head', '_admin_bar_bump_cb' );
+
         wp_register_style( 'bppiv-live-preview-frame', false, array(), BPPIV_VERSION );
         wp_enqueue_style( 'bppiv-live-preview-frame' );
-        wp_add_inline_style( 'bppiv-live-preview-frame', 'html,body{margin:0;background:#fff;}body{padding:12px;box-sizing:border-box;}.bppiv-live-preview-empty{margin:40px 0;text-align:center;color:#646970;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}' );
+        wp_add_inline_style( 'bppiv-live-preview-frame', 'html,body{margin:0!important;padding:0;background:#fff;overflow:hidden;}body{box-sizing:border-box;}#panorama-container{width:100%;}.bppiv-live-preview-body #bppiv-main-container{width:100%;height:100%;}.bppiv-live-preview-body .bppiv_panorama .close{top:12px;right:12px;margin:0;}#bppiv_product_panorama{margin-bottom:0;}#bppiv_product_panorama>video{height:auto!important;}.bppiv-live-preview-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:220px;margin:0;padding:32px 24px;box-sizing:border-box;border:1px dashed #c9d6ea;background:#f6f9ff;text-align:center;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}.bppiv-live-preview-empty__icon{color:#146ef5;margin-bottom:12px;}.bppiv-live-preview-empty__title{margin:0 0 4px;color:#070127;font-size:15px;font-weight:600;}.bppiv-live-preview-empty__text{margin:0;max-width:340px;color:#64748b;font-size:13px;}' );
         ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -142,7 +158,14 @@ class LivePreview {
 <body class="bppiv-live-preview-body">
 <?php
         if ( '' === trim( (string) $html ) ) {
-            echo '<p class="bppiv-live-preview-empty">' . esc_html__( 'Choose a panorama type and add an image or video to see the preview.', 'panorama' ) . '</p>';
+            $empty = self::empty_message( $post_type, $meta );
+            ?>
+<div class="bppiv-live-preview-empty">
+    <svg class="bppiv-live-preview-empty__icon" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>
+    <p class="bppiv-live-preview-empty__title"><?php echo esc_html( $empty[0] ); ?></p>
+    <p class="bppiv-live-preview-empty__text"><?php echo esc_html( $empty[1] ); ?></p>
+</div>
+            <?php
         } else {
             echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- viewer markup, escaped where it is built (render_block / product view).
         }
@@ -159,8 +182,60 @@ class LivePreview {
     }
 
     /**
+     * What the preview says while there is nothing to show yet.
+     *
+     * @param string $post_type Post type.
+     * @param array  $meta      Settings.
+     * @return array Title and text.
+     */
+    private static function empty_message( $post_type, $meta ) {
+        $title = __( 'Nothing to preview yet', 'panorama' );
+        if ( 'product' === $post_type ) {
+            $type = isset( $meta['type'] ) ? $meta['type'] : 'image';
+            return array( $title, 'video' === $type ? __( 'Add a video in Video Source to see it here.', 'panorama' ) : __( 'Add a 360° image in Image Source to see it here.', 'panorama' ) );
+        }
+
+        $is_pro = function_exists( 'panorama_fs' ) && panorama_fs()->can_use_premium_code();
+        $type   = isset( $meta['bppiv_type'] ) ? sanitize_key( $meta['bppiv_type'] ) : '';
+        switch ( $type ) {
+            case 'image':
+            case 'image360':
+                $text = __( 'Add an image in Image Source to see it here.', 'panorama' );
+                break;
+            case 'video':
+            case 'video2':
+                $text = __( 'Add a video in Video Source to see it here.', 'panorama' );
+                break;
+            case 'gstreet':
+                $text = __( 'Enter a Google Street View Panorama ID to see it here.', 'panorama' );
+                break;
+            case 'gallery':
+                $text = $is_pro ? __( 'Add a gallery item with an image or video to see it here.', 'panorama' ) : __( 'Gallery is available in Panorama Pro.', 'panorama' );
+                break;
+            case 'tour360':
+                $text = $is_pro ? __( 'Add a scene with an image to the tour to see it here.', 'panorama' ) : __( 'Tour 360° is available in Panorama Pro.', 'panorama' );
+                break;
+            default:
+                $text = __( 'Choose a panorama type and add an image or video to see the preview.', 'panorama' );
+        }
+        return array( $title, $text );
+    }
+
+    /**
+     * Whether a gallery / tour item list has at least one image or video.
+     *
+     * @param mixed $items Items.
+     * @return bool
+     */
+    private static function has_item_media( $items ) {
+        if ( ! is_array( $items ) || ! $items ) {
+            return false;
+        }
+        return (bool) preg_match( '#https?:\\\\?/\\\\?/#', (string) wp_json_encode( $items ) );
+    }
+
+    /**
      * Whether the panorama settings have the image / video the selected type needs.
-     * Gallery and Tour show their own empty state, so they always render.
      *
      * @param array $meta Panorama settings.
      * @return bool
@@ -177,6 +252,12 @@ class LivePreview {
 
         if ( '' === $type ) {
             return false;
+        }
+        if ( 'gallery' === $type ) {
+            return self::has_item_media( isset( $meta['bppiv_pan_gallery'] ) ? $meta['bppiv_pan_gallery'] : array() );
+        }
+        if ( 'tour360' === $type ) {
+            return self::has_item_media( isset( $meta['tour_360'] ) ? $meta['tour_360'] : array() );
         }
         if ( ! isset( $keys[ $type ] ) ) {
             return true;

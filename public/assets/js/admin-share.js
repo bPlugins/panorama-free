@@ -112,3 +112,70 @@
 		}
 	} );
 }() );
+
+// Panorama and WooCommerce product settings: show the selected type next to the "Panorama Settings" title.
+( function () {
+	'use strict';
+
+	var i18n = window.bppivShare || {};
+
+	var addBadge = function ( prefix, typeField, fallback, describe ) {
+		var settings = document.getElementById( prefix );
+		if ( ! settings ) {
+			return;
+		}
+		var title = settings.querySelector( '.postbox-header h2, .postbox-header h3, .hndle' );
+		var labels = {};
+		settings.querySelectorAll( 'input[type=radio][name="' + prefix + '[' + typeField + ']"]' ).forEach( function ( input ) {
+			var item = input.closest( '.csf--sibling' ) || input.closest( 'label' );
+			if ( item ) {
+				// The type name only, without the "PRO" badge.
+				labels[ input.value ] = Array.prototype.filter.call( item.childNodes, function ( node ) {
+					return node.nodeType === 3;
+				} ).map( function ( node ) {
+					return node.textContent;
+				} ).join( '' ).trim();
+			}
+		} );
+		if ( ! title || ( ! Object.keys( labels ).length && ! fallback ) ) {
+			return;
+		}
+
+		var badge = document.createElement( 'button' );
+		badge.type = 'button';
+		badge.className = 'bppiv-type-badge';
+		badge.title = i18n.changeType || '';
+		badge.innerHTML = '<span class="bppiv-type-badge__label"></span><strong></strong>';
+		badge.firstChild.textContent = i18n.type || 'Type:';
+		title.appendChild( badge );
+
+		// Opens Configuration, where the type is changed.
+		badge.addEventListener( 'click', function ( event ) {
+			event.preventDefault();
+			event.stopPropagation();
+			jQuery( settings ).find( '.csf-nav-metabox a' ).first().trigger( 'click' );
+		} );
+
+		var update = function () {
+			var checked = settings.querySelector( 'input[name="' + prefix + '[' + typeField + ']"]:checked' );
+			var name = checked && labels[ checked.value ] ? labels[ checked.value ] : fallback;
+			if ( name && describe ) {
+				name = describe( settings, checked ? checked.value : '', name );
+			}
+			badge.lastChild.textContent = name || '';
+			badge.hidden = ! name;
+		};
+		// CSF switches values with jQuery's trigger(), which native listeners do not hear.
+		jQuery( settings ).on( 'change', update );
+		update();
+	};
+
+	addBadge( '_bppivimages_', 'bppiv_type', '' );
+
+	// Products: Image or Video (a 360° video says so); the free version has images only.
+	addBadge( '_bppiv_product_', 'type', i18n.image || 'Image', function ( settings, value, name ) {
+		var is360 = settings.querySelector( 'input[name="_bppiv_product_[video360]"]' );
+		return 'video' === value && is360 && '1' === is360.value ? ( i18n.video360 || '360° Video' ) : name;
+	} );
+}() );
+

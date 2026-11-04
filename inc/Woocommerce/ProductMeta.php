@@ -24,7 +24,7 @@ class ProductMeta{
               array(
                 'id'           => 'panorama_format_360',
                 'type'         => 'button_set',
-                'title'        => __('Panorama Format', 'panorama') . ' <span style="background:#146ef5;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;line-height:1.2;display:inline-block;vertical-align:middle;letter-spacing:0.5px;margin-left:5px;">NEW</span>',
+                'title'        => __('Panorama Format', 'panorama') . ' <span style="background:#146ef5;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:0;text-transform:uppercase;line-height:1.2;display:inline-block;vertical-align:middle;letter-spacing:0.5px;margin-left:5px;">NEW</span>',
                 'desc'         => __('Choose Equirectangular for standard 360° panoramic images, Cubemap to upload 6 cube face images, or Cylindrical for smartphone panoramas.', 'panorama'),
                 'options'      => array(
                   'equirectangular' => __('Equirectangular (Default)', 'panorama'),
@@ -135,7 +135,7 @@ class ProductMeta{
                   'replace' => esc_html__('Replace Product Image with 360° View', 'panorama'),
                   'tab'     => esc_html__('360° View Tab (Product Details Tab)', 'panorama'),
                 ),
-                'default'    => 'none',
+                'default'    => 'top',
                 'class'      => 'bppiv-viewer-position-field'
               ),
               array(
@@ -151,47 +151,50 @@ class ProductMeta{
               array(
                 'type' => 'content',
                 'content' => '
-                  <div style="margin-top: 30px; padding: 25px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
-                    <h4 style="margin: 0 0 20px 0; color: #146ef5; font-size: 18px; display: flex; align-items: center; gap: 10px;">
-                      <span>🚀</span> ' . __('Unlock Premium Experience', 'panorama') . '
-                    </h4>
-                    <ul style="list-style: none; padding: 0; margin: 0 0 25px 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
-                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
-                        <div><strong style="color: #2d3748;">' . __('Product Shortcode:', 'panorama') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Use shortcode to display panorama anywhere on your product page.', 'panorama') . '</span></div>
+                  <div class="bppiv-pro-notice-box">
+                    <div class="bppiv-pro-notice-head">
+                      <span class="bppiv-pro-notice-icon dashicons dashicons-unlock" aria-hidden="true"></span>
+                      <h4 class="bppiv-pro-notice-title">' . esc_html__('Unlock More with Panorama Pro', 'panorama') . '</h4>
+                    </div>
+                    <p class="bppiv-pro-notice-intro">' . esc_html__('Upgrade to use these features on your product pages:', 'panorama') . '</p>
+                    <ul class="bppiv-pro-notice-list">
+                      <li>
+                        <span class="bppiv-pro-notice-check dashicons dashicons-yes" aria-hidden="true"></span>
+                        <div><strong>' . esc_html__('Product Shortcode', 'panorama') . '</strong>: <span class="bppiv-pro-notice-desc">' . esc_html__('Use shortcode to display panorama anywhere on your product page.', 'panorama') . '</span></div>
                       </li>
-                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
-                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
-                        <div><strong style="color: #2d3748;">' . __('Video Panorama:', 'panorama') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Select Video as panorama type for your WooCommerce products.', 'panorama') . '</span></div>
+                      <li>
+                        <span class="bppiv-pro-notice-check dashicons dashicons-yes" aria-hidden="true"></span>
+                        <div><strong>' . esc_html__('Video Panorama', 'panorama') . '</strong>: <span class="bppiv-pro-notice-desc">' . esc_html__('Select Video as panorama type for your WooCommerce products.', 'panorama') . '</span></div>
                       </li>
-                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
-                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
-                        <div><strong style="color: #2d3748;">' . __('Auto Rotate Speed:', 'panorama') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Control rotation speed in degrees per second.', 'panorama') . '</span></div>
+                      <li>
+                        <span class="bppiv-pro-notice-check dashicons dashicons-yes" aria-hidden="true"></span>
+                        <div><strong>' . esc_html__('Auto Rotate Speed', 'panorama') . '</strong>: <span class="bppiv-pro-notice-desc">' . esc_html__('Control rotation speed in degrees per second.', 'panorama') . '</span></div>
                       </li>
-                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
-                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
-                        <div><strong style="color: #2d3748;">' . __('Show/Hide Controls:', 'panorama') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Toggle default panorama controls visibility.', 'panorama') . '</span></div>
+                      <li>
+                        <span class="bppiv-pro-notice-check dashicons dashicons-yes" aria-hidden="true"></span>
+                        <div><strong>' . esc_html__('Show/Hide Controls', 'panorama') . '</strong>: <span class="bppiv-pro-notice-desc">' . esc_html__('Toggle default panorama controls visibility.', 'panorama') . '</span></div>
                       </li>
-                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
-                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
-                        <div><strong style="color: #2d3748;">' . __('Initial View:', 'panorama') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Set custom starting pitch, yaw, and zoom values.', 'panorama') . '</span></div>
+                      <li>
+                        <span class="bppiv-pro-notice-check dashicons dashicons-yes" aria-hidden="true"></span>
+                        <div><strong>' . esc_html__('Initial View', 'panorama') . '</strong>: <span class="bppiv-pro-notice-desc">' . esc_html__('Set custom starting pitch, yaw, and zoom values.', 'panorama') . '</span></div>
                       </li>
-                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
-                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
-                        <div><strong style="color: #2d3748;">' . __('Video Controls:', 'panorama') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Auto Play, Mute, Loop, and Show Controls for video panorama.', 'panorama') . '</span></div>
+                      <li>
+                        <span class="bppiv-pro-notice-check dashicons dashicons-yes" aria-hidden="true"></span>
+                        <div><strong>' . esc_html__('Video Controls', 'panorama') . '</strong>: <span class="bppiv-pro-notice-desc">' . esc_html__('Auto Play, Mute, Loop, and Show Controls for video panorama.', 'panorama') . '</span></div>
                       </li>
-                      <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
-                        <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
-                        <div><strong style="color: #2d3748;">' . __('Title & Author:', 'panorama') . '</strong> <span style="color: #718096; font-size: 13px;">' . __('Display custom title and author info on the panorama viewer.', 'panorama') . '</span></div>
+                      <li>
+                        <span class="bppiv-pro-notice-check dashicons dashicons-yes" aria-hidden="true"></span>
+                        <div><strong>' . esc_html__('Title & Author', 'panorama') . '</strong>: <span class="bppiv-pro-notice-desc">' . esc_html__('Display custom title and author info on the panorama viewer.', 'panorama') . '</span></div>
                       </li>
                     </ul>
-                    <div style="display: flex; align-items: center; gap: 15px; border-top: 1px solid #edf2f7; padding-top: 20px;">
-                      <a href="' . admin_url('admin.php?page=bppiv-support#/pricing') . '" target="_blank" style="background: #146ef5; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">' . __('Upgrade to Pro Now', 'panorama') . '</a>
+                    <div class="bppiv-pro-notice-foot">
+                      <a class="bppiv-pro-notice-btn" href="' . esc_url( admin_url('admin.php?page=bppiv-support#/pricing') ) . '" target="_blank"><span class="dashicons dashicons-star-filled" aria-hidden="true"></span>' . esc_html__('Upgrade to Pro', 'panorama') . '</a>
+                      <span class="bppiv-pro-notice-note">' . esc_html__('Your products and settings are kept.', 'panorama') . '</span>
                     </div>
                   </div>
                 ',
               ),
-            
+
               ) // End fields
         ) );
     }

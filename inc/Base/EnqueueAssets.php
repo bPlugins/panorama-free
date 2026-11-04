@@ -82,11 +82,11 @@ class EnqueueAssets{
         $is_bppiv_screen = ($post_type === 'bppiv-image-viewer') || ($post_type === 'product') || ($screen_id === 'bppiv-image-viewer_page_bppiv-support');
 
         if ( $is_bppiv_screen ) {
-            wp_register_style( 'bppiv-custom-style', BPPIV_PLUGIN_DIR . 'public/assets/css/admin-style.css',[], BPPIV_VERSION );
+            wp_register_style( 'bppiv-custom-style', BPPIV_PLUGIN_DIR . 'public/assets/css/admin-style.css',[], LivePreview::asset_version( 'public/assets/css/admin-style.css' ) );
             wp_enqueue_style( 'bppiv-custom-style' );
             
             // Script
-            wp_register_script( 'bppiv-admin-script', BPPIV_PLUGIN_DIR . 'public/assets/js/admin-scripts.js', ['jquery'], BPPIV_VERSION, true );
+            wp_register_script( 'bppiv-admin-script', BPPIV_PLUGIN_DIR . 'public/assets/js/admin-scripts.js', ['jquery'], LivePreview::asset_version( 'public/assets/js/admin-scripts.js' ), true );
             wp_enqueue_script( 'bppiv-admin-script' );
             
             wp_register_style( 'bppiv-readonly', BPPIV_PLUGIN_DIR . 'public/assets/css/readonly.css', [], BPPIV_VERSION );
@@ -98,12 +98,16 @@ class EnqueueAssets{
 
             global $post;
             if ($screen === 'post.php' || $screen === 'post-new.php') {
-                if (isset($post) && $post->post_type === 'bppiv-image-viewer') {
-                    // Shortcode / embed code copy buttons and the embed dialog.
-                    wp_enqueue_script( 'bppiv-admin-share', BPPIV_PLUGIN_DIR . 'public/assets/js/admin-share.js', array(), BPPIV_VERSION, true );
+                if ( isset( $post ) && in_array( $post->post_type, array( 'bppiv-image-viewer', 'product' ), true ) ) {
+                    // Shortcode / embed code copy buttons, the embed dialog and the panorama type in the settings header.
+                    wp_enqueue_script( 'bppiv-admin-share', BPPIV_PLUGIN_DIR . 'public/assets/js/admin-share.js', array( 'jquery' ), LivePreview::asset_version( 'public/assets/js/admin-share.js' ), true );
                     wp_localize_script( 'bppiv-admin-share', 'bppivShare', array(
-                        'copied' => __( 'Copied!', 'panorama' ),
-                        'failed' => __( 'Press Ctrl+C to copy', 'panorama' ),
+                        'copied'     => __( 'Copied!', 'panorama' ),
+                        'failed'     => __( 'Press Ctrl+C to copy', 'panorama' ),
+                        'type'       => __( 'Type:', 'panorama' ),
+                        'changeType' => __( 'Change the panorama type in Configuration', 'panorama' ),
+                        'image'      => __( 'Image', 'panorama' ),
+                        'video360'   => __( '360° Video', 'panorama' ),
                     ) );
                 }
             }

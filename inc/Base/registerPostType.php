@@ -317,22 +317,28 @@ class registerPostType{
             ?>
             <div class="bppiv-share-bar">
                 <div class="bppiv-share-bar__item">
-                    <span class="bppiv-share-bar__label"><span class="dashicons dashicons-shortcode" aria-hidden="true"></span><?php esc_html_e( 'Shortcode', 'panorama' ); ?></span>
-                    <div class="bppiv-copy-field">
-                        <code class="bppiv-copy-field__code"><?php echo esc_html( $bppiv_shortcode ); ?></code>
-                        <button type="button" class="bppiv-copy-btn" data-copy="<?php echo esc_attr( $bppiv_shortcode ); ?>">
-                            <span class="dashicons dashicons-admin-page" aria-hidden="true"></span>
-                            <span class="bppiv-copy-btn__text"><?php esc_html_e( 'Copy', 'panorama' ); ?></span>
-                        </button>
+                    <span class="bppiv-share-bar__icon" aria-hidden="true"><span class="dashicons dashicons-shortcode"></span></span>
+                    <div class="bppiv-share-bar__body">
+                        <span class="bppiv-share-bar__title"><?php esc_html_e( 'Shortcode', 'panorama' ); ?></span>
+                        <span class="bppiv-share-bar__hint"><?php esc_html_e( 'Paste it into any post, page or widget.', 'panorama' ); ?></span>
+                        <div class="bppiv-copy-field">
+                            <code class="bppiv-copy-field__code" tabindex="0" title="<?php esc_attr_e( 'Click to select', 'panorama' ); ?>"><?php echo esc_html( $bppiv_shortcode ); ?></code>
+                            <button type="button" class="bppiv-copy-btn" data-copy="<?php echo esc_attr( $bppiv_shortcode ); ?>">
+                                <span class="dashicons dashicons-admin-page" aria-hidden="true"></span>
+                                <span class="bppiv-copy-btn__text"><?php esc_html_e( 'Copy', 'panorama' ); ?></span>
+                            </button>
+                        </div>
                     </div>
-                    <p class="bppiv-share-bar__hint"><?php esc_html_e( 'Paste it into any post, page or widget.', 'panorama' ); ?></p>
                 </div>
                 <div class="bppiv-share-bar__item bppiv-share-bar__item--embed">
-                    <span class="bppiv-share-bar__label"><span class="dashicons dashicons-share" aria-hidden="true"></span><?php esc_html_e( 'Embed', 'panorama' ); ?></span>
-                    <button type="button" class="bppiv-embed-btn" aria-haspopup="dialog" aria-controls="bppiv-embed-modal">
-                        <span class="dashicons dashicons-editor-code" aria-hidden="true"></span><?php esc_html_e( 'Get Embed Code', 'panorama' ); ?>
-                    </button>
-                    <p class="bppiv-share-bar__hint"><?php esc_html_e( 'Show this panorama on other websites.', 'panorama' ); ?></p>
+                    <span class="bppiv-share-bar__icon" aria-hidden="true"><span class="dashicons dashicons-share"></span></span>
+                    <div class="bppiv-share-bar__body">
+                        <span class="bppiv-share-bar__title"><?php esc_html_e( 'Embed', 'panorama' ); ?></span>
+                        <span class="bppiv-share-bar__hint"><?php esc_html_e( 'Show this panorama on other websites.', 'panorama' ); ?></span>
+                        <button type="button" class="bppiv-embed-btn" aria-haspopup="dialog" aria-controls="bppiv-embed-modal">
+                            <span class="dashicons dashicons-editor-code" aria-hidden="true"></span><?php esc_html_e( 'Get Embed Code', 'panorama' ); ?>
+                        </button>
+                    </div>
                 </div>
             </div>
 

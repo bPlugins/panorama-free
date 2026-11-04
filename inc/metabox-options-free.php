@@ -27,11 +27,11 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
     }
 
     private function get_pro_badge($text = 'PRO') {
-      return ' <span style="background:#146ef5;color:#fff;padding:0px 5px;border-radius:4px;font-size:10px;font-weight:bold;margin-left:5px;vertical-align:middle;display:inline-block;line-height:1.4;">' . $text . '</span>';
+      return ' <span style="background:#146ef5;color:#fff;padding:0px 5px;border-radius:0;font-size:10px;font-weight:bold;margin-left:5px;vertical-align:middle;display:inline-block;line-height:1.4;">' . $text . '</span>';
     }
 
     private function get_new_badge($text = 'NEW') {
-      return ' <span style="background:#146ef5;color:#fff;padding:2px 6px;border-radius:4px;font-size:9px;font-weight:700;margin-left:5px;vertical-align:middle;display:inline-block;line-height:1.2;text-transform:uppercase;letter-spacing:0.5px;">' . $text . '</span>';
+      return ' <span style="background:#146ef5;color:#fff;padding:2px 6px;border-radius:0;font-size:9px;font-weight:700;margin-left:5px;vertical-align:middle;display:inline-block;line-height:1.2;text-transform:uppercase;letter-spacing:0.5px;">' . $text . '</span>';
     }
 
     // private function get_upcoming_badge() {
@@ -106,17 +106,17 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'id'           => 'bppiv_content',
             'type'         => 'content',
             'content'      => '
-              <div style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); border: 1px solid #cce3f9; border-left: 4px solid #146ef5; border-radius: 8px; padding: 20px 24px; margin: 15px 0 25px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
+              <div style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); border: 1px solid #cce3f9; border-left: 4px solid #146ef5; border-radius: 0; padding: 20px 24px; margin: 15px 0 25px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
                 <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                   <span style="font-size: 20px;">🌟</span>
                   <strong style="font-size: 16px; color: #0d3d84; font-weight: 700;">' . esc_html__( 'Experience Our Modern 360° Virtual Tour Builder', 'panorama' ) . '</strong>
-                  <span style="background: #146ef5; color: #fff; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 4px; text-transform: uppercase;">' . esc_html__( 'New & Recommended', 'panorama' ) . '</span>
+                  <span style="background: #146ef5; color: #fff; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 0; text-transform: uppercase;">' . esc_html__( 'New & Recommended', 'panorama' ) . '</span>
                 </div>
                 <p style="font-size: 13px; line-height: 1.6; color: #334e68; margin: 0 0 16px 0;">
                   ' . esc_html__( 'Create stunning, high-performance virtual tours with modern scene index lists, responsive hamburger menus, custom audio/video hotspots, and get up to 6 scenes completely FREE.', 'panorama' ) . '
                 </p>
                 <div>
-                  <a href="' . esc_url( admin_url( 'post-new.php?post_type=virtual_tour' ) ) . '" style="display: inline-flex; align-items: center; gap: 6px; background: #146ef5; color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 6px; font-size: 13px; font-weight: 600; box-shadow: 0 2px 4px rgba(20, 110, 245, 0.25);">
+                  <a href="' . esc_url( admin_url( 'post-new.php?post_type=virtual_tour' ) ) . '" style="display: inline-flex; align-items: center; gap: 6px; background: #146ef5; color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 0; font-size: 13px; font-weight: 600; box-shadow: 0 2px 4px rgba(20, 110, 245, 0.25);">
                     ' . esc_html__( 'Create Modern Virtual Tour (Free)', 'panorama' ) . ' &rarr;
                   </a>
                 </div>
@@ -136,7 +136,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
           array(
             'id'           => 'panorama_format_360',
             'type'         => 'button_set',
-            'title'        => __('Panorama Format', 'panorama') . ' <span style="background:#146ef5;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;line-height:1.2;display:inline-block;vertical-align:middle;letter-spacing:0.5px;margin-left:5px;">NEW</span>',
+            'title'        => __('Panorama Format', 'panorama') . ' <span style="background:#146ef5;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:0;text-transform:uppercase;line-height:1.2;display:inline-block;vertical-align:middle;letter-spacing:0.5px;margin-left:5px;">NEW</span>',
             'desc'         => __('Choose Equirectangular for standard 360° panoramic images, Cubemap to upload 6 cube face images, or Cylindrical for smartphone panoramas.', 'panorama'),
             'options'      => array(
               'equirectangular' => __('Equirectangular (Default)', 'panorama'),
@@ -703,54 +703,38 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
 
     public function pro_feature_html( $features ) {
       $html = '
-      <div class="bppiv-pro-notice-box" style="margin-top: 30px; padding: 25px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
-          <h4 class="bppiv-pro-notice-title" style="margin: 0 0 20px 0; color: #146ef5; font-size: 18px; display: flex; align-items: center; gap: 10px;">
-              <span>🚀</span> ' . __( 'Unlock Pro Features', 'panorama' ) . '
-          </h4>
-          <ul class="bppiv-pro-notice-list" style="list-style: none; padding: 0; margin: 0 0 25px 0; display: grid; grid-template-columns: repeat(1, 1fr); gap: 15px;">';
+      <div class="bppiv-pro-notice-box">
+          <div class="bppiv-pro-notice-head">
+              <span class="bppiv-pro-notice-icon dashicons dashicons-unlock" aria-hidden="true"></span>
+              <h4 class="bppiv-pro-notice-title">' . esc_html__( 'Unlock More with Panorama Pro', 'panorama' ) . '</h4>
+          </div>
+          <p class="bppiv-pro-notice-intro">' . esc_html__( 'Upgrade to use these features in your panorama:', 'panorama' ) . '</p>
+          <ul class="bppiv-pro-notice-list">';
       foreach ( $features as $title => $desc ) {
-        $html .= '
-              <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
-                  <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
+        // "(NEW)" in a feature name becomes a badge.
+        $is_new = false !== strpos( $title, '(NEW)' );
+        $title  = trim( str_replace( '(NEW)', '', $title ) );
+        $html  .= '
+              <li>
+                  <span class="bppiv-pro-notice-check dashicons dashicons-yes" aria-hidden="true"></span>
                   <div>
-                    <strong style="color: #2d3748;">' . esc_html( $title ) . ':</strong> 
-                    <span style="color: #718096; font-size: 13px;">' . esc_html( $desc ) . '</span>
+                    <strong>' . esc_html( $title ) . '</strong>' . ( $is_new ? ' <span class="bppiv-pro-notice-new">' . esc_html__( 'NEW', 'panorama' ) . '</span>' : '' ) . ':
+                    <span class="bppiv-pro-notice-desc">' . esc_html( $desc ) . '</span>
                   </div>
               </li>';
       }
       $html .= '
           </ul>
-          <div style="display: flex; align-items: center; gap: 15px; border-top: 1px solid #edf2f7; padding-top: 20px;">
-              <a href="' . admin_url( 'admin.php?page=panorama-viewer-help-demo#/pricing' ) . '" target="_blank" style="background: #146ef5; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">' . __( 'Upgrade to Pro Now', 'panorama' ) . '</a>
+          <div class="bppiv-pro-notice-foot">
+              <a class="bppiv-pro-notice-btn" href="' . esc_url( admin_url( 'admin.php?page=panorama-viewer-help-demo#/pricing' ) ) . '" target="_blank"><span class="dashicons dashicons-star-filled" aria-hidden="true"></span>' . esc_html__( 'Upgrade to Pro', 'panorama' ) . '</a>
+              <span class="bppiv-pro-notice-note">' . esc_html__( 'Your panoramas and settings are kept.', 'panorama' ) . '</span>
           </div>
       </div>';
       return $html;
     }
 
     public function pro_feature_list( $features, $dependency = array() ) {
-      $html = '
-      <div class="bppiv-pro-notice-box" style="margin-top: 30px; padding: 25px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
-          <h4 class="bppiv-pro-notice-title" style="margin: 0 0 20px 0; color: #146ef5; font-size: 18px; display: flex; align-items: center; gap: 10px;">
-              <span>🚀</span> ' . __( 'Unlock Pro Features', 'panorama' ) . '
-          </h4>
-          <ul class="bppiv-pro-notice-list" style="list-style: none; padding: 0; margin: 0 0 25px 0; display: grid; grid-template-columns: repeat(1, 1fr); gap: 15px;">';
-      foreach ( $features as $title => $desc ) {
-        $html .= '
-              <li style="font-size: 14px; line-height: 1.5; color: #4a5568; display: flex; align-items: baseline; gap: 10px;">
-                  <span style="color: #146ef5; font-weight: bold; font-size: 12px;">✔</span>
-                  <div>
-                    <strong style="color: #2d3748;">' . esc_html( $title ) . ':</strong> 
-                    <span style="color: #718096; font-size: 13px;">' . esc_html( $desc ) . '</span>
-                  </div>
-              </li>';
-      }
-      $html .= '
-          </ul>
-          <div style="display: flex; align-items: center; gap: 15px; border-top: 1px solid #edf2f7; padding-top: 20px;">
-              <a href="' . admin_url( 'admin.php?page=panorama-viewer-help-demo#/pricing' ) . '" target="_blank" style="background: #146ef5; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">' . __( 'Upgrade to Pro Now', 'panorama' ) . '</a>
-          </div>
-      </div>';
-      $field = array( 'type' => 'content', 'content' => $html );
+      $field = array( 'type' => 'content', 'content' => $this->pro_feature_html( $features ) );
       if ( ! empty( $dependency ) ) { $field['dependency'] = $dependency; }
       return $field;
     }

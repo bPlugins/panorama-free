@@ -21,41 +21,24 @@
 	var timer = null;
 	var controller = null;
 	var resizeObserver = null;
+	var popupObserver = null;
+	var popupTimer = null;
+
+	// Status and Refresh go in the box header, so the preview gets the whole box.
+	var header = postbox.querySelector( '.postbox-header' );
+	var bar = box.querySelector( '.bppiv-live-preview__bar' );
+	if ( header && bar ) {
+		bar.classList.add( 'is-in-header' );
+		header.insertBefore( bar, header.querySelector( '.handle-actions' ) );
+	}
 
 	var settingsBox = document.getElementById( config.metaKey );
-	var settingsInside = settingsBox ? settingsBox.querySelector( '.inside' ) : null;
 	var screenOption = document.getElementById( 'bppiv-live-preview-hide' );
-	var split = null;
+	var side = 'side' === config.layout;
+	box.classList.add( side ? 'is-side' : 'is-stack' );
 
-	if ( 'split' === config.layout && settingsInside ) {
-		// Fields on the left, preview on the right (stacks when the box is narrow).
-		// The preview postbox stays in place (empty) so Screen Options and box order keep working.
-		split = document.createElement( 'div' );
-		split.className = 'bppiv-lp-split';
-		var grid = document.createElement( 'div' );
-		grid.className = 'bppiv-lp-split__grid';
-		var fields = document.createElement( 'div' );
-		fields.className = 'bppiv-lp-split__fields';
-		var aside = document.createElement( 'div' );
-		aside.className = 'bppiv-lp-split__preview';
-
-		while ( settingsInside.firstChild ) {
-			fields.appendChild( settingsInside.firstChild );
-		}
-
-		var title = document.createElement( 'span' );
-		title.className = 'bppiv-live-preview__title';
-		title.textContent = config.i18n.title;
-		box.querySelector( '.bppiv-live-preview__bar' ).insertBefore( title, status );
-
-		aside.appendChild( box );
-		grid.appendChild( fields );
-		grid.appendChild( aside );
-		split.appendChild( grid );
-		settingsInside.appendChild( split );
-		postbox.classList.add( 'bppiv-lp-moved' );
-	} else if ( settingsBox && settingsBox.parentNode && settingsBox.nextElementSibling !== postbox ) {
-		// Keep the preview right below the settings box.
+	if ( ! side && settingsBox && settingsBox.parentNode && settingsBox.nextElementSibling !== postbox ) {
+		// Product page: keep the preview right below the settings box.
 		settingsBox.parentNode.insertBefore( postbox, settingsBox.nextSibling );
 	}
 
@@ -63,27 +46,26 @@
 		return ! screenOption || screenOption.checked;
 	};
 
+	// Panorama settings: the preview sits in the right column, which is widened while it is shown there.
+	var syncWideColumn = function () {
+		document.body.classList.toggle( 'bppiv-lp-wide', side && previewEnabled() && !! postbox.closest( '#side-sortables' ) );
+	};
+	syncWideColumn();
+
 	var isOpen = function () {
-		if ( split ) {
-			return previewEnabled() && ! settingsBox.classList.contains( 'closed' );
-		}
-		return ! postbox.classList.contains( 'closed' ) && ! postbox.classList.contains( 'hide-if-js' ) && postbox.offsetParent !== null;
+		return previewEnabled() && ! postbox.classList.contains( 'closed' ) && ! postbox.classList.contains( 'hide-if-js' ) && postbox.offsetParent !== null;
 	};
 
-	if ( split ) {
-		// "Live Preview" in Screen Options turns the preview column on / off.
-		split.classList.toggle( 'is-preview-off', ! previewEnabled() );
-		if ( screenOption ) {
-			screenOption.addEventListener( 'change', function () {
-				split.classList.toggle( 'is-preview-off', ! previewEnabled() );
-				if ( previewEnabled() ) {
-					lastSent = null;
-					setTimeout( function () {
-						update( true );
-					}, 0 );
-				}
-			} );
-		}
+	if ( screenOption ) {
+		screenOption.addEventListener( 'change', function () {
+			syncWideColumn();
+			if ( previewEnabled() ) {
+				lastSent = null;
+				setTimeout( function () {
+					update( true );
+				}, 0 );
+			}
+		} );
 	}
 
 	var collect = function () {
@@ -104,6 +86,18 @@
 		return parts.join( '&' );
 	};
 
+	// A shown fixed layer that covers most of the frame (hidden tooltips and small buttons do not count).
+	var popupOpen = function ( doc, win ) {
+		return Array.prototype.some.call( doc.body.querySelectorAll( '*' ), function ( el ) {
+			var css = win.getComputedStyle( el );
+			if ( 'fixed' !== css.position || 'hidden' === css.visibility || 0 === parseFloat( css.opacity ) ) {
+				return false;
+			}
+			var rect = el.getBoundingClientRect();
+			return rect.width >= win.innerWidth * 0.6 && rect.height >= win.innerHeight * 0.6;
+		} );
+	};
+
 	// Height of the preview content. Measured from the elements, not the document, so the
 	// iframe's own height (and fixed popups) never feed back into it.
 	var fit = function () {
@@ -119,12 +113,17 @@
 					return;
 				}
 				var rect = el.getBoundingClientRect();
-				if ( rect.height > 0 ) {
+				// 1px screen-reader helpers (e.g. WooCommerce's cart live region) do not count.
+				if ( rect.height > 1 ) {
 					bottom = Math.max( bottom, rect.bottom + win.pageYOffset );
 				}
 			} );
 			var style = win.getComputedStyle( doc.body );
 			var height = Math.ceil( bottom + parseFloat( style.paddingBottom || 0 ) );
+			// A gallery item opens in a popup that fills the frame: give it room.
+			if ( popupOpen( doc, win ) ) {
+				height = Math.max( height, Math.round( frame.clientWidth * 0.65 ), 320 );
+			}
 			frame.style.height = Math.min( Math.max( height, 120 ), 2000 ) + 'px';
 		} catch ( e ) {}
 	};
@@ -150,6 +149,7 @@
 		controller = window.AbortController ? new window.AbortController() : null;
 
 		box.classList.add( 'is-loading' );
+		postbox.classList.add( 'is-loading' );
 		status.textContent = config.i18n.loading;
 
 		window.fetch( config.url, {
@@ -173,6 +173,7 @@
 				}
 				lastSent = null;
 				box.classList.remove( 'is-loading' );
+				postbox.classList.remove( 'is-loading' );
 				status.textContent = config.i18n.error;
 			} );
 	};
@@ -189,16 +190,34 @@
 			return;
 		}
 		box.classList.remove( 'is-loading' );
+		postbox.classList.remove( 'is-loading' );
 		status.textContent = '';
 		fit();
 
 		if ( resizeObserver ) {
 			resizeObserver.disconnect();
 		}
+		if ( popupObserver ) {
+			popupObserver.disconnect();
+		}
 		var win = frame.contentWindow;
 		if ( win && win.ResizeObserver && frame.contentDocument && frame.contentDocument.body ) {
 			resizeObserver = new win.ResizeObserver( fit );
 			resizeObserver.observe( frame.contentDocument.body );
+		}
+		// Opening or closing a popup does not change the page size, only its content and classes.
+		if ( win && win.MutationObserver && frame.contentDocument && frame.contentDocument.body ) {
+			popupObserver = new win.MutationObserver( function () {
+				if ( ! popupTimer ) {
+					popupTimer = setTimeout( function () {
+						popupTimer = null;
+						fit();
+						// Again once the popup's open / close animation is over.
+						setTimeout( fit, 600 );
+					}, 100 );
+				}
+			} );
+			popupObserver.observe( frame.contentDocument.body, { attributes: true, attributeFilter: [ 'class' ], childList: true, subtree: true } );
 		}
 	} );
 
@@ -217,16 +236,20 @@
 		}
 	}, 2000 );
 
-	box.querySelector( '.bppiv-live-preview__refresh' ).addEventListener( 'click', function () {
+	postbox.querySelector( '.bppiv-live-preview__refresh' ).addEventListener( 'click', function () {
 		update( true );
 	} );
 
 	if ( window.jQuery ) {
 		window.jQuery( document ).on( 'postbox-toggled', function ( event, toggled ) {
-			var id = toggled && toggled.id;
-			if ( 'bppiv-live-preview' === id || ( split && config.metaKey === id ) ) {
+			if ( toggled && 'bppiv-live-preview' === toggled.id ) {
 				update( true );
 			}
+		} );
+		// The box can be dragged between columns.
+		window.jQuery( document ).on( 'sortstop', function () {
+			syncWideColumn();
+			setTimeout( fit, 50 );
 		} );
 	}
 

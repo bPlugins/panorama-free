@@ -26,6 +26,7 @@
             Woocommerce\ProductView::class,
             Base\EnqueueAssets::class,
             Base\LivePreview::class,
+            Base\MetaboxLayout::class,
             Base\Blocks::class,
             Base\Admin::class,
             Base\Ajax::class,
