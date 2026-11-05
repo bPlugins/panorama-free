@@ -26,7 +26,7 @@ const Settings = ({ attributes, setAttributes, device, siteUrl }) => {
       <InspectorControls>
         {videoUrl && (
           <TabPanel
-            className="bPlTabPanel wp-block-panorama-video"
+            className="bPlTabPanel bppivInspector wp-block-panorama-video"
             activeClass="activeTab"
             tabs={generalStyleTabs}
             onSelect={tabController}

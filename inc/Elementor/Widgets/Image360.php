@@ -196,6 +196,10 @@ class Image360 extends Base {
 				esc_html__( 'Mouse wheel, keyboard & double-click zoom control', 'panorama' ),
 				esc_html__( 'Disable dragging', 'panorama' ),
 				esc_html__( 'Auto-rotate inactivity delay', 'panorama' ),
+				array(
+					'label' => esc_html__( 'Original resolution images', 'panorama' ),
+					'new'   => true,
+				),
 			)
 		);
 	}

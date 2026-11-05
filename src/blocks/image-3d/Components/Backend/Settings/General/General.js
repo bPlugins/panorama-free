@@ -1,5 +1,6 @@
 import { PanelBody, RangeControl, ToggleControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
+import NewBadge from "../../../../../../components/NewBadge/NewBadge";
 import { InlineMediaUpload, Notice } from "../../../../../../../../bpl-tools/Components";
 import { updateData } from '../../../../../../../../bpl-tools/utils/functions';
 
@@ -25,6 +26,11 @@ const General = ({ attributes, setAttributes }) => {
           setAttributes({ imageUrl: updateData(imageUrl, v) });
         }}
       />
+
+      <Notice status='premium' isIcon={true} className="mt15">
+        <strong>{__("Original Resolution", "panorama")}</strong><NewBadge />{" "}
+        {__("With Pro, show your image at the size you uploaded it instead of the 2560px copy WordPress makes of big images, for a sharper panorama.", "panorama")}
+      </Notice>
 
       <ToggleControl
         className="mt20"

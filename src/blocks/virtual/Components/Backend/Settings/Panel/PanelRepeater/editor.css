@@ -1,0 +1,95 @@
+.panel-repeater-wrapper {
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.panel-repeater-wrapper .panel-repeater-header-wrapper {
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	height: 38px !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+	border: 1px solid #ccc;
+	background: #ffffff;
+}
+
+.panel-repeater-wrapper .panel-repeater-header-wrapper .panel-repeater-header-title {
+	margin: 0;
+	padding: 0 10px !important;
+	height: 100% !important;
+	flex: 1 1 auto !important;
+	min-width: 0 !important;
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	cursor: pointer !important;
+	user-select: none;
+	box-sizing: border-box !important;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.panel-repeater-wrapper .panel-repeater-header-wrapper .panel-repeater-header-title:hover {
+	background: #f0f0f1;
+}
+
+.panel-repeater-wrapper .panel-repeater-header-wrapper .panel-repeater-header-title p {
+	margin: 0 !important;
+	padding: 0 !important;
+	font-size: 13px !important;
+	font-weight: 500 !important;
+	line-height: 38px !important;
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+	flex: 1 1 auto !important;
+	min-width: 0 !important;
+	color: #1e1e1e;
+	text-align: left !important;
+}
+
+.panel-repeater-wrapper .panel-repeater-header-wrapper .panel-repeater-header-title span {
+	width: 20px !important;
+	height: 100% !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	flex-shrink: 0 !important;
+	margin-left: 6px;
+	color: #50575e;
+}
+
+.panel-repeater-wrapper .panel-repeater-header-wrapper .panel-repeater-icon-group {
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	align-items: center !important;
+	height: 100% !important;
+	flex-shrink: 0 !important;
+}
+
+.panel-repeater-wrapper .panel-repeater-header-wrapper .panel-repeater-icon-group .panel-repeater-icon {
+	border-left: 1px solid #ccc;
+	height: 100% !important;
+	width: 36px !important;
+	padding: 0 !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	font-size: 16px;
+	color: #50575e;
+	cursor: pointer;
+	box-sizing: border-box !important;
+	flex-shrink: 0 !important;
+	transition: all 0.2s ease-in-out;
+}
+
+.panel-repeater-wrapper .panel-repeater-header-wrapper .panel-repeater-icon-group .panel-repeater-icon:hover {
+	background: #f0f0f1;
+	color: #1e1e1e;
+}

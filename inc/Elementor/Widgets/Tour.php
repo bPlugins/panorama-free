@@ -70,6 +70,10 @@ class Tour extends Base {
 				esc_html__( 'Scene navigation hotspots', 'panorama' ),
 				esc_html__( 'Preview image with "Click to Load" button', 'panorama' ),
 				esc_html__( 'Compass, zoom and keyboard controls', 'panorama' ),
+				array(
+					'label' => esc_html__( 'Scene transitions with adjustable duration', 'panorama' ),
+					'new'   => true,
+				),
 			)
 		);
 	}

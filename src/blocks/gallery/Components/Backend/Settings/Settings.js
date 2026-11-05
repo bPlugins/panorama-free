@@ -17,7 +17,7 @@ const Settings = ({ attributes, setAttributes, siteUrl }) => {
     <InspectorControls>
 
       <TabPanel
-        className="bPlTabPanel wp-block-panorama-image-360"
+        className="bPlTabPanel bppivInspector wp-block-panorama-image-360"
         activeClass="activeTab"
         tabs={generalStyleTabs}
         onSelect={tabController}

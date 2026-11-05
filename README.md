@@ -33,6 +33,8 @@ Everything you need to build an immersive 360° experience on your site:
 ### 👑 Premium Power (Pro)
 Unlock advanced features for premium real estate tours, vehicle showcases, and interactive 3D portfolios:
 - **Full Elementor Support:** Unlock every panorama type and all Pro options in the Elementor widgets.
+- **Original Resolution Images (New):** Show large Image 360°, Image 3D and WooCommerce product images at the size you uploaded them, instead of the 2560px copy WordPress makes, for a noticeably sharper view.
+- **Scene Transitions (New):** Move between Virtual Tour and Tour 360° scenes with Crossfade, Zoom & Walk-Through, Dip to Black or Blur to Clear effects, with an adjustable transition duration.
 - **Advanced 360° Interaction Analytics Dashboard:** Track extended lifetime analytics data, WooCommerce sales conversions, custom date range filters, and live activity streams.
 - **Interactive WooCommerce Product Hotspots:** Connect 360° hotspots directly to WooCommerce products, display live price badges, and enable instant Add to Cart buttons.
 - **WooCommerce Product Video & Advanced Controls:** Add 360° product videos, custom initial view angle, playback controls, and title/author overlays to your product panorama.

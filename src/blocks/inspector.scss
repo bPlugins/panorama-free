@@ -1,0 +1,83 @@
+// Block settings: a field's help text becomes a "?" icon at the top right of the field,
+// and shows on hover, like the panorama settings page.
+.bppivInspector {
+  .components-base-control {
+    position: relative;
+
+    &:has(> .components-base-control__help) > .components-base-control__field {
+      padding-right: 24px;
+    }
+  }
+
+  .components-base-control > .components-base-control__help {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    z-index: 20;
+    width: 220px;
+    max-width: calc(100vw - 32px);
+    margin: 0 !important;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    background: transparent;
+    color: transparent;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 1.5;
+    text-align: left;
+    pointer-events: none;
+
+    * {
+      visibility: hidden;
+    }
+
+    // The icon. It sits above the text box, so hovering it opens the box below.
+    &::before {
+      content: "?";
+      position: absolute;
+      top: -20px;
+      right: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #a7aaad;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 16px;
+      text-align: center;
+      cursor: help;
+      pointer-events: auto;
+    }
+
+    // Bridges the gap between the icon and the box so the box stays open.
+    &::after {
+      content: "";
+      position: absolute;
+      top: -4px;
+      right: 0;
+      width: 16px;
+      height: 4px;
+      pointer-events: auto;
+    }
+
+    &:hover {
+      background: #1e1e1e;
+      color: #fff;
+      pointer-events: auto;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+      &::before {
+        background: #146ef5;
+      }
+
+      * {
+        visibility: visible;
+      }
+
+      a {
+        color: #72aee6;
+      }
+    }
+  }
+}

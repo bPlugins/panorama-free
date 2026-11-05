@@ -450,7 +450,7 @@ abstract class Base extends Widget_Base {
 	/**
 	 * "Pro Features" section listing what the Pro version adds.
 	 *
-	 * @param string[] $features Feature labels.
+	 * @param array $features Feature labels; array( 'label' => ..., 'new' => true ) adds a NEW tag.
 	 */
 	protected function register_pro_notice( $features ) {
 		$this->start_controls_section(
@@ -462,7 +462,9 @@ abstract class Base extends Widget_Base {
 
 		$items = '';
 		foreach ( $features as $feature ) {
-			$items .= '<li class="bppiv-el-pro__item"><i class="eicon-check" aria-hidden="true"></i><span>' . esc_html( $feature ) . '</span></li>';
+			$label  = is_array( $feature ) ? $feature['label'] : $feature;
+			$tag    = is_array( $feature ) && ! empty( $feature['new'] ) ? ' <span class="bppiv-el-pro__new">' . esc_html__( 'NEW', 'panorama' ) . '</span>' : '';
+			$items .= '<li class="bppiv-el-pro__item"><i class="eicon-check" aria-hidden="true"></i><span>' . esc_html( $label ) . $tag . '</span></li>';
 		}
 
 		$this->add_control(

@@ -27,7 +27,7 @@ const Settings = ({ attributes, setAttributes, device, siteUrl }) => {
 
         {tour_360?.length > 0 && (
           <TabPanel
-            className="bPlTabPanel wp-block-panorama-tour"
+            className="bPlTabPanel bppivInspector wp-block-panorama-tour"
             activeClass="activeTab"
             tabs={generalStyleTabs}
             onSelect={tabController}

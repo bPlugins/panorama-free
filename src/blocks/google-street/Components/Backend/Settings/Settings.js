@@ -22,7 +22,7 @@ const Settings = ({ attributes, setAttributes, device, siteUrl }) => {
       <InspectorControls>
 
         <TabPanel
-          className="bPlTabPanel wp-block-panorama-google-street"
+          className="bPlTabPanel bppivInspector wp-block-panorama-google-street"
           activeClass="activeTab"
           tabs={generalStyleTabs}
           onSelect={tabController}

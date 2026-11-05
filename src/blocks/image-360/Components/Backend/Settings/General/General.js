@@ -1,5 +1,6 @@
 import { PanelBody, RangeControl, ToggleControl, SelectControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
+import NewBadge from "../../../../../../components/NewBadge/NewBadge";
 import { updateData } from "../../../../../../../../bpl-tools/utils/functions";
 import { InlineMediaUpload, Notice } from "../../../../../../../../bpl-tools/Components";
 import CubeMapUpload from "../../../../../../components/CubeMapUpload/CubeMapUpload";
@@ -111,6 +112,13 @@ const General = ({ attributes, setAttributes }) => {
             setAttributes({ imageUrl: updateData(imageUrl, v) });
           }}
         />
+      )}
+
+      {panoramaFormat !== "cubemap" && (
+        <Notice status='premium' isIcon={true} className="mt15">
+          <strong>{__("Original Resolution", "panorama")}</strong><NewBadge />{" "}
+          {__("With Pro, show your image at the size you uploaded it instead of the 2560px copy WordPress makes of big images, for a sharper panorama.", "panorama")}
+        </Notice>
       )}
 
       <ToggleControl

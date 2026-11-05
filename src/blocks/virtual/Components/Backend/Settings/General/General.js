@@ -1,5 +1,6 @@
 import { PanelBody, RangeControl, SelectControl, TabPanel, ToggleControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
+import NewBadge from "../../../../../../components/NewBadge/NewBadge";
 import { useEffect, useState } from "react";
 import CustomItemsPanel from "../../../CustomItemsPanel/CustomItemsPanel";
 import Item from "../Panel/Item";
@@ -201,6 +202,16 @@ const General = ({ attributes, setAttributes, premiumProps, setCurrentScene, sit
 
         <Notice status='premium' isIcon={true}>
           {__('Compass, Mouse Zoom, Disable Keyboard Control & Double Click Zoom are available in the Pro version.', 'panorama')}
+        </Notice>
+      </PanelBody>
+
+      <PanelBody
+        className="bPlPanelBody"
+        title={<>{__("Scene Transitions", "panorama")}<NewBadge /></>}
+        initialOpen={false}
+      >
+        <Notice status='premium' isIcon={true}>
+          {__('Cinematic Scene Transitions are available in the Pro version! Switch between scenes with smooth Crossfade, Zoom & Walk-Through, Dip to Black, Blur-to-Clear effects, and custom transition duration control.', 'panorama')}
         </Notice>
       </PanelBody>
 

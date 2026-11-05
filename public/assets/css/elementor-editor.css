@@ -69,6 +69,19 @@
 	font-size: 12px;
 }
 
+.bppiv-el-pro__new {
+	display: inline-block;
+	margin-left: 4px;
+	padding: 1px 5px;
+	background: #146ef5;
+	color: #fff;
+	font-size: 9px;
+	font-weight: 700;
+	line-height: 1.4;
+	letter-spacing: 0.5px;
+	vertical-align: middle;
+}
+
 .bppiv-el-pro__btn,
 .bppiv-el-pro__btn:visited {
 	display: flex;

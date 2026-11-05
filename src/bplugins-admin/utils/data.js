@@ -189,6 +189,7 @@ export const welcomeInfo = (adminUrl) => ({
 			type: 'new',
 			version: '1.9.0 - 01 Nov, 2026',
 			list: [
+				'<strong>Improved:</strong> Block settings show the help for each field in a "?" tooltip, like the panorama settings.',
 				'<strong>New:</strong> Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.',
 				'<strong>New:</strong> Live preview in the panorama settings and the WooCommerce product panorama settings.',
 				'<strong>Fixed:</strong> Google Street View shortcode caused a fatal error on PHP 7.1 and 7.2.',
@@ -209,6 +210,8 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogsLimit: 2,
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
+		'Original Resolution Images — show large panoramas at the size you uploaded them for a sharper view.',
+		'Scene Transitions — Crossfade, Zoom & Walk-Through, Dip to Black and Blur effects between tour scenes.',
 		'Full Elementor support — unlock every panorama type and all Pro options in Elementor widgets.',
 		'360° Interaction Analytics Dashboard with impression logs, click stats, and conversion metrics.',
 		'Interactive WooCommerce Product Hotspots with price badges and instant Add to Cart.',

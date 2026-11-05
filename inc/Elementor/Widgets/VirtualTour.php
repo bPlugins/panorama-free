@@ -443,6 +443,10 @@ class VirtualTour extends Base {
 				esc_html__( 'Video, image and WooCommerce product hotspots', 'panorama' ),
 				esc_html__( 'Compass', 'panorama' ),
 				esc_html__( 'Mouse wheel, keyboard & double-click zoom control', 'panorama' ),
+				array(
+					'label' => esc_html__( 'Scene transitions with adjustable duration', 'panorama' ),
+					'new'   => true,
+				),
 			)
 		);
 	}

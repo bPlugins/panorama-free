@@ -20,7 +20,7 @@ const Settings = (settingprops) => {
 
 	return <>
 		<InspectorControls>
-			<TabPanel className='bPlTabPanel' activeClass='activeTab' tabs={generalStyleTabs} onSelect={tabController}>
+			<TabPanel className='bPlTabPanel bppivInspector' activeClass='activeTab' tabs={generalStyleTabs} onSelect={tabController}>
 				{
 					tab => <>
 						{'general' === tab.name && <General {...settingprops} {...{ siteLocation }} />}

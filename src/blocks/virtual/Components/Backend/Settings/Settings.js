@@ -24,7 +24,7 @@ const Settings = ({ attributes, setAttributes, device, isPremium, setCurrentScen
 			<InspectorControls>
 				{scenes?.length > 0 && (
 					<TabPanel
-						className="bPlTabPanel wp-block-panorama-virtual-tour"
+						className="bPlTabPanel bppivInspector wp-block-panorama-virtual-tour"
 						activeClass="activeTab"
 						tabs={generalStyleTabs}
 						onSelect={tabController}

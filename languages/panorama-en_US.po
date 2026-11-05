@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-01T18:14:38+00:00\n"
+"POT-Creation-Date: 2026-11-05T04:17:23+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: panorama\n"
@@ -105,37 +105,452 @@ msgstr ""
 msgid "Press Ctrl+C to copy"
 msgstr ""
 
-#: inc/Base/LivePreview.php:45
-#: inc/Base/LivePreview.php:84
+#: inc/Base/EnqueueAssets.php:107
+msgid "Type:"
+msgstr ""
+
+#: inc/Base/EnqueueAssets.php:108
+msgid "Change the panorama type in Configuration"
+msgstr ""
+
+#: inc/Base/EnqueueAssets.php:109
+#: inc/Elementor/Widgets/Image3D.php:49
+#: inc/Elementor/Widgets/Image360.php:65
+#: inc/Elementor/Widgets/ProductSpot.php:54
+#: inc/Elementor/Widgets/ProductSpot.php:57
+#: inc/Elementor/Widgets/ProductSpot.php:269
+#: public/elementor/elementor-editor.js:1
+#: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:47
+#: public/elementor/elementor-editor.js:947
+msgid "Image"
+msgstr ""
+
+#: inc/Base/EnqueueAssets.php:110
+#: inc/Elementor/Widgets/Video360.php:46
+msgid "360° Video"
+msgstr ""
+
+#: inc/Base/LivePreview.php:58
+#: inc/Base/LivePreview.php:96
 msgid "Live Preview"
 msgstr ""
 
-#: inc/Base/LivePreview.php:53
+#: inc/Base/LivePreview.php:66
 msgid "Refresh"
 msgstr ""
 
-#: inc/Base/LivePreview.php:55
+#: inc/Base/LivePreview.php:68
 msgid "Panorama live preview"
 msgstr ""
 
-#: inc/Base/LivePreview.php:56
+#: inc/Base/LivePreview.php:69
 msgid "The preview updates as you change the settings. Click Update to save them."
 msgstr ""
 
-#: inc/Base/LivePreview.php:85
+#: inc/Base/LivePreview.php:97
 msgid "Updating preview…"
 msgstr ""
 
-#: inc/Base/LivePreview.php:86
+#: inc/Base/LivePreview.php:98
 msgid "The preview could not be loaded. Click Refresh to try again."
 msgstr ""
 
-#: inc/Base/LivePreview.php:107
+#: inc/Base/LivePreview.php:119
 msgid "Sorry, you are not allowed to preview this panorama."
 msgstr ""
 
-#: inc/Base/LivePreview.php:145
+#: inc/Base/LivePreview.php:192
+msgid "Nothing to preview yet"
+msgstr ""
+
+#: inc/Base/LivePreview.php:195
+#: inc/Base/LivePreview.php:207
+msgid "Add a video in Video Source to see it here."
+msgstr ""
+
+#: inc/Base/LivePreview.php:195
+msgid "Add a 360° image in Image Source to see it here."
+msgstr ""
+
+#: inc/Base/LivePreview.php:203
+msgid "Add an image in Image Source to see it here."
+msgstr ""
+
+#: inc/Base/LivePreview.php:210
+msgid "Enter a Google Street View Panorama ID to see it here."
+msgstr ""
+
+#: inc/Base/LivePreview.php:213
+msgid "Add a gallery item with an image or video to see it here."
+msgstr ""
+
+#: inc/Base/LivePreview.php:213
+msgid "Gallery is available in Panorama Pro."
+msgstr ""
+
+#: inc/Base/LivePreview.php:216
+msgid "Add a scene with an image to the tour to see it here."
+msgstr ""
+
+#: inc/Base/LivePreview.php:216
+#: inc/Elementor/Widgets/Tour.php:92
+msgid "Tour 360° is available in Panorama Pro."
+msgstr ""
+
+#: inc/Base/LivePreview.php:219
 msgid "Choose a panorama type and add an image or video to see the preview."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:61
+msgid "What to show: a 3D image, a 360° image or video, a gallery, a virtual tour or a Google Street View."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:62
+msgid "The image to show. Upload it or paste an image link."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:63
+msgid "Equirectangular for a normal 360° photo, Cubemap for 6 cube face images, Cylindrical for a phone panorama."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:64
+msgid "How many degrees the image covers left to right. A full 360° photo is 360."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:65
+msgid "How many degrees the image covers top to bottom. A full 360° photo is 180."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:66
+msgid "Moves a partial panorama up or down, in degrees. Usually 0."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:67
+msgid "The 360° (equirectangular) photo to show. Upload it or paste an image link."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:68
+msgid "The cube face that looks forward."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:69
+msgid "The cube face on the right."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:70
+msgid "The cube face behind the viewer."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:71
+msgid "The cube face on the left."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:72
+msgid "The cube face above the viewer (sky or ceiling)."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:73
+msgid "The cube face below the viewer (floor or ground)."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:74
+msgid "The 360° video to play. Upload it or paste a video link."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:75
+msgid "Add the images and videos of the gallery, each with its own title and description."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:76
+msgid "How many items show first. The rest appear with the Load More button."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:77
+msgid "How many items sit side by side in one row."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:78
+msgid "Space between the gallery items."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:79
+msgid "Font, size and color of the item titles."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:80
+msgid "Font, size and color of the item descriptions."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:81
+msgid "Cuts long descriptions short and adds a Read More link."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:82
+msgid "Color of the Read More / Read Less link."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:83
+msgid "Text on the button that loads more gallery items."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:84
+msgid "Text color of the Load More button."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:85
+msgid "Background color of the Load More button."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:86
+msgid "Text color of the Load More button on mouse over."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:87
+msgid "Background color of the Load More button on mouse over."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:88
+msgid "Add the scenes of the tour and the hotspots that move visitors from one scene to another."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:89
+msgid "The ID of the Google Street View panorama to show."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:90
+msgid "Width of the viewer, e.g. 100% or 800px."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:91
+msgid "Height of the viewer."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:92
+msgid "Places the viewer on the left, center or right of the page."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:93
+msgid "The view turns by itself after the page loads."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:94
+msgid "How fast the view turns. A negative value turns the other way."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:95
+msgid "Wait time (in milliseconds) before rotation starts again after the visitor stops moving the view."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:96
+msgid "Hides the built-in zoom and fullscreen buttons."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:97
+msgid "Choose the angle and zoom the panorama opens with."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:98
+msgid "Opening angle and zoom: Pitch = up/down, Yaw = left/right, HFOV = zoom (smaller is closer)."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:99
+#: inc/Base/MetaboxLayout.php:101
+msgid "Opening position: X = left/right, Y = up/down, Z = zoom."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:100
+msgid "Choose the angle and zoom the video opens with."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:102
+msgid "Replaces the default buttons with a styled control bar."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:103
+msgid "Shows a button that lets phone visitors look around by moving their device."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:104
+msgid "Text color of the device motion button."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:105
+msgid "Background color of the device motion button."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:106
+msgid "Text color of the device motion button on mouse over."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:107
+msgid "Background color of the device motion button on mouse over."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:108
+msgid "Loads the panorama with the page. When off, visitors click a button to load it (faster pages)."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:109
+msgid "Image shown before the panorama loads, mostly when Autoload is off."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:110
+msgid "Text on the button that loads the panorama when Autoload is off."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:111
+msgid "Visitors can look around by dragging with the mouse or a finger."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:112
+msgid "Shows a compass that points to where the visitor is looking."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:113
+msgid "Phone and tablet visitors can look around by tilting their device."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:114
+#: inc/Base/MetaboxLayout.php:116
+msgid "The video starts playing by itself. Browsers allow this only when the video is muted."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:115
+msgid "The video starts without sound. Needed for Auto Play."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:117
+msgid "The video starts again when it ends."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:118
+msgid "Shows the video control bar."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:119
+#: inc/Base/MetaboxLayout.php:125
+msgid "Shows the fullscreen button."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:120
+msgid "Shows the settings (quality) button."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:121
+msgid "Shows the seek bar and the play/pause button."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:122
+msgid "Shows the play/pause button."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:123
+msgid "Shows the bar to jump to any part of the video."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:124
+msgid "Shows the volume button."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:126
+msgid "Shows how much of the video is left."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:127
+msgid "Shows the picture-in-picture button, to watch in a small floating window."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:128
+msgid "Shows the button to play the video slower or faster."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:129
+msgid "Shows a title and an author name on the panorama."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:130
+msgid "The title shown on the panorama."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:131
+msgid "The author name shown on the panorama."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:132
+#: inc/Base/MetaboxLayout.php:133
+msgid "Adds \"by\" before the author name, e.g. \"by Alex Doe\"."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:134
+msgid "Visitors can zoom with the mouse wheel."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:135
+msgid "Turns off moving the view with the arrow keys."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:136
+msgid "Visitors can zoom in with a double click."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:167
+msgid "Show a 360° image or a video on the product page."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:169
+msgid "The 360° (equirectangular) photo of the product. Upload it or paste an image link."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:179
+msgid "The video of the product. Upload it or paste a video link."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:180
+msgid "Turn on for a 360° video, so visitors can drag to look around."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:181
+msgid "Where the viewer shows on the product page: above or below the product images, instead of the main image, or in a \"360° View\" tab. \"None\" shows it only where you add the shortcode."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:184
+msgid "Shows the zoom and fullscreen buttons on the viewer."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:189
+msgid "Shows the play, progress and volume controls on the video."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:190
+msgid "A title shown in the top-left corner of the viewer."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:191
+msgid "A credit name shown under the title."
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:217
+#: inc/Base/MetaboxLayout.php:227
+msgid "Configuration"
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:218
+#: inc/Base/MetaboxLayout.php:228
+msgid "Rotation & Controls"
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:219
+msgid "Dimensions"
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:220
+#: src/blocks/gallery/Components/Backend/Settings/Style/Style.js:17
+msgid "Styles"
+msgstr ""
+
+#: inc/Base/MetaboxLayout.php:229
+#: inc/Woocommerce/ProductMeta.php:187
+msgid "Title & Author"
 msgstr ""
 
 #: inc/Base/registerPostType.php:48
@@ -175,67 +590,71 @@ msgstr ""
 msgid "Panorama Options."
 msgstr ""
 
-#: inc/Base/registerPostType.php:320
+#: inc/Base/registerPostType.php:322
 msgid "Shortcode"
 msgstr ""
 
-#: inc/Base/registerPostType.php:325
-msgid "Copy"
-msgstr ""
-
-#: inc/Base/registerPostType.php:328
+#: inc/Base/registerPostType.php:323
 msgid "Paste it into any post, page or widget."
 msgstr ""
 
-#: inc/Base/registerPostType.php:331
+#: inc/Base/registerPostType.php:325
+msgid "Click to select"
+msgstr ""
+
+#: inc/Base/registerPostType.php:328
+msgid "Copy"
+msgstr ""
+
+#: inc/Base/registerPostType.php:336
 #: src/components/ClipBoard/ClipBoard.js:73
 msgid "Embed"
 msgstr ""
 
-#: inc/Base/registerPostType.php:333
-msgid "Get Embed Code"
-msgstr ""
-
-#: inc/Base/registerPostType.php:335
+#: inc/Base/registerPostType.php:337
 msgid "Show this panorama on other websites."
 msgstr ""
 
-#: inc/Base/registerPostType.php:341
+#: inc/Base/registerPostType.php:339
+msgid "Get Embed Code"
+msgstr ""
+
+#: inc/Base/registerPostType.php:347
 msgid "Close"
 msgstr ""
 
-#: inc/Base/registerPostType.php:342
+#: inc/Base/registerPostType.php:348
 msgid "Embed Panorama"
 msgstr ""
 
-#: inc/Base/registerPostType.php:343
+#: inc/Base/registerPostType.php:349
 msgid "Copy this code and paste it into an HTML or Custom HTML block on any website."
 msgstr ""
 
-#: inc/Base/registerPostType.php:349
+#: inc/Base/registerPostType.php:355
 #: src/components/ClipBoard/ClipBoard.js:114
 msgid "Copy Embed Code"
 msgstr ""
 
-#: inc/Base/registerPostType.php:352
+#: inc/Base/registerPostType.php:358
 msgid "<strong>Note:</strong> For Video 360°, the iframe and the height-resizer script work together. If the video looks misaligned on your page, wrap both inside a <code>&lt;div&gt;</code> container."
 msgstr ""
 
-#: inc/Base/registerPostType.php:354
+#: inc/Base/registerPostType.php:360
 msgid "<strong>Note:</strong> If the panorama looks misaligned on your page, wrap the iframe inside a <code>&lt;div&gt;</code> container. This fixes alignment in some editors."
 msgstr ""
 
-#: inc/Base/registerPostType.php:356
+#: inc/Base/registerPostType.php:362
 msgid "<strong>Note:</strong> If the embedded panorama does not show, go to <em>Settings → Permalinks</em> in your WordPress dashboard and click <em>Save Changes</em> to refresh the URLs."
 msgstr ""
 
 #. translators: %s: Rating URL.
-#: inc/Base/registerPostType.php:368
+#: inc/Base/registerPostType.php:374
 #, php-format
 msgid "If you like <strong> Panorama Viewer </strong> please leave us a <a href=\"%s\" target=\"_blank\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. Your Review is very important to us as it helps us to grow more. "
 msgstr ""
 
-#: inc/Base/registerPostType.php:390
+#: inc/Base/registerPostType.php:396
 msgid "Shortcode updated "
 msgstr ""
 
@@ -326,6 +745,8 @@ msgid "Get these extra features for this widget:"
 msgstr ""
 
 #: inc/Elementor/Widgets/Base.php:478
+#: inc/metabox-options-free.php:747
+#: inc/Woocommerce/ProductMeta.php:191
 msgid "Upgrade to Pro"
 msgstr ""
 
@@ -396,7 +817,7 @@ msgid "Street View"
 msgstr ""
 
 #: inc/Elementor/Widgets/GoogleStreet.php:52
-#: inc/metabox-options-free.php:251
+#: inc/metabox-options-free.php:268
 #: src/blocks/google-street/Components/Backend/Settings/General/General.js:18
 msgid "Panorama ID"
 msgstr ""
@@ -454,16 +875,6 @@ msgstr ""
 #: inc/Elementor/Widgets/Image3D.php:46
 #: inc/Elementor/Widgets/Image360.php:48
 msgid "Panorama Image"
-msgstr ""
-
-#: inc/Elementor/Widgets/Image3D.php:49
-#: inc/Elementor/Widgets/Image360.php:65
-#: inc/Elementor/Widgets/ProductSpot.php:54
-#: inc/Elementor/Widgets/ProductSpot.php:57
-#: inc/Elementor/Widgets/ProductSpot.php:269
-#: public/elementor/elementor-editor.js:1
-#: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:47
-msgid "Image"
 msgstr ""
 
 #: inc/Elementor/Widgets/Image3D.php:101
@@ -863,10 +1274,6 @@ msgstr ""
 msgid "Compass, zoom and keyboard controls"
 msgstr ""
 
-#: inc/Elementor/Widgets/Tour.php:92
-msgid "Tour 360° is available in Panorama Pro."
-msgstr ""
-
 #: inc/Elementor/Widgets/Video.php:20
 #: inc/Elementor/Widgets/Video.php:46
 msgid "Panorama Video"
@@ -880,6 +1287,7 @@ msgstr ""
 #: inc/Elementor/Widgets/Video360.php:49
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:40
+#: public/elementor/elementor-editor.js:940
 msgid "Video"
 msgstr ""
 
@@ -926,10 +1334,6 @@ msgstr ""
 
 #: inc/Elementor/Widgets/Video360.php:32
 msgid "Select a 360° video to display the viewer."
-msgstr ""
-
-#: inc/Elementor/Widgets/Video360.php:46
-msgid "360° Video"
 msgstr ""
 
 #: inc/Elementor/Widgets/Video360.php:61
@@ -988,6 +1392,7 @@ msgstr ""
 #: inc/Elementor/Widgets/VirtualTour.php:108
 #: public/elementor/elementor-editor.js:1
 #: src/elementor/editor.js:154
+#: public/elementor/elementor-editor.js:1633
 msgid "Edit Hotspots"
 msgstr ""
 
@@ -1038,6 +1443,7 @@ msgstr ""
 #: inc/Elementor/Widgets/VirtualTour.php:270
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:26
+#: public/elementor/elementor-editor.js:926
 msgid "Scene"
 msgstr ""
 
@@ -1056,6 +1462,7 @@ msgid "360° Image"
 msgstr ""
 
 #: inc/Elementor/Widgets/VirtualTour.php:405
+#: inc/Woocommerce/ProductMeta.php:179
 msgid "Initial View"
 msgstr ""
 
@@ -1229,19 +1636,41 @@ msgstr ""
 msgid "Bottom / Down Face (d)"
 msgstr ""
 
-#: inc/metabox-options-free.php:252
+#: inc/metabox-options-free.php:246
+msgid "Original-Resolution 8K/12K Loading & Lossless Compression"
+msgstr ""
+
+#: inc/metabox-options-free.php:247
+msgid "PRO FEATURE"
+msgstr ""
+
+#: inc/metabox-options-free.php:250
+msgid "Pro automatically bypasses WordPress image compression on uploads, preserving 100% pristine lossless quality for ultra-sharp virtual tours."
+msgstr ""
+
+#: inc/metabox-options-free.php:269
 msgid "Input here Google Street View Panorama Id. <a href=\"#\" class=\"pano-help-link\">How to find it?</a>"
 msgstr ""
 
-#: inc/metabox-options-free.php:708
-#: inc/metabox-options-free.php:734
-msgid "Unlock Pro Features"
+#: inc/metabox-options-free.php:727
+#: inc/Woocommerce/ProductMeta.php:157
+msgid "Unlock More with Panorama Pro"
 msgstr ""
 
-#: inc/metabox-options-free.php:724
-#: inc/metabox-options-free.php:750
-#: inc/Woocommerce/ProductMeta.php:189
-msgid "Upgrade to Pro Now"
+#: inc/metabox-options-free.php:729
+msgid "Upgrade to use these features in your panorama:"
+msgstr ""
+
+#: inc/metabox-options-free.php:739
+#: src/blocks/image-360/Components/Backend/Settings/General/General.js:40
+#: src/blocks/image-360/Components/Backend/Settings/General/General.js:189
+#: src/blocks/virtual/Components/Backend/Settings/General/General.js:187
+#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:157
+msgid "NEW"
+msgstr ""
+
+#: inc/metabox-options-free.php:748
+msgid "Your panoramas and settings are kept."
 msgstr ""
 
 #: inc/Woocommerce/ProductMeta.php:16
@@ -1297,71 +1726,73 @@ msgstr ""
 msgid "Enable or Disable Auto Rotate"
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:156
-msgid "Unlock Premium Experience"
+#: inc/Woocommerce/ProductMeta.php:159
+msgid "Upgrade to use these features on your product pages:"
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:161
-msgid "Product Shortcode:"
+#: inc/Woocommerce/ProductMeta.php:163
+msgid "Product Shortcode"
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:161
+#: inc/Woocommerce/ProductMeta.php:163
 msgid "Use shortcode to display panorama anywhere on your product page."
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:165
-msgid "Video Panorama:"
+#: inc/Woocommerce/ProductMeta.php:167
+msgid "Video Panorama"
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:165
+#: inc/Woocommerce/ProductMeta.php:167
 msgid "Select Video as panorama type for your WooCommerce products."
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:169
-msgid "Auto Rotate Speed:"
+#: inc/Woocommerce/ProductMeta.php:171
+#: src/blocks/google-street/Components/Backend/Settings/General/General.js:81
+#: src/blocks/gutenberg-block/Components/Backend/Settings/Settings.js:140
+#: src/blocks/image-3d/Components/Backend/Settings/General/General.js:43
+#: src/blocks/image-360/Components/Backend/Settings/General/General.js:130
+#: src/blocks/tour/Components/Backend/Settings/General/General.js:111
+#: src/blocks/virtual/Components/Backend/Settings/General/General.js:115
+msgid "Auto Rotate Speed"
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:169
+#: inc/Woocommerce/ProductMeta.php:171
 msgid "Control rotation speed in degrees per second."
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:173
-msgid "Show/Hide Controls:"
+#: inc/Woocommerce/ProductMeta.php:175
+msgid "Show/Hide Controls"
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:173
+#: inc/Woocommerce/ProductMeta.php:175
 msgid "Toggle default panorama controls visibility."
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:177
-msgid "Initial View:"
-msgstr ""
-
-#: inc/Woocommerce/ProductMeta.php:177
+#: inc/Woocommerce/ProductMeta.php:179
 msgid "Set custom starting pitch, yaw, and zoom values."
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:181
-msgid "Video Controls:"
+#: inc/Woocommerce/ProductMeta.php:183
+msgid "Video Controls"
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:181
+#: inc/Woocommerce/ProductMeta.php:183
 msgid "Auto Play, Mute, Loop, and Show Controls for video panorama."
 msgstr ""
 
-#: inc/Woocommerce/ProductMeta.php:185
-msgid "Title & Author:"
-msgstr ""
-
-#: inc/Woocommerce/ProductMeta.php:185
+#: inc/Woocommerce/ProductMeta.php:187
 msgid "Display custom title and author info on the panorama viewer."
 msgstr ""
 
-#: inc/Woocommerce/ProductView.php:53
+#: inc/Woocommerce/ProductMeta.php:192
+msgid "Your products and settings are kept."
+msgstr ""
+
+#: inc/Woocommerce/ProductView.php:78
 msgid "360° View"
 msgstr ""
 
-#: inc/Woocommerce/ProductView.php:150
+#: inc/Woocommerce/ProductView.php:175
 msgid "Awaiting product image"
 msgstr ""
 
@@ -1411,26 +1842,31 @@ msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:19
+#: public/elementor/elementor-editor.js:919
 msgid "Info"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:33
+#: public/elementor/elementor-editor.js:933
 msgid "Link"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:54
+#: public/elementor/elementor-editor.js:954
 msgid "WooCommerce Product"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/TypeSelectionButtons.js:61
+#: public/elementor/elementor-editor.js:961
 msgid "Set Default View"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/LinkHotspotInput.js:7
+#: public/elementor/elementor-editor.js:169
 msgid "Setup Link Hotspot"
 msgstr ""
 
@@ -1438,6 +1874,9 @@ msgstr ""
 #: src/blocks/virtual/Components/Common/ImageHotspotInput.js:11
 #: src/blocks/virtual/Components/Common/LinkHotspotInput.js:10
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:13
+#: public/elementor/elementor-editor.js:104
+#: public/elementor/elementor-editor.js:172
+#: public/elementor/elementor-editor.js:1004
 msgid "Label:"
 msgstr ""
 
@@ -1445,6 +1884,9 @@ msgstr ""
 #: src/blocks/virtual/Components/Common/ImageHotspotInput.js:16
 #: src/blocks/virtual/Components/Common/LinkHotspotInput.js:15
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:18
+#: public/elementor/elementor-editor.js:109
+#: public/elementor/elementor-editor.js:177
+#: public/elementor/elementor-editor.js:1009
 msgid "Input text label..."
 msgstr ""
 
@@ -1452,112 +1894,136 @@ msgstr ""
 #: src/blocks/virtual/Components/Common/ImageHotspotInput.js:21
 #: src/blocks/virtual/Components/Common/LinkHotspotInput.js:20
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:23
+#: public/elementor/elementor-editor.js:114
+#: public/elementor/elementor-editor.js:182
+#: public/elementor/elementor-editor.js:1014
 msgid "Enter a label"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/LinkHotspotInput.js:24
+#: public/elementor/elementor-editor.js:186
 msgid "URL:"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/LinkHotspotInput.js:29
+#: public/elementor/elementor-editor.js:191
 msgid "https://example.com"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/LinkHotspotInput.js:34
+#: public/elementor/elementor-editor.js:196
 msgid "Enter the redirection link"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/LinkHotspotInput.js:38
+#: public/elementor/elementor-editor.js:200
 msgid "Target:"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/LinkHotspotInput.js:47
+#: public/elementor/elementor-editor.js:209
 msgid "New Tab (_blank)"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/LinkHotspotInput.js:48
+#: public/elementor/elementor-editor.js:210
 msgid "Same Tab (_self)"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/LinkHotspotInput.js:50
+#: public/elementor/elementor-editor.js:212
 msgid "Choose how to open the link"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/elementor/shims/bpl-components.js:41
+#: public/elementor/elementor-editor.js:1808
 msgid "Enter URL"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/elementor/shims/bpl-components.js:48
+#: public/elementor/elementor-editor.js:1815
 msgid "Select from Media Library"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/elementor/shims/bpl-components.js:59
+#: public/elementor/elementor-editor.js:1826
 msgid "Upload Media"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/elementor/shims/bpl-components.js:61
+#: public/elementor/elementor-editor.js:1828
 msgid "Upload"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/elementor/shims/bpl-components.js:68
+#: public/elementor/elementor-editor.js:1835
 msgid "Paste or type an image URL"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/elementor/shims/bpl-components.js:78
+#: public/elementor/elementor-editor.js:1845
 msgid "Apply"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:10
+#: public/elementor/elementor-editor.js:1001
 msgid "Setup Video Hotspot"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:28
+#: public/elementor/elementor-editor.js:1019
 msgid "Source:"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:37
+#: public/elementor/elementor-editor.js:1028
 msgid "YouTube"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:38
+#: public/elementor/elementor-editor.js:1029
 msgid "Vimeo"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:39
+#: public/elementor/elementor-editor.js:1030
 msgid "Self Hosted"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:41
+#: public/elementor/elementor-editor.js:1032
 msgid "Select the video source type"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:46
+#: public/elementor/elementor-editor.js:1037
 msgid "Video:"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:340
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:53
+#: public/elementor/elementor-editor.js:1044
 msgid "Select Video"
 msgstr ""
 
@@ -1566,47 +2032,56 @@ msgstr ""
 #: src/blocks/video/Components/Backend/Settings/General/General.js:24
 #: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:341
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:54
+#: public/elementor/elementor-editor.js:1045
 msgid "Enter or upload video URL"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:61
+#: public/elementor/elementor-editor.js:1052
 msgid "YouTube Video URL or ID..."
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:61
+#: public/elementor/elementor-editor.js:1052
 msgid "Vimeo Video URL or ID..."
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:68
+#: public/elementor/elementor-editor.js:1059
 msgid "Enter YouTube URL or Video ID (e.g. dF7N5h6t9zY)"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:69
+#: public/elementor/elementor-editor.js:1060
 msgid "Enter Vimeo URL or Video ID (e.g. 76979871)"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/VideoHotspotInput.js:70
+#: public/elementor/elementor-editor.js:1061
 msgid "Upload video or enter URL"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/ImageHotspotInput.js:8
+#: public/elementor/elementor-editor.js:101
 msgid "Setup Image Hotspot"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/ImageHotspotInput.js:26
+#: public/elementor/elementor-editor.js:119
 msgid "Image:"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:359
 #: src/blocks/virtual/Components/Common/ImageHotspotInput.js:32
+#: public/elementor/elementor-editor.js:125
 msgid "Select Image"
 msgstr ""
 
@@ -1617,16 +2092,19 @@ msgstr ""
 #: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:225
 #: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:360
 #: src/blocks/virtual/Components/Common/ImageHotspotInput.js:33
+#: public/elementor/elementor-editor.js:126
 msgid "Enter or upload image URL"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/ImageHotspotInput.js:36
+#: public/elementor/elementor-editor.js:129
 msgid "Select or upload an image to display in the hotspot"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/blocks/virtual/Components/Common/UploadImage.js:9
+#: public/elementor/elementor-editor.js:976
 msgid "Paste or type a 360° panorama image URL"
 msgstr ""
 
@@ -1634,6 +2112,7 @@ msgstr ""
 #: src/blocks/image-360/Components/Backend/Edit.js:68
 #: src/blocks/virtual/Components/Backend/Edit.js:63
 #: src/blocks/virtual/Components/Common/TourViewer.js:289
+#: public/elementor/elementor-editor.js:754
 msgid "Cubemap (6 Cube Faces) Mode"
 msgstr ""
 
@@ -1641,26 +2120,31 @@ msgstr ""
 #: src/blocks/image-360/Components/Backend/Edit.js:73
 #: src/blocks/virtual/Components/Backend/Edit.js:68
 #: src/blocks/virtual/Components/Common/TourViewer.js:294
+#: public/elementor/elementor-editor.js:759
 msgid "Please upload all 6 square cube faces (Front, Right, Back, Left, Up, Down) in the right sidebar settings."
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/elementor/editor.js:161
+#: public/elementor/elementor-editor.js:1640
 msgid "Click anywhere on the scene to add a hotspot or set the scene's default view. Click a hotspot to edit or delete it, or drag it to move it."
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/elementor/editor.js:195
+#: public/elementor/elementor-editor.js:1674
 msgid "Cancel"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/elementor/editor.js:196
+#: public/elementor/elementor-editor.js:1675
 msgid "Save Hotspots"
 msgstr ""
 
 #: public/elementor/elementor-editor.js:1
 #: src/elementor/editor.js:222
+#: public/elementor/elementor-editor.js:1701
 msgid "Add a 360° image to at least one scene first."
 msgstr ""
 
@@ -1684,10 +2168,6 @@ msgstr ""
 
 #: src/blocks/gallery/Components/Backend/Settings/General/General.js:54
 msgid "Load more button with customization are available in the Premium version."
-msgstr ""
-
-#: src/blocks/gallery/Components/Backend/Settings/Style/Style.js:17
-msgid "Styles"
 msgstr ""
 
 #: src/blocks/gallery/Components/Backend/Settings/Style/Style.js:18
@@ -1735,15 +2215,6 @@ msgstr ""
 #: src/blocks/tour/Components/Backend/Settings/General/General.js:129
 #: src/blocks/virtual/Components/Backend/Settings/General/General.js:149
 msgid "Hide Default Control"
-msgstr ""
-
-#: src/blocks/google-street/Components/Backend/Settings/General/General.js:81
-#: src/blocks/gutenberg-block/Components/Backend/Settings/Settings.js:140
-#: src/blocks/image-3d/Components/Backend/Settings/General/General.js:43
-#: src/blocks/image-360/Components/Backend/Settings/General/General.js:130
-#: src/blocks/tour/Components/Backend/Settings/General/General.js:111
-#: src/blocks/virtual/Components/Backend/Settings/General/General.js:115
-msgid "Auto Rotate Speed"
 msgstr ""
 
 #: src/blocks/google-street/Components/Backend/Settings/General/General.js:98
@@ -1851,13 +2322,6 @@ msgstr ""
 
 #: src/blocks/image-3d/Components/Backend/Settings/Style/Style.js:67
 msgid "Device Motion Button Colors & Hover Colors are available in the Pro version."
-msgstr ""
-
-#: src/blocks/image-360/Components/Backend/Settings/General/General.js:40
-#: src/blocks/image-360/Components/Backend/Settings/General/General.js:189
-#: src/blocks/virtual/Components/Backend/Settings/General/General.js:187
-#: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:157
-msgid "NEW"
 msgstr ""
 
 #: src/blocks/image-360/Components/Backend/Settings/General/General.js:47
@@ -2126,6 +2590,14 @@ msgstr ""
 
 #: src/blocks/virtual/Components/Backend/Settings/General/General.js:203
 msgid "Compass, Mouse Zoom, Disable Keyboard Control & Double Click Zoom are available in the Pro version."
+msgstr ""
+
+#: src/blocks/virtual/Components/Backend/Settings/General/General.js:209
+msgid "Scene Transitions"
+msgstr ""
+
+#: src/blocks/virtual/Components/Backend/Settings/General/General.js:213
+msgid "Cinematic Scene Transitions are available in the Pro version! Switch between scenes with smooth Crossfade, Matterport-style Zoom & Walk-Through, Dip to Black, Blur-to-Clear effects, and custom transition duration control."
 msgstr ""
 
 #: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:80

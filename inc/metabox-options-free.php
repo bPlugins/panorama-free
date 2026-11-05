@@ -237,6 +237,23 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'dependency'   => array( 'bppiv_type|panorama_format_360', '==|==', 'image360|cubemap' ),
           ),
           array(
+            'id'           => 'bppiv_original_resolution_notice',
+            'type'         => 'content',
+            'content'      => '
+              <div style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); border: 1px solid #cce3f9; border-left: 4px solid #146ef5; border-radius: 0; padding: 14px 18px; margin: 15px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                  <span style="font-size: 18px;">💎</span>
+                  <strong style="font-size: 14px; color: #0d3d84; font-weight: 700;">' . esc_html__( 'Original Resolution Images', 'panorama' ) . '</strong>
+                  <span style="background: #146ef5; color: #fff; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 0; text-transform: uppercase;">' . esc_html__( 'PRO FEATURE', 'panorama' ) . '</span>
+                </div>
+                <p style="font-size: 13px; line-height: 1.5; color: #334e68; margin: 0;">
+                  ' . esc_html__( 'With Pro, show your image at the size you uploaded it instead of the 2560px copy WordPress makes of big images, for a sharper panorama.', 'panorama' ) . '
+                </p>
+              </div>
+            ',
+            'dependency'   => array( 'bppiv_type', 'any', 'image,image360' ),
+          ),
+          array(
             'id'           => 'bppiv_video_src',
             'type'         => 'media',
             'library'      => 'video',
@@ -264,6 +281,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
           $this->pro_feature_list( array(
             'Virtual Tour Creation'    => 'Create immersive virtual tours by connecting multiple 360° scenes.',
             'Interactive Hotspots'     => 'Add clickable hotspots to navigate between different panoramic locations.',
+            'Scene Transitions (NEW)'  => 'Zoom & Walk-Through, Crossfade, Dip to Black, and Blur transitions, with an adjustable transition duration.',
             'Custom Scene Management'  => 'Set custom titles, authors, and initial views for each scene in your tour.',
             'Seamless Navigation'      => 'Provide a smooth transition experience as users move between scenes.',
             'Advanced Controls'        => 'Enable compass, zoom, and orientation features for a better tour experience.',

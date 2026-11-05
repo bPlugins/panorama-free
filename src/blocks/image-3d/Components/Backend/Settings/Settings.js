@@ -27,7 +27,7 @@ const Settings = ({ attributes, setAttributes, device, siteUrl }) => {
 
         {imageUrl && (
           <TabPanel
-            className="bPlTabPanel wp-block-panorama-image-3d"
+            className="bPlTabPanel bppivInspector wp-block-panorama-image-3d"
             activeClass="activeTab"
             tabs={generalStyleTabs}
             onSelect={tabController}

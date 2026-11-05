@@ -101,6 +101,10 @@ class Image3D extends Base {
 				esc_html__( 'Device motion (gyroscope) button', 'panorama' ),
 				esc_html__( 'Motion button colors', 'panorama' ),
 				esc_html__( 'Auto-rotate inactivity delay', 'panorama' ),
+				array(
+					'label' => esc_html__( 'Original resolution images', 'panorama' ),
+					'new'   => true,
+				),
 			)
 		);
 	}
