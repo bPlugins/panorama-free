@@ -26,6 +26,8 @@
         "fullscreen": true,
         "setting": true,
         "video": true,
+        "volume": true,
+        "defaultVolume": 100,
         "initialView": false,
         "initialPosition": {
           "x": 0,

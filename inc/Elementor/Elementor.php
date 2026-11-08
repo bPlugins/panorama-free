@@ -34,7 +34,7 @@ class Elementor {
 			'bppiv-elementor-preview',
 			BPPIV_PLUGIN_DIR . 'public/assets/css/elementor-preview.css',
 			array(),
-			BPPIV_VERSION
+			BPPIV_VERSION . '.' . filemtime( BPPIV_PATH . 'public/assets/css/elementor-preview.css' )
 		);
 	}
 

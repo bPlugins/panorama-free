@@ -240,7 +240,7 @@ class LivePreview {
      * @param array $meta Panorama settings.
      * @return bool
      */
-    private static function has_media( $meta ) {
+    public static function has_media( $meta ) {
         $type = isset( $meta['bppiv_type'] ) ? sanitize_key( $meta['bppiv_type'] ) : '';
         $keys = array(
             'image'    => array( 'bppiv_image_src' ),

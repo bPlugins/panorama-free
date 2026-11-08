@@ -6,6 +6,47 @@ $primaryColor: #4527a4;
   * {
     box-sizing: border-box;
   }
+
+  // Scene hotspot label (TourViewer adds it): the same small text everywhere, not the page's font.
+  .bppiv-tour-hotspot-label {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 220px;
+    padding: 5px 10px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: normal;
+    text-overflow: ellipsis;
+    text-transform: none;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -6px;
+      border: 6px solid transparent;
+      border-top-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .pnlm-hotspot:hover .bppiv-tour-hotspot-label {
+    visibility: visible;
+    opacity: 1;
+  }
   .bBlocksTourViewer {
     display: flex;
     flex-direction: column;

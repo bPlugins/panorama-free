@@ -55,11 +55,26 @@ export const getElementorSetAttributes = (el) => {
 	const run = (container, settings) => editor.$e.run('document/elements/settings', { container, settings, options: { external: true } });
 
 	// The viewer re-renders right after the update (its own toast disappears with
-	// it), so confirm in the Elementor editor itself.
+	// it), so confirm with a small toast in the preview's bottom-right corner
+	// (elementor-preview.css). Elementor's own toast adds its upgrade notice.
 	const notify = () => {
-		if (editor.elementor.notifications?.showToast) {
-			editor.elementor.notifications.showToast({ message: __('Initial view set successfully.', 'panorama') });
-		}
+		const doc = el.ownerDocument;
+		doc.querySelector('.bppiv-el-toast')?.remove();
+
+		const toast = doc.createElement('div');
+		toast.className = 'bppiv-el-toast';
+		toast.setAttribute('role', 'status');
+		toast.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+		const text = doc.createElement('span');
+		text.textContent = __('Initial view set successfully.', 'panorama');
+		toast.appendChild(text);
+		doc.body.appendChild(toast);
+
+		requestAnimationFrame(() => toast.classList.add('is-visible'));
+		setTimeout(() => {
+			toast.classList.remove('is-visible');
+			setTimeout(() => toast.remove(), 250);
+		}, 2500);
 	};
 
 	return (attrs) => {

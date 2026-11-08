@@ -114,6 +114,23 @@ const Video360Viewer = ({ attributes, setAttributes, isButton = true, isBackend 
       });
     }
 
+    // With autoplay and the 360° view, Video.js never starts watching for mouse activity, so the
+    // control bar stayed hidden. Show it on activity and hide it after 2.5 s while playing, as Video.js does.
+    let hideControlsTimer;
+    const showControls = () => {
+      player.userActive(true);
+      clearTimeout(hideControlsTimer);
+      hideControlsTimer = setTimeout(() => {
+        if (!player.paused()) {
+          player.userActive(false);
+        }
+      }, 2500);
+    };
+    player.on("dispose", () => clearTimeout(hideControlsTimer));
+    ["mousemove", "mousedown", "touchstart", "keydown"].forEach((type) => {
+      player.el().addEventListener(type, showControls, true);
+    });
+
     player.on("loadedmetadata", function () {
       const videoEl = player.el().querySelector("video");
 

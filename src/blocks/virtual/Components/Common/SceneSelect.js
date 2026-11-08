@@ -26,10 +26,15 @@ const SceneSelect = ({ scenes, popupData, setPopupData, hotspotData, setAttribut
                         });
                         setAttributes({ hotspotData: updatedHotspotData });
                     }}
-                    options={scenes.map(scene => ({
-                        label: scene.tour_id,
-                        value: scene.tour_id
-                    }))}
+                    options={scenes.map(scene => {
+                        const title = typeof scene.title === 'string' ? scene.title.trim() : '';
+                        // Show the scene title; the ID only when there is no title or two scenes share it.
+                        const isShared = title && scenes.filter(other => (typeof other.title === 'string' ? other.title.trim() : '') === title).length > 1;
+                        return {
+                            label: !title ? scene.tour_id : (isShared ? `${title} (${scene.tour_id})` : title),
+                            value: scene.tour_id
+                        };
+                    })}
                 />
                 <p className="dropdown-label">Choose the Scene</p>
             </div>

@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useGutenbergDragFix from "../../../../hooks/useGutenbergDragFix";
+import { addVolumeControl } from "../../utils/volume";
 
 const VideoViewer = ({ attributes, setAttributes, isButton = true, isBackend = false, isSelected = false }) => {
   const { videoUrl, options = {} } = attributes;
@@ -14,6 +15,8 @@ const VideoViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
     fullscreen,
     setting,
     video,
+    volume = true,
+    defaultVolume = 100,
     initialView,
     initialPosition = {}
   } = options;
@@ -47,6 +50,13 @@ const VideoViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
 
     viewerRef.current.add(panorama);
 
+    const videoElement = panorama.getVideoElement && panorama.getVideoElement();
+    if (videoElement) {
+      const level = Number(defaultVolume);
+      videoElement.volume = (Number.isFinite(level) ? Math.min(100, Math.max(0, level)) : 100) / 100;
+    }
+    const removeVolumeControl = controlBar && volume ? addVolumeControl(videoRef.current, videoElement) : () => { };
+
     if (initialPosition) {
       const { x, y, z } = initialPosition;
       viewerRef.current.camera.position.set(x, y, z);
@@ -58,6 +68,7 @@ const VideoViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
     }
 
     return () => {
+      removeVolumeControl();
       if (viewerRef.current) {
         viewerRef.current.dispose();
       }
@@ -72,6 +83,8 @@ const VideoViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
     setting,
     fullscreen,
     video,
+    volume,
+    defaultVolume,
     initialView,
   ]);
 
@@ -104,7 +117,7 @@ const VideoViewer = ({ attributes, setAttributes, isButton = true, isBackend = f
     <div
       ref={videoRef}
       className="panoramaVideoViewer"
-      key={`${videoUrl}-${autoplay}-${loop}-${initialView}-${initialPosition}-${muted}-${controlBar}-${setting}-${fullscreen}-${video}`}
+      key={`${videoUrl}-${autoplay}-${loop}-${initialView}-${initialPosition}-${muted}-${controlBar}-${setting}-${fullscreen}-${video}-${volume}-${defaultVolume}`}
     >
       <ToastContainer />
 

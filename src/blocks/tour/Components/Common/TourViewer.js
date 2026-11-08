@@ -3,6 +3,17 @@ import React, { useEffect, useRef } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// Scene hotspot label, shown above the icon on hover (style.scss).
+const addHotspotLabel = (hotSpotDiv, text) => {
+  if (!text) {
+    return;
+  }
+  const label = document.createElement("span");
+  label.className = "bppiv-tour-hotspot-label";
+  label.textContent = text;
+  hotSpotDiv.appendChild(label);
+};
+
 const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
   const tourContainerRef = useRef();
   const viewerInstance = useRef(null);
@@ -55,6 +66,10 @@ const TourViewer = ({ attributes, setAttributes, isButton = true }) => {
             type: "scene",
             text: tour_360[i].hotSpot_txt,
             sceneId: tour_360[i].target_id,
+            // Our own label, centred with CSS: Pannellum measures its label when the viewer is
+            // created, and gets it wrong while the viewer is hidden (Elementor editor).
+            createTooltipFunc: addHotspotLabel,
+            createTooltipArgs: tour_360[i].hotSpot_txt,
           },
         ],
       }) ||

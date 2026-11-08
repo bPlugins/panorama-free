@@ -1,5 +1,24 @@
 $primaryColor: #4527a4;
 
+// The whole tour in fullscreen (TourViewer adds is-fullscreen), so the scene list stays beside the panorama.
+.bpgb-virtual-tour-wrapper.is-fullscreen {
+  background: #fff;
+
+  .tourBody,
+  .tourViewerWrapper {
+    height: 100%;
+  }
+
+  .tourViewerWrapper .tourViewer {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hotspot-container {
+    height: 100% !important;
+  }
+}
+
 .wp-block-panorama-virtual-tour {
   box-sizing: border-box;
 

@@ -1,7 +1,8 @@
-import { PanelBody, ToggleControl } from "@wordpress/components";
+import { PanelBody, RangeControl, ToggleControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { InlineMediaUpload, Notice } from "../../../../../../../../bpl-tools/Components";
 import { updateData } from "../../../../../../../../bpl-tools/utils/functions";
+import NewBadge from "../../../../../../components/NewBadge/NewBadge";
 
 const General = ({ attributes, setAttributes }) => {
   const { videoUrl, options } = attributes;
@@ -10,6 +11,8 @@ const General = ({ attributes, setAttributes }) => {
     loop,
     muted,
     controlBar,
+    volume = true,
+    defaultVolume = 100,
     initialView = false,
   } = options;
 
@@ -87,6 +90,27 @@ const General = ({ attributes, setAttributes }) => {
             options: updateData(options, v, "controlBar"),
           })
         }
+      />
+
+      {controlBar && (
+        <ToggleControl
+          className="mt10"
+          checked={volume}
+          label={<>{__("Volume Control", "panorama")}<NewBadge /></>}
+          help={__("A volume button and slider in the control bar, so visitors can turn the sound up or down.", "panorama")}
+          onChange={(v) => setAttributes({ options: updateData(options, v, "volume") })}
+        />
+      )}
+
+      <RangeControl
+        className="mt15"
+        label={<>{__("Default Volume", "panorama")}<NewBadge /></>}
+        help={__("The volume the video starts at, from 0 to 100%.", "panorama")}
+        value={defaultVolume}
+        min={0}
+        max={100}
+        step={5}
+        onChange={(v) => setAttributes({ options: updateData(options, v ?? 100, "defaultVolume") })}
       />
 
       <Notice status='premium' isIcon={true}>

@@ -16,6 +16,9 @@ $bppiv_block = call_user_func( function() use ( $get_value, $bppiv_meta, $bppiv_
                 "fullscreen" => $get_value('video_fullscreen_ctrl', true, true),
                 "setting" => $get_value('video_setting_ctrl', true, true),
                 "video" => $get_value('video_video_range_ctrl', true, true),
+            "volume" => $get_value('video_volume_control', true, true),
+            // Videos made before this setting played at full volume.
+            "defaultVolume" => isset( $bppiv_meta['video_default_volume'] ) && is_numeric( $bppiv_meta['video_default_volume'] ) ? min( 100, max( 0, (int) $bppiv_meta['video_default_volume'] ) ) : 100,
                 "initialView" => $get_value('initial_view_video', true),
                 "initialPosition" => [
                     "x" => (float)$get_value('initial_view_video_property', false, 0, 'top'),

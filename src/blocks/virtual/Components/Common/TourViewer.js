@@ -27,6 +27,7 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
     const [isHamMenuOpen, setIsHamMenuOpen] = useState(false);
     const [isHotspotModalViewerOpen, setIsHotspotModalViewerOpen] = useState(false);
     const [isProFeatureModalOpen, setIsProFeatureModalOpen] = useState(false);
+    const [isFullscreen, setIsFullscreen] = useState(false);
     const [activePopupHotspot, setActivePopupHotspot] = useState(null);
 
     const trackAnalyticsEvent = (eventType, extraData = {}) => {
@@ -229,6 +230,9 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
         }
         viewer.lookAt(currentPitch, currentYaw, currentHfov);
         panoRef.current.viewerInstance = viewer;
+        if (tourWrapperRef.current && (document.fullscreenElement || document.webkitFullscreenElement) === tourWrapperRef.current) {
+            setTimeout(() => viewer.resize(), 50);
+        }
 
         if (tempHotspot) {
             addTempHotspot(currentScene, viewerRef.current, tempHotspot, isDraggingRef, setIsDraggingHotspot, setPopupData, setTempHotspot);
@@ -259,6 +263,42 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
     }, [scenesStr, loaded, optionsStr, currentScene]);
 
     useGutenbergDragFix(tourWrapperRef, panoRef, isBackend, isSelected);
+
+    // Fullscreen takes the whole tour, not only the panorama, so the scene list and hotspot popups stay visible.
+    useEffect(() => {
+        const pano = panoRef.current;
+        const wrapper = tourWrapperRef.current;
+        const request = wrapper && (wrapper.requestFullscreen || wrapper.webkitRequestFullscreen);
+        if (!pano || !request) return;
+
+        const fullscreenElement = () => document.fullscreenElement || document.webkitFullscreenElement;
+
+        const onClick = (event) => {
+            if (!event.target.closest('.pnlm-fullscreen-toggle-button')) return;
+            event.stopPropagation();
+            if (fullscreenElement() === wrapper) {
+                (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+            } else if (!fullscreenElement()) {
+                const result = request.call(wrapper);
+                result && result.catch && result.catch(() => { });
+            }
+        };
+
+        const onChange = () => {
+            setIsFullscreen(fullscreenElement() === wrapper);
+            // Pannellum resizes the panorama and updates its button for the new size.
+            setTimeout(() => pano.viewerInstance?.resize(), 50);
+        };
+
+        pano.addEventListener('click', onClick, true);
+        document.addEventListener('fullscreenchange', onChange);
+        document.addEventListener('webkitfullscreenchange', onChange);
+        return () => {
+            pano.removeEventListener('click', onClick, true);
+            document.removeEventListener('fullscreenchange', onChange);
+            document.removeEventListener('webkitfullscreenchange', onChange);
+        };
+    }, [tabSl]);
 
     useEffect(() => {
         if (isBackend && tempHotspot && viewerRef.current) {
@@ -333,7 +373,7 @@ const TourViewer = ({ attributes, setAttributes, isBackend = false, isSelected =
     };
 
     return (
-        <div ref={tourWrapperRef} className="bpgb-virtual-tour-wrapper" style={{ width: '100%', height: '100%', position: 'relative' }}>
+        <div ref={tourWrapperRef} className={`bpgb-virtual-tour-wrapper${isFullscreen ? ' is-fullscreen' : ''}`} style={{ width: '100%', height: '100%', position: 'relative' }}>
             {tabSl === "index" ? <>
                 <div className='tourBody'>
                     <div className='tourViewerWrapper'>

@@ -15,37 +15,37 @@
 
 ### 💎 Core Functionality (Free)
 Everything you need to build an immersive 360° experience on your site:
-- **360° Interaction Analytics Dashboard (7-Day Overview):** Monitor viewer impressions, hotspot click counts, and active view duration directly from your WordPress dashboard.
-- **Multi-Scene Virtual Tours (Free):** Connect up to 6 scenes per tour with up to 6 interactive hotspots per scene (Info, Scene, Link) and smooth transitions.
-- **Cubemap / 6-Cube Face Format:** Upload 6 individual cube face images (Front, Back, Left, Right, Up, Down) for high-performance 360° scenes and WooCommerce product panoramas.
-- **Cylindrical Smartphone Panoramas:** Full support for partial panoramas with custom HAOV, VAOV, and vOffset controls on virtual tours and WooCommerce product pages.
+- **360° Image & Video Viewers:** Embed stunning equirectangular panoramic photos and 360-degree videos with full player navigation and a volume control for visitors.
+- **Multi-Scene Virtual Tours:** Connect up to 6 scenes per tour with up to 6 interactive hotspots per scene (Info, Scene, Link) and smooth transitions.
+- **Native Elementor Widgets:** Use every panorama type right inside Elementor with live preview — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour (with a visual hotspot editor), Product Spot and Saved Panorama.
+- **8 Dedicated Gutenberg Blocks:** Specialized blocks for Image 360°, Image 3D, Video, Video 360°, Google Street View, Gallery, Virtual Tour, and Product Spot.
 - **WooCommerce Product Panorama Embed:** Display 360° images on your single product page (top, bottom, replace main image, or a dedicated "360° View" tab) with auto-rotate — no coding required.
 - **Interactive Product Spot:** Highlight physical product details with interactive hotspot markers (up to 3 spots).
+- **Google Street View Integration:** Easily embed interactive Google Street View locations by simply entering a Panorama ID.
+- **Cubemap / 6-Cube Face Format:** Upload 6 individual cube face images (Front, Back, Left, Right, Up, Down) for high-performance 360° scenes and WooCommerce product panoramas.
+- **Cylindrical Smartphone Panoramas:** Full support for partial panoramas with custom HAOV, VAOV, and vOffset controls on virtual tours and WooCommerce product pages.
 - **Device Orientation (Gyroscope):** Enable mobile and tablet visitors to explore 360° panoramas and virtual tours naturally by tilting and moving their physical device.
 - **Initial View & FOV / Zoom Control:** Customize and lock the starting camera angle (Pitch, Yaw, HFOV) with a single click using the "Set as Initial View" button in block editor or admin metabox.
-- **360° Image & Video Viewers:** Embed stunning equirectangular panoramic photos and 360-degree videos with full player navigation.
-- **Google Street View Integration:** Easily embed interactive Google Street View locations by simply entering a Panorama ID.
 - **Auto Rotate & Camera Controls:** Keep viewers engaged with automated panning and customizable rotation speeds.
-- **8 Dedicated Gutenberg Blocks:** Specialized blocks for Image 360°, Image 3D, Video, Video 360°, Google Street View, Gallery, Virtual Tour, and Product Spot.
+- **360° Interaction Analytics Dashboard (7-Day Overview):** Monitor viewer impressions, hotspot click counts, and active view duration directly from your WordPress dashboard.
 - **Developer Shortcode API & Embed URLs:** Universal shortcodes `[panorama id="123"]`, `[virtual-tour id="456"]`, `[panorama_product_viewer]`, `[product_spot id="789"]`, and shareable iframe embed URLs.
-- **Native Elementor Widgets:** Use every panorama type right inside Elementor with live preview — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour (with a visual hotspot editor), Product Spot and Saved Panorama.
 
 ### 👑 Premium Power (Pro)
 Unlock advanced features for premium real estate tours, vehicle showcases, and interactive 3D portfolios:
-- **Full Elementor Support:** Unlock every panorama type and all Pro options in the Elementor widgets.
-- **Original Resolution Images (New):** Show large Image 360°, Image 3D and WooCommerce product images at the size you uploaded them, instead of the 2560px copy WordPress makes, for a noticeably sharper view.
-- **Scene Transitions (New):** Move between Virtual Tour and Tour 360° scenes with Crossfade, Zoom & Walk-Through, Dip to Black or Blur to Clear effects, with an adjustable transition duration.
-- **Advanced 360° Interaction Analytics Dashboard:** Track extended lifetime analytics data, WooCommerce sales conversions, custom date range filters, and live activity streams.
+- **Virtual Tour Pro (Unlimited):** Connect unlimited scenes and unlimited hotspots per scene without any restrictions.
+- **Scene Transitions:** Move between Virtual Tour and Tour 360° scenes with Crossfade, Zoom & Walk-Through, Dip to Black or Blur to Clear effects, with an adjustable transition duration.
+- **Rich Image & Video Hotspots:** Display interactive Image popups and Video modal popups directly inside virtual tour scenes.
 - **Interactive WooCommerce Product Hotspots:** Connect 360° hotspots directly to WooCommerce products, display live price badges, and enable instant Add to Cart buttons.
 - **WooCommerce Product Video & Advanced Controls:** Add 360° product videos, custom initial view angle, playback controls, and title/author overlays to your product panorama.
-- **Virtual Tour Pro (Unlimited):** Connect unlimited scenes and unlimited hotspots per scene without any restrictions.
-- **Rich Image & Video Hotspots:** Display interactive Image popups and Video modal popups directly inside virtual tour scenes.
-- **Preview Cover Image & Custom Load Button:** Display a lightweight preview cover image with a customizable load button (e.g., "Click to Explore 360°") to maximize page loading speed.
-- **Inactivity Delay Auto-Rotate Resume:** Automatically pause rotation when a user drags, and resume auto-rotation after a customizable inactivity delay.
+- **Original Resolution Images:** Show large Image 360°, Image 3D and WooCommerce product images at the size you uploaded them, instead of the 2560px copy WordPress makes, for a noticeably sharper view.
 - **Panorama Gallery & Grid Layouts:** Display multiple panoramas in beautiful responsive columns, grids, and Load More pagination.
 - **Panorama Gallery Title, Description & Read More:** Add custom titles and descriptions to gallery items with full typography controls, color customization, text truncation (Ellipsis toggle), and customizable "Read More / Read Less" buttons.
-- **Interactive Compass Overlay:** Keep users oriented in 360° spaces by enabling a native directional compass guide.
+- **Full Elementor Support:** Unlock every panorama type and all Pro options in the Elementor widgets.
+- **Advanced 360° Interaction Analytics Dashboard:** Track extended lifetime analytics data, WooCommerce sales conversions, custom date range filters, and live activity streams.
+- **Preview Cover Image & Custom Load Button:** Display a lightweight preview cover image with a customizable load button (e.g., "Click to Explore 360°") to maximize page loading speed.
 - **Custom Player & Navigation Controllers:** Add custom UI buttons for Pan Up, Down, Left, Right, Zoom, Fullscreen, and Video Playback Speed (0.5x, 1x, 1.5x, 2x) with Picture-in-Picture mode.
+- **Interactive Compass Overlay:** Keep users oriented in 360° spaces by enabling a native directional compass guide.
+- **Inactivity Delay Auto-Rotate Resume:** Automatically pause rotation when a user drags, and resume auto-rotation after a customizable inactivity delay.
 - **Kiosk & Exhibition Interaction Lock:** Option to disable keyboard navigation and double-click zoom for museum and showroom displays.
 - **External Media CDN / URL Support:** Use direct third-party CDN or external URLs for images and videos.
 

@@ -468,6 +468,26 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
             'class'    => 'bppiv-ctrl-video-only',
           ),
           array(
+            'id'       => 'video_volume_control',
+            'type'     => 'switcher',
+            'title'    => '<span style="white-space:nowrap;">' . __( 'Volume Control', 'panorama' ) . ' <span style="background:#146ef5;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:0;text-transform:uppercase;line-height:1.2;display:inline-block;vertical-align:middle;letter-spacing:0.5px;margin-left:5px;">NEW</span></span>',
+            'desc'     => __( 'Show a volume button and slider in the control bar, so visitors can turn the sound up or down.', 'panorama' ),
+            'default'  => true,
+            'class'    => 'bppiv-ctrl-video-only',
+          ),
+          array(
+            'id'       => 'video_default_volume',
+            'type'     => 'slider',
+            'title'    => '<span style="white-space:nowrap;">' . __( 'Default Volume', 'panorama' ) . ' <span style="background:#146ef5;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:0;text-transform:uppercase;line-height:1.2;display:inline-block;vertical-align:middle;letter-spacing:0.5px;margin-left:5px;">NEW</span></span>',
+            'desc'     => __( 'The volume the video starts at. Visitors can change it with the volume control.', 'panorama' ),
+            'min'      => 0,
+            'max'      => 100,
+            'step'     => 5,
+            'unit'     => '%',
+            'default'  => 100,
+            'class'    => 'bppiv-ctrl-video-only',
+          ),
+          array(
             'id'       => 'initial_view_video',
             'type'     => 'switcher',
             'title'    => 'Initial View',
@@ -744,7 +764,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
       $html .= '
           </ul>
           <div class="bppiv-pro-notice-foot">
-              <a class="bppiv-pro-notice-btn" href="' . esc_url( admin_url( 'admin.php?page=panorama-viewer-help-demo#/pricing' ) ) . '" target="_blank"><span class="dashicons dashicons-star-filled" aria-hidden="true"></span>' . esc_html__( 'Upgrade to Pro', 'panorama' ) . '</a>
+              <a class="bppiv-pro-notice-btn" href="' . esc_url( admin_url( 'edit.php?post_type=bppiv-image-viewer&page=bppiv-support#/pricing' ) ) . '" target="_blank"><span class="dashicons dashicons-star-filled" aria-hidden="true"></span>' . esc_html__( 'Upgrade to Pro', 'panorama' ) . '</a>
               <span class="bppiv-pro-notice-note">' . esc_html__( 'Your panoramas and settings are kept.', 'panorama' ) . '</span>
           </div>
       </div>';

@@ -92,6 +92,40 @@ class Video extends Base {
 			)
 		);
 
+		$new_badge = ' <span class="bppiv-el-pro__new">' . esc_html__( 'NEW', 'panorama' ) . '</span>';
+
+		$this->add_control(
+			'volume_control',
+			array(
+				'label'       => esc_html__( 'Volume Control', 'panorama' ) . $new_badge,
+				'type'        => Controls_Manager::SWITCHER,
+				'default'     => 'yes',
+				'description' => esc_html__( 'A volume button and slider in the control bar, so visitors can turn the sound up or down.', 'panorama' ),
+				'condition'   => array( 'control_bar' => 'yes' ),
+			)
+		);
+
+		$this->add_control(
+			'default_volume',
+			array(
+				'label'       => esc_html__( 'Default Volume', 'panorama' ) . $new_badge,
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => array( '%' ),
+				'range'       => array(
+					'%' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 5,
+					),
+				),
+				'default'     => array(
+					'unit' => '%',
+					'size' => 100,
+				),
+				'description' => esc_html__( 'The volume the video starts at.', 'panorama' ),
+			)
+		);
+
 		$this->add_initial_view_controls( $this->get_initial_view_fields() );
 
 		$this->end_controls_section();
@@ -125,6 +159,8 @@ class Video extends Base {
 				'muted'           => self::is_on( $settings, 'muted' ),
 				'loop'            => self::is_on( $settings, 'loop' ),
 				'controlBar'      => self::is_on( $settings, 'control_bar' ),
+				'volume'          => self::is_on( $settings, 'volume_control' ),
+				'defaultVolume'   => isset( $settings['default_volume']['size'] ) && is_numeric( $settings['default_volume']['size'] ) ? min( 100, max( 0, (int) $settings['default_volume']['size'] ) ) : 100,
 				'initialView'     => self::is_on( $settings, 'initial_view' ),
 				'initialPosition' => self::get_initial_view( $settings, $this->get_initial_view_fields() ),
 			),

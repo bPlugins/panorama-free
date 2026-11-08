@@ -187,16 +187,24 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogs: [
 		{
 			type: 'new',
-			version: '1.9.0 - 01 Nov, 2026',
+			version: '1.9.0 - 08 Nov, 2026',
 			list: [
-				'<strong>Improved:</strong> Block settings show the help for each field in a "?" tooltip, like the panorama settings.',
 				'<strong>New:</strong> Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.',
 				'<strong>New:</strong> Live preview in the panorama settings and the WooCommerce product panorama settings.',
+				'<strong>New:</strong> Volume control for Panorama Video: a volume button and slider in the player, and a Default Volume setting for the volume the video starts at.',
+				'<strong>Improved:</strong> Block settings show the help for each field in a "?" tooltip, like the panorama settings.',
+				'<strong>Improved:</strong> Updated the Freemius SDK to 2.13.5.',
+				'<strong>Improved:</strong> Panorama Video player: the control bar sits at the bottom of the video and the progress bar uses the full width.',
+				'<strong>Improved:</strong> Virtual Tour fullscreen keeps the scene and hotspot list and the hotspot popups on screen.',
+				'<strong>Improved:</strong> The Virtual Tour hotspot editor lists scenes by their titles instead of their IDs.',
+				'<strong>Improved:</strong> A panorama with no image or video yet shows a short note to people who can edit it, instead of an empty viewer.',
 				'<strong>Fixed:</strong> Google Street View shortcode caused a fatal error on PHP 7.1 and 7.2.',
 				'<strong>Fixed:</strong> Gallery "Load More" could open the wrong item, and the popup close button went outside the viewer.',
 				'<strong>Fixed:</strong> Some Google Street View and Video options were missing in the block editor and panorama settings.',
-				'<strong>Security:</strong> Hardened viewer output, the embed script, analytics tracking and the CSV export.',
-				'<strong>Improved:</strong> Updated the Freemius SDK to 2.13.5.'
+				'<strong>Fixed:</strong> Video 360° player controls stayed hidden when Autoplay was on.',
+				'<strong>Fixed:</strong> A panorama in the Trash was still shown by its shortcode to logged-in admins.',
+				'<strong>Fixed:</strong> The Upgrade to Pro button in the panorama settings opened a page that does not exist.',
+				'<strong>Security:</strong> Hardened viewer output, the embed script, analytics tracking and the CSV export.'
 			]
 		},
 		{
