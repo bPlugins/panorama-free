@@ -193,7 +193,6 @@ export const welcomeInfo = (adminUrl) => ({
 				'<strong>New:</strong> Live preview in the panorama settings and the WooCommerce product panorama settings.',
 				'<strong>New:</strong> Volume control for Panorama Video: a volume button and slider in the player, and a Default Volume setting for the volume the video starts at.',
 				'<strong>Improved:</strong> Block settings show the help for each field in a "?" tooltip, like the panorama settings.',
-				'<strong>Improved:</strong> Updated the Freemius SDK to 2.13.5.',
 				'<strong>Improved:</strong> Panorama Video player: the control bar sits at the bottom of the video and the progress bar uses the full width.',
 				'<strong>Improved:</strong> Virtual Tour fullscreen keeps the scene and hotspot list and the hotspot popups on screen.',
 				'<strong>Improved:</strong> The Virtual Tour hotspot editor lists scenes by their titles instead of their IDs.',

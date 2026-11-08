@@ -1,12 +1,12 @@
 import { sanitizeIcon } from '../../../../../utils/sanitize';
-import Draggable from "react-draggable";
+import SpotDraggable from "../SpotDraggable/SpotDraggable";
 import { getSpotIcon } from "../../../utils/functions";
 
 const DraggableHotspot = ({ attributes, hotspot, containerSize, boundsTarget = ".image", handleStop, activeHotspot, setActiveHotspot, handleDeleteHotspot }) => {
     const { iconMode, globalIcon } = attributes;
 
     return (
-        <Draggable
+        <SpotDraggable
             position={{
                 x: (hotspot.x / 100) * containerSize.width - 12,
                 y: (hotspot.y / 100) * containerSize.height - 12
@@ -35,7 +35,7 @@ const DraggableHotspot = ({ attributes, hotspot, containerSize, boundsTarget = "
 
             </div>
 
-        </Draggable>
+        </SpotDraggable>
     )
 }
 

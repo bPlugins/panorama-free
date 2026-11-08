@@ -1,5 +1,5 @@
 import { sanitizeIcon } from '../../../../../utils/sanitize';
-import Draggable from 'react-draggable';
+import SpotDraggable from "../SpotDraggable/SpotDraggable";
 import Tippy from '@tippyjs/react';
 import Title from '../../Backend/TtitleDesBack/Title';
 import Description from '../../Backend/TtitleDesBack/Description';
@@ -23,7 +23,7 @@ const TippyDraggble = ({
     };
 
     return (
-        <Draggable
+        <SpotDraggable
             key={hotspot.id}
             position={position}
             bounds=".image"
@@ -61,7 +61,7 @@ const TippyDraggble = ({
                     </div>
                 </Tippy>
             </div>
-        </Draggable>
+        </SpotDraggable>
     );
 }
 

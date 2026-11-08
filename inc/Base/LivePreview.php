@@ -128,7 +128,7 @@ class LivePreview {
         show_admin_bar( false );
 
         // Register the theme and plugin assets the frontend would load.
-        do_action( 'wp_enqueue_scripts' );
+        do_action( 'wp_enqueue_scripts' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core hook, fired so the preview loads the same assets as the frontend.
 
         if ( 'product' === $post_type ) {
             $html = self::product_markup( $meta );

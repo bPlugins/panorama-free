@@ -25,6 +25,14 @@ const blocksConfig = {
     ...plugins,
     new ESLintPlugin()
   ],
+  resolve: {
+    ...defaultConfig.resolve,
+    alias: {
+      ...(defaultConfig.resolve ? defaultConfig.resolve.alias : {}),
+      // One copy of dnd-kit for our sortable lists and the bpl-tools ones.
+      "@dnd-kit": path.resolve(__dirname, "node_modules/@dnd-kit"),
+    },
+  },
   module: {
     ...defaultConfig.module,
     rules: [

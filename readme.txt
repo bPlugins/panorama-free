@@ -183,7 +183,6 @@ e.g.
 * **New:** Live preview in the panorama settings and the WooCommerce product panorama settings.
 * **New:** Volume control for Panorama Video: a volume button and slider in the player, and a Default Volume setting for the volume the video starts at.
 * **Improved:** Block settings show the help for each field in a "?" tooltip, like the panorama settings.
-* **Improved:** Updated the Freemius SDK to 2.13.5.
 * **Improved:** Panorama Video player: the control bar sits at the bottom of the video and the progress bar uses the full width.
 * **Improved:** Virtual Tour fullscreen keeps the scene and hotspot list and the hotspot popups on screen.
 * **Improved:** The Virtual Tour hotspot editor lists scenes by their titles instead of their IDs.

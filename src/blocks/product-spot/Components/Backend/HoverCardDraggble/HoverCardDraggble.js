@@ -1,5 +1,5 @@
 import { sanitizeIcon } from '../../../../../utils/sanitize';
-import Draggable from "react-draggable";
+import SpotDraggable from "../SpotDraggable/SpotDraggable";
 import Title from "../TtitleDesBack/Title";
 import Description from "../TtitleDesBack/Description";
 
@@ -8,7 +8,7 @@ const HoverCardDraggble = ({ attributes, hotspot, containerSize, handleStop, act
 
 
     return (
-        <Draggable
+        <SpotDraggable
             position={{
                 x: (hotspot.x / 100) * containerSize.width - 12,
                 y: (hotspot.y / 100) * containerSize.height - 12
@@ -40,7 +40,7 @@ const HoverCardDraggble = ({ attributes, hotspot, containerSize, handleStop, act
                     </div>
                 )}
             </div>
-        </Draggable>
+        </SpotDraggable>
     )
 }
 
