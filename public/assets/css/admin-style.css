@@ -338,6 +338,7 @@ body.bppiv-modal-open {
 
 #_bppivimages_ .bppiv-type-field .csf--sibling {
   flex: 1 0 auto;
+  border-radius: 0 !important; /* Codestar rounds the first and last button */
   padding-right: 10px;
   padding-left: 10px;
   white-space: nowrap;

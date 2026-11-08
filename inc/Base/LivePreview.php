@@ -63,7 +63,7 @@ class LivePreview {
         <div class="bppiv-live-preview">
             <div class="bppiv-live-preview__bar">
                 <span class="bppiv-live-preview__status" aria-live="polite"></span>
-                <button type="button" class="button bppiv-live-preview__refresh"><span class="dashicons dashicons-update" aria-hidden="true"></span><?php esc_html_e( 'Refresh', 'panorama' ); ?></button>
+                <button type="button" class="button bppiv-live-preview__refresh"><svg class="bppiv-live-preview__refresh-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg><?php esc_html_e( 'Refresh', 'panorama' ); ?></button>
             </div>
             <iframe class="bppiv-live-preview__frame" title="<?php esc_attr_e( 'Panorama live preview', 'panorama' ); ?>"></iframe>
             <p class="bppiv-live-preview__note"><span class="dashicons dashicons-info-outline" aria-hidden="true"></span><span><?php esc_html_e( 'The preview updates as you change the settings. Click Update to save them.', 'panorama' ); ?></span></p>

@@ -44,13 +44,16 @@
 	line-height: 24px;
 }
 
-.bppiv-live-preview__refresh .dashicons {
-	width: 16px;
-	height: 16px;
-	font-size: 16px;
+/* An SVG, not a dashicon: it stays centred and spins around its own middle on every WordPress version. */
+.bppiv-live-preview__refresh-icon {
+	display: block;
+	flex: none;
+	width: 14px;
+	height: 14px;
+	transform-origin: 50% 50%;
 }
 
-#bppiv-live-preview.is-loading .bppiv-live-preview__refresh .dashicons {
+#bppiv-live-preview.is-loading .bppiv-live-preview__refresh-icon {
 	animation: bppiv-lp-spin 1s linear infinite;
 }
 
