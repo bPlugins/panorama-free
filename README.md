@@ -34,6 +34,7 @@ Everything you need to build an immersive 360° experience on your site:
 Unlock advanced features for premium real estate tours, vehicle showcases, and interactive 3D portfolios:
 - **Virtual Tour Pro (Unlimited):** Connect unlimited scenes and unlimited hotspots per scene without any restrictions.
 - **Scene Transitions:** Move between Virtual Tour and Tour 360° scenes with Crossfade, Zoom & Walk-Through, Dip to Black or Blur to Clear effects, with an adjustable transition duration.
+- **Floor Plan Mini-Map:** Show a floor plan over the Virtual Tour with a dot for each scene; visitors see where they are and which way they look, and click a dot to go there.
 - **Rich Image & Video Hotspots:** Display interactive Image popups and Video modal popups directly inside virtual tour scenes.
 - **Interactive WooCommerce Product Hotspots:** Connect 360° hotspots directly to WooCommerce products, display live price badges, and enable instant Add to Cart buttons.
 - **WooCommerce Product Video & Advanced Controls:** Add 360° product videos, custom initial view angle, playback controls, and title/author overlays to your product panorama.
@@ -65,7 +66,7 @@ The plugin registers a series of modern block components for standard pages, pos
 | **Google Street** | `panorama/google-street` | Render dynamic Google Street View configurations via a Panorama ID. |
 | **Gallery** | `panorama/gallery` | Display responsive grid and column layouts of multiple panoramas. |
 | **Tour 360°** | `panorama/tour` | Render localized multi-point tours. |
-| **Virtual Tour** | `panorama/virtual-tour` | Build multi-scene interactive tours with clickable hotspots. |
+| **Virtual Tour** | `panorama/virtual-tour` | Build multi-scene interactive tours with clickable hotspots and a floor plan mini-map (Pro). |
 | **Product Spot** | `psb/product-spot` | Highlight physical product features with interactive overlay spots. |
 | **Panorama Block** | `bpgb/panorama` | Legacy/general purpose block configuration helper. |
 

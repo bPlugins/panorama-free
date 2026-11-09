@@ -215,6 +215,16 @@ const General = ({ attributes, setAttributes, premiumProps, setCurrentScene, sit
         </Notice>
       </PanelBody>
 
+      <PanelBody
+        className="bPlPanelBody"
+        title={<>{__("Floor Plan", "panorama")}<NewBadge /></>}
+        initialOpen={false}
+      >
+        <Notice status='premium' isIcon={true}>
+          {__('Floor Plan is available in the Pro version! Show a mini-map of the place over the tour, with a dot for each scene: visitors see where they are and which way they look, and click a dot to go there.', 'panorama')}
+        </Notice>
+      </PanelBody>
+
       {isSceneModalOpen && (
         <CustomModal
           title="Maximum Scenes Limit"

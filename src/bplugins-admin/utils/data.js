@@ -219,6 +219,7 @@ export const welcomeInfo = (adminUrl) => ({
 	proFeatures: [
 		'Original Resolution Images — show large panoramas at the size you uploaded them for a sharper view.',
 		'Scene Transitions — Crossfade, Zoom & Walk-Through, Dip to Black and Blur effects between tour scenes.',
+		'Floor Plan Mini-Map — a dot for each scene, the visitor\'s view direction and click-to-go navigation.',
 		'Full Elementor support — unlock every panorama type and all Pro options in Elementor widgets.',
 		'360° Interaction Analytics Dashboard with impression logs, click stats, and conversion metrics.',
 		'Interactive WooCommerce Product Hotspots with price badges and instant Add to Cart.',

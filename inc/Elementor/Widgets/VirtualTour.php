@@ -447,6 +447,10 @@ class VirtualTour extends Base {
 					'label' => esc_html__( 'Scene transitions with adjustable duration', 'panorama' ),
 					'new'   => true,
 				),
+				array(
+					'label' => esc_html__( 'Floor plan mini-map with a dot for each scene', 'panorama' ),
+					'new'   => true,
+				),
 			)
 		);
 	}

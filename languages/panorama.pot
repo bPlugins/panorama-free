@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-08T17:00:15+00:00\n"
+"POT-Creation-Date: 2026-11-09T11:09:41+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: panorama\n"
@@ -1530,6 +1530,10 @@ msgstr ""
 msgid "Video, image and WooCommerce product hotspots"
 msgstr ""
 
+#: inc/Elementor/Widgets/VirtualTour.php:451
+msgid "Floor plan mini-map with a dot for each scene"
+msgstr ""
+
 #: inc/metabox-options-free.php:112
 msgid "Experience Our Modern 360° Virtual Tour Builder"
 msgstr ""
@@ -2699,6 +2703,14 @@ msgstr ""
 
 #: src/blocks/virtual/Components/Backend/Settings/General/General.js:204
 msgid "Compass, Mouse Zoom, Disable Keyboard Control & Double Click Zoom are available in the Pro version."
+msgstr ""
+
+#: src/blocks/virtual/Components/Backend/Settings/General/General.js:220
+msgid "Floor Plan"
+msgstr ""
+
+#: src/blocks/virtual/Components/Backend/Settings/General/General.js:224
+msgid "Floor Plan is available in the Pro version! Show a mini-map of the place over the tour, with a dot for each scene: visitors see where they are and which way they look, and click a dot to go there."
 msgstr ""
 
 #: src/blocks/virtual/Components/Backend/Settings/Panel/Item.js:80
