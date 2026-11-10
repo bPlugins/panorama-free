@@ -179,7 +179,7 @@ e.g.
 
 == Changelog ==
 
-= 1.9.0 - 08 Nov, 2026 =
+= 1.9.0 - 10 Nov, 2026 =
 * **New:** Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.
 * **New:** Live preview in the panorama settings and the WooCommerce product panorama settings.
 * **New:** Volume control for Panorama Video: a volume button and slider in the player, and a Default Volume setting for the volume the video starts at.
@@ -188,6 +188,7 @@ e.g.
 * **Improved:** Virtual Tour fullscreen keeps the scene and hotspot list and the hotspot popups on screen.
 * **Improved:** The Virtual Tour hotspot editor lists scenes by their titles instead of their IDs.
 * **Improved:** A panorama with no image or video yet shows a short note to people who can edit it, instead of an empty viewer.
+* **Fixed:** Dragging a new Virtual Tour hotspot in the block editor: the "+" now stays under the cursor.
 * **Fixed:** Google Street View shortcode caused a fatal error on PHP 7.1 and 7.2.
 * **Fixed:** Gallery "Load More" could open the wrong item, and the popup close button went outside the viewer.
 * **Fixed:** Some Google Street View and Video options were missing in the block editor and panorama settings.

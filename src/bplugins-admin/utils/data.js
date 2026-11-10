@@ -187,7 +187,7 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogs: [
 		{
 			type: 'new',
-			version: '1.9.0 - 08 Nov, 2026',
+			version: '1.9.0 - 10 Nov, 2026',
 			list: [
 				'<strong>New:</strong> Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.',
 				'<strong>New:</strong> Live preview in the panorama settings and the WooCommerce product panorama settings.',
@@ -197,6 +197,7 @@ export const welcomeInfo = (adminUrl) => ({
 				'<strong>Improved:</strong> Virtual Tour fullscreen keeps the scene and hotspot list and the hotspot popups on screen.',
 				'<strong>Improved:</strong> The Virtual Tour hotspot editor lists scenes by their titles instead of their IDs.',
 				'<strong>Improved:</strong> A panorama with no image or video yet shows a short note to people who can edit it, instead of an empty viewer.',
+				'<strong>Fixed:</strong> Dragging a new Virtual Tour hotspot in the block editor: the "+" now stays under the cursor.',
 				'<strong>Fixed:</strong> Google Street View shortcode caused a fatal error on PHP 7.1 and 7.2.',
 				'<strong>Fixed:</strong> Gallery "Load More" could open the wrong item, and the popup close button went outside the viewer.',
 				'<strong>Fixed:</strong> Some Google Street View and Video options were missing in the block editor and panorama settings.',

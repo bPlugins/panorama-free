@@ -205,6 +205,11 @@ export const addTempHotspot = (currentScene, viewer, hotspot, isDraggingRef, set
                 hotSpotDiv.innerHTML = "+";
                 hotSpotDiv.style.cursor = "move";
 
+                // The hotspot's own document: in the iframed block editor, WordPress also re-sends
+                // canvas mouse events to the parent page with shifted coordinates, which moved the
+                // "+" away from the cursor.
+                const doc = hotSpotDiv.ownerDocument || document;
+
                 let startX, startY;
 
                 const handleMouseDown = (e) => {
@@ -270,14 +275,14 @@ export const addTempHotspot = (currentScene, viewer, hotspot, isDraggingRef, set
                     }
                     isDraggingRef.current = false;
                     setIsDraggingHotspot(false);
-                    document.removeEventListener("mousemove", handleMouseMove, { capture: true });
-                    document.removeEventListener("mouseup", handleMouseUp, { capture: true });
+                    doc.removeEventListener("mousemove", handleMouseMove, { capture: true });
+                    doc.removeEventListener("mouseup", handleMouseUp, { capture: true });
                 };
 
                 hotSpotDiv.addEventListener("mousedown", (e) => {
                     handleMouseDown(e);
-                    document.addEventListener("mousemove", handleMouseMove, { capture: true });
-                    document.addEventListener("mouseup", handleMouseUp, { capture: true });
+                    doc.addEventListener("mousemove", handleMouseMove, { capture: true });
+                    doc.addEventListener("mouseup", handleMouseUp, { capture: true });
                 });
             },
             clickHandlerFunc: (event) => {
