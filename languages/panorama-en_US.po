@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-10T03:58:34+00:00\n"
+"POT-Creation-Date: 2026-11-10T12:40:51+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: panorama\n"
@@ -767,6 +767,7 @@ msgstr ""
 #: inc/Elementor/Widgets/Base.php:480
 #: inc/metabox-options-free.php:767
 #: inc/Woocommerce/ProductMeta.php:191
+#: src/blocks/qr-code/index.js:27
 msgid "Upgrade to Pro"
 msgstr ""
 
@@ -2581,6 +2582,14 @@ msgstr ""
 
 #: src/blocks/product-spot/Components/Backend/Settings/Style/Style.js:168
 msgid "Radius is available in the Pro version."
+msgstr ""
+
+#: src/blocks/qr-code/index.js:23
+msgid "Panorama QR Code"
+msgstr ""
+
+#: src/blocks/qr-code/index.js:25
+msgid "QR Code is available in the Pro version! Get a QR code for this page to print on brochures, signs and flyers, or to share, so visitors open your 360° tour on their phone."
 msgstr ""
 
 #: src/blocks/tour/Components/Backend/Settings/General/General.js:36

@@ -8,4 +8,5 @@ import './tour/index.js';
 import './video/index.js';
 import './video-360/index.js';
 import './virtual/index.js';
+import './qr-code/index.js';
 import './inspector.scss';

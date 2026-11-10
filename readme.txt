@@ -50,6 +50,7 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 - **Virtual Tour Pro (Unlimited)**: Connect unlimited scenes and unlimited hotspots per scene without any restrictions.
 - **Scene Transitions**: Move between Virtual Tour and Tour 360° scenes with Crossfade, Zoom & Walk-Through, Dip to Black or Blur to Clear effects, with an adjustable transition duration.
 - **Floor Plan Mini-Map**: Show a floor plan over the Virtual Tour with a dot for each scene; visitors see where they are and which way they look, and click a dot to go there.
+- **QR Code Sharing**: Get a QR code for any page or panorama that shows a 360° view, to print on brochures and signs or share; visitors scan it to open the tour on their phone.
 - **Rich Image & Video Hotspots**: Display interactive Image popups and Video modal popups directly inside virtual tour scenes.
 - **Interactive WooCommerce Product Hotspots**: Connect 360° hotspots directly to WooCommerce products, display live price badges, and enable instant Add to Cart buttons.
 - **WooCommerce Product Video & Advanced Controls**: Add 360° product videos, custom initial view angle, playback controls, and title/author overlays to your product panorama.
