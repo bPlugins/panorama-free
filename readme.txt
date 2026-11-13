@@ -180,7 +180,7 @@ e.g.
 
 == Changelog ==
 
-= 1.9.0 - 11 Nov, 2026 =
+= 1.9.0 - 14 Nov, 2026 =
 * **New:** Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.
 * **New:** Live preview in the panorama settings and the WooCommerce product panorama settings.
 * **New:** Volume control for Panorama Video: a volume button and slider in the player, and a Default Volume setting for the volume the video starts at.

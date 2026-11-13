@@ -187,7 +187,7 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogs: [
 		{
 			type: 'new',
-			version: '1.9.0 - 11 Nov, 2026',
+			version: '1.9.0 - 14 Nov, 2026',
 			list: [
 				'<strong>New:</strong> Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.',
 				'<strong>New:</strong> Live preview in the panorama settings and the WooCommerce product panorama settings.',
