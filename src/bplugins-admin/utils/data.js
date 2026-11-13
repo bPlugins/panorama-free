@@ -192,6 +192,7 @@ export const welcomeInfo = (adminUrl) => ({
 				'<strong>New:</strong> Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.',
 				'<strong>New:</strong> Live preview in the panorama settings and the WooCommerce product panorama settings.',
 				'<strong>New:</strong> Volume control for Panorama Video: a volume button and slider in the player, and a Default Volume setting for the volume the video starts at.',
+				'<strong>New:</strong> "Today" date range in the Analytics dashboard.',
 				'<strong>Improved:</strong> Block settings show the help for each field in a "?" tooltip, like the panorama settings.',
 				'<strong>Improved:</strong> Panorama Video player: the control bar sits at the bottom of the video and the progress bar uses the full width.',
 				'<strong>Improved:</strong> Virtual Tour fullscreen keeps the scene and hotspot list and the hotspot popups on screen.',

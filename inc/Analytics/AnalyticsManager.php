@@ -181,13 +181,16 @@ class AnalyticsManager {
         $start_date = isset($_GET['start_date']) ? sanitize_text_field(wp_unslash($_GET['start_date'])) : '';
         $end_date = isset($_GET['end_date']) ? sanitize_text_field(wp_unslash($_GET['end_date'])) : '';
 
-        if (!$is_premium) {
+        if (!$is_premium && 'today' !== $range) {
             $range = '7days';
         }
 
         $where_clause = "WHERE 1=1";
 
-        if ($range === '7days') {
+        if ($range === 'today') {
+            // Logs are saved in the site's time zone, so "today" is the site's day.
+            $where_clause .= $wpdb->prepare(" AND created_at >= %s", current_time('Y-m-d') . ' 00:00:00');
+        } elseif ($range === '7days') {
             $date_limit = gmdate('Y-m-d H:i:s', strtotime('-7 days'));
             $where_clause .= $wpdb->prepare(" AND created_at >= %s", $date_limit);
         } elseif ($range === '15days') {

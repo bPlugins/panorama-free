@@ -20,13 +20,19 @@ $bppiv_start_date = isset($_GET['start_date']) ? sanitize_text_field(wp_unslash(
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 $bppiv_end_date = isset($_GET['end_date']) ? sanitize_text_field(wp_unslash($_GET['end_date'])) : '';
 
-if (!$bppiv_is_premium) {
+// "Today" is part of the free 7-day window, so free users get it too.
+if (!$bppiv_is_premium && 'today' !== $bppiv_range) {
     $bppiv_range = '7days';
 }
 
+// Logs are saved in the site's time zone (current_time('mysql')), so "today" is the site's day.
+$bppiv_today = current_time('Y-m-d');
+
 $bppiv_where_clause = "WHERE 1=1";
 
-if ($bppiv_range === '7days') {
+if ($bppiv_range === 'today') {
+    $bppiv_where_clause .= $wpdb->prepare(" AND created_at >= %s", $bppiv_today . ' 00:00:00');
+} elseif ($bppiv_range === '7days') {
     $bppiv_date_limit = gmdate('Y-m-d H:i:s', strtotime('-7 days'));
     $bppiv_where_clause .= $wpdb->prepare(" AND created_at >= %s", $bppiv_date_limit);
 } elseif ($bppiv_range === '15days') {
@@ -122,7 +128,57 @@ $bppiv_max_clicks = 1;
 $bppiv_max_cart = 1;
 $bppiv_max_dwell_val = 1;
 
-if ($bppiv_is_premium) {
+if ($bppiv_is_premium && $bppiv_range === 'today') {
+    // Today: one bar per hour, from midnight to the current hour (site time).
+    $bppiv_trend_title = "Today's Engagement (by hour)";
+    // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
+    $bppiv_raw_hourly = $wpdb->get_results($wpdb->prepare("
+        SELECT HOUR(created_at) as log_hour,
+               SUM(CASE WHEN event_type = 'impression' THEN 1 ELSE 0 END) as views,
+               SUM(CASE WHEN event_type = 'hotspot_click' THEN 1 ELSE 0 END) as clicks,
+               SUM(CASE WHEN event_type = 'cart_click' THEN 1 ELSE 0 END) as cart_additions,
+               AVG(CASE WHEN event_type = 'dwell_time' AND dwell_time > 0 THEN dwell_time ELSE NULL END) as avg_dwell
+        FROM {$bppiv_logs_table}
+        WHERE created_at >= %s AND created_at <= %s
+        GROUP BY HOUR(created_at)
+    ", $bppiv_today . ' 00:00:00', $bppiv_today . ' 23:59:59'), OBJECT_K);
+    // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
+
+    $bppiv_now_hour = (int) current_time('G');
+    for ($bppiv_h = 0; $bppiv_h <= $bppiv_now_hour; $bppiv_h++) {
+        $bppiv_row = isset($bppiv_raw_hourly[$bppiv_h]) ? $bppiv_raw_hourly[$bppiv_h] : null;
+        $bppiv_v = $bppiv_row ? (int) $bppiv_row->views : 0;
+        $bppiv_c = $bppiv_row ? (int) $bppiv_row->clicks : 0;
+        $bppiv_ca = $bppiv_row ? (int) $bppiv_row->cart_additions : 0;
+        $bppiv_dwell = $bppiv_row && $bppiv_row->avg_dwell ? round((float) $bppiv_row->avg_dwell, 1) : 0;
+
+        if ($bppiv_v > $bppiv_max_views) $bppiv_max_views = $bppiv_v;
+        if ($bppiv_c > $bppiv_max_clicks) $bppiv_max_clicks = $bppiv_c;
+        if ($bppiv_ca > $bppiv_max_cart) $bppiv_max_cart = $bppiv_ca;
+        if ($bppiv_dwell > $bppiv_max_dwell_val) $bppiv_max_dwell_val = $bppiv_dwell;
+
+        $bppiv_hour_label = sprintf('%02d:00', $bppiv_h);
+        $bppiv_daily_stats[] = (object) [
+            'log_date' => $bppiv_today,
+            'label'    => $bppiv_hour_label,
+            'tooltip'  => gmdate('M d, Y', strtotime($bppiv_today)) . ', ' . $bppiv_hour_label . ' - ' . sprintf('%02d:59', $bppiv_h),
+            'views'    => $bppiv_v,
+            'clicks'   => $bppiv_c,
+            'cart'     => $bppiv_ca,
+            'dwell'    => $bppiv_dwell
+        ];
+    }
+
+    // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
+    $bppiv_recent_logs = $wpdb->get_results("
+        SELECT event_type, hotspot_label, product_id, created_at, dwell_time
+        FROM {$bppiv_logs_table}
+        {$bppiv_where_clause}
+        ORDER BY created_at DESC
+        LIMIT 10
+    ");
+    // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
+} elseif ($bppiv_is_premium) {
     // Pro Mode: Real DB Data calculation
     for ($bppiv_i = $bppiv_trend_days - 1; $bppiv_i >= 0; $bppiv_i--) {
         $bppiv_d = gmdate('Y-m-d', strtotime($bppiv_trend_end_date . " -{$bppiv_i} days"));
@@ -242,6 +298,8 @@ $bppiv_trend_points = [];
 foreach (array_values($bppiv_daily_stats) as $bppiv_stat) {
     $bppiv_trend_points[] = [
         'date'       => $bppiv_stat->log_date,
+        'label'      => isset($bppiv_stat->label) ? $bppiv_stat->label : gmdate('M d', strtotime($bppiv_stat->log_date)),
+        'tooltip'    => isset($bppiv_stat->tooltip) ? $bppiv_stat->tooltip : gmdate('M d, Y', strtotime($bppiv_stat->log_date)),
         'views'      => (int) $bppiv_stat->views,
         'clicks'     => (int) $bppiv_stat->clicks,
         'cart'       => (int) $bppiv_stat->cart,
@@ -369,6 +427,11 @@ $bppiv_c_dwell  = '#f59e0b';
                 <span class="bppiv-date-tabs-label">Date Range:</span>
                 <div class="bppiv-date-tabs">
                 
+                <!-- Today Tab (Free & Pro) -->
+                <a href="<?php echo esc_url(add_query_arg('range', 'today')); ?>" class="bppiv-tab-btn <?php echo $bppiv_range === 'today' ? 'bppiv-tab-active' : ''; ?>">
+                    Today
+                </a>
+
                 <!-- 7 Days Tab (Active for Free & Pro) -->
                 <a href="<?php echo esc_url(add_query_arg('range', '7days')); ?>" class="bppiv-tab-btn <?php echo $bppiv_range === '7days' ? 'bppiv-tab-active' : ''; ?>">
                     7 Days
@@ -518,7 +581,7 @@ $bppiv_c_dwell  = '#f59e0b';
                     <h3>📈 <?php echo esc_html($bppiv_trend_title); ?>
                         <span class="bppiv-info-icon" tabindex="0">
                             ⓘ
-                            <span class="bppiv-info-tooltip">Each bar's height is scaled against that metric's own highest day in this range - not against the other metrics. Compare colors using the number printed above each bar, not bar height.</span>
+                            <span class="bppiv-info-tooltip">Each bar's height is scaled against that metric's own highest <?php echo $bppiv_range === 'today' ? 'hour' : 'day'; ?> in this range - not against the other metrics. Compare colors using the number printed above each bar, not bar height.</span>
                         </span>
                     </h3>
                     <div class="bppiv-chart-legend">
@@ -571,10 +634,10 @@ $bppiv_c_dwell  = '#f59e0b';
                                         </div>
                                     </div>
 
-                                    <div class="bppiv-trend-bar-date"><?php echo esc_html(gmdate('M d', strtotime($bppiv_p['date']))); ?></div>
+                                    <div class="bppiv-trend-bar-date"><?php echo esc_html($bppiv_p['label']); ?></div>
 
                                     <div class="bppiv-trend-tooltip">
-                                        <div class="bppiv-trend-tooltip-date">🗓️ <?php echo esc_html(gmdate('M d, Y', strtotime($bppiv_p['date']))); ?></div>
+                                        <div class="bppiv-trend-tooltip-date">🗓️ <?php echo esc_html($bppiv_p['tooltip']); ?></div>
                                         <div class="bppiv-trend-tooltip-row">
                                             <span><span class="bppiv-trend-tt-key" style="background: <?php echo esc_attr($bppiv_c_views); ?>;"></span>Views</span>
                                             <strong><?php echo number_format($bppiv_p['views']); ?></strong>

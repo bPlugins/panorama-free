@@ -42,7 +42,7 @@ Upgrade to the Pro version to unlock unlimited scenes, unlimited product hotspot
 - **Device Orientation (Gyroscope)**: Enable mobile and tablet visitors to explore 360° panoramas and virtual tours naturally by tilting and moving their physical device.
 - **Initial View & FOV / Zoom Control**: Customize and lock the starting camera angle (Pitch, Yaw, HFOV) with a single click using the "Set as Initial View" button.
 - **Auto Rotate Controls**: Keep the viewing experience active with smooth auto-rotation and customizable speeds.
-- **360° Interaction Analytics Dashboard (7-Day Overview)**: Monitor viewer impressions, hotspot click counts, and active view duration directly from your WordPress dashboard.
+- **360° Interaction Analytics Dashboard (Today & 7-Day Overview)**: Monitor viewer impressions, hotspot click counts, and active view duration for today or the last 7 days, directly from your WordPress dashboard.
 - **Developer Shortcode API & Embed URLs**: Universal shortcodes `[panorama id="123"]`, `[virtual-tour id="456"]`, `[panorama_product_viewer]`, `[product_spot id="789"]`, and shareable iframe embed URLs.
 
 = Pro Features =
@@ -184,6 +184,7 @@ e.g.
 * **New:** Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.
 * **New:** Live preview in the panorama settings and the WooCommerce product panorama settings.
 * **New:** Volume control for Panorama Video: a volume button and slider in the player, and a Default Volume setting for the volume the video starts at.
+* **New:** "Today" date range in the Analytics dashboard.
 * **Improved:** Block settings show the help for each field in a "?" tooltip, like the panorama settings.
 * **Improved:** Panorama Video player: the control bar sits at the bottom of the video and the progress bar uses the full width.
 * **Improved:** Virtual Tour fullscreen keeps the scene and hotspot list and the hotspot popups on screen.

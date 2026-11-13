@@ -27,7 +27,7 @@ Everything you need to build an immersive 360° experience on your site:
 - **Device Orientation (Gyroscope):** Enable mobile and tablet visitors to explore 360° panoramas and virtual tours naturally by tilting and moving their physical device.
 - **Initial View & FOV / Zoom Control:** Customize and lock the starting camera angle (Pitch, Yaw, HFOV) with a single click using the "Set as Initial View" button in block editor or admin metabox.
 - **Auto Rotate & Camera Controls:** Keep viewers engaged with automated panning and customizable rotation speeds.
-- **360° Interaction Analytics Dashboard (7-Day Overview):** Monitor viewer impressions, hotspot click counts, and active view duration directly from your WordPress dashboard.
+- **360° Interaction Analytics Dashboard (Today & 7-Day Overview):** Monitor viewer impressions, hotspot click counts, and active view duration for today or the last 7 days, directly from your WordPress dashboard.
 - **Developer Shortcode API & Embed URLs:** Universal shortcodes `[panorama id="123"]`, `[virtual-tour id="456"]`, `[panorama_product_viewer]`, `[product_spot id="789"]`, and shareable iframe embed URLs.
 
 ### 👑 Premium Power (Pro)
