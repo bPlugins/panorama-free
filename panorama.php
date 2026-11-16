@@ -71,6 +71,10 @@ if ( function_exists( 'panorama_fs' ) ) {
     require_once BPPIV_PATH . 'admin/ads/submenu.php';
     require_once BPPIV_PATH . 'product-spot.php';
 
+    if ( file_exists( BPPIV_PATH . 'inc/class-panorama-promo-banner.php' ) ) {
+        require_once BPPIV_PATH . 'inc/class-panorama-promo-banner.php';
+    }
+
     require_once BPPIV_PATH . 'inc/helpers.php';
 
     $bppiv_init_file = BPPIV_PATH . 'inc/Init.php';
