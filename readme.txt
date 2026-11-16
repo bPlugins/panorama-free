@@ -23,7 +23,7 @@ The Free version includes all the core building blocks you need: eight dedicated
 
 ---
 
-= Who Should Use Panorama Viewer? =
+=== Who Should Use Panorama Viewer? ===
 
 Panorama Viewer is built for anyone who wants to show spaces, products, or experiences in an immersive, interactive way:
 
@@ -38,7 +38,7 @@ Panorama Viewer is built for anyone who wants to show spaces, products, or exper
 
 ---
 
-= Free Features =
+=== Free Features ===
 
 **Panorama Types**
 
@@ -140,7 +140,7 @@ Embed panoramas anywhere using shortcodes or iframe embed URLs:
 
 ---
 
-= Pro Features =
+=== Pro Features ===
 
 Upgrade to [Panorama Viewer Pro](https://bplugins.com/products/panorama/pricing) to unlock powerful advanced capabilities:
 
@@ -169,7 +169,7 @@ Upgrade to [Panorama Viewer Pro](https://bplugins.com/products/panorama/pricing)
 
 ---
 
-= How It Works =
+=== How It Works ===
 
 **Using the Gutenberg Block Editor**
 
@@ -208,7 +208,7 @@ Upgrade to [Panorama Viewer Pro](https://bplugins.com/products/panorama/pricing)
 
 ---
 
-= Resources =
+=== Resources ===
 
 * 🌐 [Plugin Page](https://bplugins.com/products/panorama/)
 * 📖 [Documentation](https://bplugins.com/docs/panorama/)
@@ -227,7 +227,7 @@ https://youtu.be/bs-U13KtYEA
 
 ---
 
-= External Services =
+=== External Services ===
 
 This plugin communicates with the following external services:
 
@@ -250,13 +250,13 @@ Viewer interaction events (impressions, hotspot clicks, dwell time) are recorded
 
 ---
 
-= Security =
+=== Security ===
 
 Security bugs can be reported through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/9e5fb819-4b62-4820-a920-21dde4762ab6). The Patchstack team will assist with verification, CVE assignment, and developer notification.
 
 ---
 
-= Third-Party Libraries =
+=== Third-Party Libraries ===
 
 This plugin bundles the following third-party JavaScript and PHP libraries:
 
@@ -290,14 +290,14 @@ This plugin bundles the following third-party JavaScript and PHP libraries:
 
 ---
 
-= Source Code =
+=== Source Code ===
 
 The free version source code is available at:
 [**Panorama on GitHub**](https://github.com/bPlugins/panorama-free)
 
 ---
 
-= Other Plugins by bPlugins =
+=== Other Plugins by bPlugins ===
 
 🔥 **[Html5 Audio Player](https://audioplayerwp.com/)** – Best audio player plugin for WordPress.
 
@@ -311,7 +311,7 @@ The free version source code is available at:
 
 ---
 
-= User Feedback =
+=== User Feedback ===
 
 ==== ⭐⭐⭐⭐⭐ [Great even on iOS](https://wordpress.org/support/topic/great-even-on-ios/) ====
 
@@ -324,20 +324,20 @@ The free version source code is available at:
 
 == Installation ==
 
-= From the WordPress Admin Dashboard =
+=== From the WordPress Admin Dashboard ===
 
 1. Go to **Plugins → Add New** in your WordPress admin.
 2. Search for **"Panorama Viewer"** in the search box.
 3. Click **Install Now** next to the Panorama plugin by bPlugins.
 4. Click **Activate** after installation completes.
 
-= Manual Installation =
+=== Manual Installation ===
 
 1. Download the plugin ZIP from [WordPress.org](https://wordpress.org/plugins/panorama/).
 2. Go to **Plugins → Add New → Upload Plugin** in your WordPress admin.
 3. Upload the ZIP file and click **Install Now**, then **Activate**.
 
-= Creating Your First Panorama =
+=== Creating Your First Panorama ===
 
 **Method 1 — Panorama Dashboard (Shortcode)**
 
@@ -370,14 +370,14 @@ The free version source code is available at:
 3. Choose your panorama type, upload your 360° image or video, and select a viewer position.
 4. Update the product.
 
-= PHP Template Embedding =
+=== PHP Template Embedding ===
 
 To embed a panorama directly in a PHP template:
 `<?php echo do_shortcode('[panorama id="123"]'); ?>`
 
 == Frequently Asked Questions ==
 
-= What panorama formats and projections are supported? =
+=== What panorama formats and projections are supported? ===
 
 Three 360° projection formats are supported:
 
@@ -385,7 +385,7 @@ Three 360° projection formats are supported:
 * **Cubemap (6 Faces)** — Upload 6 separate square images for Front, Back, Left, Right, Up (top), and Down (bottom) faces. Faster to load and free of pole distortion.
 * **Cylindrical** — For wide panoramic photos taken with standard smartphone panorama modes (iPhone, Android). Supports custom horizontal angle (HAOV), vertical angle (VAOV), and vertical offset (vOffset) settings.
 
-= What image and video file formats are supported? =
+=== What image and video file formats are supported? ===
 
 Panorama Viewer supports any image and video format that WordPress itself supports:
 
@@ -394,7 +394,7 @@ Panorama Viewer supports any image and video format that WordPress itself suppor
 
 For best quality, use JPEG or PNG for panoramic images. MP4 (H.264) is recommended for video.
 
-= How do I create a 360° Virtual Tour? =
+=== How do I create a 360° Virtual Tour? ===
 
 1. In the WordPress admin sidebar, click **Panorama Viewer → Add New**.
 2. Under **Panorama Type**, select **Virtual Tour** (the new recommended type, in the top menu), or look for the Virtual Tour block in Gutenberg.
@@ -402,7 +402,7 @@ For best quality, use JPEG or PNG for panoramic images. MP4 (H.264) is recommend
 4. In the Free version, you can add up to 6 scenes and 6 hotspots per scene.
 5. Publish and embed using the shortcode, Gutenberg block, or Elementor widget.
 
-= How do I add a 360° view to a WooCommerce product page? =
+=== How do I add a 360° view to a WooCommerce product page? ===
 
 1. Edit any WooCommerce product.
 2. Scroll to the **Panorama Settings** metabox below the product editor.
@@ -413,11 +413,11 @@ For best quality, use JPEG or PNG for panoramic images. MP4 (H.264) is recommend
 
 You can also paste the `[panorama_product_viewer]` shortcode anywhere on the product page template to control the exact placement.
 
-= Can I use Elementor with this plugin? =
+=== Can I use Elementor with this plugin? ===
 
 Yes. Panorama Viewer includes native Elementor widgets for every panorama type, available in the Elementor widget panel. All widgets include live preview. Available widgets: Image 360°, Image 3D, Video, Video 360°, Google Street View, Virtual Tour, Product Spot, and Saved Panorama.
 
-= How do I embed a panorama using a shortcode? =
+=== How do I embed a panorama using a shortcode? ===
 
 There are four shortcodes:
 
@@ -428,7 +428,7 @@ There are four shortcodes:
 
 Replace the ID number with your actual panorama post ID, visible below the title when editing.
 
-= How do I find the Google Street View Panorama ID? =
+=== How do I find the Google Street View Panorama ID? ===
 
 1. Open Google Maps in your browser.
 2. Navigate to the Street View location you want to embed.
@@ -436,7 +436,7 @@ Replace the ID number with your actual panorama post ID, visible below the title
 4. Look at the browser address bar. The Panorama ID is the long alphanumeric string after `1s` in the URL — for example: `JmSoPsBPhqWvaBmOqfFzgA`.
 5. Paste this ID into the **Panorama ID** field in the Google Street View block or panorama settings.
 
-= What is the Analytics Dashboard? =
+=== What is the Analytics Dashboard? ===
 
 Panorama Viewer includes a built-in 360° Interaction Analytics dashboard (Panorama Viewer → Analytics) that tracks:
 
@@ -447,7 +447,7 @@ Panorama Viewer includes a built-in 360° Interaction Analytics dashboard (Panor
 
 The Free version shows Today (hourly) and Last 7 Days data with CSV export. The Pro version unlocks 15 Days, 30 Days, All Time, and Custom Date ranges, plus WooCommerce revenue and sales conversion tracking, and a real-time live activity stream.
 
-= What is the difference between the Free and Pro versions? =
+=== What is the difference between the Free and Pro versions? ===
 
 The **Free version** includes all core panorama types, 8 Gutenberg blocks, Elementor widgets, WooCommerce product integration, virtual tours with up to 6 scenes and 6 hotspots per scene, 3 Product Spot hotspots, and a 7-day analytics overview.
 
@@ -455,33 +455,33 @@ The **Pro version** unlocks: unlimited scenes and hotspots, scene transition eff
 
 [**Compare Plans & Upgrade →**](https://bplugins.com/products/panorama/pricing)
 
-= Is there a 7-day free trial of the Pro version? =
+=== Is there a 7-day free trial of the Pro version? ===
 
 Yes. The Pro version offers a 7-day free trial (no payment required). Visit the [Pricing page](https://bplugins.com/products/panorama/pricing) to get started.
 
-= What is the recommended image resolution for equirectangular panoramas? =
+=== What is the recommended image resolution for equirectangular panoramas? ===
 
 For the best viewing experience, use at least **4096×2048 pixels** (4K). For highest quality, use **8192×4096 pixels** (8K). The image must have a 2:1 width-to-height ratio.
 
 Pro users can enable **Original Resolution Images** to bypass WordPress's 2560px image resizing, so very large panoramas display at full uploaded quality.
 
-= Does the plugin work on mobile devices? =
+=== Does the plugin work on mobile devices? ===
 
 Yes. All panorama types are fully responsive and work on mobile devices and tablets. The **Device Orientation (Gyroscope)** feature allows mobile users to explore 360° panoramas naturally by physically moving and tilting their device.
 
-= Can I embed a panorama on an external website? =
+=== Can I embed a panorama on an external website? ===
 
 Yes. Each Virtual Tour and Product Spot in the dashboard includes a generated **Embed URL** that you can share directly or embed on any external website using an `<iframe>` tag. The URL is shown in the shortcode area when you edit the panorama.
 
-= Does this plugin require WooCommerce? =
+=== Does this plugin require WooCommerce? ===
 
 No. WooCommerce is not required. The WooCommerce features (product panorama embed, product hotspots) are only available when WooCommerce is installed and active.
 
-= Can I use external image or video URLs (CDN)? =
+=== Can I use external image or video URLs (CDN)? ===
 
 External CDN and URL support for images and videos is a **Pro feature**. The Free version requires images and videos to be uploaded to your WordPress Media Library. The Pro version allows you to paste any external direct URL for images and videos.
 
-= Where can I report security vulnerabilities? =
+=== Where can I report security vulnerabilities? ===
 
 Security bugs can be reported through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/9e5fb819-4b62-4820-a920-21dde4762ab6). The Patchstack team handles verification, CVE assignment, and developer notification.
 
@@ -500,7 +500,7 @@ Security bugs can be reported through the [Patchstack Vulnerability Disclosure P
 
 == Changelog ==
 
-= 1.9.0 - 17 Nov, 2026 =
+=== 1.9.0 - 17 Nov, 2026 ===
 * **New:** Native Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot, and Saved Panorama — with live preview in the Elementor editor.
 * **New:** Live preview in the Panorama Settings metabox and the WooCommerce product panorama settings — changes update the viewer instantly without navigating away.
 * **New:** Volume control for the Panorama Video type: a volume button and slider in the player, and a Default Volume setting for the initial playback volume.
@@ -520,43 +520,43 @@ Security bugs can be reported through the [Patchstack Vulnerability Disclosure P
 * **Fixed:** The Upgrade to Pro button in the panorama settings navigated to a page that does not exist.
 * **Security:** Hardened viewer HTML output, embed script, analytics tracking endpoint, and CSV export.
 
-= 1.8.4 - 26 Oct, 2026 =
+=== 1.8.4 - 26 Oct, 2026 ===
 * **Security:** Fixed a stored Cross-Site Scripting (XSS) vulnerability in the Product Spot block (hotspot icons, titles and descriptions) and hardened attribute output and generated styles across all blocks.
 
-= 1.8.3 - 21 Sep, 2026 =
+=== 1.8.3 - 21 Sep, 2026 ===
 * **Fixed:** Reworked how the Product Spot block's icon-picker data is bundled so the build output complies with WordPress.org's automated JavaScript review requirements.
 
-= 1.8.2 - 21 Sep, 2026 =
+=== 1.8.2 - 21 Sep, 2026 ===
 * **Fixed:** Restricted the [panorama] shortcode from rendering unpublished, private, or password-protected content to unauthorised users.
 * **Fixed:** Optimised JavaScript build output to comply with WordPress.org's automated code review requirements.
 
-= 1.8.1 - 20 Sep, 2026 =
+=== 1.8.1 - 20 Sep, 2026 ===
 * **Improved:** Better compatibility with CDN and image-optimisation plugins (Envira CDN, WP Rocket, Imagify, etc.) for panorama images and videos.
 
-= 1.8.0 - 09 Sep, 2026 =
+=== 1.8.0 - 09 Sep, 2026 ===
 * **New:** 360° Interaction Analytics Dashboard for monitoring viewer impressions, hotspot clicks, and view durations (7-Day overview, Today view, CSV export).
 * **New:** Cubemap (6-Face Box Projection) and Cylindrical (Smartphone Panoramas) 360° projection formats added.
 * **New:** Virtual Tour expanded to 6 scenes per tour (previously 2 scenes) in the Free version.
 * **New:** Gyroscope / Device Motion tilt navigation unlocked in the Free tier.
 * **New:** Set Default / Initial View (FOV, Pitch & Yaw orientation) unlocked in the Free tier.
 
-= 1.7.4 - 11 Jul, 2026 =
+=== 1.7.4 - 11 Jul, 2026 ===
 * **New:** Link, Image, and Video hotspot types added inside 360° Virtual Tours.
 * **Improved:** WooCommerce Product editor metabox fields upgraded with help descriptions and modern clipboard copy UI.
 * **Improved:** Product Spot layouts (Simple, Tippy, Sidepanel) improved with enhanced ratios and reliable AJAX saving.
 
-= 1.7.3 - 29 Jun, 2026 =
+=== 1.7.3 - 29 Jun, 2026 ===
 * **Fixed:** Scoped admin styles to the plugin's own screens to prevent scroll and layout conflicts on other WordPress admin pages.
 * **Fixed:** Device Motion (gyroscope) conflict in 360° image viewers resolved; added gyroscope/accelerometer permissions to iframe embeds for Chrome.
 * **Improved:** Picture-in-Picture (PiP) mode improved for the 360° Video viewer.
 
-= 1.7.2 - 14 Jun, 2026 =
+=== 1.7.2 - 14 Jun, 2026 ===
 * **Updated:** Admin dashboard welcome screen redesigned with Gutenberg/Shortcode integration tabs and status checks.
 
-= 1.7.1 - 04 Jun, 2026 =
+=== 1.7.1 - 04 Jun, 2026 ===
 * **Improved:** Panorama Type selection field remains visible across all tabs with tab-state persistence.
 
-= 1.7.0 - 23 May, 2026 =
+=== 1.7.0 - 23 May, 2026 ===
 * **Updated:** Refactored plugin architecture to decouple shared Pro code and establish a clean standalone free version.
 * **Updated:** Gutenberg blocks upgraded to Block API version 3.
 * **Fixed:** Dragging lock and cursor drift issues in Gutenberg block editors resolved.
@@ -565,119 +565,119 @@ Security bugs can be reported through the [Patchstack Vulnerability Disclosure P
 * **Updated:** Enhanced sanitisation, escaping, and prefix compliance for WordPress.org standards.
 * **Cleanup:** Removed legacy unused scripts and added secure database cleanup on uninstall.
 
-= 1.6.1 - 12 May, 2026 =
+=== 1.6.1 - 12 May, 2026 ===
 * **Fixed:** Removed an unintended premium-only license activation file from the free version.
 
-= 1.6.0 - 29 Mar, 2026 =
+=== 1.6.0 - 29 Mar, 2026 ===
 * **New:** Embed URL feature added for 360° Virtual Tours and Product Spot — share or iframe-embed panoramas on any website.
 * **Improved:** Modernised shortcode clipboard UI with integrated embed URL support.
 * **New:** Initial View toggle, position, and zoom level (FOV) controls added for Gallery items with per-item customisation.
 
-= 1.5.1 - 14 Mar, 2026 =
+=== 1.5.1 - 14 Mar, 2026 ===
 * **Fixed:** Fullscreen display issue in the 360° Gallery viewer.
 
-= 1.5.0 - 12 Mar, 2026 =
+=== 1.5.0 - 12 Mar, 2026 ===
 * **New:** Embed URL feature for sharing and viewing panoramas on any website via a direct URL.
 
-= 1.4.5 - 24 Jan, 2026 =
+=== 1.4.5 - 24 Jan, 2026 ===
 * **Fixed:** Multiple panorama editing, preview, and Gutenberg block issues.
 * **Improved:** Viewer behaviour and controls across all panorama types.
 * Documentation improvements.
 
-= 1.4.4 - 10 Dec, 2025 =
+=== 1.4.4 - 10 Dec, 2025 ===
 * Title & Author credit elements fully removed from output when disabled; no residual HTML or outbound links.
 
-= 1.4.3 - 03 Dec, 2025 =
+=== 1.4.3 - 03 Dec, 2025 ===
 * Added new plugin banner.
 
-= 1.4.2 - 21 Nov, 2025 =
+=== 1.4.2 - 21 Nov, 2025 ===
 * Added preview cover image and load button text controls.
 
-= 1.4.1 - 12 Oct, 2025 =
+=== 1.4.1 - 12 Oct, 2025 ===
 * Updated pricing plan, added Buy Now button in the feature comparison section, fixed Initial View parameters (X, Y, Z).
 
-= 1.4.0 - 10 Sep, 2025 =
+=== 1.4.0 - 10 Sep, 2025 ===
 * Added new Product Spot block and updated admin dashboard.
 
-= 1.3.4 - 17 Aug, 2025 =
+=== 1.3.4 - 17 Aug, 2025 ===
 * Added "Show 'by' Prefix" toggle to enable or disable the "by" word before the author name.
 
-= 1.3.3 - 28 Jul, 2025 =
+=== 1.3.3 - 28 Jul, 2025 ===
 * Updated Freemius SDK and pricing link.
 
-= 1.3.2 - 10 Jul, 2025 =
+=== 1.3.2 - 10 Jul, 2025 ===
 * Updated shortcode clipboard area UI.
 
-= 1.3.1 - 24 Jun, 2025 =
+=== 1.3.1 - 24 Jun, 2025 ===
 * Fixed media placeholder issue in the Virtual Tour block.
 
-= 1.3.0 - 19 Jun, 2025 =
+=== 1.3.0 - 19 Jun, 2025 ===
 * Added Virtual Tour viewer type.
 
-= 1.2.3 - 02 May, 2025 =
+=== 1.2.3 - 02 May, 2025 ===
 * Updated metabox settings fields.
 
-= 1.2.2 - 28 Apr, 2025 =
+=== 1.2.2 - 28 Apr, 2025 ===
 * Updated admin dashboard.
 
-= 1.2.1 - 20 Apr, 2025 =
+=== 1.2.1 - 20 Apr, 2025 ===
 * Fixed text domain loading issue.
 
-= 1.2.0 - 13 Apr, 2025 =
+=== 1.2.0 - 13 Apr, 2025 ===
 * Added 7 dedicated Gutenberg blocks for the block editor.
 
-= 1.1.6 - 25 Nov, 2024 =
+=== 1.1.6 - 25 Nov, 2024 ===
 * Updated Freemius SDK.
 * Added initial view controls for the Video type.
 
-= 1.1.5 - 13 Aug, 2024 =
+=== 1.1.5 - 13 Aug, 2024 ===
 * Updated Freemius SDK.
 
-= 1.1.4 - 03 Jul, 2024 =
+=== 1.1.4 - 03 Jul, 2024 ===
 * Updated Freemius SDK.
 
-= 1.1.3 =
+=== 1.1.3 ===
 * Updated Codestar Framework.
 
-= 1.1.2 =
+=== 1.1.2 ===
 * Updated Freemius SDK.
 * Fixed data-settings loading issue.
 
-= 1.1.1 =
+=== 1.1.1 ===
 * Updated Freemius SDK.
 
-= 1.0.6 =
+=== 1.0.6 ===
 * Added Tour (Tour 360°) feature.
 * Performance improvements.
 * Fixed viewer mirroring issues.
 
-= 1.0.5 =
+=== 1.0.5 ===
 * Fixed viewer mirroring issues.
 
-= 1.0.4 =
+=== 1.0.4 ===
 * Added Gallery viewer type.
 * Added Google Panoramic Street View.
 * Performance improvements.
 * Bug fixes.
 
-= 1.0.3 =
+=== 1.0.3 ===
 * New features added.
 * Performance improvements.
 * Bug fixes.
 
-= 1.0.2 =
+=== 1.0.2 ===
 * Script updates.
 * New features.
 * Performance improvements.
 * Bug fixes.
 
-= 1.0.1 =
+=== 1.0.1 ===
 * Fixed mirroring issues.
 
-= 1.0.0 =
+=== 1.0.0 ===
 * Initial release.
 
 == Upgrade Notice ==
 
-= 1.9.0 =
+=== 1.9.0 ===
 Major release — adds native Elementor widgets for all panorama types, live preview in the settings metabox and WooCommerce product panorama settings, volume control for the Video type, and Today analytics. Update recommended for all users.
