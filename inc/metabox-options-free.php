@@ -31,7 +31,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
     }
 
     private function get_new_badge($text = 'NEW') {
-      return ' <span style="background:#146ef5;color:#fff;padding:2px 6px;border-radius:0;font-size:9px;font-weight:700;margin-left:5px;vertical-align:middle;display:inline-block;line-height:1.2;text-transform:uppercase;letter-spacing:0.5px;">' . $text . '</span>';
+      return ' <span style="background:#146ef5;color:#fff;padding:2px 6px;border-radius:0;font-size:9px;font-weight:700;margin-left:5px;vertical-align:middle;display:inline-block;line-height:1.2;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;">' . $text . '</span>';
     }
 
     // private function get_upcoming_badge() {
@@ -382,7 +382,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
           array(
             'id'       => 'orientation_360',
             'type'     => 'switcher',
-            'title'    => '<span style="white-space:nowrap;">Device Orientation (Gyroscope) ' . $this->get_new_badge() . '</span>',
+            'title'    => __('Device Orientation', 'panorama') . ' <span style="white-space:nowrap;">' . __('(Gyroscope)', 'panorama') . $this->get_new_badge() . '</span>',
             'desc'     => 'Allow mobile and tablet visitors to look around by tilting and rotating their physical device.',
             'default'  => false,
             'class'    => 'bppiv-ctrl-image360',
@@ -470,7 +470,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
           array(
             'id'       => 'video_volume_control',
             'type'     => 'switcher',
-            'title'    => '<span style="white-space:nowrap;">' . __( 'Volume Control', 'panorama' ) . ' <span style="background:#146ef5;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:0;text-transform:uppercase;line-height:1.2;display:inline-block;vertical-align:middle;letter-spacing:0.5px;margin-left:5px;">NEW</span></span>',
+            'title'    => __( 'Volume Control', 'panorama' ) . $this->get_new_badge(),
             'desc'     => __( 'Show a volume button and slider in the control bar, so visitors can turn the sound up or down.', 'panorama' ),
             'default'  => true,
             'class'    => 'bppiv-ctrl-video-only',
@@ -478,7 +478,7 @@ if ( ! class_exists( 'BPPIV_MetaBox' ) ) {
           array(
             'id'       => 'video_default_volume',
             'type'     => 'slider',
-            'title'    => '<span style="white-space:nowrap;">' . __( 'Default Volume', 'panorama' ) . ' <span style="background:#146ef5;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:0;text-transform:uppercase;line-height:1.2;display:inline-block;vertical-align:middle;letter-spacing:0.5px;margin-left:5px;">NEW</span></span>',
+            'title'    => __( 'Default Volume', 'panorama' ) . $this->get_new_badge(),
             'desc'     => __( 'The volume the video starts at. Visitors can change it with the volume control.', 'panorama' ),
             'min'      => 0,
             'max'      => 100,
