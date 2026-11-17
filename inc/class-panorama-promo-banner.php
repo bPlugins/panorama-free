@@ -246,11 +246,11 @@ if ( ! class_exists( __NAMESPACE__ . '\Panorama_PromoBanner' ) ) {
                 flex: 1;
                 padding: 16px 24px;
                 display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: center;
-                gap: 10px;
-                padding-right: 38px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                padding-right: 48px;
             }
 
             /* Left Text Stack */
@@ -258,7 +258,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Panorama_PromoBanner' ) ) {
                 display: flex;
                 flex-direction: column;
                 gap: 6px;
-                max-width: 960px;
+                flex: 1;
             }
             #panorama-promo-banner .panorama-headline {
                 font-size: 17.5px;
@@ -313,9 +313,9 @@ if ( ! class_exists( __NAMESPACE__ . '\Panorama_PromoBanner' ) ) {
             #panorama-promo-banner .panorama-btn-cta {
                 background: var(--bpl-primary) !important;
                 color: #ffffff !important;
-                padding: 10px 22px !important;
+                padding: 12px 24px !important;
                 border-radius: 6px !important;
-                font-size: 13.5px !important;
+                font-size: 14px !important;
                 font-weight: 600 !important;
                 text-decoration: none !important;
                 box-shadow: 0 2px 8px rgba(2, 132, 199, 0.32) !important;
@@ -323,9 +323,10 @@ if ( ! class_exists( __NAMESPACE__ . '\Panorama_PromoBanner' ) ) {
                 white-space: nowrap !important;
                 display: inline-flex !important;
                 align-items: center !important;
+                justify-content: center !important;
                 gap: 6px !important;
                 line-height: 1.2 !important;
-                margin-top: 2px !important;
+                flex-shrink: 0 !important;
             }
             #panorama-promo-banner .panorama-btn-cta:hover {
                 background: var(--bpl-primary-hover) !important;
@@ -361,10 +362,20 @@ if ( ! class_exists( __NAMESPACE__ . '\Panorama_PromoBanner' ) ) {
                     width: 110px;
                     min-width: 110px;
                 }
+                #panorama-promo-banner .panorama-content-zone {
+                    gap: 16px;
+                }
             }
             @media (max-width: 900px) {
                 #panorama-promo-banner .panorama-desc-break {
                     display: none;
+                }
+            }
+            @media (max-width: 820px) {
+                #panorama-promo-banner .panorama-content-zone {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 12px;
                 }
             }
             @media (max-width: 782px) {

@@ -187,7 +187,7 @@ export const welcomeInfo = (adminUrl) => ({
 	changelogs: [
 		{
 			type: 'new',
-			version: '1.9.0 - 17 Nov, 2026',
+			version: '1.9.0 - 18 Nov, 2026',
 			list: [
 				'<strong>New:</strong> Elementor widgets for all panorama types — 360° Image, 3D Image, Video, 360° Video, Google Street View, Virtual Tour, Product Spot and Saved Panorama.',
 				'<strong>New:</strong> Live preview in the panorama settings and the WooCommerce product panorama settings.',
@@ -198,7 +198,6 @@ export const welcomeInfo = (adminUrl) => ({
 				'<strong>Improved:</strong> Virtual Tour fullscreen keeps the scene and hotspot list and the hotspot popups on screen.',
 				'<strong>Improved:</strong> The Virtual Tour hotspot editor lists scenes by their titles instead of their IDs.',
 				'<strong>Improved:</strong> A panorama with no image or video yet shows a short note to people who can edit it, instead of an empty viewer.',
-				'<strong>Enhanced:</strong> Added Black Friday promotional banner and campaign notices.',
 				'<strong>Fixed:</strong> Dragging a new Virtual Tour hotspot in the block editor: the "+" now stays under the cursor.',
 				'<strong>Fixed:</strong> Google Street View shortcode caused a fatal error on PHP 7.1 and 7.2.',
 				'<strong>Fixed:</strong> Gallery "Load More" could open the wrong item, and the popup close button went outside the viewer.',
@@ -208,16 +207,9 @@ export const welcomeInfo = (adminUrl) => ({
 				'<strong>Fixed:</strong> The Upgrade to Pro button in the panorama settings opened a page that does not exist.',
 				'<strong>Security:</strong> Hardened viewer output, the embed script, analytics tracking and the CSV export.'
 			]
-		},
-		{
-			type: 'Security',
-			version: '1.8.4 - 26 Oct, 2026',
-			list: [
-				'<strong>Security:</strong> Fixed a stored Cross-Site Scripting (XSS) issue in the Product Spot block (hotspot icons, titles and descriptions) and hardened attribute output and generated styles across all blocks.'
-			]
 		}
 	],
-	changelogsLimit: 2,
+	changelogsLimit: 1,
 	changelogsReadMoreLabel: 'View More Changelogs',
 	proFeatures: [
 		'Original Resolution Images — show large panoramas at the size you uploaded them for a sharper view.',
@@ -232,9 +224,7 @@ export const welcomeInfo = (adminUrl) => ({
 		'Preview Cover Image with custom load button for faster page loading speed.',
 		'Auto-Rotate Inactivity Delay resume and customizable panning speeds.',
 		'Responsive Panorama Gallery & Grid layouts with Load More pagination.',
-		'Interactive Compass Overlay, Kiosk Exhibition Lock, and custom player buttons.',
 		'360° Video Picture-in-Picture mode and playback speed controls (0.5x to 2x).',
-		'External CDN & Direct URL support for remote image and video hosting.'
 	]
 })
 
