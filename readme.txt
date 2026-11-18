@@ -1,15 +1,15 @@
-=== Panorama – Turn Photos into Immersive Virtual Tours ===
+=== Panorama – 360 Panorama Viewer, Virtual Tour Builder & 360 Video Player ===
 Contributors: bplugins, abuhayat, freemius, shamim10, farazi1
-Tags: panorama, 360 degree, virtual tour, vr, 3d
+Tags: 360 panorama, virtual tour, panorama viewer, 360 video, 360 image
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.9.0
 Requires PHP: 7.1
+Stable tag: 1.9.0
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Embed 360° images, 3D panoramas, virtual tours, and 360° videos in WordPress with Gutenberg blocks, Elementor widgets, WooCommerce, and shortcodes.
+Free 360 panorama viewer and virtual tour builder with 360 video, hotspots and Street View. Gutenberg, Elementor, WooCommerce, shortcode.
 
 == Description ==
 
@@ -17,108 +17,140 @@ Embed 360° images, 3D panoramas, virtual tours, and 360° videos in WordPress w
 
 https://youtu.be/yU92XDtcyWg
 
-**Panorama Viewer** is the most complete 360° panorama and virtual tour plugin for WordPress. Add fully interactive equirectangular, cubemap, and cylindrical panoramas, 3D images, 360° videos, multi-scene virtual tours, and Google Street View embeds to any page, post, widget area, or WooCommerce product—with zero coding required.
+**Panorama** is a 360 panorama viewer and virtual tour builder for WordPress. Add 360 images, 3D images, 360 videos, Google Street View and multi-scene virtual tours to any page, post, widget area or WooCommerce product. Use Gutenberg blocks, Elementor widgets or a shortcode. No coding required.
 
-The Free version includes everything you need: eight dedicated Gutenberg blocks, native Elementor widgets, universal shortcodes, WooCommerce product panorama integration, a built-in 360° Interaction Analytics dashboard (Today & 7-day overview), device orientation (gyroscope) navigation, custom initial view & FOV controls, and multi-scene virtual tours with up to 6 scenes and 6 hotspots per scene—completely free, forever.
+The free version is complete. You get nine Gutenberg blocks, ten Elementor widgets, shortcodes, WooCommerce product integration, a built-in analytics dashboard, gyroscope navigation, a custom starting view, and virtual tours with up to 6 scenes and 6 hotspots per scene.
 
-= Who Should Use Panorama Viewer? =
+= What You Get for Free =
 
-Panorama Viewer is built for businesses and creators who want to showcase spaces, products, and experiences in an interactive, engaging format:
+* **9 Gutenberg blocks:** Image 360, Image 3D, Video, Video 360, Google Street View, Gallery, Tour 360, Virtual Tour and Product Spot.
+* **10 Elementor widgets** with a live preview inside the Elementor editor.
+* **Virtual tours:** Up to 6 scenes per tour and 6 hotspots per scene.
+* **Gyroscope navigation:** Phone and tablet visitors look around by moving their device.
+* **Custom starting view:** Set pitch, yaw and zoom with one click.
+* **WooCommerce 360 product viewer** and interactive Product Spot markers.
+* **360 analytics dashboard** with a Today view and a 7-day overview.
+* **Shareable embed links** to show any panorama or tour on another website.
 
-* **Real Estate Agencies & Realtors** — Walk buyers through properties with interactive virtual tours.
-* **WooCommerce & E-commerce Stores** — Showcase products from every angle directly on product pages.
-* **Hotels, Resorts & Vacation Rentals** — Give guests an authentic walkthrough of rooms, amenities, and venues.
-* **Museums, Galleries & Historic Sites** — Create interactive virtual exhibitions with informational hotspots.
-* **Vehicle & Car Showrooms** — Display car interiors and exteriors in full 360° rotation.
-* **Schools & Universities** — Offer prospective students immersive virtual campus tours.
-* **Architects & Interior Designers** — Present 3D spatial renderings and interior room concepts interactively.
-* **Event & Wedding Venues** — Help clients explore event spaces before booking.
+= 360 Panorama Viewer for Every Photo Type =
 
-= Free Features =
+Show any panoramic photo in a smooth, draggable viewer that works on desktop, tablets and phones.
 
-**Panorama Viewing Types**
+* **360 image viewer:** Equirectangular (standard 360 photos), cubemap (6-face box) and cylindrical (smartphone panorama) images.
+* **3D image viewer:** Flat or curved photos with drag-to-explore navigation.
+* **Gallery viewer:** Several panoramas and videos in a responsive column or grid layout with Load More.
+* **Google Street View:** Embed a public Street View location with its Panorama ID.
 
-* **360° Image Viewer** — Embed equirectangular (standard 360°), cubemap (6-face box), and cylindrical (smartphone panorama) photos in a fully draggable spherical viewer.
-* **3D Image Viewer** — Display flat or curved photos with smooth, interactive 3D drag-to-explore navigation.
-* **Panorama Video Player** — Embed panoramic videos with volume control, seek bar, and fullscreen playback.
-* **360° Video Viewer** — Immersive spherical 360° video powered by VideoJS VR; visitors look around in any direction during playback.
-* **Gallery Viewer** — Display multiple panoramic photos and videos in responsive column or grid layouts with Load More pagination.
-* **Tour 360°** — Multi-scene 360° viewer with thumbnail drawer navigation and hotspot switching.
-* **Google Street View** — Embed public Google Street View locations by entering a Panorama ID.
+= Virtual Tour Builder with Hotspots =
 
-**Multi-Scene Virtual Tours**
+Connect panoramas into a walkthrough that visitors move through room by room.
 
-* **Virtual Tour Builder** — Connect up to 6 scenes per tour in Free, each with custom titles, author credits, and navigation hotspots.
-* **Interactive Hotspot Types** — Add Info hotspots (text tooltip), Scene hotspots (navigate between rooms), and Link hotspots (open URLs) to any scene (up to 6 hotspots per scene in Free).
-* **Visual Hotspot Editor in Gutenberg** — Place and drag hotspot markers directly on the live 360° preview in the Gutenberg block editor.
-* **Device Orientation (Gyroscope)** — Mobile and tablet visitors can look around naturally by tilting and moving their physical device.
-* **Custom Starting Camera Angle** — Lock starting Pitch, Yaw, and Zoom (FOV) with a single click using the "Set as Initial View" button.
+* **Multi-scene tours:** Give each scene a title and author credit.
+* **Info hotspots:** Show a text tooltip.
+* **Scene hotspots:** Move visitors between rooms.
+* **Link hotspots:** Open any page.
+* **Visual hotspot editor:** Place and drag hotspots on the live 360 preview in the block editor.
+* **Thumbnail drawer:** The Tour 360 viewer lets visitors jump between scenes.
 
-**Builder Integrations**
+= 360 Video and Panorama Video Player =
 
-* **8 Native Gutenberg Blocks** — Dedicated blocks for Image 360°, Image 3D, Video, Video 360°, Google Street View, Gallery, Virtual Tour, and Product Spot.
-* **10 Native Elementor Widgets** — Drag-and-drop widgets for all panorama types with live interactive preview inside the Elementor editor canvas.
-* **Universal Shortcodes** — Embed any panorama via `[panorama id="123"]`, `[virtual-tour id="456"]`, `[product_spot id="789"]`, and `[panorama_product_viewer]`.
-* **Shareable Embed URLs** — Share responsive iframe links to embed panoramas on third-party sites.
+* **360 video viewer:** Spherical video where visitors look in any direction during playback.
+* **Panorama video player:** Volume control, seek bar and fullscreen.
 
-**WooCommerce Product Integration**
+= WooCommerce 360 Product Viewer =
 
-* **Product Page 360° Viewer** — Display 360° product views on WooCommerce single product pages.
-* **Flexible Viewer Positions** — Place the viewer at Top of product image, Bottom of product image, Replace product image, or inside a dedicated "360° View" tab.
-* **Interactive Product Spot** — Pinpoint product features with interactive tooltip markers (Simple, Tippy, Sidepanel).
+Show products from every angle on the product page. WooCommerce is optional. Everything else works without it.
 
-**360° Interaction Analytics Dashboard**
+* **Viewer position:** Top of the product image, bottom of the product image, in place of the product image, or in a dedicated 360 View tab.
+* **Product Spot:** Mark product features with tooltip markers in Simple, Tippy or Sidepanel styles.
+* **Live preview** in the product settings box.
 
-* **Real-Time KPIs** — Track total 360° Viewer Impressions, Hotspot Interactions, Average Dwell Time, and Unique Hotspots clicked.
-* **Today & 7-Day Overview** — Monitor live today performance with an hour-by-hour breakdown chart, or analyze rolling 7-day engagement.
-* **Top 5 Clicked Hotspots** — Identify which rooms or product angles generate the highest user interest.
-* **Privacy-Friendly** — Asynchronous REST API tracking with zero cookies, zero external calls, and no site slowdown.
+= 360 Interaction Analytics Dashboard =
 
-= Pro Features =
+See which panoramas and hotspots visitors actually use. Tracking is private and light: no cookies, no external calls and no slowdown.
 
-* **Unlimited Virtual Tour Scenes & Hotspots** — Build comprehensive virtual tours with unlimited scenes and unlimited hotspots per scene.
-* **Cinematic Scene Transitions** — Animated camera transitions between scenes: Crossfade (Smooth Dissolve), Zoom & Walk-Through, Dip to Black, or Blur to Clear (300ms–3000ms duration).
-* **Floor Plan Mini-Map** — Interactive 2D architectural blueprint overlay with dynamic radar vision cones, click-to-navigate room pins, and custom positioning.
-* **Instant QR Code Sharing** — Generate print-ready QR codes in one click from admin list tables and the block sidebar with PNG download and Copy Link.
-* **Original Resolution Images** — Serve uncompressed 4K, 8K, and 12K panoramic uploads directly without WordPress's default 2560px compression, with automatic safe mobile fallback.
-* **WooCommerce Product Hotspots** — Tag products directly inside 360° scenes with live price badges, product details, and instant Add-to-Cart buttons.
-* **WooCommerce Revenue & Sales Tracking** — Track 360° add-to-cart clicks, cart conversion rates, and per-product sales performance tables.
-* **Extended Analytics & CSV Export** — Filter logs by Today, 15 Days, 30 Days, All Time, or Custom Date pickers with one-click CSV spreadsheet export.
-* **Real-Time Live Activity Stream** — Chronological audit feed of live visitor events with color-coded badges.
-* **Rich Media Hotspots** — Embed popup photo galleries and YouTube / Vimeo modal video popups inside virtual tour scenes.
-* **Custom Navigation & Player Controls** — Add floating navigation buttons (Pan Up, Down, Left, Right, Zoom In/Out, Fullscreen, Video Speed, Picture-in-Picture).
-* **Preview Cover Image & Custom Load Button** — Lazy-load panoramas behind a lightweight preview image with custom button text to maximize page speed.
-* **External CDN & Direct URL Support** — Stream high-resolution panoramas and videos from external CDNs, Amazon S3, or third-party cloud hosts.
-* **Interactive Compass Guide** — Display an orientation compass overlay inside 360° viewports.
-* **Kiosk & Exhibition Mode** — Lock keyboard controls and double-click zoom for showroom and museum kiosk displays.
+* **Key numbers:** 360 viewer impressions, hotspot interactions, average dwell time and unique hotspots clicked.
+* **Today and 7-day views:** An hour-by-hour chart for today and a rolling weekly overview.
+* **Top 5 hotspots:** Find the rooms or product angles that get the most attention.
 
-= How It Works =
+= Works With Gutenberg, Elementor and Shortcodes =
 
-**Using Gutenberg Block Editor:**
-1. In your WordPress block editor, click the **+** block inserter and search for **Panorama** or **Virtual Tour**.
-2. Select the block that matches your media type (e.g., *Image 360°*, *Virtual Tour*, or *Video 360°*).
-3. Upload or choose your panoramic image or video from the Media Library.
-4. Customize settings in the right sidebar (Auto-Rotate, Device Orientation Gyroscope, Initial View).
-5. Publish or update your post to view the live interactive experience.
+* **Gutenberg:** Nine dedicated blocks with settings in the sidebar.
+* **Elementor:** Ten drag-and-drop widgets with content and style controls.
+* **Shortcodes:** `[panorama id="123"]`, `[virtual-tour id="456"]`, `[product_spot id="789"]` and `[panorama_product_viewer]`.
 
-**Using Elementor:**
-1. Edit any page in the **Elementor Editor**.
-2. Search for **Panorama** in the widget panel.
-3. Drag any of the 10 native Panorama widgets onto your section or container.
-4. Configure media source and controls under **Content**, and adjust dimensions and colors under **Style**.
+= Who Uses a 360 Panorama and Virtual Tour Plugin? =
 
-**Using WooCommerce:**
-1. Edit any product under **Products → All Products**.
-2. Scroll to the **Panorama Settings (360° Product Viewer)** metabox.
-3. Upload your 360° product image or video.
-4. Select your **Viewer Position** (*Top*, *Bottom*, *Replace Image*, or *360° View Tab*).
-5. Preview instantly in the Live Preview box and click **Update**.
+* **Real estate agencies:** Walk buyers through properties.
+* **WooCommerce and online stores:** Show products from every angle.
+* **Hotels, resorts and vacation rentals:** Give guests a real look at rooms and amenities.
+* **Museums, galleries and historic sites:** Build virtual exhibitions with information hotspots.
+* **Car showrooms:** Display interiors and exteriors in full 360.
+* **Schools and universities:** Offer virtual campus tours.
+* **Architects and interior designers:** Present 3D spaces and room concepts.
+* **Event and wedding venues:** Let clients explore a space before booking.
 
-**Using Shortcode:**
-1. Navigate to **Panorama Viewer → Add New Panorama**.
-2. Choose your panorama type, upload media, and adjust settings.
-3. Copy the generated shortcode (e.g., `[panorama id="123"]` or `[virtual-tour id="456"]`).
-4. Paste the shortcode into any page, post, widget, or page builder template.
+= Panorama Pro - More Power for Bigger Tours =
+
+* **Unlimited scenes and hotspots** in every virtual tour.
+* **Cinematic scene transitions:** Crossfade, zoom and walk-through, dip to black, or blur to clear.
+* **Floor plan mini-map** with room pins and radar vision cones.
+* **Instant QR code sharing** with PNG download and Copy Link.
+* **Original resolution images:** Serve 4K, 8K and 12K panoramas without WordPress downsizing.
+* **WooCommerce product hotspots** with price badges and Add to Cart buttons, plus sales and revenue tracking.
+* **Extended analytics:** 15-day, 30-day, all-time and custom ranges, a live activity stream and CSV export.
+* **Rich media hotspots:** Photo galleries and YouTube or Vimeo video popups.
+* **Custom player controls:** Pan, zoom, fullscreen, video speed and picture-in-picture buttons.
+* **Preview cover image** and load button for faster pages.
+* **External CDN and direct URL support**, including Amazon S3 and other cloud hosts.
+* **Compass guide and Kiosk mode** for showrooms and exhibitions.
+
+A 7-day free trial of Pro is available from the plugin's upgrade screen.
+
+= How to Add a 360 Panorama or Virtual Tour to WordPress =
+
+**Gutenberg:**
+
+1. Click the block inserter and search for **Panorama** or **Virtual Tour**.
+2. Choose the block that matches your media, such as *Image 360*, *Virtual Tour* or *Video 360*.
+3. Upload or select your panoramic image or video.
+4. Adjust auto-rotate, gyroscope and starting view in the sidebar.
+5. Publish or update the page.
+
+**Elementor:**
+
+1. Open the page in Elementor and search for **Panorama**.
+2. Drag any of the 10 Panorama widgets into a section or container.
+3. Set the media and controls under **Content**, then adjust size and colors under **Style**.
+
+**WooCommerce:**
+
+1. Edit a product under **Products → All Products**.
+2. Find the **Panorama Settings** box and upload your 360 image or video.
+3. Choose a **Viewer Position**, check the live preview and click **Update**.
+
+**Shortcode:**
+
+1. Go to **Panorama Viewer → Add New Panorama**.
+2. Pick the panorama type, upload your media and adjust the settings.
+3. Copy the generated shortcode, such as `[panorama id="123"]` or `[virtual-tour id="456"]`.
+4. Paste it into any page, post, widget or page builder template.
+
+= Resources =
+
+* [YouTube Channel](https://www.youtube.com/@bplugins)
+* [Facebook Community](https://www.facebook.com/groups/wordpress.gutenberg.block.community/)
+* [GitHub Repository](https://github.com/bPlugins/panorama-free)
+
+= Video Tutorial =
+
+https://youtu.be/bs-U13KtYEA
+
+= User Feedback =
+
+> ⭐⭐⭐⭐⭐ [Great even on iOS](https://wordpress.org/support/topic/great-even-on-ios/)
+> ❛❛*Im Happy very happy with this Plug-in. The only one which works fine with iphone*❜❜
+> — *[holmh](https://wordpress.org/support/users/holmh/)*
 
 = External Services =
 
@@ -136,100 +168,103 @@ This plugin bundles and uses the following open-source libraries:
 * **Video.js** — HTML5 video player foundation. Author: Brightcove. License: Apache 2.0 (https://videojs.com/).
 * **VideoJS VR** — 360° video projection engine. Author: Brightcove. License: MIT License.
 * **Three.js** — 3D graphics rendering helper. Author: Ricardo Cabello. License: MIT License (https://threejs.org/).
-* **QRCode.js** — Client-side QR code generation. Author: David Shim. License: MIT License.
 
 = Other Plugins by bPlugins =
 
-If you enjoy Panorama Viewer, check out our other popular WordPress plugins:
-
-* **[HTML5 Video Player](https://wordpress.org/plugins/html5-video-player/)** — Best responsive video player plugin for WordPress.
-* **[HTML5 Audio Player](https://wordpress.org/plugins/html5-audio-player/)** — Modern podcast and audio player for WordPress.
-* **[StreamCast](https://wordpress.org/plugins/streamcast/)** — Dedicated radio and live audio streaming player.
-* **[3D Viewer](https://wordpress.org/plugins/3d-viewer/)** — Display interactive 3D models (GLTF/GLB) on the web.
-* **[PDF Poster](https://wordpress.org/plugins/pdf-poster/)** — Feature-packed PDF viewer and flipbook plugin.
+* **[HTML5 Video Player](https://wordpress.org/plugins/html5-video-player/)** — Responsive video player.
+* **[HTML5 Audio Player](https://wordpress.org/plugins/html5-audio-player/)** — Podcast and audio player.
+* **[StreamCast](https://wordpress.org/plugins/streamcast/)** — Radio and live audio streaming player.
+* **[3D Viewer](https://wordpress.org/plugins/3d-viewer/)** — Interactive 3D models (GLTF and GLB) with AR.
+* **[PDF Poster](https://wordpress.org/plugins/pdf-poster/)** — PDF viewer and flipbook.
 
 == Installation ==
 
 = Automatic Installation =
 
-1. Log in to your WordPress Admin dashboard.
-2. Navigate to **Plugins → Add New Plugin**.
+1. Log in to your WordPress dashboard.
+2. Go to **Plugins → Add New Plugin**.
 3. Search for **Panorama Viewer** or **bPlugins Panorama**.
-4. Click **Install Now**, then click **Activate**.
-5. Go to **Panorama Viewer** in your admin menu to create your first 360° panorama.
+4. Click **Install Now**, then **Activate**.
+5. Open **Panorama Viewer** in the admin menu to create your first 360 panorama.
 
 = Manual Installation =
 
 1. Download the plugin `.zip` file from WordPress.org.
-2. In your WordPress admin, go to **Plugins → Add New Plugin → Upload Plugin**.
-3. Choose the downloaded `.zip` file and click **Install Now**.
+2. Go to **Plugins → Add New Plugin → Upload Plugin**.
+3. Choose the zip file and click **Install Now**.
 4. Click **Activate Plugin**.
 
-= Shortcode & PHP Embedding =
+= Shortcode and PHP Embedding =
 
-Paste the generated shortcode into any post, page, or widget:
+Paste a shortcode into any post, page or widget:
 `[panorama id="123"]`
 `[virtual-tour id="456"]`
 
-To embed inside a PHP theme template, use WordPress's `do_shortcode()` function:
+To embed it in a theme template, use:
 `<?php echo do_shortcode( '[panorama id="123"]' ); ?>`
 
 == Frequently Asked Questions ==
 
+= How do I add a 360 panorama to WordPress? =
+Insert the Image 360 block, upload an equirectangular, cubemap or cylindrical image, and publish. You can also use the Elementor widget or create a panorama under Panorama Viewer → Add New Panorama, and paste its shortcode anywhere.
+
+= How do I create a 360 virtual tour in WordPress? =
+Insert the Virtual Tour block. In the sidebar, click Add New Scene, choose a panoramic image from the Media Library and give the scene a title. Click anywhere on the 360 preview to place Info, Scene or Link hotspots. The free version allows up to 6 scenes per tour. Pro removes the limit.
+
 = What panorama formats and projections are supported? =
-Panorama Viewer supports three major 360° projections: Equirectangular (standard 360° panoramic photos with a 2:1 aspect ratio), Cubemap (6 individual cube-face images: Front, Back, Left, Right, Up, Down), and Cylindrical (panoramic photos taken with smartphone panorama modes).
+Three projections: equirectangular (standard 360 photos with a 2:1 aspect ratio), cubemap (six cube-face images: front, back, left, right, up and down) and cylindrical (photos from a smartphone panorama mode).
 
 = What image and video file formats are supported? =
-Image formats supported include JPG, JPEG, PNG, and WebP. For panoramic videos, standard MP4 (H.264 video codec with AAC audio) and WebM formats are supported across all modern browsers.
+Images: JPG, JPEG, PNG and WebP. Panoramic videos: MP4 (H.264 video with AAC audio) and WebM, which work in all modern browsers.
 
-= How do I create a 360° Virtual Tour? =
-In the Gutenberg block editor, insert the Virtual Tour block. In the sidebar, click Add New Scene, select your panoramic image from the Media Library, and give your scene a title. You can add up to 6 scenes in the Free version (unlimited in Pro). Click anywhere on the 360° preview to place interactive Info, Scene, or Link hotspots.
-
-= How do I add a 360° view to a WooCommerce product page? =
-Edit any product under WooCommerce → Products. Scroll down to the Panorama Settings metabox, choose Image or Video, upload your media, and select your preferred Viewer Position (Top of Product Image, Bottom, Replace Product Image, or 360° View Tab).
-
-= Can I use Elementor with this plugin? =
-Yes! Panorama Viewer includes 10 dedicated Elementor widgets. Simply search for "Panorama" in the Elementor widget panel and drag any widget onto your canvas for live visual editing.
-
-= How do I embed a panorama using a shortcode? =
-Go to Panorama Viewer → Add New Panorama, choose your panorama type, configure options, and click Save. Copy the generated shortcode shown beneath the title (e.g., `[panorama id="123"]`) and paste it anywhere on your site.
-
-= How do I find the Google Street View Panorama ID? =
-Open Google Maps in your desktop browser and enter Street View at your desired location. In the page URL, look for the long string following `!1s` and ending before `!2e` (e.g., `CAoSLEFGMVFpcE8...`). Copy this Panorama ID into the Google Street View block or shortcode.
-
-= What is the Analytics Dashboard? =
-The built-in 360° Interaction Analytics Dashboard tracks total 360° Viewer Impressions, Hotspot Clicks, Average Dwell Time, and WooCommerce sales conversions. The Free version includes Today and 7-day analytics. Extended ranges (15 days, 30 days, custom date pickers) and CSV export are available in Pro.
-
-= What is the difference between the Free and Pro versions? =
-The Free version includes all 8 Gutenberg blocks, 10 Elementor widgets, up to 6 scenes and 6 hotspots per virtual tour, WooCommerce product page embeds, and Today + 7-day analytics. The Pro version unlocks unlimited scenes and hotspots, floor plan mini-maps, cinematic scene transitions, uncompressed original resolution images, instant QR code sharing, interactive WooCommerce product hotspots, and CSV data export.
-
-= Is there a 7-day free trial of the Pro version? =
-Yes! You can test the Pro version with a 7-day free trial directly from the plugin's upgrade screen—no upfront payment required.
-
-= What is the recommended image resolution for equirectangular panoramas? =
-For optimal sharpness in standard spherical view, 4096×2048 (4K) is recommended. With the Pro version's Original Resolution feature enabled, you can upload 6000×3000, 8192×4096 (8K), or higher without WordPress compressing the image down to 2560px.
-
-= Does the plugin work on mobile devices? =
-Yes! Panorama Viewer is fully responsive across smartphones and tablets. It includes native touch swipe navigation and gyroscope-based Device Orientation, allowing mobile users to look around simply by tilting their phone.
-
-= Can I embed a panorama on an external website? =
-Yes! Every saved panorama and virtual tour includes a direct Embed URL that you can use inside an iframe on any external website.
+= How do I add a 360 view to a WooCommerce product page? =
+Edit the product under WooCommerce → Products. In the Panorama Settings box, choose Image or Video, upload your media and select a Viewer Position: top of the product image, bottom, replace the product image, or a 360 View tab.
 
 = Does this plugin require WooCommerce? =
-No. WooCommerce is entirely optional. All panorama types, virtual tours, and Gutenberg blocks work independently on standard WordPress posts, pages, and custom layouts.
+No. WooCommerce is optional. All panorama types, virtual tours and blocks work on standard posts, pages and custom layouts.
 
-= Can I use external image or video URLs (CDN)? =
-External direct CDN URLs for images and videos are supported in the Pro version. The Free version requires media to be uploaded to your WordPress Media Library.
+= Can I use Elementor with this plugin? =
+Yes. Panorama includes 10 Elementor widgets. Search for Panorama in the widget panel and drag one onto the canvas for live visual editing.
+
+= How do I embed a panorama with a shortcode? =
+Go to Panorama Viewer → Add New Panorama, choose a type, set your options and save. Copy the shortcode shown under the title, such as `[panorama id="123"]`, and paste it anywhere on your site.
+
+= How do I find the Google Street View Panorama ID? =
+Open Google Maps in a desktop browser and enter Street View at your location. In the page address, find the long string that follows `!1s` and ends before `!2e`. Copy it into the Google Street View block or shortcode.
+
+= Does it work with 360 camera photos? =
+Yes, as long as the camera exports a standard equirectangular image in JPG, PNG or WebP.
+
+= What is the recommended image size for 360 panoramas? =
+For a sharp standard view, use 4096 × 2048 (4K). With the Pro Original Resolution feature, you can upload 6000 × 3000, 8192 × 4096 (8K) or larger without WordPress shrinking the image to 2560 pixels.
+
+= Does it work on mobile devices? =
+Yes. The viewer is fully responsive, supports touch swipe, and offers gyroscope-based Device Orientation so visitors can look around by tilting their phone.
+
+= What is the Analytics Dashboard? =
+It tracks total 360 viewer impressions, hotspot clicks, average dwell time and unique hotspots clicked. The free version includes Today and 7-day analytics. Pro adds 15-day, 30-day and custom ranges, WooCommerce sales and conversion tracking, and CSV export.
+
+= Can I embed a panorama on an external website? =
+Yes. Every saved panorama and virtual tour has a direct embed link that works inside an iframe on any site.
+
+= Can I use external image or video links from a CDN? =
+Direct CDN links for images and videos are a Pro feature. The free version needs media uploaded to your WordPress Media Library.
+
+= What is the difference between the Free and Pro versions? =
+Free includes all 9 Gutenberg blocks, 10 Elementor widgets, up to 6 scenes and 6 hotspots per tour, WooCommerce product page embeds, and Today and 7-day analytics. Pro adds unlimited scenes and hotspots, floor plan mini-maps, cinematic transitions, original resolution images, QR code sharing, WooCommerce product hotspots and CSV export.
+
+= Is there a free trial of Pro? =
+Yes. You can start a 7-day free trial from the plugin's upgrade screen, with no upfront payment.
 
 = Where can I report security vulnerabilities? =
-Security vulnerabilities can be reported through the Patchstack Vulnerability Disclosure Program (https://patchstack.com/database/vdp/9e5fb819-4b62-4820-a920-21dde4762ab6).
+Report them through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/9e5fb819-4b62-4820-a920-21dde4762ab6).
 
 == Screenshots ==
 
 1. Frontend 360° Image Viewer — equirectangular panorama with navigation controls and auto-rotate.
 2. Virtual Tour — multi-scene tour with scene list panel, hotspots, and compass overlay.
 3. Gutenberg block editor — Virtual Tour block with live 360° preview and visual hotspot placement.
-4. Gutenberg block editor — 8 available Panorama blocks in the block inserter.
+4. Gutenberg block editor — Panorama blocks in the block inserter.
 5. Panorama Settings metabox — panorama type selector, format options, and viewer configuration.
 6. Analytics Dashboard — viewer impressions, hotspot clicks, engagement time, and 7-day activity chart.
 7. Elementor widget — Image 360° widget with live preview in the Elementor editor.
@@ -240,19 +275,19 @@ Security vulnerabilities can be reported through the Patchstack Vulnerability Di
 == Changelog ==
 
 = 1.9.0 - 18 Nov, 2026 =
-* New: Native Elementor widgets for all panorama types with live preview in the Elementor editor.
-* New: Live preview in the Panorama Settings metabox and WooCommerce product settings.
-* New: Volume control for Panorama Video player with Default Volume slider setting.
-* New: "Today" date range in the Analytics Dashboard with hourly activity breakdown.
-* Improved: Block settings show contextual help tooltips for all fields.
-* Improved: Panorama Video player control bar positioned flush at the bottom with full-width scrubber.
-* Improved: Virtual Tour fullscreen maintains scene list, hotspot popups, and compass visibility.
-* Improved: Virtual Tour hotspot editor displays friendly scene titles instead of raw IDs.
-* Improved: Helpful guidance note displayed to editors when a viewer has no media selected.
-* Fixed: Dragging a new Virtual Tour hotspot in the block editor pin positioning.
-* Fixed: Google Street View shortcode PHP 7.1/7.2 compatibility.
-* Fixed: Gallery "Load More" item indexing and popup close button positioning.
-* Security: Hardened viewer HTML output, analytics tracking endpoint, and CSV export.
+* **New:** Native Elementor widgets for all panorama types with live preview in the Elementor editor.
+* **New:** Live preview in the Panorama Settings metabox and WooCommerce product settings.
+* **New:** Volume control for Panorama Video player with Default Volume slider setting.
+* **New:** "Today" date range in the Analytics Dashboard with hourly activity breakdown.
+* **Improved:** Block settings show contextual help tooltips for all fields.
+* **Improved:** Panorama Video player control bar positioned flush at the bottom with full-width scrubber.
+* **Improved:** Virtual Tour fullscreen maintains scene list, hotspot popups, and compass visibility.
+* **Improved:** Virtual Tour hotspot editor displays friendly scene titles instead of raw IDs.
+* **Improved:** Helpful guidance note displayed to editors when a viewer has no media selected.
+* **Fixed:** Dragging a new Virtual Tour hotspot in the block editor pin positioning.
+* **Fixed:** Google Street View shortcode PHP 7.1/7.2 compatibility.
+* **Fixed:** Gallery "Load More" item indexing and popup close button positioning.
+* **Security:** Hardened viewer HTML output, analytics tracking endpoint, and CSV export.
 
 = 1.8.4 - 26 Oct, 2026 =
 * **Security:** Fixed a stored Cross-Site Scripting (XSS) issue in the Product Spot block (hotspot icons, titles and descriptions) and hardened attribute output and generated styles across all blocks.
